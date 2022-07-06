@@ -10,6 +10,7 @@ import { TrailComponent } from './trail-page/trail/trail.component';
 import { LandingComponent } from './auth/landing/landing.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CreateAccComponent } from './auth/create-acc/create-acc.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
