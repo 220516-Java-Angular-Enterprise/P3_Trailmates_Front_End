@@ -23,6 +23,7 @@ export class MessagingComponent implements OnInit, OnDestroy {
  const message= new Message(sendForm.value.user,sendForm.value.message);
  this.messagesService.sendMessage(message);
 //sendForm.controls.message.reset();
+
   }
 
 }

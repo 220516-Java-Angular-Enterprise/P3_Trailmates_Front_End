@@ -38,3 +38,27 @@ div.message-content{
     font-weight: bold;
     font-size: 16px;
   }
+
+  /*Speech box*/
+  .speech1{
+    font-family: Arial, Helvetica, sans-serif;
+    /*Dimensions and position*/
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 320px;
+  }
+  .speech1::after{
+    /*Transparent borders*/
+    content: "";
+    border:20px solid transparent;
+    position: absolute;
+  }
+  .speech-bottom1::after{
+    border-top-color:#5f703d;
+    border-bottom:0;
+    bottom: 0;
+    margin-left:-20px;
+  }
+
+ 
