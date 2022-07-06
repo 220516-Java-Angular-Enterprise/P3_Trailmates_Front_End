@@ -1,43 +1,82 @@
+.banner{
+    position: absolute;
+    font-family: "Poppins", sans-serif;  
+    height: 15%;
+    width: 52.5%;
+    text-align: center;
+    font-size:60px;
+    color: white;
+    top: 10%;
+    right: 3%;
+}
+input#input-message{
+    margin-left:3px;
+    width: 450px;
+    position: relative;
+    right: -67%;
+}
+input#input-user{
+    margin-right:3px;
+    width: 200px;
+    position: relative;
+    right: -288%;
+}
+button{
+    width: 80px;
+    border: 2px white solid;
+    position: relative;
+    top: -5%;
+    right: -90%;
+}
 text {
     text-align: center;
  }
 .messages{
-    margin-top: 10rem;
+    margin-top: 0rem;
+    height: 100vh;
+    background-image: url("https://images.theconversation.com/files/399816/original/file-20210510-5797-xqoxsr.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 div.message-content{
-   border-radius: .25rem;
+   border-radius: 12px;
    height: 40rem;
-    margin: 2rem ;
+    margin: 10px ;
 }
 
 .card{
-    height: 100%;
+    height: 85%;
+    width: 65%;
+    left:43%;
+    top: 16%;
+    
 }
 .chat-else {
-    background-color: #5f703d;
+    background-color: #c0833c;
   }
   
   .chat-you {
-    background-color: #acb68f;
+    background-color: #9289ac;
     text-align: right;
     float: right;
   }
   
   .sender {
-    background: -webkit-linear-gradient(#8A9B68, #a8c6ce);
+    background: -webkit-linear-gradient(#0f110b, #283336);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
     font-size: 16px;
   }
   .user2{
-    background: -webkit-linear-gradient(#D5DDBC, #13221a);
+    background: -webkit-linear-gradient(#242521, #13221a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
     font-size: 16px;
   }
+
 
   /*Speech box*/
   .speech1{
@@ -45,20 +84,38 @@ div.message-content{
     /*Dimensions and position*/
     position: relative;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 12px;
     max-width: 320px;
+
   }
-  .speech1::after{
+  .speech1::before{
     /*Transparent borders*/
     content: "";
-    border:20px solid transparent;
-    position: absolute;
+  position: absolute;
+    width:0;
+    height:0;
+    border-top: 13px solid transparent ;
+    border-right: 26px solid #c0833c;
+    border-bottom: 13px solid transparent;
+    margin : 13px 0 0 -25px;
   }
-  .speech-bottom1::after{
-    border-top-color:#5f703d;
-    border-bottom:0;
-    bottom: 0;
-    margin-left:-20px;
+//   .bottom1.speech::after{
+//     border-top-color:#5f703d;
+//     border-bottom:0;
+//     bottom: 0;
+//     margin-left:-20px;
+//   }
+  .speech2{
+    font-family: Arial, Helvetica, sans-serif;
+    /*Dimensions and position*/
+    position: relative;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 320px;
   }
 
+
  
+
+
+
