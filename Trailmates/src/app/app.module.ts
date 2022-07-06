@@ -14,6 +14,7 @@ import { CreateAccComponent } from './auth/create-acc/create-acc.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
