@@ -6,7 +6,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { ProfileComponent } from './profile-page/profile/profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateAccComponent } from './auth/create-acc/create-acc.component';
 import { LandingComponent } from './auth/landing/landing.component';
+import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
   {
@@ -14,6 +16,7 @@ const routes: Routes = [
     component: LandingComponent
   },
   {
+
     // profile/:user
     path: 'profile',
     component: ProfileComponent
@@ -25,6 +28,7 @@ const routes: Routes = [
   {
     path: 'signup',
     component: CreateAccComponent
+
   },
   {
     path: 'trailpage',
