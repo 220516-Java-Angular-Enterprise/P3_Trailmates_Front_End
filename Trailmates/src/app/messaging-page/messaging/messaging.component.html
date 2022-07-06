@@ -1,1 +1,40 @@
-<p>messaging works!</p>
+<header>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="#">Messages</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+          </ul>
+        </div>
+      </nav>
+</header>
+<main class="messages">
+    <div class="container">
+        <div class="message-content">
+            <div class="card">
+            <ul class="list-group list-group flush">
+                <li class="list-group item">
+                    <strong></strong>
+                    <span></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">
+        <div class="message-send row">
+            <div class="col-2">
+                <input type="text" class="form control" name="user" id="input-user" ngModel>
+            </div>
+            <div class="col-8">
+                <input type="text" class="form control" name="message" id="input-message" ngModel>
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+        </div>
+    </form>
+ </div>
+</main>

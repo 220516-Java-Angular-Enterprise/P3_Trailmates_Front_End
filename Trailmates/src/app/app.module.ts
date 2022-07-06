@@ -14,6 +14,8 @@ import { NotifiationsComponent } from './header/notifiations/notifiations.compon
 import { SearchAllComponent } from './header/search-all/search-all.component';
 import { SearchTrailsComponent } from './header/search-trails/search-trails.component';
 import { UserMenuComponent } from './header/user-menu/user-menu.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { UserMenuComponent } from './header/user-menu/user-menu.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
