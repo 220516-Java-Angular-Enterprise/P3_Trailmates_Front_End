@@ -10,11 +10,12 @@ import { TrailComponent } from './trail-page/trail/trail.component';
 import { LandingComponent } from './auth/landing/landing.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
-import { NotifiationsComponent } from './header/notifiations/notifiations.component';
+import { NotifiationsComponent } from './header/notifications/notifiations.component';
 import { SearchAllComponent } from './header/search-all/search-all.component';
 import { SearchTrailsComponent } from './header/search-trails/search-trails.component';
 import { UserMenuComponent } from './header/user-menu/user-menu.component';
 import { FormsModule } from '@angular/forms';
+import { NotificationItemComponent } from './header/notifications/notification-item/notification-item.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { FormsModule } from '@angular/forms';
     NotifiationsComponent,
     SearchAllComponent,
     SearchTrailsComponent,
-    UserMenuComponent
+    UserMenuComponent,
+    NotificationItemComponent
   ],
   imports: [
     BrowserModule,
