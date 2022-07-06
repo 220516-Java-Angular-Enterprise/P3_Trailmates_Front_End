@@ -9,7 +9,17 @@ export class UserMenuComponent implements OnInit {
 
   constructor() { }
 
+  loggedIn:boolean = false;
+
   ngOnInit(): void {
+  }
+
+  login(){
+    this.loggedIn =! this.loggedIn;
+  }
+
+  logout(){
+    this.loggedIn =! this.loggedIn;
   }
 
 }

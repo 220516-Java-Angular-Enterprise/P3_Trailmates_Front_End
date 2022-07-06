@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { Notification } from 'src/app/models/notification';
 
 @Component({
@@ -29,9 +29,21 @@ export class NotifiationsComponent implements OnInit {
     }
   ]
 
-  variable: string = "pizza";
-
   ngOnInit(): void {
+    console.log("i was born")
+  }
+
+  deleteNotif(notif: Notification){
+    console.log("deleting notifcation #" + notif.id+"...");
+  }
+
+  onClick(){
+    console.log("I was clicked!")
+  }
+
+  
+  ngOnDestroy() {
+    console.log("I was destroyed.")
   }
 
 }

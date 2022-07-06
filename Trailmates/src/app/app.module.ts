@@ -16,6 +16,7 @@ import { SearchTrailsComponent } from './header/search-trails/search-trails.comp
 import { UserMenuComponent } from './header/user-menu/user-menu.component';
 import { FormsModule } from '@angular/forms';
 import { NotificationItemComponent } from './header/notifications/notification-item/notification-item.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { NotificationItemComponent } from './header/notifications/notification-i
     SearchAllComponent,
     SearchTrailsComponent,
     UserMenuComponent,
-    NotificationItemComponent
+    NotificationItemComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

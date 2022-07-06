@@ -1,4 +1,4 @@
-<ul class="bg-primary user-box justify-content-center d-flex flex-column dropdown-menu">
+<ul class="bg-primary user-box justify-content-center d-flex flex-column dropdown-menu" *ngIf="loggedIn">
   <!-- Title -->
   <div class="d-inline-flex justify-content-center title bg-warning">
     <h2 class="title">Username</h2>
@@ -16,7 +16,14 @@
   </li>
   <li class="dropdown-item bg-success d-flex flex-column">
     <div class="notification-header align-self-center d-flex flex-row justify-content-between">
-    <button class="btn btn-item btn-danger">Log out</button>
+    <button class="btn btn-item btn-danger" (click)="logout()">Log out</button>
+    </div>
+  </li>
+</ul>
+<ul class="bg-primary user-box justify-content-center d-flex flex-column dropdown-menu" *ngIf="!loggedIn">
+  <li class="dropdown-item bg-success d-flex flex-column">
+    <div class="notification-header align-self-center d-flex flex-row justify-content-between">
+    <button class="btn btn-item btn-danger" (click)="login()">Log In</button>
     </div>
   </li>
 </ul>
