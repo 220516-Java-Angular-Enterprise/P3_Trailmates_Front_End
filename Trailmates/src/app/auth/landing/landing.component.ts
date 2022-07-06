@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+// will potentially need to import user model/service if needed for login when made
 
 @Component({
-  selector: 'app-landing',
+  selector: 'landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
 })
