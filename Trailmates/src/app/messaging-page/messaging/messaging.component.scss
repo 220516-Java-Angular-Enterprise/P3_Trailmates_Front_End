@@ -14,3 +14,27 @@ div.message-content{
 .card{
     height: 100%;
 }
+.chat-else {
+    background-color: #5f703d;
+  }
+  
+  .chat-you {
+    background-color: #acb68f;
+    text-align: right;
+    float: right;
+  }
+  
+  .sender {
+    background: -webkit-linear-gradient(#8A9B68, #a8c6ce);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .user2{
+    background: -webkit-linear-gradient(#D5DDBC, #13221a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 16px;
+  }
