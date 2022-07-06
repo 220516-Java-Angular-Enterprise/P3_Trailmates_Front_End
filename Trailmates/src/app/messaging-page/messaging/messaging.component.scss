@@ -20,7 +20,9 @@ div.message-content{
     width: 65%;
     left:43%;
     top: 16%;
-    
+    background-color: red; /* For browsers that do not support gradients */
+    background: rgba(255,255,255,0.6);
+    border: 3px #5f703d solid;
 }
 .chat-else {
     background-color: #5f703d;
@@ -49,13 +51,17 @@ div.message-content{
 
 .banner{
     position: absolute;
-    font-family: "Poppins", sans-serif;  
     height: 15%;
     width: 52.5%;
     text-align: center;
-    font-size:60px;
-    color: white;
-    top: 10%;
+    font-size: 70px;
+    font-weight: 700;
+    font-family: "Times New Roman";
+    color: #fff;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: white(160, 233, 252);
+    top: 12%;
     right: 3%;
 }
 input#input-message{
