@@ -5,7 +5,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { MessagingComponent } from './messaging-page/messaging/messaging.component';
 import { ProfileComponent } from './profile-page/profile/profile.component';
 import { TrailComponent } from './trail-page/trail/trail.component';
 import { LandingComponent } from './auth/landing/landing.component';
@@ -22,6 +21,8 @@ import { AuthService } from './services/auth.service';
 import { SearchTrailStateComponent } from './header/search-trails/search-trail-state/search-trail-state.component';
 import { SearchTrailParkComponent } from './header/search-trails/search-trail-park/search-trail-park.component';
 import { DynamicSearchComponent } from './header/search-trails/dynamic-search/dynamic-search.component';
+import { MessagingComponent } from './messaging-page/messaging/messaging.component';
+import { MessagesService } from './services/messages.service';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { DynamicSearchComponent } from './header/search-trails/dynamic-search/dy
     FormsModule
   ],
   providers: [AuthService,
+    MessagesService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
