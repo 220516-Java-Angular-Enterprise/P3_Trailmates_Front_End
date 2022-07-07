@@ -24,11 +24,19 @@ export class CreateAccComponent implements OnInit {
   };
 
   placeholders = {
+<<<<<<< HEAD
     username: "",
     password: "",
     email: "",
     bio: "",
     age:null
+=======
+    username: "Enter Username",
+    password: "Enter Password",
+    email: "Enter Email",
+    bio: "Enter Bio",
+    age: "Enter Age"
+>>>>>>> df9949519a37455b62cfc09084a13710466c6e37
   };
 
   ngOnInit(): void {

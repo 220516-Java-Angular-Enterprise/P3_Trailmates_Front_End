@@ -1,45 +1,61 @@
-<div>
-    <button type="button" routerLink="/login">Back to Log-In</button>
-  </div>
-  
-  <div class="container">
-    <h1>Registration</h1>
-    <form (ngSubmit)="processForm(signupForm)" #signupForm="ngForm">
-      <div class="form-block">
-        <label for="signup-username">Username: </label>
-        <input class="form-control" [(ngModel)]="user.username" type="text" id="signup-username" name="signup-username" [placeholder]="placeholders.username" #name="ngModel" required>
-      </div>
-  
-      <div class="form-block">
-        <label for="signup-password">Password: </label>
-        <input class="form-control" [(ngModel)]="user.password" type="text" id="signup-password" name="signup-password" [placeholder]="placeholders.password" #name="ngModel" required>
-      </div>
-  
-      <div class="form-block">
-        <label for="signup-codename">Age </label>
-        <input class="form-control" [(ngModel)]="user.age" type="text" id="signup-age" name="signup-age" [placeholder]="placeholders.age" #name="ngModel" required>
-      </div>
-  
-      <div class="form-block">
-        <label for="signup-paymentID">Bio: </label>
-        <input class="form-control" [(ngModel)]="user.bio" type="text" id="signup-bio" name="signup-bio" [placeholder]="placeholders.bio" #name="ngModel" required>
-      </div>
-  
-      <div class="form-block">
-        <label for="signup-email">Email: </label>
-        <input class="form-control" [(ngModel)]="user.email" type="text" id="signup-email" name="signup-email" [placeholder]="placeholders.email" #name="ngModel" required>
-      </div>
-  
-      <div class="form-group">
-        <div *ngIf="displayFormSubmitError" style="color: red">
-            <br>
-            There's something wrong with your form
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <div class="container" id="cont">
+      <div class="container-two">
+        <div class="img">
+          <div class="img-text">
+            <h2>Already Have An Account?</h2>
+            <p>Login and resume your journey</p>
+            <button type="button" routerLink="/login">Login</button>
+          </div>
         </div>
-  
-        <br>
-  
-        <input type="submit" value="Create" class="btn btn-success">
+      </div>
+      <div class="container-one">
+        
+      <form (ngSubmit)="processForm(signupForm)" #signupForm="ngForm">
+        <h1>Sign Up</h1>
+        <div class="user-details">
+        <div class="form-block">
+          <label for="signup-username">Username: </label>
+          <input class="form-control" [(ngModel)]="user.username" type="text" id="signup-username" name="signup-username" [placeholder]="placeholders.username" #name="ngModel" required>
+        </div>
+        
+        <div class="form-block">
+          <label for="signup-password">Password: </label>
+          <input class="form-control" [(ngModel)]="user.password" type="text" id="signup-password" name="signup-password" [placeholder]="placeholders.password" #name="ngModel" required>
+        </div>
+    
+        <div class="form-block">
+          <label for="signup-codename">Age </label>
+          <input class="form-control" [(ngModel)]="user.age" type="text" id="signup-age" name="signup-age" [placeholder]="placeholders.age" #name="ngModel" required>
+        </div>
+    
+        <div class="form-block">
+          <label for="signup-paymentID">Bio: </label>
+          <input class="form-control" [(ngModel)]="user.bio" type="text" id="signup-bio" name="signup-bio" [placeholder]="placeholders.bio" #name="ngModel" required>
+        </div>
+    
+        <div class="form-block">
+          <label for="signup-email">Email: </label>
+          <input class="form-control" [(ngModel)]="user.email" type="text" id="signup-email" name="signup-email" [placeholder]="placeholders.email" #name="ngModel" required>
+        </div>
+      </div>
+    
+        <div class="form-group">
+          <div *ngIf="displayFormSubmitError" style="color: red">
+              There's something wrong with your form
+          </div>
+          <button type="submit" value="Create">Sign-Up</button>
+      </div>
+      </form>
     </div>
-  
-    </form>
-  </div>
+    </div>
+</body>
+</html>
