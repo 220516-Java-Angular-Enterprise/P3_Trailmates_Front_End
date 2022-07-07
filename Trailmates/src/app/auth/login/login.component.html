@@ -1,1 +1,29 @@
-<p>login works!</p>
+<section class="showcase">
+    <header>
+        <h2 class="logo">TrailMate</h2>
+    </header>
+
+      <form (ngSubmit)="processForm(loginForm)" #loginForm="ngForm">
+        <div class="login">
+ </div>
+        <div class="credentials">
+          <input class="form-control" [(ngModel)]="auth.username" type="text" id="login-username" name="login-username" [placeholder]="placeholders.username" #name="ngModel" required>
+          <input class="form-control" [(ngModel)]="auth.password" type="password" id="login-password" name="login-password" [placeholder]="placeholders.password" #name="ngModel" required>
+        </div>
+          <div class="form-group">
+            <div *ngIf="displayFormSubmitError" style="color: red">
+              Invalid Log-In.
+            </div>
+            <div class="button-container">
+              <input type="submit" value="Login"> 
+              <button type="button" routerLink="/signup">Sign-Up</button>
+            </div>
+          </div>   
+      </form>
+  
+        <video autoplay muted loop oncanplay="this.play()" onloadedmetadata="this.muted = true" >
+            <source src="https://download.shutterstock.com/gatekeeper/W3siZCI6ICJzaHV0dGVyc3RvY2stbWVkaWEiLCAiayI6ICJ2aWRlby8xMDg1NzUzOTA2L3ByZXZpZXcubXA0IiwgImUiOiAxNjU3MTU5NTcyLCAibSI6IDF9LCAiaHJOTHoxZk10emxaamQ1SHJsaER6Z3daZXNVIl0=/1085753906-preview.mp4" type="video/mp4">
+          </video>
+
+    
+</section>

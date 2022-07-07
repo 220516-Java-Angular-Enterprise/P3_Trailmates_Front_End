@@ -1,1 +1,37 @@
-<p>header works!</p>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <img class="nav-icon" src="/assets/images/nav_icon.png" alt="Cannot load image">
+    <a class="navbar-brand" href="#">Trailmates</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        <i class="bi bi-signpost-2"></i>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <div class="dropdown">
+                      <a class="nav-link" (click)="showNotifs=!showNotifs">
+                      <i class="bi bi-bell"></i></a>
+                      <app-notifiations *ngIf="showNotifs"></app-notifiations>
+                    </div>
+                </li>
+                
+            <li class="nav-item">
+                <div class="dropdown">
+                <a class="nav-link" href="#" (click)="showUserMenu=!showUserMenu">
+                    <i class="bi bi-person-circle"></i>
+                </a>
+                <app-user-menu *ngIf="showUserMenu"></app-user-menu>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</nav>
