@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MessagesService } from 'src/app/services/messages.service';
 import { Message } from 'src/models/messages';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-messaging',
@@ -10,10 +11,14 @@ import { Message } from 'src/models/messages';
 })
 export class MessagingComponent implements OnInit, OnDestroy {
 
-  constructor(public messagesService:MessagesService) { }
+  constructor(public messagesService:MessagesService, private currRoute: ActivatedRoute) { }
 
+  id: string = '';
   ngOnInit(): void {
     this.messagesService.openWebSocket();
+    this.currRoute.params.subscribe(p=>{
+      this.id = p['id'];
+    })
   }
   ngOnDestroy(): void {
       this.messagesService.closeWebSocket();

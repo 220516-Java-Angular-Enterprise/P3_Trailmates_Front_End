@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     // profile/:user
-    path: 'profile',
+    path: 'profile/:username',
     component: ProfileComponent,
     canActivate: [AuthGuard]
   },
@@ -35,7 +35,7 @@ const routes: Routes = [
   },
   {
     //messaging/:user/:chat_id
-    path: 'messaging',
+    path: 'messaging/:id',
     component: MessagingComponent,
     canActivate: [AuthGuard]
   },

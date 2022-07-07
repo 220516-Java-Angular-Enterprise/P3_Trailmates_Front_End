@@ -1,5 +1,7 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { Notification } from 'src/app/models/notification';
+
 
 @Component({
   selector: 'app-notifications',
@@ -8,7 +10,7 @@ import { Notification } from 'src/app/models/notification';
 })
 export class NotifiationsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router) { }
 
 
   notifications: Notification[] = [
@@ -46,6 +48,10 @@ export class NotifiationsComponent implements OnInit {
   
   ngOnDestroy() {
     console.log("I was destroyed.")
+  }
+
+  goToMessages(){
+    this.route.navigateByUrl("/messaging/"+localStorage.getItem('id'));
   }
 
 }

@@ -25,7 +25,7 @@
                 
             <li class="nav-item">
                 <div class="dropdown">
-                <a class="nav-link" href="#" (click)="showUserMenu=!showUserMenu">
+                <a class="nav-link" (click)="showUserMenu=!showUserMenu">
                     <i class="bi bi-person-circle"></i>
                 </a>
                 <app-user-menu *ngIf="showUserMenu"></app-user-menu>
