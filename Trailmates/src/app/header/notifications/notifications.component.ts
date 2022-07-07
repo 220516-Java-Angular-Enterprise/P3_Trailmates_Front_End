@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { Notification } from 'src/app/models/notification';
 
 @Component({
-  selector: 'app-notifiations',
+  selector: 'app-notifications',
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.scss']
 })
