@@ -1,0 +1,163 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    height: 100vh;
+    width: 100%;
+    background-image: url(../../../assets/jeffrey-keenan-XaGs3jFM7Y0-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+input, button{
+    border: none;
+    outline: none;
+    background: none;
+}
+
+h1{
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 3%;
+}
+
+h2{
+    text-align: center;
+}
+
+label{
+    display: inline;
+}
+
+label span{
+    font-size: 14px;
+    font-weight: 600;
+    color: #505;
+}
+
+.container{
+    overflow: hidden;
+    position: relative;
+    width: 1020px;
+    height: 550px;
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+}
+
+.container-one{
+    overflow: hidden;
+    position: relative;
+    width: 700px;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.form-control{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+// .form{
+//     position: relative;
+//     // width: 640px;
+//     height: 100%;
+//     padding: 50px 30px;
+// }
+
+button{
+    border-radius: 20px;
+    border: 1px solid #31231E;
+    background-color: #31231E;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    margin-top: 2%;
+}
+
+
+form{
+    background-color: #FFFFFF;
+    height: 100%;
+    margin-left: 10%; 
+    margin-top: 8%;
+}
+
+input{
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0px;
+    width: 100%;
+}
+
+
+
+.container-two{
+    overflow:visible;
+    position: relative;
+    top: 0;
+    width: 400px;
+    left: 0;
+    height: 100%;
+    background-image: url(../../../assets/joel-jasmin-forestbird-znoL1m6MD_k-unsplash.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.img-text{
+    z-index: 2;
+    position: absolute;
+    top: 170px;
+    text-align: center;
+    color: #31231E;
+}
+
+.img-text h2{
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.img-text p{
+    font-size: 14px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.container form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    top: 6%;
+}
+
+.container form .user-details .form-block{
+    margin-right: 5%;
+    margin-top: 10px;
+}
+
+
+
+form .user-details .form-control{
+    width: 90%;
+}
+
+
+
+
