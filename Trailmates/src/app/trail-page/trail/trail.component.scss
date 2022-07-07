@@ -5,31 +5,51 @@
     --moss-green: #8A9B68;
     --laurel-green: #B6C197;
     --pale-sptring: #D5DDBC;
+    font-size: 18px;
     }
+
 .searchresults {
-    min-height: 100vh;
+    height: 90%;
 }
 
 .leftSearch {
-    background-color: var(--moss-green);
     max-width: 50%;
-    min-height: 90%;
+    height: 90%;
 }
 
 .rightSearch {
-    background-color: blue;
     max-width: 50%;
+    height: 90%;    
 }
 
 .card-img-top-search {
-    max-width: 20rem;
+    max-width: 100%;
 }
 .card {
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: white;
-    min-height: 100vh;
+    overflow-y: scroll;
+    height: 80%;
 }
+
+#traildecript {
+    overflow-y: scroll;
+    max-height: 200px;
+}
+
+#usercomment {
+    overflow-y: scroll;
+    min-height: 250px;
+    max-height: 1500px;
+}
+
+.mapsearch {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    height: 700px;
+}
+
 .cardRow {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -61,3 +81,15 @@
 .flag:focus #flagButtonEmpty {
     display: none;
 }
+
+
+
+#mapimg {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+
+
