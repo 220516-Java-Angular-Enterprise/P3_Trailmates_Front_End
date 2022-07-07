@@ -21,6 +21,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { SearchTrailStateComponent } from './header/search-trails/search-trail-state/search-trail-state.component';
 import { SearchTrailParkComponent } from './header/search-trails/search-trail-park/search-trail-park.component';
+import { DynamicSearchComponent } from './header/search-trails/dynamic-search/dynamic-search.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { SearchTrailParkComponent } from './header/search-trails/search-trail-pa
     NotificationItemComponent,
     NotFoundComponent,
     SearchTrailStateComponent,
-    SearchTrailParkComponent
+    SearchTrailParkComponent,
+    DynamicSearchComponent
   ],
   imports: [
     BrowserModule,
