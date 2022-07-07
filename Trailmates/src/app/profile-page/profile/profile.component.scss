@@ -1,14 +1,62 @@
-$backgroundColor : #F2F2F2;
-$containerBackground : #014101;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,300&family=Montserrat:ital,wght@1,100&family=Nunito+Sans:wght@300&display=swap');
+
+$backgroundColor : #f0ebd8;
+$containerBackground : #748cab;
 $titleColor: white;
+$font20 : 20px;
 
 header{
-    text-align: center;
     color: $titleColor;
+    h1{
+      margin-left: 1300px;
+      font-size: 50px;
+      margin-bottom: 40px;
+    }
+    
+    
 }
 
+
+.dropbtn {  
+  background-color: #1d2d44;  
+  color: white;  
+  padding: 10px;  
+  font-size: $font20; 
+
+  
+}  
+.dropdown {  
+  display: inline-block;  
+  position: relative;
+  margin-bottom: 40px; 
+  font-size: $font20;  
+  margin-left: 1345px;
+}  
+.dropdown-content {  
+  position: absolute;  
+  background-color: lightgrey;  
+  min-width: 200px;  
+  display: none;  
+  z-index: 1;  
+}  
+.dropdown-content a {  
+  color: black;  
+  padding: 12px 16px;  
+  text-decoration: none;  
+  display: block;  
+}  
+.dropdown-content a:hover {  
+  background-color: #3e5c76;  
+  color: white;
+}  
+.dropdown:hover .dropdown-content {  
+  display: block;  
+}  
+.dropdown:hover .dropbtn {  
+  background-color: grey;  
+}  
+
 .description{
-    height: 700px;
     width: 500px;
     background-color: $backgroundColor;
     margin-left: 50px;
@@ -16,6 +64,10 @@ header{
     grid-column: 1;
     grid-row: 2 / 5;
     padding: 30px;
+    font-size: $font20;
+    h3{
+      font-size: 40px;
+    }
 }
 
 .profileImg{
@@ -36,6 +88,7 @@ header{
     }
     button{
         color: $titleColor;
+        font-size: $font20;
     }
 }
 
@@ -70,14 +123,10 @@ header{
   
   .grid-item {
     background-color: $backgroundColor;
-    //border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
-    width: 70%;
-    height: 150px;
-    font-size: 20px;
+    font-size: $font20;
     text-align: center;
     float: center;
-    // grid-column: 2 / 4;
   }
   
   .one{
@@ -110,6 +159,9 @@ header{
 
   section{
     background-color: $containerBackground;
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
   }
   
   footer {

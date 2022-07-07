@@ -16,13 +16,13 @@ import { NotifiationsComponent } from './header/notifications/notifiations.compo
 import { SearchAllComponent } from './header/search-all/search-all.component';
 import { SearchTrailsComponent } from './header/search-trails/search-trails.component';
 import { UserMenuComponent } from './header/user-menu/user-menu.component';
-import { FormsModule } from '@angular/forms';
 import { NotificationItemComponent } from './header/notifications/notification-item/notification-item.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthService } from './services/auth.service';
 import { TrailHistoryComponent } from './profile-page/trail-history/trail-history.component';
 import { TrailCommentsComponent } from './profile-page/trail-comments/trail-comments.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -44,6 +44,7 @@ import { TrailCommentsComponent } from './profile-page/trail-comments/trail-comm
     TrailHistoryComponent,
     TrailCommentsComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
