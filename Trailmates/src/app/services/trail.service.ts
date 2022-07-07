@@ -1,7 +1,9 @@
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Trail } from '../models/trail';
+
 @Injectable({
   providedIn: 'root'
 })

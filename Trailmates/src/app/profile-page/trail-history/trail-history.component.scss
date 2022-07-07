@@ -1,0 +1,25 @@
+.container{
+    text-align: center;
+    font-size: 20px;
+    .row{
+        margin-top: 20px;
+    }
+    .fileInput{
+        margin-left: 150px;
+    }
+}
+
+form{
+    background-color: #748cab;
+    margin: 0;
+}
+
+.postBtn{
+    float: right;
+    font-size: 20px;
+    background-color: #1d2d44;
+    color: white;
+    &:hover{
+      background-color: #0D1321;
+    }
+  }
