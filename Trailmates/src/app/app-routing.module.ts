@@ -2,6 +2,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { TrailComponent } from './trail-page/trail/trail.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
 import { ProfileComponent } from './profile-page/profile/profile.component';
+import { LoginComponent } from './auth/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MessagingComponent } from './messaging-page/messaging/messaging.component';
