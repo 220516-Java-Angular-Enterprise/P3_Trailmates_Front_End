@@ -20,8 +20,8 @@ export class MessagingComponent implements OnInit, OnDestroy {
   }
 
   sendMessage(sendForm:NgForm){
- const message= new Message(sendForm.value.user,sendForm.value.message);
- this.messagesService.sendMessage(message);
+    const message= new Message(sendForm.value.user,sendForm.value.message);
+    this.messagesService.sendMessage(message);
 //sendForm.controls.reset();
   }
 

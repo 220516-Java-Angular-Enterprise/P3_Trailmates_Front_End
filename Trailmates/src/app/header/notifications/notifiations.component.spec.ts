@@ -13,7 +13,7 @@ describe('NotifiationsComponent', () => {
     .compileComponents();
 
     fixture = TestBed.createComponent(NotifiationsComponent);
-    component = fixture.componentInstance;
+    component = fixture.componentInstance;       
     fixture.detectChanges();
   });
 

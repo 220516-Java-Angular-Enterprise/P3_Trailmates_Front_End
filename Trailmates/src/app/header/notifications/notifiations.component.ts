@@ -10,6 +10,7 @@ export class NotifiationsComponent implements OnInit {
 
   constructor() { }
 
+
   notifications: Notification[] = [
     {
       id: "1",
@@ -31,6 +32,7 @@ export class NotifiationsComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("i was born")
+    this.notifications = this.notifications;
   }
 
   deleteNotif(notif: Notification){
