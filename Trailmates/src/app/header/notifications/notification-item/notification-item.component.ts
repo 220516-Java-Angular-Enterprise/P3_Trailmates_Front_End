@@ -18,6 +18,7 @@ export class NotificationItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   onDelete(notif: Notification){
