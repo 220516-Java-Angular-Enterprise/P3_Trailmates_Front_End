@@ -23,14 +23,14 @@
         </div>
 
         <div class="dropdown">
-            <a class="nav-link" href="#" (click)="showNotifs=!showNotifs">
+            <a class="nav-link"  (click)="showNotifs=!showNotifs">
                 <i class="bi bi-bell"></i>
             </a>
             <app-notifications class="app-notifications" *ngIf="showNotifs"></app-notifications>
         </div>
 
         <div class="dropdown">
-            <a class="nav-link" href="#" (click)="showUserMenu=!showUserMenu">
+            <a class="nav-link" (click)="showUserMenu=!showUserMenu">
                 <i class="bi bi-person-circle"></i>
             </a>
             <app-user-menu class="app-user-menu" *ngIf="showUserMenu"></app-user-menu>
