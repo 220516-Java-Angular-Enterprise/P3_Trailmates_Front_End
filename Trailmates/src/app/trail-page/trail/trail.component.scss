@@ -1,0 +1,63 @@
+
+*{
+    --bistre: #31231E;
+    --shadow: #F4D35E;
+    --moss-green: #8A9B68;
+    --laurel-green: #B6C197;
+    --pale-sptring: #D5DDBC;
+    }
+.searchresults {
+    min-height: 100vh;
+}
+
+.leftSearch {
+    background-color: var(--moss-green);
+    max-width: 50%;
+    min-height: 90%;
+}
+
+.rightSearch {
+    background-color: blue;
+    max-width: 50%;
+}
+
+.card-img-top-search {
+    max-width: 20rem;
+}
+.card {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    min-height: 100vh;
+}
+.cardRow {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: solid 2px ;
+    border-radius: 12px;
+    padding: 5px;
+    box-shadow: 0px 10px 10px;
+}
+
+.card-body {
+    margin-top: 5%;
+}
+
+.flag {
+    display: flex;
+    justify-content: right;
+}
+
+.flag #flagButtonFill {
+    display: none;
+}
+
+.flag:active #flagButtonFill,
+.flag:focus #flagButtonFill {
+    display: block;
+}
+
+.flag:active #flagButtonEmpty,
+.flag:focus #flagButtonEmpty {
+    display: none;
+}
