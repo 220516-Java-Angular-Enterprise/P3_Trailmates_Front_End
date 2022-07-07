@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Notification } from 'src/app/models/notification';
 
 @Component({
@@ -11,13 +11,23 @@ export class NotificationItemComponent implements OnInit {
   // @Input() notifications: Notification[];
   @Input()
   notif!: Notification;
-  @Input()
-  pizza!: string;
+  @Output() onDeleteNotif: EventEmitter<Notification> = new EventEmitter();
+  @Output() clicked: EventEmitter<any> = new EventEmitter;
+
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.pizza)
+
+  }
+
+  onDelete(notif: Notification){
+    // console.log(notif)
+    this.onDeleteNotif.emit(notif);
+  }
+
+  onClick(){
+    this.clicked.emit(null)
   }
 
 }

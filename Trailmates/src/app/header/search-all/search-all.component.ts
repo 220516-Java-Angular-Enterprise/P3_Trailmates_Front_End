@@ -9,7 +9,14 @@ export class SearchAllComponent implements OnInit {
 
   constructor() { }
 
+  query: string ='';
+  pizza: string = 'pizza';
+
   ngOnInit(): void {
+  }
+
+  search(){
+    console.log(this.query);
   }
 
 }

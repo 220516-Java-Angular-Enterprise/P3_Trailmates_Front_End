@@ -1,18 +1,33 @@
 
-.user-box{
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu{
   display: flex;
   justify-content: center;
   flex: column;
   align-items: center;
 
-  width: 300px;
-  height: 200px;
+  // width: 300px;
+  // height: 210px;
+  padding: 20px;
   margin-left: -110px;
 }
 
-.menu-title{
-  margin: 0;
+.dropdown-item button {
+  background-color: #ddd;
+  margin: 10px;
+  font-size: 18px;
 }
+
+.menu-title{
+  font-size: 30px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+
 .btn-item{
   width: 200px;
 }

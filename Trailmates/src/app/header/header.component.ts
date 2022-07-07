@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   constructor() {}
 
-  showNotifs: boolean = false;
+  showNotifs: boolean = true;
   showUserMenu: boolean = false;
 
   isMenuOpen: boolean = false;

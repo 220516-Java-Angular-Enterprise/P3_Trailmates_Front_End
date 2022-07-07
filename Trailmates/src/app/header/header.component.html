@@ -1,57 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-light">
-    <img class="nav-icon" src="/assets/images/nav_icon.png" alt="Cannot load image">
+<div class="navbar">
+
+    <img class="navbar-logo" src="/assets/images/nav_icon.png" alt="Cannot load image">
     <a class="navbar-brand" href="#">Trailmates</a>
 
-    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button> -->
-
-
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-
-            <!-- TEST -->
-            <li class="nav-item-test">
-                <div class="user-options">
-                    <i class="bi bi-hand-thumbs-up"></i>
-                    <!-- <div class="user-menu"></div> -->
-                    <div class="user-menu">
-                        <div class="menu-heading">Username</div>
-                        <div class="menu-item">Profile</div>
-                        <div class="menu-item">Messages</div>
-                        <div class="menu-item">Logout</div>
-                    </div>
+    <nav class="navbar-icons">
+        <!-- TEST -->
+        <!-- <div class="nav-item-test">
+            <div class="user-options">
+                <i class="bi bi-hand-thumbs-up"></i>
+                <div class="user-menu">
+                    <div class="menu-heading">Username</div>
+                    <div class="menu-item">Profile</div>
+                    <div class="menu-item">Messages</div>
+                    <div class="menu-item">Logout</div>
                 </div>
-            </li>
+            </div>
+        </div> -->
 
+        <div>
+            <a class="nav-link" href="#">
+                <i class="bi bi-signpost-2"></i>
+            </a>
+        </div>
+            
+        <div class="dropdown">
+            <a class="nav-link" href="#" (click)="showNotifs=!showNotifs">
+                <i class="bi bi-bell"></i>
+            </a>
+            <app-notifications class="app-notifications" *ngIf="showNotifs"></app-notifications>
+        </div>
 
-            <li class="nav-item active">
-                <a class="nav-link" href="#">
-                    <i class="bi bi-signpost-2"></i>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <div class="dropdown">
-                    <a class="nav-link" href="#" (click)="showNotifs=!showNotifs">
-                        <i class="bi bi-bell"></i></a>
-                    <app-notifiations class="app-notifications" *ngIf="showNotifs"></app-notifiations>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <div class="dropdown">
-                    <a class="nav-link" href="#" (click)="showUserMenu=!showUserMenu">
-                        <i class="bi bi-person-circle"></i>
-                    </a>
-                    <app-user-menu class="app-user-menu" *ngIf="showUserMenu"></app-user-menu>
-                </div>
-            </li>
-        </ul>
-
-    </div>
-</nav>
-<br>
-<app-notification-item></app-notification-item>
+        <div class="dropdown">
+            <a class="nav-link" href="#" (click)="showUserMenu=!showUserMenu">
+                <i class="bi bi-person-circle"></i>
+            </a>
+            <app-user-menu class="app-user-menu" *ngIf="showUserMenu"></app-user-menu>
+        </div>
+    </nav>
+</div>
