@@ -9,7 +9,11 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
+  showNotifs:boolean = false;
+  showUserMenu:boolean = false;
+
   ngOnInit(): void {
   }
+
 
 }
