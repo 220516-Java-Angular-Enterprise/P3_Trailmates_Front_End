@@ -1,0 +1,11 @@
+<ul class="bg-primary notification-box dropdown-menu dropdown-menu-end menu  d-flex flex-column">
+  <!-- Title -->
+  <li class="dropdown-item disabled">
+  <div class="d-flex justify-content-center title bg-warning">
+    <h2 class="fill title">Notifications</h2>
+  </div>
+  </li>
+  <!-- Notification -->
+  <app-notification-item *ngFor="let notif of notifications" [notif]="notif" (onDeleteNotif)="deleteNotif(notif)" (clicked)="onClick()"></app-notification-item>
+  <!-- End Notification -->
+</ul>
