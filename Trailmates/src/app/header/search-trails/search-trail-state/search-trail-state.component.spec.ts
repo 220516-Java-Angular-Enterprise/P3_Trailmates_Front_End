@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SearchTrailStateComponent } from './search-trail-state.component';
@@ -8,6 +9,7 @@ describe('SearchTrailStateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientModule],
       declarations: [ SearchTrailStateComponent ]
     })
     .compileComponents();

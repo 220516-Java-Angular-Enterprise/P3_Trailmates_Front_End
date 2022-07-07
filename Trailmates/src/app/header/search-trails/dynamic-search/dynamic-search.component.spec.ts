@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DynamicSearchComponent } from './dynamic-search.component';
@@ -8,7 +9,8 @@ describe('DynamicSearchComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DynamicSearchComponent ]
+      imports: [HttpClientModule],
+      declarations: [ DynamicSearchComponent]
     })
     .compileComponents();
 
