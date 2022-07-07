@@ -1,3 +1,9 @@
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'main'
+    - if: $CI_COMMIT_BRANCH == 'test-deploy'
+    - if: $CI_COMMIT_BRANCH == 'eric-branch2'
+
 stages:
   - build
   - test
@@ -27,7 +33,6 @@ build:
 #     - npm install -g @angular/cli
 #     - npm install
 #     - ng test
-#     - echo "Test was successful" 
 
 # test:
 #     stage: test
