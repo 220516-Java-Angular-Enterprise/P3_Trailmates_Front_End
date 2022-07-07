@@ -12,19 +12,15 @@ header{
       font-size: 50px;
       margin-bottom: 40px;
     }
-    
-    
 }
-
 
 .dropbtn {  
   background-color: #1d2d44;  
   color: white;  
   padding: 10px;  
   font-size: $font20; 
-
-  
 }  
+
 .dropdown {  
   display: inline-block;  
   position: relative;
@@ -53,7 +49,7 @@ header{
   display: block;  
 }  
 .dropdown:hover .dropbtn {  
-  background-color: grey;  
+  background-color:  #0D1321;
 }  
 
 .description{
@@ -178,3 +174,78 @@ header{
       height: auto;
     }
   }
+
+  .createPostBtn{
+    float: right;
+    font-size: 40px;
+    margin: 20px;
+    background-color: #1d2d44;
+    color: white;
+    width: 70px;
+    height: 70px;
+    &:hover{
+      background-color: #0D1321;
+    }
+  }
+
+  .friendBtn{
+    background-color: #1d2d44;
+    color: white;
+    &:hover{
+      background-color: #0D1321;
+    }
+  }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+visibility: visible;
+  opacity: 1;
+}
+
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+  cursor: pointer;
+}
+.popup .content {
+  max-height: 30%;
+}
+
+@media screen and (max-width: 700px){
+  
+  .popup{
+    width: 70%;
+  }
+}
+

@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user-service.service';
 })
 export class ProfileComponent implements OnInit {
   @Input()
+  popup = false
   public trailhistory: TrailHistory[] = [];
   
   constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService,
@@ -23,4 +24,5 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
 }
