@@ -19,6 +19,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
+import { SearchTrailStateComponent } from './header/search-trails/search-trail-state/search-trail-state.component';
+import { SearchTrailParkComponent } from './header/search-trails/search-trail-park/search-trail-park.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { AuthService } from './services/auth.service';
     SearchTrailsComponent,
     UserMenuComponent,
     NotificationItemComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SearchTrailStateComponent,
+    SearchTrailParkComponent
   ],
   imports: [
     BrowserModule,
