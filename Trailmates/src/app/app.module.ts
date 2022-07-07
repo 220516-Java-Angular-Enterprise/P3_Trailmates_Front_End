@@ -18,6 +18,9 @@ import { NotificationItemComponent } from './header/notifications/notification-i
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthService } from './services/auth.service';
+import { TrailHistoryComponent } from './profile-page/trail-history/trail-history.component';
+import { TrailCommentsComponent } from './profile-page/trail-comments/trail-comments.component';
+import { FormsModule } from '@angular/forms';
 import { SearchTrailStateComponent } from './header/search-trails/search-trail-state/search-trail-state.component';
 import { SearchTrailParkComponent } from './header/search-trails/search-trail-park/search-trail-park.component';
 import { DynamicSearchComponent } from './header/search-trails/dynamic-search/dynamic-search.component';
@@ -40,10 +43,13 @@ import { MessagesService } from './services/messages.service';
     UserMenuComponent,
     NotificationItemComponent,
     NotFoundComponent,
+    TrailHistoryComponent,
+    TrailCommentsComponent,
     SearchTrailStateComponent,
     SearchTrailParkComponent,
     DynamicSearchComponent
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

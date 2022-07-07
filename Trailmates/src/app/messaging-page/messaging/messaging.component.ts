@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MessagesService } from 'src/app/services/messages.service';
-import { Message } from 'src/models/messages';
+import { Message } from 'src/app/models/messages';
 
 @Component({
   selector: 'app-messaging',
@@ -23,6 +23,7 @@ export class MessagingComponent implements OnInit, OnDestroy {
     const message= new Message(sendForm.value.user,sendForm.value.message);
     this.messagesService.sendMessage(message);
 //sendForm.controls.reset();
+
   }
 
 }
