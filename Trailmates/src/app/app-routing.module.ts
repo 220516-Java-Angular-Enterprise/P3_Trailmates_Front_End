@@ -9,13 +9,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
 import { LandingComponent } from './auth/landing/landing.component';
 
+
 const routes: Routes = [
   {
     path: '',
     component: LandingComponent
   },
   {
-
     // profile/:user
     path: 'profile',
     component: ProfileComponent
