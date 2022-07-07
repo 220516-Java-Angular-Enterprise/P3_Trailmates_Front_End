@@ -1,14 +1,14 @@
 <app-header></app-header>
-
+<app-dynamic-search (passQuery)="filterTrails($event)"></app-dynamic-search>
 <div class="container-fluid searchresults">
     <div class="row">
         <!-- left side colmn trail list-->
         <div class="col leftSearch" data-spy="scroll" data-target="#trailresults" data-offset="0">
 
             <div class="card container" id="trailresults">
-                <div class="cardRow row">
+                <div class="cardRow row" *ngFor="let trail of filterTrail">
                     <div class="col">
-                        <img src="https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?ixlib=rb-1.2.1&w=1080&fit=max&q=80&fm=jpg&crop=entropy&cs=tinysrgb"
+                        <img src={{trail.image_url}}
                             class="card-img-top-search" alt="No Image Availible">
                     </div>
 
@@ -17,7 +17,7 @@
 
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title">YellowStone</h5>
+                                    <h5 class="card-title">{{trail.name}}</h5>
                                 </div>
                                 <div class="col flag">
 
@@ -37,14 +37,13 @@
                             </div>
 
 
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
+                            <p class="card-text">{{trail.short_desc}}</p>
                             <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="cardRow row">
+                <!-- <div class="cardRow row">
                     <div class="col">
                         <img src="https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?ixlib=rb-1.2.1&w=1080&fit=max&q=80&fm=jpg&crop=entropy&cs=tinysrgb"
                             class="card-img-top-search" alt="No Image Availible">
@@ -154,7 +153,7 @@
                             <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
