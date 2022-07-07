@@ -1,9 +1,18 @@
 
 .user-box{
+  display: flex;
+  justify-content: center;
+  flex: column;
+  align-items: center;
+
   width: 300px;
-  margin-left: -50px;
+  height: 200px;
+  margin-left: -110px;
 }
 
+.menu-title{
+  margin: 0;
+}
 .btn-item{
   width: 200px;
 }

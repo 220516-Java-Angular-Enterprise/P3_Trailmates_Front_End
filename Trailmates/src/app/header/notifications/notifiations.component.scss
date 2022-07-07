@@ -2,6 +2,9 @@
 
 
 .notification-box{
+  display: flex;
+  flex: column;
+  background-color: white;
   // width: 30%;
 }
 

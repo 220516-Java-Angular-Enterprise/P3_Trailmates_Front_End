@@ -1,0 +1,29 @@
+.dropdown-item {
+  display: flex;
+  flex: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+
+  width: 300px;
+  margin-left: 100px;
+  margin-bottom: 10px;
+
+  position: relative;
+}
+
+.notification {
+    background-color: #ddd;
+
+}
+
+.btn{
+    // position: absolute;
+    align-self: end;
+}
+
+.notification-title {
+  align-self: center;
+  top: 0;
+  right: 0;
+}
