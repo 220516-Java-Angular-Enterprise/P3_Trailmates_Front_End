@@ -1,0 +1,26 @@
+<div class="search-comp">
+  <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+    <div class="input-group">
+      <input type="search" placeholder="Seach for trails..." aria-describedby="button-addon1"
+        class="form-control border-0" [(ngModel)]="query" (keyup.enter)="filterSearchByPark()">
+      <div class="input-group-append">
+        <button id="button-addon1" type="submit" class="btn btn-link text-primary" (click)="filterSearchByPark()"><i
+            class="bi bi-binoculars"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Rendering list of trails here -->
+<div class="results-box bg-primary" *ngIf="trails$ | async as trails">
+  <ul>
+    <li class="h3" *ngFor="let trail of trails">{{trail.name}}</li>
+  </ul>
+</div>
+
+<!-- Render if no results -->
+<div class="results-box bg-primary" *ngIf="trails$ | async as trails">
+  <ul>
+    <li class="h3" *ngIf="trails.length == 0">No results found</li>
+  </ul>
+</div>

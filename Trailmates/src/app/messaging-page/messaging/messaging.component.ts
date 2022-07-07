@@ -10,7 +10,7 @@ import { Message } from 'src/app/models/messages';
 })
 export class MessagingComponent implements OnInit, OnDestroy {
 
-  constructor(public messagesService:MessagesService ) { }
+  constructor(public messagesService:MessagesService) { }
 
   ngOnInit(): void {
     this.messagesService.openWebSocket();
@@ -20,9 +20,9 @@ export class MessagingComponent implements OnInit, OnDestroy {
   }
 
   sendMessage(sendForm:NgForm){
- const message= new Message(sendForm.value.user,sendForm.value.message);
- this.messagesService.sendMessage(message);
-//sendForm.controls.message.reset();
+    const message= new Message(sendForm.value.user,sendForm.value.message);
+    this.messagesService.sendMessage(message);
+//sendForm.controls.reset();
 
   }
 
