@@ -12,7 +12,8 @@ export class NotificationItemComponent implements OnInit {
   @Input()
   notif!: Notification;
   @Output() onDeleteNotif: EventEmitter<Notification> = new EventEmitter();
-  @Output() clicked: EventEmitter<any> = new EventEmitter;
+  @Output() clicked: EventEmitter<any> = new EventEmitter();
+  @Output() goToMessage: EventEmitter<any> = new EventEmitter();
 
 
   constructor() { }
@@ -22,12 +23,15 @@ export class NotificationItemComponent implements OnInit {
   }
 
   onDelete(notif: Notification){
-    // console.log(notif)
     this.onDeleteNotif.emit(notif);
   }
 
   onClick(){
     this.clicked.emit(null)
+  }
+
+  goToMessages(){
+  this.goToMessage.emit();
   }
 
 }

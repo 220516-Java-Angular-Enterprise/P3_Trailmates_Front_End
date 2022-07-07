@@ -28,7 +28,7 @@ export class TrailComponent implements OnInit {
   filterTrails(query: any){
   this.filterTrail = [];
   this.allTrails.forEach(element =>{
-    if(element.name?.toLowerCase().includes(query) && !this.filterTrail.includes(element)){
+    if(element.name?.toLowerCase().includes(query.toLowerCase()) && !this.filterTrail.includes(element)){
       this.filterTrail.push(element);
     }
   })
