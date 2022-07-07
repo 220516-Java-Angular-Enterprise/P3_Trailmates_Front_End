@@ -9,7 +9,7 @@ import { TrailService } from 'src/app/services/trail.service';
   styleUrls: ['./search-trail-park.component.scss']
 })
 export class SearchTrailParkComponent implements OnInit {
-
+// **Currently not working**
   constructor(private _trailService: TrailService) { }
   query: string = ''
   trails$!: Observable<Trail[]>

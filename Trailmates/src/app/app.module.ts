@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
@@ -17,12 +18,10 @@ import { UserMenuComponent } from './header/user-menu/user-menu.component';
 import { NotificationItemComponent } from './header/notifications/notification-item/notification-item.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
-import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { SearchTrailStateComponent } from './header/search-trails/search-trail-state/search-trail-state.component';
 import { SearchTrailParkComponent } from './header/search-trails/search-trail-park/search-trail-park.component';
 import { DynamicSearchComponent } from './header/search-trails/dynamic-search/dynamic-search.component';
-
 
 @NgModule({
   declarations: [
