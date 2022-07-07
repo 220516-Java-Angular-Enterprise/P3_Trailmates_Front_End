@@ -1,3 +1,4 @@
+import { RouterTestingModule } from '@angular/router/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NotifiationsComponent } from './notifications.component';
@@ -8,6 +9,7 @@ describe('NotifiationsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       declarations: [ NotifiationsComponent ]
     })
     .compileComponents();
