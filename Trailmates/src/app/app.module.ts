@@ -22,7 +22,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthService } from './services/auth.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +38,7 @@ import { AuthService } from './services/auth.service';
     UserMenuComponent,
     NotificationItemComponent,
     NotFoundComponent
+
   ],
   imports: [
     BrowserModule,
