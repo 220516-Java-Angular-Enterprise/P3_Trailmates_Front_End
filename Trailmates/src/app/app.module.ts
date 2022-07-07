@@ -10,7 +10,7 @@ import { TrailComponent } from './trail-page/trail/trail.component';
 import { LandingComponent } from './auth/landing/landing.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
-import { NotifiationsComponent } from './header/notifications/notifiations.component';
+import { NotifiationsComponent } from './header/notifications/notifications.component';
 import { SearchAllComponent } from './header/search-all/search-all.component';
 import { SearchTrailsComponent } from './header/search-trails/search-trails.component';
 import { UserMenuComponent } from './header/user-menu/user-menu.component';

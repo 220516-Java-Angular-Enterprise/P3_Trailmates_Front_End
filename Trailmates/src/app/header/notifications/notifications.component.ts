@@ -3,8 +3,8 @@ import { Notification } from 'src/app/models/notification';
 
 @Component({
   selector: 'app-notifiations',
-  templateUrl: './notifiations.component.html',
-  styleUrls: ['./notifiations.component.scss']
+  templateUrl: './notifications.component.html',
+  styleUrls: ['./notifications.component.scss']
 })
 export class NotifiationsComponent implements OnInit {
 
