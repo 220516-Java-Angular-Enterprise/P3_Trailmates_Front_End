@@ -4,6 +4,7 @@ export interface User {
     username?:string,
     password?:string,
     email?:string,
+    role?:string,
     bio?:string
-    age?:number
+    age?:number|null
 }

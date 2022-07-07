@@ -22,4 +22,13 @@ export class AuthService {
   getAuthToken(){
     return localStorage.getItem("token"); 
   }
+  isLoggedIn() {
+    // !! means double negattion, return boolean
+    return !!localStorage.getItem("token")
+  }
+  logoutUser() {
+    // navigates user back to login and removes local storage
+    this.route.navigate(['login'])
+    window.localStorage.clear();
+  }
 }
