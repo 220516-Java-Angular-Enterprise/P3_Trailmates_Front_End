@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NotifiationsComponent } from './notifiations.component';
+import { NotifiationsComponent } from './notifications.component';
 
 describe('NotifiationsComponent', () => {
   let component: NotifiationsComponent;
@@ -13,7 +13,7 @@ describe('NotifiationsComponent', () => {
     .compileComponents();
 
     fixture = TestBed.createComponent(NotifiationsComponent);
-    component = fixture.componentInstance;
+    component = fixture.componentInstance;       
     fixture.detectChanges();
   });
 

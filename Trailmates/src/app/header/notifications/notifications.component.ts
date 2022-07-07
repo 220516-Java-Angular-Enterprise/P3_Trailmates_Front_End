@@ -2,13 +2,14 @@ import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { Notification } from 'src/app/models/notification';
 
 @Component({
-  selector: 'app-notifiations',
-  templateUrl: './notifiations.component.html',
-  styleUrls: ['./notifiations.component.scss']
+  selector: 'app-notifications',
+  templateUrl: './notifications.component.html',
+  styleUrls: ['./notifications.component.scss']
 })
 export class NotifiationsComponent implements OnInit {
 
   constructor() { }
+
 
   notifications: Notification[] = [
     {
@@ -31,6 +32,7 @@ export class NotifiationsComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("i was born")
+    this.notifications = this.notifications;
   }
 
   deleteNotif(notif: Notification){

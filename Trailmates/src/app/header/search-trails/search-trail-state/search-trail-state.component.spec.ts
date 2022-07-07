@@ -1,20 +1,20 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TrailComponent } from './trail.component';
+import { SearchTrailStateComponent } from './search-trail-state.component';
 
-describe('TrailComponent', () => {
-  let component: TrailComponent;
-  let fixture: ComponentFixture<TrailComponent>;
+describe('SearchTrailStateComponent', () => {
+  let component: SearchTrailStateComponent;
+  let fixture: ComponentFixture<SearchTrailStateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientModule],
-      declarations: [ TrailComponent ]
+      declarations: [ SearchTrailStateComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TrailComponent);
+    fixture = TestBed.createComponent(SearchTrailStateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
