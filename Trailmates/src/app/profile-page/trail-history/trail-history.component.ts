@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TrailHistoryService } from 'src/app/services/trail-history.service';
 
 @Component({
   selector: 'app-trail-history',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrailHistoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private trailhistory:TrailHistoryService) { }
 
   ngOnInit(): void {
   }
