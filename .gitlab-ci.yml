@@ -33,7 +33,6 @@ build:
 #     - npm install -g @angular/cli
 #     - npm install
 #     - ng test
-#     - echo "Test was successful" 
 
 # test:
 #     stage: test
