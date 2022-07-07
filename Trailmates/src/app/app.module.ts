@@ -16,7 +16,6 @@ import { NotifiationsComponent } from './header/notifications/notifiations.compo
 import { SearchAllComponent } from './header/search-all/search-all.component';
 import { SearchTrailsComponent } from './header/search-trails/search-trails.component';
 import { UserMenuComponent } from './header/user-menu/user-menu.component';
-import { FormsModule } from '@angular/forms';
 import { NotificationItemComponent } from './header/notifications/notification-item/notification-item.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
