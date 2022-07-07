@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-trail',
+  selector: 'trail',
   templateUrl: './trail.component.html',
   styleUrls: ['./trail.component.scss']
 })
@@ -11,5 +11,11 @@ export class TrailComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  // to toggle flag from blank to filled in on click
+  change() {
+    // document.getElementById("flagButtonFill").d="";
+  }
+
 
 }
