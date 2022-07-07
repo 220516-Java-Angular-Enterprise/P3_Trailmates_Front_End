@@ -11,6 +11,7 @@ import { LandingComponent } from './auth/landing/landing.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
 import { FormsModule } from '@angular/forms';
+import { TraildescriptionComponent } from './trail-page/traildescription/traildescription.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     TrailComponent,
     LandingComponent,
     LoginComponent,
-    CreateAccComponent
+    CreateAccComponent,
+    TraildescriptionComponent
   ],
   imports: [
     BrowserModule,
