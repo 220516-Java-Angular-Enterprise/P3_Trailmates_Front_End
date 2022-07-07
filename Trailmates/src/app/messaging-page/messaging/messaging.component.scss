@@ -1,3 +1,37 @@
+.banner{
+  position: absolute;
+  height: 15%;
+  width: 52.5%;
+  text-align: center;
+  font-size: 70px;
+  font-weight: 700;
+  font-family: "Times New Roman";
+  color: #fff;
+  line-height: 1em;
+  text-transform: uppercase;
+  color: white(160, 233, 252);
+  top: 12%;
+  right: 3%;
+}
+input#input-message{
+  margin-left:3px;
+  width: 450px;
+  position: relative;
+  right: -67%;
+}
+input#input-user{
+  margin-right:3px;
+  width: 200px;
+  position: relative;
+  right: -288%;
+}
+button{
+  width: 80px;
+  border: 2px white solid;
+  position: relative;
+  top: -5%;
+  right: -90%;
+}
 text {
     text-align: center;
  }
@@ -22,64 +56,74 @@ div.message-content{
     top: 16%;
     background-color: red; /* For browsers that do not support gradients */
     background: rgba(255,255,255,0.6);
-    border: 3px #5f703d solid;
+    border: 3px #08090c solid;
 }
+
+
 .chat-else {
-    background-color: #5f703d;
+    background-color: #c0833c;
   }
   
   .chat-you {
-    background-color: #acb68f;
+    background-color: #9289ac;
     text-align: right;
     float: right;
   }
   
   .sender {
-    background: -webkit-linear-gradient(#8A9B68, #a8c6ce);
+    background: -webkit-linear-gradient(#0f110b, #283336);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
     font-size: 16px;
   }
   .user2{
-    background: -webkit-linear-gradient(#D5DDBC, #13221a);
+    background: -webkit-linear-gradient(#242521, #13221a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
     font-size: 16px;
   }
 
-.banner{
+
+  /*Speech box*/
+  .speech1{
+    font-family: Arial, Helvetica, sans-serif;
+    /*Dimensions and position*/
+    position: relative;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 320px;
+
+  }
+  .speech1::before{
+    /*Transparent borders*/
+    content: "";
     position: absolute;
-    height: 15%;
-    width: 52.5%;
-    text-align: center;
-    font-size: 70px;
-    font-weight: 700;
-    font-family: "Times New Roman";
-    color: #fff;
-    line-height: 1em;
-    text-transform: uppercase;
-    color: white(160, 233, 252);
-    top: 12%;
-    right: 3%;
-}
-input#input-message{
-    margin-left:3px;
-    width: 450px;
+    width:0;
+    height:0;
+    border-top: 13px solid transparent ;
+    border-right: 26px solid #c0833c;
+    border-bottom: 13px solid transparent;
+    margin : 13px 0 0 -25px;
+  }
+//   .bottom1.speech::after{
+//     border-top-color:#5f703d;
+//     border-bottom:0;
+//     bottom: 0;
+//     margin-left:-20px;
+//   }
+  .speech2{
+    font-family: Arial, Helvetica, sans-serif;
+    /*Dimensions and position*/
     position: relative;
-    right: -67%;
-}
-input#input-user{
-    margin-right:3px;
-    width: 200px;
-    position: relative;
-    right: -288%;
-}
-button{
-    width: 80px;
-    border: 2px white solid;
-    position: relative;
-    top: -5%;
-    right: -90%;
-}
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 320px;
+  }
+
+
+ 
+
+
+

@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+    <title>Messages</title>
+    
 <header>
     <div class="banner">
            <p class="text-center"> Messages</p>
@@ -8,33 +12,44 @@
         <div class="message-content">
             <div class="card">
             <ul class="list-group list-group flush">
-                <li class="list-group item" id="user1" >
+                <ul class="list-group item" id="user1" *ngFor="let message of messagesService.message">
+                    <div class="speech1">
+                        <div class="speech bottom1">
                     <div class="chat chat-else">
-                    <strong class="sender"> Thomas</strong>
-                    <span> Hello </span>
+                    <strong class="sender">Thomas</strong><!--need to put in {{message.user}}-->
+                    <span> Hello </span><!--Need to implement {{message.message}}-->
+
                 </div>
-                </li>
-                <li class="list-group item" >
-                    <div class="chat chat-you">
-                        <strong class = "user2">You</strong>
+            </div>
+         </div>
+        </ul>
+        <li class="list-group item" >
+            <div class="speech2">
+                <div class="chat chat-you">
+                  <strong class = "user2">You</strong>
                     <span> Hi </span>
                     </div>
+                </div>
                     
                 </li>
-                <li>
+            <ul>
+                    <div class="speech1">
                   <div class="chat chat-else">
                     <strong class="sender">Thomas</strong>
                      <span> What do you wanna do today?</span>
                       </div>
-                </li>
-                <li>
+                    </div>
+                </ul>
+                <ul>
+                    <div class="speech2">
                     <div class="chat chat-you">
                         <strong class="user2">You</strong>
                         <span>
                             I want to go hiking today. Can you find us a trail?
                         </span>
                     </div>
-                </li>
+                </div>
+            </ul>
 
             </ul>
         </div>
@@ -54,3 +69,4 @@
     </form>
  </div>
 </main>
+</html>
