@@ -1,2 +1,4 @@
 
 <router-outlet></router-outlet>
+<a class="nav link" href="/login" style="cursor:pointer" *ngIf="authService.isLoggedIn()" (click)="authService.logoutUser()">Logout</a>
+  

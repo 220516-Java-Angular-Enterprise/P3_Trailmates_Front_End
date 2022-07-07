@@ -10,14 +10,14 @@ import { firstValueFrom } from 'rxjs';
 })
 export class AuthService {
 
-  private URL = "";
+  private URL = "http://trailmates-env.eba-xbirnvx2.us-east-2.elasticbeanstalk.com/TrailMates/";
   constructor(private http: HttpClient, private route: Router) { }
 
   login(auth: User){
-    return this.http.post<any>(this.URL + "auth", auth)
+    return this.http.post<any>(this.URL + "auth/", auth)
   }
   signUp(user: User){
-    return firstValueFrom(this.http.post<any>(this.URL + "users", user));
+    return firstValueFrom(this.http.post<any>(this.URL + "auth/newuser", user));
   }
   getAuthToken(){
     return localStorage.getItem("token"); 

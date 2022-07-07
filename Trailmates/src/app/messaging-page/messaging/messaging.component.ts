@@ -10,7 +10,7 @@ import { Message } from 'src/models/messages';
 })
 export class MessagingComponent implements OnInit, OnDestroy {
 
-  constructor(public messagesService:MessagesService ) { }
+  constructor(public messagesService:MessagesService) { }
 
   ngOnInit(): void {
     this.messagesService.openWebSocket();

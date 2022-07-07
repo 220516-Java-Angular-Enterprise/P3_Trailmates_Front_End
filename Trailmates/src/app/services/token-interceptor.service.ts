@@ -11,6 +11,7 @@ export class TokenInterceptorService implements HttpInterceptor{
   constructor(private authService: AuthService) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log("INTERCEPTING")
+    console.log(req);
     let tokenizedReq = req.clone({
       setHeaders: {
         "Access-Control-Allow-Origin" : "origin-list",
