@@ -1,15 +1,24 @@
+import { NotFoundComponent } from './not-found/not-found.component';
+import { MessagingComponent } from './messaging-page/messaging/messaging.component';
+import { TrailComponent } from './trail-page/trail/trail.component';
+import { CreateAccComponent } from './auth/create-acc/create-acc.component';
+import { LoginComponent } from './auth/login/login.component';
+import { ProfileComponent } from './profile-page/profile/profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
-import { CreateAccComponent } from './auth/create-acc/create-acc.component';
 import { LandingComponent } from './auth/landing/landing.component';
-import { LoginComponent } from './auth/login/login.component';
-import { ProfileComponent } from './profile-page/profile/profile.component';
 
 const routes: Routes = [
   {
     path: '',
     component: LandingComponent
+  },
+  {
+    // profile/:user
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -20,14 +29,25 @@ const routes: Routes = [
     component: CreateAccComponent
   },  
   {
-    path: 'profile',
-    component: ProfileComponent,
+    path: 'trailpage',
+    component: TrailComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    //messaging/:user/:chat_id
+    path: 'messaging',
+    component: MessagingComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
+
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

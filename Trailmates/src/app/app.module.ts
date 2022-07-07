@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -10,9 +9,15 @@ import { TrailComponent } from './trail-page/trail/trail.component';
 import { LandingComponent } from './auth/landing/landing.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
-import { TokenInterceptorService } from './services/token-interceptor.service';
+import { NotifiationsComponent } from './header/notifications/notifiations.component';
+import { SearchAllComponent } from './header/search-all/search-all.component';
+import { SearchTrailsComponent } from './header/search-trails/search-trails.component';
+import { UserMenuComponent } from './header/user-menu/user-menu.component';
 import { FormsModule } from '@angular/forms';
 import { MessagingComponent } from './messaging-page/messaging/messaging.component';
+import { NotificationItemComponent } from './header/notifications/notification-item/notification-item.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthService } from './services/auth.service';
 import { MessagesService } from './services/messages.service';
 
@@ -25,7 +30,14 @@ import { MessagesService } from './services/messages.service';
     TrailComponent,
     LandingComponent,
     LoginComponent,
-    CreateAccComponent
+    CreateAccComponent,
+    NotifiationsComponent,
+    SearchAllComponent,
+    SearchTrailsComponent,
+    UserMenuComponent,
+    NotificationItemComponent,
+    NotFoundComponent
+
   ],
   imports: [
     BrowserModule,

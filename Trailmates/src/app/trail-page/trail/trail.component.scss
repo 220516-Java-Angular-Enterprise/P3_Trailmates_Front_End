@@ -1,0 +1,95 @@
+
+*{
+    --bistre: #31231E;
+    --shadow: #F4D35E;
+    --moss-green: #8A9B68;
+    --laurel-green: #B6C197;
+    --pale-sptring: #D5DDBC;
+    font-size: 18px;
+    }
+
+.searchresults {
+    height: 90%;
+}
+
+.leftSearch {
+    max-width: 50%;
+    height: 90%;
+}
+
+.rightSearch {
+    max-width: 50%;
+    height: 90%;    
+}
+
+.card-img-top-search {
+    max-width: 100%;
+}
+.card {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow-y: scroll;
+    height: 80%;
+}
+
+#traildecript {
+    overflow-y: scroll;
+    max-height: 200px;
+}
+
+#usercomment {
+    overflow-y: scroll;
+    min-height: 250px;
+    max-height: 1500px;
+}
+
+.mapsearch {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    height: 700px;
+}
+
+.cardRow {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: solid 2px ;
+    border-radius: 12px;
+    padding: 5px;
+    box-shadow: 0px 10px 10px;
+}
+
+.card-body {
+    margin-top: 5%;
+}
+
+.flag {
+    display: flex;
+    justify-content: right;
+}
+
+.flag #flagButtonFill {
+    display: none;
+}
+
+.flag:active #flagButtonFill,
+.flag:focus #flagButtonFill {
+    display: block;
+}
+
+.flag:active #flagButtonEmpty,
+.flag:focus #flagButtonEmpty {
+    display: none;
+}
+
+
+
+#mapimg {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+
+

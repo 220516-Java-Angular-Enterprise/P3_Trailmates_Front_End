@@ -1,0 +1,67 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+*{
+    --bistre: #31231E;
+    --shadow: #937B63;
+    --moss-green: #8A9B68;
+    --laurel-green: #B6C197;
+    --pale-spring: #D5DDBC;
+    --british-green: #254D32;
+    }
+
+nav {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #D5DDBC;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.nav-icon{
+    height: 90px;
+    width: 90px;
+}
+
+@font-face{
+    font-family: typo-slab-inline;
+    src: url("/assets/fonts/TypoSlab_inline Demo.otf");
+}
+
+@font-face{   
+    font-family: second-chances-sketch;
+    src: url("/assets/fonts/KGSecondChancesSketch.ttf")
+}
+
+i{
+    font-size: 30px;
+}
+
+.bi-person{
+    font-size: 100px;
+}
+
+.navbar-brand{
+    font-family: typo-slab-inline;
+    font-size: 70px;
+    color: #444;
+    font-weight: bolder;
+    justify-self: center;
+}
+
+.collapse{
+    justify-self: end;
+}
+
+.bi-person-circle{
+    margin: 20px;
+}
+
+.bi-signpost-2{
+    margin: 0 10px;
+}
+
+.bi-bell{
+    margin: 0 10px;
+}
