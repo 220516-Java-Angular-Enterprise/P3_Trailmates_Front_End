@@ -13,29 +13,46 @@
   top: 7%;
   right: 3%;
 }
-input#input-message{
+input#input-message{       /*message input box*/
   margin-left:3px;
   width: 450px;
   position: relative;
   right: -67%;
+  top: 900%;
+}
+@media(min-width: 1600px){
+  input#input-message{
+    top:2000%; 
+  }
 }
 input#input-user{
   margin-right:3px;
   width: 200px;
   position: relative;
   right: -288%;
+  top: 900%;
 }
-button{
+@media(min-width: 1600px){
+  input#input-user{
+    top:2000%; 
+  }
+}
+button{                /*button position*/
   width: 80px;
   border: 2px rgb(12, 11, 11) solid;
   position: relative;
-  top: -5%;
+  top: 900%;
   right: -90%;
+}
+@media(min-width: 1600px){
+  button{
+    top:2000%; 
+  }
 }
 text {
     text-align: center;
  }
-.messages{
+.messages{              /*page background*/
     margin-top: 0rem;
     height: 100vh;
     background-image: url("https://images.theconversation.com/files/399816/original/file-20210510-5797-xqoxsr.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop");
@@ -49,22 +66,27 @@ div.message-content{
     margin: 2rem ;
 }
 
-.card{
-    height: 85%;
+.card{                  /*creates message board*/
+    height: 120%;
     width: 65%;
     left:43%;
-    top: 16%;
+    top: 25%;
     background-color: red; /* For browsers that do not support gradients/transparent */
     background: rgba(255,255,255,0.6);
     border: 3px #08090c solid;
 }
+@media(min-width: 1600px){
+  .card{
+    height: 170%; 
+  }
+}
 
 
-.chat-else {
+.chat-else {                 /*color for friend chat box*/
     background-color: #c0833c;
   }
   
-  .chat-you {
+  .chat-you {               /*color for user chat box*/
     background-color: #9289ac;
     text-align: left;
     float: right;
@@ -77,7 +99,7 @@ div.message-content{
     font-weight: bold;
     font-size: 16px;
   }
-  .user2{
+  .user2{                       
     background: -webkit-linear-gradient(#242521, #13221a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -87,7 +109,7 @@ div.message-content{
 
 
   /*Speech box*/
-  .speech1{
+  .speech1{                           /*creates friend message box*/
     font-family: Arial, Helvetica, sans-serif;
     /*Dimensions and position*/
     position: relative;
@@ -96,7 +118,7 @@ div.message-content{
     max-width: 320px;
 
   }
-  .speech1::before{
+  .speech1::before{                    /*adds tail for friend message box*/
     /*Transparent borders*/
     content: "";
     position: absolute;
@@ -114,7 +136,7 @@ div.message-content{
 //     bottom: 0;
 //     margin-left:-20px;
 //   }
-  .speech2{
+  .speech2{                       /*creates user message box*/
     font-family: Arial, Helvetica, sans-serif;
     /*Dimensions and position*/
     position: relative;
@@ -123,10 +145,10 @@ div.message-content{
     max-width: 320px;
     right: -55%;
   }
-  .speech2:after {
+  .speech2:after {               /*adds tail to user message*/
     content:"";
     position: absolute;
-    left: 93.5%;
+    left: 93.6%;
     top:20px;
     width:0px;
     height:0px;
@@ -134,13 +156,12 @@ div.message-content{
     border-left:26px solid #9289ac;
     border-bottom:12px solid transparent;
 }
-.friend{
+.friend{                        /*displays FRIENDS at top left of screen*/
   position: absolute;
-  top: 0%;
-  right: 100%;
+  top: 1%;
+  right: 102%;
   height: 15%;
   width: 85%;
-  text-align: center;
   font-size: 70px;
   font-weight: 700;
   font-family: "Times New Roman";
@@ -149,7 +170,43 @@ div.message-content{
   text-transform: uppercase;
   color: white(160, 233, 252);
 }
-.card:before{  /*This is temporary. just for visual representation*/
+@media(min-width: 1600px){
+  .friend{
+   top: -8%;
+   right: 90%; 
+  }
+}
+@media(max-width: 1200px){
+  .friend{
+    font-size: 40px;
+  }
+}
+.text-center{                     /*displays MESSAGES at top right of screen*/
+  position: absolute;
+  top: 1%;
+  right: 8%;
+  height: 15%;
+  width: 85%;
+  font-size: 70px;
+  font-weight: 700;
+  font-family: "Times New Roman";
+  color: rgb(7, 7, 7);
+  line-height: 1em;
+  text-transform: uppercase;
+  color: white(160, 233, 252);
+}
+@media(min-width: 1600px){
+  .text-center{
+   top: -8%;
+   right: 13%; 
+  }
+}
+@media(max-width: 1200px){
+  .text-center{
+    font-size: 40px;
+  }
+}
+.card:before{                    /*This is temporary. just for visual representation*/
   content:"";
   position: absolute;
   height: 100%;
