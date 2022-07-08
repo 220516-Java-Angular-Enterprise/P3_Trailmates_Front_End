@@ -218,17 +218,7 @@ div.message-content{
   border: 3px #08090c solid;
 }
 
-   .speech2::after{
-    /*Transparent borders*/
-    content: "";
-  position: absolute;
-    width:0;
-    height:0;
-    border-top: 13px solid transparent ;
-    border-right: 26px solid #9289ac;
-    border-bottom: 13px solid transparent;
-    margin : -25px 0 0  13px;
-  }
+  
 
  
 
