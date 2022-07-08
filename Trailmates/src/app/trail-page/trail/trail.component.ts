@@ -1,6 +1,7 @@
 import { Trail } from './../../models/trail';
 import { Component, OnInit } from '@angular/core';
 import { TrailService } from 'src/app/services/trail.service';
+// import { ConsoleReporter } from 'jasmine';
 
 @Component({
   selector: 'trail',
@@ -14,6 +15,9 @@ export class TrailComponent implements OnInit {
   filterTrail: Trail[] = [];
   allTrails: Trail[] = [];
   Query: string = '';
+  trail: Trail = {};
+
+
   ngOnInit(): void {
     this._trailService.getAllTrails().subscribe((data)=>{
       this.allTrails = data;
@@ -34,4 +38,10 @@ export class TrailComponent implements OnInit {
   })
   }
 
+  showTrailDetails(event: any) {
+    this._trailService.getById(event.target.id).subscribe((data: any) => {
+      this.trail = data
+      console.log(this.trail.long_desc?.split("<*>"));
+    })
+  }
 }
