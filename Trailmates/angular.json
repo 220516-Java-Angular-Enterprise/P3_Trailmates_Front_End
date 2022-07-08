@@ -30,6 +30,7 @@
             ],
             "scripts": ["./node_modules/jquery/dist/jquery.slim.min.js",
               "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
+
           },
           "configurations": {
             "production": {
@@ -37,12 +38,12 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "500kb",
+                  "maximumError": "2mb"
                 }
               ],
               "fileReplacements": [
