@@ -3,17 +3,20 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  showNotifs: boolean = false;
+  showUserMenu: boolean = false;
+  isMenuOpen: boolean = false;
 
-  showNotifs:boolean = false;
-  showUserMenu:boolean = false;
-
-  ngOnInit(): void {
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
 
+
+  ngOnInit(): void {}
 }

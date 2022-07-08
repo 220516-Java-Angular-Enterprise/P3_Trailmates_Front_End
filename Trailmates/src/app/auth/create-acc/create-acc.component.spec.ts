@@ -1,6 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateAccComponent } from './create-acc.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 
 describe('CreateAccComponent', () => {
   let component: CreateAccComponent;
@@ -8,6 +11,7 @@ describe('CreateAccComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientModule, RouterTestingModule, FormsModule],
       declarations: [ CreateAccComponent ]
     })
     .compileComponents();

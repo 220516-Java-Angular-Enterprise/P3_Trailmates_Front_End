@@ -5,7 +5,7 @@ import { NotificationItemComponent } from './notification-item.component';
 describe('NotificationItemComponent', () => {
   let component: NotificationItemComponent;
   let fixture: ComponentFixture<NotificationItemComponent>;
-
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ NotificationItemComponent ]
