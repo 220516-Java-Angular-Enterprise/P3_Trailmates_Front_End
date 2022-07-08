@@ -27,4 +27,8 @@ export class TrailService {
   getByPark(park: string): Observable<Trail[]>{
     return this.http.get<Trail[]>(this.url+"searchPark/0/"+park);
   }
+
+  getById(id: string): Observable<Trail>{
+    return this.http.get<Trail>(this.url+id);
+  }
 }

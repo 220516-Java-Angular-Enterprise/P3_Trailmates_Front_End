@@ -2,12 +2,12 @@
 
     <img class="navbar-logo" src="/assets/images/nav_icon.png" alt="Cannot load image">
     <a class="navbar-brand" href="#">Trailmates</a>
-    <nav class="navbar-icons">
-        <div class="signpost">
-            <a class="nav-link" href="#">
-                <i class="bi bi-signpost-2"></i>
-            </a>
-        </div>
+<nav class="navbar-icons">
+  <div>
+    <a class="nav-link">
+      <i class="bi bi-signpost-2" routerLink="/trailpage"></i>
+    </a>
+  </div>
         <div class="dropdown" clickOutside (clickOutside)="clickedOutsideNotif()">
             <i class="bi bi-bell" (click) = "toggleNotifMenu()"></i>
             <app-notifications class="app-notifications" *ngIf="isNotifOpen"></app-notifications>
