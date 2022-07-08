@@ -20,11 +20,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-
-    // GRID
-    // display: grid;
-    // grid-template-columns: repeat(3, 1fr);
 }
 
 .navbar-logo{
@@ -59,19 +54,8 @@ i{
 i:hover{
     color: black;
     font-weight: bolder;
+    cursor: pointer;
 }
-
-// .bi-person-circle{
-//     margin: 20px;
-// }
-
-// .bi-signpost-2{
-//     margin: 0 10px;
-// }
-
-// .bi-bell{
-//     margin: 0 10px;
-// }
 
 // DROPDOWN
 .user-options{
@@ -104,4 +88,30 @@ i:hover{
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+}
+
+// Menu Toggler
+.menu-container{
+    width: 200px;
+    background: #04aa6d;
+    font-size: 20px
+}
+
+.menu-togger {
+    padding: 10px;
+}
+
+.menu {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.menu-item {
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+.menu-item:hover{
+    text-decoration: underline;
 }

@@ -7,16 +7,18 @@
 }
 
 .notification {
-  background-color: #ddd;
   display:flex;
-  margin-top:15px;
   justify-content:space-between;
+  background-color: #ddd;
+  padding: 5px;
+  margin-top:10px;
 }
 
 .notification-footer {
   background-color: #f7f7f7;
   display:flex;
   justify-content:space-between;
+  padding: 5px;
 }
 
 .btn{
