@@ -14,12 +14,15 @@ import { UserService } from 'src/app/services/user-service.service';
 })
 export class ProfileComponent implements OnInit {
   @Input()
+
   popup = false
-  public trailhistory: TrailHistory[] = [];
+  public trailHistory: TrailHistory[] = [];
+
   
   constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService,
   private router:Router,http:HttpClient, private currRoute: ActivatedRoute) { }
    
+
 
 
   id: string = ''
@@ -27,6 +30,7 @@ export class ProfileComponent implements OnInit {
     this.currRoute.params.subscribe(p=>{
       this.id = p['username'];
     })
+
   }
 
   
