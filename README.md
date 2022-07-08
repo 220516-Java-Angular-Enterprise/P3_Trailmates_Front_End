@@ -34,6 +34,7 @@ who messaged them, and they set up the hiking plan from there.
             <td>Google Maps API<a href = "https://developers.google.com/maps/documentation"><sup>1</sup></a></td>
             <td>Trail Map Display</td>
         </tr>
+        <tr> <td>GitLab</td> <td>CI/CD</td> </tr>
         <tr> <td>AWS S3 Bucket</td> <td>User Storage</td> </tr>
     </tbody>
 </table>
