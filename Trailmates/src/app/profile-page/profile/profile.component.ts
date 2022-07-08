@@ -7,6 +7,7 @@ import { TrailHistoryService } from 'src/app/services/trail-history.service';
 import { UserService } from 'src/app/services/user-service.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenInterceptorService } from 'src/app/services/token-interceptor.service';
+import { User } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-profile',
@@ -19,6 +20,8 @@ export class ProfileComponent implements OnInit {
   public trailhistory: TrailHistory = {id: "", comment: "",  date: new Date}
 
   isLoggedIn: boolean = false;
+  bio: any;
+  username: any;
   
   constructor(public trailHistoryService:TrailHistoryService, private interceptor:TokenInterceptorService, private userservice:UserService,
   private router:Router,private http:HttpClient, private currRoute: ActivatedRoute) { }
@@ -26,9 +29,19 @@ export class ProfileComponent implements OnInit {
 
 
   id: string = ''
+  user: User = {
+    bio: ""
+  }
   async ngOnInit() {
     this.currRoute.params.subscribe(p=>{
-      this.id = p['username'];
+      this.id = p['id'];
+      this.username = p['username'];
+      this.bio =p['bio'];
+      this.userservice.getUserById(this.id).then((data:any) => {
+        this.user = data
+        console.log(this.user)
+      })
+  
       this.trailHistoryService.getHistoryDesc().subscribe((data:any) => {
         this.trailhistory = data
         console.log(this.trailhistory)

@@ -5,16 +5,9 @@ import { ProfileComponent } from './profile-page/profile/profile.component';
 import { LoginComponent } from './auth/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { MessagingComponent } from './messaging-page/messaging/messaging.component';
-=======
-import { AuthGuard } from './auth.guard';
->>>>>>> 099c4dc77562edb5e3d66b08651cb4968718da5b
-=======
+
 import { MessagingComponent } from './messaging-page/messaging/messaging.component';
 import { AuthGuard } from './auth.guard';
->>>>>>> 5fd758f3917436c110dcf4f840c158498c9014d2
 import { LandingComponent } from './auth/landing/landing.component';
 
 const routes: Routes = [

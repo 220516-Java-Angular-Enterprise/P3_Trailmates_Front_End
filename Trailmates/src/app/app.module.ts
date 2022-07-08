@@ -13,37 +13,24 @@ import { NotifiationsComponent } from './header/notifications/notifications.comp
 import { SearchAllComponent } from './header/search-all/search-all.component';
 import { SearchTrailsComponent } from './header/search-trails/search-trails.component';
 import { UserMenuComponent } from './header/user-menu/user-menu.component';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
 import { FormsModule } from '@angular/forms';
 import { MessagingComponent } from './messaging-page/messaging/messaging.component';
->>>>>>> 099c4dc77562edb5e3d66b08651cb4968718da5b
-=======
->>>>>>> 5fd758f3917436c110dcf4f840c158498c9014d2
+
 import { NotificationItemComponent } from './header/notifications/notification-item/notification-item.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthService } from './services/auth.service';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { TrailHistoryComponent } from './profile-page/trail-history/trail-history.component';
-import { TrailCommentsComponent } from './profile-page/trail-comments/trail-comments.component';
-import { FormsModule } from '@angular/forms';
 
-=======
-import { MessagesService } from './services/messages.service';
->>>>>>> 099c4dc77562edb5e3d66b08651cb4968718da5b
-=======
 import { TrailHistoryComponent } from './profile-page/trail-history/trail-history.component';
 import { TrailCommentsComponent } from './profile-page/trail-comments/trail-comments.component';
-import { FormsModule } from '@angular/forms';
+
+
+import { MessagesService } from './services/messages.service';
+
 import { SearchTrailStateComponent } from './header/search-trails/search-trail-state/search-trail-state.component';
 import { SearchTrailParkComponent } from './header/search-trails/search-trail-park/search-trail-park.component';
 import { DynamicSearchComponent } from './header/search-trails/dynamic-search/dynamic-search.component';
-import { MessagingComponent } from './messaging-page/messaging/messaging.component';
-import { MessagesService } from './services/messages.service';
->>>>>>> 5fd758f3917436c110dcf4f840c158498c9014d2
 
 @NgModule({
   declarations: [
@@ -60,23 +47,15 @@ import { MessagesService } from './services/messages.service';
     SearchTrailsComponent,
     UserMenuComponent,
     NotificationItemComponent,
-<<<<<<< HEAD
-<<<<<<< HEAD
-    NotFoundComponent,
-    TrailHistoryComponent,
-    TrailCommentsComponent
-=======
-    NotFoundComponent
 
->>>>>>> 099c4dc77562edb5e3d66b08651cb4968718da5b
-=======
     NotFoundComponent,
     TrailHistoryComponent,
     TrailCommentsComponent,
+
+
     SearchTrailStateComponent,
     SearchTrailParkComponent,
     DynamicSearchComponent
->>>>>>> 5fd758f3917436c110dcf4f840c158498c9014d2
   ],
 
   imports: [
