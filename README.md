@@ -20,9 +20,7 @@ who messaged them, and they set up the hiking plan from there.
 - User can post info on hikes they have been on, on their page
 - User can message other users
 
-
-![TrailMates Wireframe If necessary](https://link-to-the-image_Can-be-stored-on-github)
-
+<br>
 
 ## Technologies
 <table>
