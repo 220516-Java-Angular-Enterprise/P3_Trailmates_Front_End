@@ -35,6 +35,7 @@
 
                                 </div>
                             </div>
+                            <br>
                             <p class="card-text-des">{{trail.short_desc}}</p>
                             <a class="btn clickbtn" id={{trail.id}} (click)="showTrailDetails($event)">View</a>
                         </div>
@@ -91,7 +92,8 @@
                     </p>
                 </div>
                 <header>
-                    <img id="mapimg" class=img src="assets/images/image.PNG" alt="Trail map">
+                    <!-- <img id="mapimg" class=img src="assets/images/image.PNG" alt="Trail map"> -->
+                    <div id="map"></div>
                 </header>
                 <br>
                 <div class="row topElement">
@@ -107,9 +109,9 @@
                     <div class="col Rating">
                         <div class="row">
                             <label for="exampleFormControlInput1" id="Ratinglabel"
-                                class="form-label col bold">Rating:</label>
+                                class="form-label col bold">Location:</label>
                             <p class="col">
-                                5
+                                {{trail.park_name}}
                             </p>
                         </div>
                     </div>

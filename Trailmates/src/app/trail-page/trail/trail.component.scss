@@ -128,6 +128,14 @@
     max-height: 18rem;
 }
 
+#map {
+    width: 100%;
+    height: 25rem;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
 #mapimg {
     width: 100%;
     height: 25rem;

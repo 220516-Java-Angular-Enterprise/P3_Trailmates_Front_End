@@ -4,6 +4,7 @@ import { TrailService } from 'src/app/services/trail.service';
 import { UserService } from 'src/app/services/user-service.service';
 import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
+import {} from 'googlemaps';
 // import { ConsoleReporter } from 'jasmine';
 
 @Component({
@@ -21,6 +22,8 @@ export class TrailComponent implements OnInit {
   filterUser: User[] = [];
   trail: Trail = {};
   long_desc: string = '';
+  latitude: Number = 0;
+  longitude: Number = 0;
   regex: RegExp = /(<([^>]+)>)/ig;
   subject: string = '';
   petsAllowed: string = '';
@@ -69,15 +72,37 @@ export class TrailComponent implements OnInit {
     this._trailService.getById(event.target.id).subscribe((data: any) => {
       this.trail = data
       this.trail.long_desc = this.trail.long_desc!.replace(this.regex, "")
+      this.latitude = +this.trail.latitude!;
+      this.longitude = +this.trail.longitude!;
+
+      // This is the functionality for the google map
+      this.initMap(this.latitude, this.longitude)
     })
     }
 
-  goToProfile(event: any){
-    this._route.navigateByUrl("/profile/"+event.target.id);
-  }
+  // Initialize and add the map
+  initMap(lat: any, lng: any): void {
+  const map = new google.maps.Map(
+    document.getElementById("map") as HTMLElement,
+    {
+      zoom: 8,
+      center: {lat, lng},
+    }
+  );
 
-  filterSubject(subject: any){
-    this.subject = subject;
-    console.log(this.subject)
-  }
+  // creates a red pointer on the page
+  const marker = new google.maps.Marker({
+    position: {lat, lng},
+    map: map,
+  });
+}
+
+goToProfile(event: any){
+  this._route.navigateByUrl("/profile/"+event.target.id);
+}
+
+filterSubject(subject: any){
+  this.subject = subject;
+  console.log(this.subject)
+}
 }
