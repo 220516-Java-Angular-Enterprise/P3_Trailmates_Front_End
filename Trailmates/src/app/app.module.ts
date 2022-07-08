@@ -10,7 +10,7 @@ import { LandingComponent } from './auth/landing/landing.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
 import { NotifiationsComponent } from './header/notifications/notifications.component';
-import { SearchAllComponent } from './header/search-all/search-all.component';
+import { SearchAllComponent } from './header/search-users/search-users.component';
 import { SearchTrailsComponent } from './header/search-trails/search-trails.component';
 import { UserMenuComponent } from './header/user-menu/user-menu.component';
 import { NotificationItemComponent } from './header/notifications/notification-item/notification-item.component';
