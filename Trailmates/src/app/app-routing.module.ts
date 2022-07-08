@@ -4,9 +4,12 @@ import { CreateAccComponent } from './auth/create-acc/create-acc.component';
 import { ProfileComponent } from './profile-page/profile/profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+<<<<<<< HEAD
 import { MessagingComponent } from './messaging-page/messaging/messaging.component';
+=======
+import { AuthGuard } from './auth.guard';
+>>>>>>> 099c4dc77562edb5e3d66b08651cb4968718da5b
 import { LandingComponent } from './auth/landing/landing.component';
-import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
   {
@@ -14,10 +17,10 @@ const routes: Routes = [
     component: LandingComponent
   },
   {
-
     // profile/:user
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -26,20 +29,22 @@ const routes: Routes = [
   {
     path: 'signup',
     component: CreateAccComponent
-
-  },
+  },  
   {
     path: 'trailpage',
-    component: TrailComponent
+    component: TrailComponent,
+    canActivate: [AuthGuard]
   },
   {
     //messaging/:user/:chat_id
     path: 'messaging',
-    component: MessagingComponent
+    component: MessagingComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
     component: NotFoundComponent,
+
   }
 
 ];
