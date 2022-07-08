@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,300&family=Montserrat:ital,wght@1,100&family=Nunito+Sans:wght@300&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 $backgroundColor : #f0ebd8;
-$containerBackground : #748cab;
+$containerBackground : rgb(164, 177, 160);
 $titleColor: white;
 $font20 : 20px;
 
@@ -81,6 +81,7 @@ $font20 : 20px;
 }
 .profileImg{
   text-align: center;
+  margin-top: 30px;
     img{
         width: 200px;
     }
