@@ -3,37 +3,33 @@
     <img class="navbar-logo" src="/assets/images/nav_icon.png" alt="Cannot load image">
     <a class="navbar-brand" href="#">Trailmates</a>
     <nav class="navbar-icons">
-        <!-- TEST -->
-        <!-- <div class="nav-item-test">
-            <div class="user-options">
-                <i class="bi bi-hand-thumbs-up"></i>
-                <div class="user-menu">
-                    <div class="menu-heading">Username</div>
-                    <div class="menu-item">Profile</div>
-                    <div class="menu-item">Messages</div>
-                    <div class="menu-item">Logout</div>
-                </div>
-                    </div>
-        </div> -->
-
-        <div>
+        <div class="signpost">
             <a class="nav-link" href="#">
                 <i class="bi bi-signpost-2"></i>
             </a>
         </div>
-
-        <div class="dropdown">
-            <a class="nav-link"  (click)="showNotifs=!showNotifs">
-                <i class="bi bi-bell"></i>
-            </a>
-            <app-notifications class="app-notifications" *ngIf="showNotifs"></app-notifications>
+        <div class="dropdown" clickOutside (clickOutside)="clickedOutsideNotif()">
+            <i class="bi bi-bell" (click) = "toggleNotifMenu()"></i>
+            <app-notifications class="app-notifications" *ngIf="isNotifOpen"></app-notifications>
         </div>
-
-        <div class="dropdown">
-            <a class="nav-link" (click)="showUserMenu=!showUserMenu">
-                <i class="bi bi-person-circle"></i>
-            </a>
-            <app-user-menu class="app-user-menu" *ngIf="showUserMenu"></app-user-menu>
+        <div class="dropdown" clickOutside (clickOutside)="clickedOutsideUser()">
+            <i class="bi bi-person-circle" (click)="toggleUserMenu()"></i>
+            <app-user-menu class="app-user-menu" *ngIf="isUserMenuOpen"></app-user-menu>
         </div>
     </nav>
 </div>
+
+<!-- TEST -->
+<!-- <br>
+<div class="nav-item-test">
+    <div class="user-options">
+        <i class="bi bi-hand-thumbs-up"></i>
+        <div class="user-menu">
+            <div class="menu-heading">Username</div>
+            <div class="menu-item">Profile</div>
+            <div class="menu-item">Messages</div>
+            <div class="menu-item">Logout</div>
+        </div>
+    </div>
+</div> -->
+>>>>>>> 5a54f88750964d6f9ecabbfd03f2884c046e4fe5
