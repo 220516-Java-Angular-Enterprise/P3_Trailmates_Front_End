@@ -1,0 +1,28 @@
+
+<div class="search-comp">
+  <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+    <div class="input-group">
+      <input type="search" placeholder="Seach for trails by state abbreviation..." aria-describedby="button-addon1"
+        class="form-control border-0" [(ngModel)]="query" (keyup.enter)="filterSearchByState()" (keyup)="matchStateRegex()" maxlength="2">
+      <div class="input-group-append">
+        <button id="button-addon1" type="submit" class="btn btn-link text-primary" (click)="filterSearchByState()"><i
+            class="bi bi-binoculars"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="h2 text-danger" *ngIf="error">Invalid state name</p>
+
+<!-- Rendering list of trails here -->
+<div class="results-box bg-primary" *ngIf="trails$ | async as trails">
+  <ul>
+    <li class="h3" *ngFor="let trail of trails">{{trail.name}}</li>
+  </ul>
+</div>
+
+<!-- Render if no results -->
+<div class="results-box bg-primary" *ngIf="trails$ | async as trails" >
+  <ul>
+    <li class="h3" *ngIf="trails.length == 0" >No trails found</li>
+  </ul>
+</div>

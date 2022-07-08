@@ -18,11 +18,11 @@ input#input-message{       /*message input box*/
   width: 450px;
   position: relative;
   right: -67%;
-  top: 900%;
+  top: 0%;
 }
 @media(min-width: 1600px){
   input#input-message{
-    top:2000%; 
+    top:600%; 
   }
 }
 input#input-user{
@@ -30,32 +30,32 @@ input#input-user{
   width: 200px;
   position: relative;
   right: -288%;
-  top: 900%;
+  top: 0%;
 }
 @media(min-width: 1600px){
   input#input-user{
-    top:2000%; 
+    top:600%; 
   }
 }
 button{                /*button position*/
   width: 80px;
   border: 2px rgb(12, 11, 11) solid;
   position: relative;
-  top: 900%;
+  top: 0%;
   right: -90%;
 }
 @media(min-width: 1600px){
   button{
-    top:2000%; 
+    top:600%; 
   }
 }
 text {
     text-align: center;
  }
 .messages{              /*page background*/
-    margin-top: 0rem;
+    margin-top: -2rem;
     height: 100vh;
-    background-image: url("https://images.theconversation.com/files/399816/original/file-20210510-5797-xqoxsr.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop");
+    background-image: url("https://images.unsplash.com/photo-1511225070737-5af5ac9a690d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -67,7 +67,7 @@ div.message-content{
 }
 
 .card{                  /*creates message board*/
-    height: 120%;
+    height: 70%;
     width: 65%;
     left:43%;
     top: 25%;
@@ -77,17 +77,17 @@ div.message-content{
 }
 @media(min-width: 1600px){
   .card{
-    height: 170%; 
+    height: 100%; 
   }
 }
 
 
 .chat-else {                 /*color for friend chat box*/
-    background-color: #c0833c;
+    background-color: #88bd9a;
   }
   
   .chat-you {               /*color for user chat box*/
-    background-color: #9289ac;
+    background-color: #B6C197;
     text-align: left;
     float: right;
   }
@@ -126,16 +126,11 @@ div.message-content{
     height:0;
     top:7px;
     border-top: 12px solid transparent ;
-    border-right: 26px solid #c0833c;
+    border-right: 26px solid #88bd9a;
     border-bottom: 12px solid transparent;
     margin : 13px 0 0 -25px;
   }
-//   .bottom1.speech::after{
-//     border-top-color:#5f703d;
-//     border-bottom:0;
-//     bottom: 0;
-//     margin-left:-20px;
-//   }
+
   .speech2{                       /*creates user message box*/
     font-family: Arial, Helvetica, sans-serif;
     /*Dimensions and position*/
@@ -148,17 +143,17 @@ div.message-content{
   .speech2:after {               /*adds tail to user message*/
     content:"";
     position: absolute;
-    left: 93.6%;
+    left: 93.5%;
     top:20px;
     width:0px;
     height:0px;
     border-top:12px solid transparent;
-    border-left:26px solid #9289ac;
+    border-left:26px solid #b7c493;
     border-bottom:12px solid transparent;
 }
 .friend{                        /*displays FRIENDS at top left of screen*/
   position: absolute;
-  top: 1%;
+  top: 180%;
   right: 102%;
   height: 15%;
   width: 85%;
@@ -172,7 +167,7 @@ div.message-content{
 }
 @media(min-width: 1600px){
   .friend{
-   top: -8%;
+   top: 140%;
    right: 90%; 
   }
 }
@@ -183,7 +178,7 @@ div.message-content{
 }
 .text-center{                     /*displays MESSAGES at top right of screen*/
   position: absolute;
-  top: 1%;
+  top: 180%;
   right: 8%;
   height: 15%;
   width: 85%;
@@ -197,7 +192,7 @@ div.message-content{
 }
 @media(min-width: 1600px){
   .text-center{
-   top: -8%;
+   top: 140%;
    right: 13%; 
   }
 }
