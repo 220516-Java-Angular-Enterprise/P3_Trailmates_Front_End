@@ -12,7 +12,7 @@ import { UserService } from 'src/app/services/user-service.service';
 })
 export class ProfileComponent implements OnInit {
   @Input()
-  public trailhistory: TrailHistory[] = [];
+  public trailHistory: TrailHistory[] = [];
   
   constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService,
     private router:Router,http:HttpClient) { }
@@ -20,7 +20,8 @@ export class ProfileComponent implements OnInit {
 
   
 
-  ngOnInit(): void {
+  ngOnInit(): void
+   {
   }
 
 }
