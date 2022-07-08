@@ -1,13 +1,15 @@
-<li class="dropdown-item bg-success d-flex flex-column">
-  <div class="notification-header align-self-center d-flex flex-row justify-content-between bg-info w-100">
-    <div class="notification-title bg-primary">{{notif.id}}</div>
-    <div class="notification-title bg-warning align-self-center">
-      <h3>Trail name</h3>
-    </div>
-    <div class="notification-close bg-success"><button class="btn close-btn btn-danger" (click)="onDelete(notif); onClick()">X</button></div>
+<div class="dropdown-item" *ngIf="notif">
+
+  <div class="notification">
+    <!-- <div class="notification-title">{{notif.id}}</div> -->
+    <h3 class="notification-title"(click)="goToMessages()">Trail name</h3>
+    <button class="btn" (click)="onDelete(notif)">X</button>
   </div>
-  <div class="notification-content bg-warning d-flex flex-row justify-content-between">
-    <div class="notification-message bg-danger">{{notif.message}}</div>
-    <div class="notification-message bg-danger">Timestamp</div>
+
+  <div class="notification-footer">
+    <div class="notification-message">{{notif.message}}</div>
+    <div class="notification-timestamp">Timestamp</div>
   </div>
-</li>
+
+</div>
+

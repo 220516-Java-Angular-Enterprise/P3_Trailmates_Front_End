@@ -1,21 +1,21 @@
 import { RouterTestingModule } from '@angular/router/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProfileComponent } from './profile.component';
+import { NotifiationsComponent } from './notifications.component';
 
-describe('ProfileComponent', () => {
-  let component: ProfileComponent;
-  let fixture: ComponentFixture<ProfileComponent>;
+describe('NotifiationsComponent', () => {
+  let component: NotifiationsComponent;
+  let fixture: ComponentFixture<NotifiationsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [ ProfileComponent ]
+      declarations: [ NotifiationsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ProfileComponent);
-    component = fixture.componentInstance;
+    fixture = TestBed.createComponent(NotifiationsComponent);
+    component = fixture.componentInstance;       
     fixture.detectChanges();
   });
 

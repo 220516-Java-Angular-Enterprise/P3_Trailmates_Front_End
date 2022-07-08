@@ -1,0 +1,31 @@
+.dropdown-item {
+  font-size: 16px;
+  width: 300px;
+  margin-bottom: 5px;
+
+  position: relative;
+}
+
+.notification {
+  background-color: #ddd;
+  display:flex;
+  margin-top:15px;
+  justify-content:space-between;
+}
+
+.notification-footer {
+  background-color: #f7f7f7;
+  display:flex;
+  justify-content:space-between;
+}
+
+.btn{
+    align-self: end;
+}
+
+.notification-title {
+  align-self: center;
+  margin-top: 1%;
+  // margin-bottom: 1%;
+  right: 0;
+}

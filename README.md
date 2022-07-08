@@ -29,14 +29,17 @@ who messaged them, and they set up the hiking plan from there.
     <tbody>
         <tr> <td>TypeScript</td> <td>Core Language</td> </tr>
         <tr> <td>Angular</td> <td>SPA Framework</td> </tr>
-        <tr> <td>*Testing software*</td> <td rowspan="2">End to End Testing</td> </tr>
-        <tr> <td>*if applicable*</td> </tr>
+        <tr> <td>Jasmine</td> <td>End to End Testing</td> </tr>
+        <tr>
+            <td>Google Maps API<a href = "https://developers.google.com/maps/documentation"><sup>1</sup></a></td>
+            <td>Trail Map Display</td>
+        </tr>
         <tr> <td>AWS S3 Bucket</td> <td>User Storage</td> </tr>
     </tbody>
 </table>
 <br />
 
-## Backend info for api api calls
+## Backend info for api calls
 <br />
 
 ### Contributors
