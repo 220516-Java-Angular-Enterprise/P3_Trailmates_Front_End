@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService:AuthService, private router: Router) { }
 
   displayFormSubmitError: boolean = false; 
 
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
             this.router.navigateByUrl('admin')
           }
           else {
-            this.router.navigateByUrl('default-user')
+            this.router.navigateByUrl('profile')
           }
         }
       });

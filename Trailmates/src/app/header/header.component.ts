@@ -10,7 +10,7 @@ import { fade } from '../animations/animations';
 export class HeaderComponent implements OnInit {
   constructor() {}
 
-  showNotifs: boolean = false;
+  // showNotifs: boolean = false;
   // showUserMenu: boolean = false;
 
   isNotifOpen: boolean = false

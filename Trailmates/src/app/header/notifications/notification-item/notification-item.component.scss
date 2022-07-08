@@ -8,7 +8,9 @@
 
 .notification {
   display:flex;
+  justify-content: center;
   justify-content:space-between;
+  align-content:center;
   background-color: #ddd;
   padding: 5px;
   margin-top:10px;
