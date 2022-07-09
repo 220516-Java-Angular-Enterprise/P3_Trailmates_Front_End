@@ -8,7 +8,7 @@ import { TrailHistory } from '../models/trailHistory';
   providedIn: 'root'
 })
 export class TrailHistoryService {
-  private URL="http://localhost:8080/TrailMates/history";
+  private URL="http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/history";
 
   constructor(private http:HttpClient, private route:Router) { }
 
