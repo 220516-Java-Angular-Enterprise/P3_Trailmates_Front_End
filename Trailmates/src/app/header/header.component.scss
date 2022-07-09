@@ -14,21 +14,30 @@
 }
 
 .navbar {
-    padding-top: 10px;
-    padding-bottom: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    // padding-top: 10px;
+    // padding-bottom: 10px;
     background-color: #D5DDBC;
+
+    // GRID
+//      display: grid;
+//     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.navbar-logo{
+a {
+    text-decoration: none;
+} 
+
+.logo{
     height: 120px;
     width: 120px;
     cursor: pointer;
 }
 
-.navbar-brand{
+.title{
     font-family: typo-slab-inline;
     font-size: 90px;
     color: #444;
@@ -42,10 +51,17 @@
     src: url("/assets/fonts/TypoSlab_inline Demo.otf");
 }
 
-.navbar-icons div{
+.icons div{
+    display: flex;
     display: inline-block;
     margin: 0 30px;
 }
+
+// .icons{
+//     display: grid;
+//     grid-template-columns: 1fr;
+//     margin: 0 30px;
+// }
 
 i{
     font-size: 30px;
@@ -58,4 +74,29 @@ i:hover{
     cursor: pointer;
 }
 
+// Notification badge
+.send-notification{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 30px;
+}
 
+.notification{
+    position: relative;
+}
+
+.badge {
+    font-size: 10px;
+    position: absolute;
+    background: #ff8084;
+    right: -0.938rem;
+    top: -0.938;
+    padding: .3rem .6rem;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+.btn-send{
+padding: 0 20px 5px;
+}

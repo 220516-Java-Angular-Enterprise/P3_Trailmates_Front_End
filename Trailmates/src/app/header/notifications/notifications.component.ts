@@ -6,7 +6,7 @@ import { Notification } from 'src/app/models/notification';
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.scss']
 })
-export class NotifiationsComponent implements OnInit {
+export class NotificationsComponent implements OnInit {
 
   constructor() { }
 

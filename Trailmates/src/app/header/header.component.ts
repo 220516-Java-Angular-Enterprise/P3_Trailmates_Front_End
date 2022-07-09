@@ -39,7 +39,16 @@ export class HeaderComponent implements OnInit {
     this.isUserMenuOpen = false;
   }
 
-  
+  notify = false;
+  count = 0;
+
+  onSendClick() {
+    this.count++;
+    this.notify = true;
+    setTimeout(() => {this.notify = false;}, 300
+    );
+  }
+
   ngOnInit(): void {}
 }
 
