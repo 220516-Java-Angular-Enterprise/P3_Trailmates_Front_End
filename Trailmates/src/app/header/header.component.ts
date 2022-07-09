@@ -10,13 +10,14 @@ import { fade } from '../animations/animations';
 export class HeaderComponent implements OnInit {
   constructor() {}
 
-  // showNotifs: boolean = false;
-  // showUserMenu: boolean = false;
-
   isNotifOpen: boolean = false
 
   toggleNotifMenu(): void {
     this.isNotifOpen = !this.isNotifOpen;
+  }
+
+  notifState() {
+    return this.isNotifOpen ? 'enter' : 'leave';
   }
 
   clickedOutsideNotif(): void {
@@ -27,11 +28,18 @@ export class HeaderComponent implements OnInit {
 
   toggleUserMenu(): void {
     this.isUserMenuOpen = !this.isUserMenuOpen;
+   
   }
   
+  userMenuState() {
+    return this.isUserMenuOpen ? 'enter':'leave';
+  }
+
   clickedOutsideUser(): void {
     this.isUserMenuOpen = false;
   }
 
+  
   ngOnInit(): void {}
 }
+

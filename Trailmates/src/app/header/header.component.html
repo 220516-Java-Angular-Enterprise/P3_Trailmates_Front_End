@@ -12,27 +12,20 @@
 
         <div class="dropdown" clickOutside (clickOutside)="clickedOutsideNotif()">
             <i class="bi bi-bell" (click) = "toggleNotifMenu()"></i>
-            <app-notifications class="app-notifications" *ngIf="isNotifOpen"></app-notifications>
+            <app-notifications [@fade]="notifState()" class="app-notifications" *ngIf="isNotifOpen"></app-notifications>
         </div>
 
         <div class="dropdown" clickOutside (clickOutside)="clickedOutsideUser()">
             <i class="bi bi-person-circle" (click)="toggleUserMenu()"></i>
-            <app-user-menu class="app-user-menu" *ngIf="isUserMenuOpen"></app-user-menu>
+            <app-user-menu [@fade]="userMenuState()" class="app-user-menu" *ngIf="isUserMenuOpen"></app-user-menu>
         </div>
 
      </nav>
 </div>
 
-<!-- TEST -->
-<!-- <br>
-<div class="nav-item-test">
-    <div class="user-options">
-        <i class="bi bi-hand-thumbs-up"></i>
-        <div class="user-menu">
-            <div class="menu-heading">Username</div>
-            <div class="menu-item">Profile</div>
-            <div class="menu-item">Messages</div>
-            <div class="menu-item">Logout</div>
-        </div>
-    </div>
-</div> -->
+
+
+<!-- {} -->
+
+<!-- transition('hide => show', animate('1000 ease-in')),
+transition('show => hide', animate('600 ease-out')), -->
