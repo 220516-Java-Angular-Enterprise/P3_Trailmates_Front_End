@@ -1,3 +1,5 @@
+import { getTestBed } from '@angular/core/testing';
+import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
@@ -19,7 +21,7 @@ export class ProfileComponent implements OnInit {
 
   popup = false
   public trailhistory: TrailHistory = {id: "", comment: "",  date: new Date}
-  public user: User = {};
+  public user: User = {}; 
 
   isLoggedIn: boolean = false;
   bio: any;
@@ -28,20 +30,27 @@ export class ProfileComponent implements OnInit {
   id: string = ''
   
   constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService,
-  private router:Router,http:HttpClient, private currRoute: ActivatedRoute) { }
+  private router:Router, private http:HttpClient, private currRoute: ActivatedRoute) { }
    
 
   async ngOnInit() {
     this.currRoute.params.subscribe(p=>{
       this.id = p['id'];
-      this.userservice.getUserById(this.id).subscribe((data:any) => {
-        this.user = data
-      })
+      
+      // this.userservice.getUserById(this.id).subscribe((data:any) => {
+      //   this.user = data
+        
+      // })
 
-      this.trailHistoryService.getHistoryDesc().subscribe((data:any) => {
-        this.trailhistory = data
-        console.log(this.trailhistory)
-    })
+      this.userservice.getUserById("56f4fe03-5359-4eb5-aa9c-8140caa1208d").subscribe((result)=>{
+        console.log(result)
+      })
+      console.log(this.id)
+      
+    //   this.trailHistoryService.getHistoryDesc().subscribe((data:any) => {
+    //     this.trailhistory = data
+    //     console.log(this.trailhistory)
+    // })
   })
 }
 
