@@ -24,13 +24,12 @@ export class ProfileComponent implements OnInit {
   isLoggedIn: boolean = false;
   bio: any;
   username: any;
-  public trailHistory: TrailHistory[] = [];
 
-
-  constructor(public trailHistoryService:TrailHistoryService, private interceptor:TokenInterceptorService, private userservice:UserService,
-  private router:Router,private http:HttpClient, private currRoute: ActivatedRoute) { }
- 
   id: string = ''
+  
+  constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService,
+  private router:Router,http:HttpClient, private currRoute: ActivatedRoute) { }
+   
 
   async ngOnInit() {
     this.currRoute.params.subscribe(p=>{
