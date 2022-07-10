@@ -50,6 +50,6 @@ export class NotificationsComponent implements OnInit {
   ngOnInit(): void {
     console.log("i was born")
     this.notifications = this.notifications;
-    console.log(this.notifCount);
+    console.log(`Notifications count: ${this.notifCount}`);
   }
 }
