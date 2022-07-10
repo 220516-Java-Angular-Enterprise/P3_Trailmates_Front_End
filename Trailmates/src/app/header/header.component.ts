@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { fade } from '../animations/animations';
+import {NotificationsComponent} from './notifications/notifications.component'
 
 @Component({
   selector: 'app-header',
@@ -12,8 +13,12 @@ export class HeaderComponent implements OnInit {
 
   isNotifOpen: boolean = false
 
+  count = 0;
+  // @Input() count:number = notifCount;
+
   toggleNotifMenu(): void {
     this.isNotifOpen = !this.isNotifOpen;
+    this.count= 0;
   }
 
   notifState() {
@@ -40,15 +45,13 @@ export class HeaderComponent implements OnInit {
   }
 
   notify = false;
-  count = 0;
 
   onSendClick() {
     this.count++;
     this.notify = true;
-    setTimeout(() => {this.notify = false;}, 300
-    );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }
 
