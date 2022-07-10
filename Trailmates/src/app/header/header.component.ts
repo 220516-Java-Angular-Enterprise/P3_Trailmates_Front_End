@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   isNotifOpen: boolean = false
 
   count = 0;
+  notify = false;
   // @Input() count:number = notifCount;
 
   toggleNotifMenu(): void {
@@ -44,9 +45,8 @@ export class HeaderComponent implements OnInit {
     this.isUserMenuOpen = false;
   }
 
-  notify = false;
-
-  onSendClick() {
+  // Notification Emulator
+  addNotif() {
     this.count++;
     this.notify = true;
   }
