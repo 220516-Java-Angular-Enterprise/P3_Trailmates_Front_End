@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -10,24 +10,20 @@ import { LandingComponent } from './auth/landing/landing.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
 import { NotifiationsComponent } from './header/notifications/notifications.component';
-import { SearchAllComponent } from './header/search-all/search-all.component';
+import { SearchAllComponent } from './header/search-users/search-users.component';
 import { SearchTrailsComponent } from './header/search-trails/search-trails.component';
 import { UserMenuComponent } from './header/user-menu/user-menu.component';
-
 import { FormsModule } from '@angular/forms';
 import { MessagingComponent } from './messaging-page/messaging/messaging.component';
-
 import { NotificationItemComponent } from './header/notifications/notification-item/notification-item.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthService } from './services/auth.service';
-
 import { TrailHistoryComponent } from './profile-page/trail-history/trail-history.component';
 import { TrailCommentsComponent } from './profile-page/trail-comments/trail-comments.component';
-
-
 import { MessagesService } from './services/messages.service';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ClickOutsideDirective } from './animations/click-outside.directive';
 import { SearchTrailStateComponent } from './header/search-trails/search-trail-state/search-trail-state.component';
 import { SearchTrailParkComponent } from './header/search-trails/search-trail-park/search-trail-park.component';
 import { DynamicSearchComponent } from './header/search-trails/dynamic-search/dynamic-search.component';
@@ -47,12 +43,10 @@ import { DynamicSearchComponent } from './header/search-trails/dynamic-search/dy
     SearchTrailsComponent,
     UserMenuComponent,
     NotificationItemComponent,
-
     NotFoundComponent,
     TrailHistoryComponent,
     TrailCommentsComponent,
-
-
+    ClickOutsideDirective,
     SearchTrailStateComponent,
     SearchTrailParkComponent,
     DynamicSearchComponent
@@ -62,7 +56,8 @@ import { DynamicSearchComponent } from './header/search-trails/dynamic-search/dy
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [AuthService,
     MessagesService,
@@ -73,4 +68,4 @@ import { DynamicSearchComponent } from './header/search-trails/dynamic-search/dy
   }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

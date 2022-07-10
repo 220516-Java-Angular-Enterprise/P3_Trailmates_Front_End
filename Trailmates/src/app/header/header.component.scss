@@ -15,30 +15,26 @@
 }
 
 .navbar {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-
-
-    // GRID
-    // display: grid;
-    // grid-template-columns: repeat(3, 1fr);
 }
 
 .navbar-logo{
-    height: 100px;
-    width: 100px;
+    height: 120px;
+    width: 120px;
     cursor: pointer;
 }
 
 .navbar-brand{
     font-family: typo-slab-inline;
-    font-size: 80px;
+    font-size: 90px;
     color: #444;
     font-weight: bolder;
     margin-top: 20px;
+    letter-spacing: 5px;
 }
 
 @font-face{
@@ -59,19 +55,8 @@ i{
 i:hover{
     color: black;
     font-weight: bolder;
+    cursor: pointer;
 }
-
-// .bi-person-circle{
-//     margin: 20px;
-// }
-
-// .bi-signpost-2{
-//     margin: 0 10px;
-// }
-
-// .bi-bell{
-//     margin: 0 10px;
-// }
 
 // DROPDOWN
 .user-options{
@@ -104,4 +89,30 @@ i:hover{
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+}
+
+// Menu Toggler
+.menu-container{
+    width: 200px;
+    background: #04aa6d;
+    font-size: 20px
+}
+
+.menu-togger {
+    padding: 10px;
+}
+
+.menu {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.menu-item {
+    cursor: pointer;
+    padding: 5px 0;
+}
+
+.menu-item:hover{
+    text-decoration: underline;
 }
