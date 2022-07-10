@@ -1,3 +1,4 @@
+import { TrailService } from 'src/app/services/trail.service';
 import { getTestBed } from '@angular/core/testing';
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
@@ -10,6 +11,7 @@ import { UserService } from 'src/app/services/user-service.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenInterceptorService } from 'src/app/services/token-interceptor.service';
 import { User } from 'src/app/models/user';
+import { TrailHistoryComponent } from '../trail-history/trail-history.component';
 
 @Component({
   selector: 'app-profile',
@@ -18,34 +20,29 @@ import { User } from 'src/app/models/user';
 })
 export class ProfileComponent implements OnInit {
   @Input()
-
+  
   popup = false
   public trailhistory: TrailHistory = {id: "", comment: "",  date: new Date}
-  public user: User = {}; 
+  public user: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
 
   isLoggedIn: boolean = false;
-  bio: any;
   username: any;
 
-  id: string = ''
-  
-  constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService,
+  id: string | null= localStorage.getItem('id')
+  constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService, private trailHistoryComp:TrailHistoryComponent,
   private router:Router, private http:HttpClient, private currRoute: ActivatedRoute) { }
    
 
   async ngOnInit() {
-    this.currRoute.params.subscribe(p=>{
-      this.id = p['id'];
+    this.currRoute.params.subscribe(p => {
       
-      // this.userservice.getUserById(this.id).subscribe((data:any) => {
-      //   this.user = data
-        
-      // })
-
-      this.userservice.getUserById("56f4fe03-5359-4eb5-aa9c-8140caa1208d").subscribe((result)=>{
-        console.log(result)
+      //converts null to string
+      this.userservice.getUserById((this.id || '').toString()).subscribe((data:any) => {
+        this.user = data
+        console.log(this.user)
       })
-      console.log(this.id)
+      console.log(localStorage.getItem('id'))
+     
       
     //   this.trailHistoryService.getHistoryDesc().subscribe((data:any) => {
     //     this.trailhistory = data
@@ -53,6 +50,7 @@ export class ProfileComponent implements OnInit {
     // })
   })
 }
+
 
 
 }

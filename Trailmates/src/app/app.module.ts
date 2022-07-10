@@ -57,6 +57,7 @@ import { MessagesService } from './services/messages.service';
   ],
   providers: [AuthService,
     MessagesService,
+    TrailHistoryComponent,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

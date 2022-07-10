@@ -6,11 +6,11 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 
-// const httpOptions = {
-//   headers: new HttpHeaders({
-//     'Content-Type': 'application/json',
-//   }),
-// };
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  }),
+};
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +18,7 @@ import { HttpHeaders } from '@angular/common/http';
 export class UserService {
   constructor(private http: HttpClient) {
   }
-  public ROOT_URL = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/user/';
+  public ROOT_URL = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/user/user-id/';
   getUserById (id: string): Observable<User> {
     return this.http.get<User>(this.ROOT_URL +`${id}`);
   }
