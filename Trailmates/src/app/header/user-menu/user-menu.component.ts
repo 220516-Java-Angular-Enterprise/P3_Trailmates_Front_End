@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-user-menu',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: Router, private auth: AuthService) { }
 
   loggedIn:boolean = false;
 
@@ -19,7 +21,15 @@ export class UserMenuComponent implements OnInit {
   }
 
   logout(){
-    this.loggedIn =! this.loggedIn;
+    this.auth.logoutUser();
+  }
+
+  goToMessages(){
+    this.route.navigateByUrl("/messaging/"+localStorage.getItem("id"))
+  }
+
+  goToProfile(){
+    this.route.navigateByUrl("/profile/"+localStorage.getItem("username"))
   }
 
 }

@@ -1,9 +1,9 @@
-<div class="dropdown-item">
+<div class="dropdown-item" *ngIf="notif">
 
   <div class="notification">
     <!-- <div class="notification-title">{{notif.id}}</div> -->
-    <h3 class="notification-title">Trail name</h3>
-    <button class="btn">X</button>
+    <h3 class="notification-title"(click)="goToMessages()">Trail name</h3>
+    <button class="btn" (click)="onDelete(notif)">X</button>
   </div>
 
   <div class="notification-footer">

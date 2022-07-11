@@ -7,7 +7,7 @@
   </div>
   </li>
   <!-- Notification -->
-  <app-notification-item *ngFor="let notif of notifications" [notif]="notif" (onDeleteNotif)="deleteNotif(notif)" (clicked)="onClick()"></app-notification-item>
+  <app-notification-item *ngFor="let notif of notifications" [notif]="notif" (onDeleteNotif)="deleteNotif(notif)" (goToMessage)="goToMessages()"></app-notification-item>
   <!-- End Notification -->
 </ul>
 

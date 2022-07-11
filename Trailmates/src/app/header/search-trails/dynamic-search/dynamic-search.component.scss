@@ -1,0 +1,33 @@
+*{
+    --bistre: #31231E;
+    --shadow: #f4d35e;
+    --moss-green: #8A9B68;
+    --laurel-green: #B6C197;
+    --pale-sptring: #d5ddbc;
+    font-size: 18px;
+}
+
+.shadow {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    width: 100%;
+}
+
+.dynamic-search {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.dropdown {
+    display: flex;
+    justify-content: center;
+    max-width: 50%;
+    border-radius: 12px;
+}
+
+.form-select {
+ max-width: 20%;
+//  background-color: rgba(213, 221, 188, 0.3);
+ background-color: rgba(244, 211, 94, 0.23);
+}
+

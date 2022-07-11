@@ -1,6 +1,6 @@
+import { Notification } from 'src/app/models/notification';
 import { Component, OnInit, Input } from '@angular/core';
 import { fade } from '../animations/animations';
-import {NotificationService} from './notifications/notifications-service/notification.service'
 
 @Component({
   selector: 'app-header',
@@ -11,15 +11,33 @@ import {NotificationService} from './notifications/notifications-service/notific
 export class HeaderComponent implements OnInit {
   constructor() {}
 
+  notifications: Notification[] = [
+    {
+      id: "1",
+      message: "message1",
+    },
+    {
+      id: "2",
+      message: "message1",
+    },
+    {
+      id: "3",
+      message: "message1",
+    },
+    {
+      id: "4",
+      message: "message1",
+    }
+  ]
+  
   isNotifOpen: boolean = false
 
   notify = false;
-  count = 0;
+  count = this.notifications.length;
 
   toggleNotifMenu(): void {
     this.isNotifOpen = !this.isNotifOpen;
     this.count= 0;
-    // this.notifCount= 0;
   }
 
   notifState() {
@@ -34,7 +52,6 @@ export class HeaderComponent implements OnInit {
 
   toggleUserMenu(): void {
     this.isUserMenuOpen = !this.isUserMenuOpen;
-   
   }
   
   userMenuState() {
@@ -43,12 +60,6 @@ export class HeaderComponent implements OnInit {
 
   clickedOutsideUser(): void {
     this.isUserMenuOpen = false;
-  }
-
-  // Notification Emulator
-  addNotif() {
-    this.count++;
-    this.notify = true;
   }
 
   ngOnInit(): void {

@@ -5,13 +5,13 @@
     <h2 class="menu-title ">Username</h2>
     
     <div class="dropdown-item">
-      <button class="btn btn-item">Account Info</button>
+      <button class="btn btn-item" (click)="goToProfile()">Account Info</button>
     </div>
     <div class="dropdown-item">
-      <button class="btn btn-item">Messages</button>
+      <button class="btn btn-item" (click)="goToMessages()">Messages</button>
     </div>
     <div class="dropdown-item">
-      <button class="btn btn-item">Log out</button>
+      <button class="btn btn-item" (click)="logout()" >Log out</button>
     </div>
     
   </div>
