@@ -65,6 +65,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
   ],
   providers: [AuthService,
     MessagesService,
+    TrailHistoryComponent,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

@@ -11,13 +11,15 @@
 }
 
 form{
-    background-color: #748cab;
+    background-color: rgb(164, 177, 160);
     margin: 0;
+    height: 100%;
 }
 
 .postBtn{
     float: right;
-    font-size: 20px;
+    font-size: 30px;
+    margin: 20px;
     background-color: #1d2d44;
     color: white;
     &:hover{

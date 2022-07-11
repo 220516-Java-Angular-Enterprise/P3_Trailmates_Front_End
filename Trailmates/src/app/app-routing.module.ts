@@ -19,7 +19,7 @@ const routes: Routes = [
     // profile/:user
     path: 'profile/:username',
     component: ProfileComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'login',
