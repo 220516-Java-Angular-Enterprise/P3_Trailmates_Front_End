@@ -20,10 +20,12 @@
 }
 
 form{
+    padding-top: 5%;
+    padding-bottom: 5%;
     background-color: rgba(244, 211, 94, 0.23);
     margin: 0;
     z-index: 100000;
-
+    border-radius: 12px;
 }
 
 .clickbtn {

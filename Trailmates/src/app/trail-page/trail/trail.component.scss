@@ -176,10 +176,11 @@
 
   .popup {
     margin: 70px auto;
-    padding: 20px;
+    padding: 5px;
     background: #fff;
     border-radius: 12px;
     width: 30%;
+    // border: 2px solid;
     position: relative;
     transition: all 5s ease-in-out;
   }
@@ -201,9 +202,13 @@
   }
 
   .popup .close:hover {
-    color: #06D85F;
+    background-color: var(--laurel-green);
     cursor: pointer;
   }
+
+  .popshadow {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
 
 
 
