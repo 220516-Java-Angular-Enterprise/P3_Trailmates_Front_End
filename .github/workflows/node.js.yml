@@ -47,11 +47,14 @@ jobs:
     - name: make directory
       run: mkdir -p /var/run/dbus
 
-    - name: install cypress
-      run: ng add @cypress/schematic
+    - name: install cypress with dependencies
+      run: ng install cypress --save-dev
 
-    - name: run dbus
-      run: sudo /etc/init.d/dbus start  
+    - name: install cypress
+      run: npm install cypress
+
+    - name: open cypress
+      run: node_modules/.bin/cypress open
 
     - name: end to end
       working-directory: ./Trailmates
