@@ -48,7 +48,7 @@ jobs:
       run: mkdir -p /var/run/dbus
 
     - name: install cypress with dependencies
-      run: ng install cypress --save-dev
+      run: npm install cypress --save-dev
 
     - name: install cypress
       run: npm install cypress
