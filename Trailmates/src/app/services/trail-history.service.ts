@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import{Router} from '@angular/router';
-import { Observable } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 import { TrailHistory } from '../models/trailHistory';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TrailHistoryService {
-  private URL="http://trailmates.s3-website-us-east-1.amazonaws.com/TrailMates/history";
+  private URL="http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/history";
 
   constructor(private http:HttpClient, private route:Router) { }
 
@@ -21,6 +21,6 @@ export class TrailHistoryService {
   }
 
   insertNewHistory(newHistory: TrailHistory) {
-    return this.http.post<TrailHistory>(this.URL+'/newHistory', newHistory);
+    return this.http.post<any>(this.URL+'/newHistory', newHistory);
   }
 }

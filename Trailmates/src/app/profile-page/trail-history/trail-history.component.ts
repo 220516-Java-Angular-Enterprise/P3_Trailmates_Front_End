@@ -13,7 +13,7 @@ import { NgForm } from '@angular/forms';
 })
 
 export class TrailHistoryComponent implements OnInit {
-
+  comment: string = ""
   id: string | null= localStorage.getItem('id')
 
   constructor(private trailhistory:TrailHistoryService) { }
@@ -27,18 +27,20 @@ export class TrailHistoryComponent implements OnInit {
   user: User = {
     id: '56f4fe03-5359-4eb5-aa9c-8140caa1208d'
   }
-  postHistory(){
-    let historyReq: TrailHistory = {
-      comment: "my comment",
-      date: new Date,
-      
-    }
 
-    this.trailhistory.insertNewHistory(historyReq)
-    console.log(historyReq)
-    console.log(this.id)
-  }
+historyReq = {
+        trail_name: "",
+        comment: "",
+        date: new Date,
+      }
+displayFormSubmitError: boolean = false
 
-  
-  
+processForm(postForm: NgForm) {
+  this.trailhistory.insertNewHistory(this.historyReq).subscribe(data =>{
+    console.log(data)
+  })
+ 
+}
+
+
 }
