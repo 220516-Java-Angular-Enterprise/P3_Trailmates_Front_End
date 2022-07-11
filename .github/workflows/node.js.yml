@@ -37,4 +37,5 @@ jobs:
     - name: testing
       working-directory: ./Trailmates
       run: npm test
+      run: ng add @cypress/schematic
 
