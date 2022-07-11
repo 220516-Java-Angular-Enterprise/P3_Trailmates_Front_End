@@ -1,4 +1,6 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { TrailHistoryService } from './trail-history.service';
 
@@ -6,7 +8,9 @@ describe('TrailHistoryService', () => {
   let service: TrailHistoryService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule, RouterTestingModule]
+    });
     service = TestBed.inject(TrailHistoryService);
   });
 
