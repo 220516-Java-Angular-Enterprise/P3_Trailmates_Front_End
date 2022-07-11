@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import{Router} from '@angular/router';
-import { Observable } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 import { TrailHistory } from '../models/trailHistory';
 
 @Injectable({
@@ -21,6 +21,6 @@ export class TrailHistoryService {
   }
 
   insertNewHistory(newHistory: TrailHistory) {
-    return this.http.post<TrailHistory>(this.URL+'/newHistory', newHistory);
+    return this.http.post<any>(this.URL+'/newHistory', newHistory);
   }
 }
