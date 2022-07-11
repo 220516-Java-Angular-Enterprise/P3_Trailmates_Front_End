@@ -40,6 +40,6 @@ jobs:
 
     - name: end to end
       working-directory: ./Trailmates
-      run: npm e2e
+      run: ng e2e
 
 
