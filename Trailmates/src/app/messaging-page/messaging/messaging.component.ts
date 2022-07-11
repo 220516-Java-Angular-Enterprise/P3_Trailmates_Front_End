@@ -2,9 +2,7 @@ import { OwnedCoversation } from './../../models/ownedCoversations';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MessagesService } from 'src/app/services/messages.service';
-import { Message } from 'src/app/models/messages';
 import { ActivatedRoute } from '@angular/router';
-import { Conversation } from 'src/app/models/conversation';
 
 
 
