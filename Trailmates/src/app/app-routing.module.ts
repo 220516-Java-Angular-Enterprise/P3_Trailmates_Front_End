@@ -32,7 +32,7 @@ const routes: Routes = [
   {
     path: 'trailpage',
     component: TrailComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     //messaging/:userid
