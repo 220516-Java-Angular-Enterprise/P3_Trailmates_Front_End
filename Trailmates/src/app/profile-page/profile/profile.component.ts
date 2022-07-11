@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
   isLoggedIn: boolean = false;
   username: any;
 
-  id: string | null= localStorage.getItem('id')
+  id: string | null = localStorage.getItem('id')
   constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService, private trailHistoryComp:TrailHistoryComponent,
   private router:Router, private http:HttpClient, private currRoute: ActivatedRoute) { }
    
