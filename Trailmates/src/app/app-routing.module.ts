@@ -1,3 +1,4 @@
+import { CalendarModalComponent } from './calendar-modal/calendar-modal.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TrailComponent } from './trail-page/trail/trail.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
@@ -33,6 +34,11 @@ const routes: Routes = [
     path: 'trailpage',
     component: TrailComponent,
     // canActivate: [AuthGuard]
+    children: [
+      {path: 'flag/:id',
+      component: CalendarModalComponent,
+    canActivate: [AuthGuard]},
+  ]
   },
   {
     //messaging/:userid

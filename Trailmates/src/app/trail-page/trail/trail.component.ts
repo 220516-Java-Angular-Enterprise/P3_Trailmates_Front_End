@@ -113,4 +113,8 @@ filterSubject(subject: any){
   console.log(this.subject)
 }
 
+goToFlag(id: string){
+  this._route.navigateByUrl('/trailpage/flag/'+id);
+}
+
 }

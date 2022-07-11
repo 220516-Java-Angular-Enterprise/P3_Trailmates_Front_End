@@ -42,7 +42,7 @@ export class ProfileComponent implements OnInit {
         console.log(this.user)
       })
       console.log(localStorage.getItem('id'))
-     
+    
       
     //   this.trailHistoryService.getHistoryDesc().subscribe((data:any) => {
     //     this.trailhistory = data
