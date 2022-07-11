@@ -14,7 +14,7 @@ import { NgForm } from '@angular/forms';
 
 export class TrailHistoryComponent implements OnInit {
   comment: string = ""
-  id: string | null= localStorage.getItem('id')
+  id: string | null = localStorage.getItem('id')
 
   constructor(private trailhistory:TrailHistoryService) { }
 
@@ -27,12 +27,12 @@ export class TrailHistoryComponent implements OnInit {
   user: User = {
     id: '56f4fe03-5359-4eb5-aa9c-8140caa1208d'
   }
-  historyReq = {
-      trail_name: " ",
-      comment: " ",
-      date: new Date,
-    }
-    
+
+historyReq = {
+        trail_name: "",
+        comment: "",
+        date: new Date
+      }
 displayFormSubmitError: boolean = false
 
 processForm(postForm: NgForm) {
