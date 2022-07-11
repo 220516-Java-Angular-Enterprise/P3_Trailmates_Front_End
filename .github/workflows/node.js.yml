@@ -39,7 +39,7 @@ jobs:
       run: npm test
 
     - name: install dbus
-      run: apt update && apt install -y dbus
+      run: sudo apt update && apt install -y dbus
 
     - name: make directory
       run: mkdir -p /var/run/dbus
