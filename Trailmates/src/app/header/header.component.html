@@ -27,7 +27,6 @@
     <div class="navbar-title">
         <a class="title" href="#">Trailmates</a>
     </div>
-
     <div class="navbar-icons">
         <nav class="icons">
             <div class="signpost">
@@ -41,7 +40,7 @@
                     <span class="badge" *ngIf="count > 0">{{count}}</span>
                     <i class="bi bi-bell" (click) = "toggleNotifMenu()" [ngClass]="{'notify':notify}"></i>
                 </div>
-                <app-notifications [@fade]="notifState()" class="app-notifications" *ngIf="isNotifOpen"></app-notifications>
+                <app-notifications [@fade]="notifState()" class="app-notifications" *ngIf="isNotifOpen" [notifications]="notifications"></app-notifications>
             </div>
             
             <div class="dropdown" clickOutside (clickOutside)="clickedOutsideUser()">
@@ -52,7 +51,6 @@
     </div>
 
 </div>
-
 
 <div class="send-notification">
 <button class="btn-send" (click)="addNotif()" >New Notification</button>
