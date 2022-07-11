@@ -20,7 +20,7 @@ export class TrailHistoryService {
     return this.http.get<TrailHistory[]>(this.URL+'/asc');
   }
 
-  insertNewHIstory(newHistory: TrailHistory) {
+  insertNewHistory(newHistory: TrailHistory) {
     return this.http.post<TrailHistory>(this.URL+'/newHistory', newHistory);
   }
 }

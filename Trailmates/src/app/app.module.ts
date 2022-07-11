@@ -61,6 +61,7 @@ import { DynamicSearchComponent } from './header/search-trails/dynamic-search/dy
   ],
   providers: [AuthService,
     MessagesService,
+    TrailHistoryComponent,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

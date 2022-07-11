@@ -1,3 +1,6 @@
+import { TrailService } from 'src/app/services/trail.service';
+import { getTestBed } from '@angular/core/testing';
+import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
@@ -16,7 +19,7 @@ import { User } from 'src/app/models/user';
 })
 export class ProfileComponent implements OnInit {
   @Input()
-
+  
   popup = false
   public trailhistory: TrailHistory = {id: "", comment: "",  date: new Date}
   public user: User = {};
