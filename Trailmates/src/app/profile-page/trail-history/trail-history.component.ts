@@ -27,11 +27,10 @@ export class TrailHistoryComponent implements OnInit {
   user: User = {
     id: '56f4fe03-5359-4eb5-aa9c-8140caa1208d'
   }
-  postHistory(){
-    let historyReq: TrailHistory = {
-      comment: "my comment",
+  historyReq = {
+      trail_name: " ",
+      comment: " ",
       date: new Date,
-      
     }
 
     this.trailhistory.insertNewHistory(historyReq)
