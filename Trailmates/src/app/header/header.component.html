@@ -19,6 +19,7 @@
             <div class="dropdown" clickOutside (clickOutside)="clickedOutsideNotif()">
                 <div class="notification">
                     <span class="badge" *ngIf="count > 0"> {{count}}</span>
+                    <!-- <span class="badge" *ngIf="notifCount > 0" [(ngModel)]="notifCount"> {{notifCount}}</span> -->
                     <i class="bi bi-bell" (click) = "toggleNotifMenu()" [ngClass]="{'notify':notify}"></i>
                 </div>
                 <app-notifications [@fade]="notifState()" class="app-notifications" *ngIf="isNotifOpen"></app-notifications>

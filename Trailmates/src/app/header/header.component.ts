@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { fade } from '../animations/animations';
-import {NotificationsComponent} from './notifications/notifications.component'
+import {NotificationService} from './notifications/notifications-service/notification.service'
 
 @Component({
   selector: 'app-header',
@@ -13,13 +13,13 @@ export class HeaderComponent implements OnInit {
 
   isNotifOpen: boolean = false
 
-  count = 0;
   notify = false;
-  // @Input() count:number = notifCount;
+  count = 0;
 
   toggleNotifMenu(): void {
     this.isNotifOpen = !this.isNotifOpen;
     this.count= 0;
+    // this.notifCount= 0;
   }
 
   notifState() {
