@@ -40,6 +40,6 @@ jobs:
 
     - name: end to end
       working-directory: ./Trailmates
-      run: ng add @cypress/schematic
+      run: e2e
 
 
