@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit {
   
   popup = false
   public trailhistory: TrailHistory[] = []
+  public noPosts: string = ""
   public user: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
 
   isLoggedIn: boolean = false;
@@ -46,8 +47,15 @@ export class ProfileComponent implements OnInit {
       this.trailHistoryService.getHistoryAsc().subscribe((data)=>{
         this.trailhistory = data;
         console.log(this.trailhistory)
-        
+
+        if(this.trailhistory.length == 0){
+          console.log("You don't have any posts")
+        }else{
+          console.log("You have posts")
+        }
       })
+
+      
      
       
   })
