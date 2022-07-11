@@ -11,7 +11,7 @@ import { firstValueFrom } from 'rxjs';
 export class AuthService {
 
   private URL = "http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/";
-  // private URL = "http://trailmates-env.us-east-1.elasticbeanstalk.com/";
+  
   constructor(private http: HttpClient, private route: Router) { }
 
   login(auth: User){
