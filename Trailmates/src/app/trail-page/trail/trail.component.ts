@@ -1,3 +1,4 @@
+import { TrailFlagService } from './../../services/trail-flag.service';
 import { Trail } from './../../models/trail';
 import { Component, Input, OnInit } from '@angular/core';
 import { TrailService } from 'src/app/services/trail.service';
@@ -5,6 +6,7 @@ import { UserService } from 'src/app/services/user-service.service';
 import { User } from 'src/app/models/user';
 import { Router } from '@angular/router';
 import {} from 'googlemaps';
+import { TrailFlag } from 'src/app/models/trailFlag';
 // import { ConsoleReporter } from 'jasmine';
 
 @Component({
@@ -14,15 +16,18 @@ import {} from 'googlemaps';
 })
 export class TrailComponent implements OnInit {
 
-  constructor(private _trailService: TrailService, private _userService: UserService, private _route: Router){ }
+  constructor(private _trailService: TrailService, private _userService: UserService, private _trailFlagService: TrailFlagService, private _route: Router){ }
   
   @Input()
   popup = false;
+
+  fillColor = 'rgb(220,220,220)';
   
   filterTrail: Trail[] = [];
   allTrails: Trail[] = [];
   allUsers: User[] = [];
   filterUser: User[] = [];
+  flagTrails: TrailFlag[] = []
   trail: Trail = {};
   long_desc: string = '';
   latitude: Number = 0;
@@ -40,11 +45,35 @@ export class TrailComponent implements OnInit {
       this.allUsers = data;
     })
     
+    
+
   }
 
   // to toggle flag from blank to filled in on click
-  change() {
-    // document.getElementById("flagButtonFill").d="";
+  flag(event: any) {
+    // get trail_id of card and search if the user has it in their list
+    // if they have it check date, if date is today or later then change color, else return
+
+    var dateInt = new Date().getTime()/(1000*60*60*24)
+
+    // event target may be trail id
+    this._trailFlagService.getAllByDateAndName(dateInt, event?.target.id).subscribe((data) =>{
+      this.flagTrails = data;
+      console.log(this.flagTrails)
+    })
+
+    // need an if trail id is there then change flag color
+    this.fillColor = `rgb(47,79,79)`;
+  }
+
+  friend(event: any) {
+
+
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    this.fillColor = `rgb(${r}, ${g}, ${b})`;
+
   }
 
   filterTrails(query: any){
@@ -77,8 +106,6 @@ export class TrailComponent implements OnInit {
       this.latitude = +this.trail.latitude!;
       this.longitude = +this.trail.longitude!;
     
-
-
       // This is the functionality for the google map
       this.initMap(this.latitude, this.longitude)
     })
