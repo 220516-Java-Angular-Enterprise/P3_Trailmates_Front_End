@@ -42,13 +42,10 @@ jobs:
    #   run: sudo apt update && apt install -y dbus
 
     - name: install on ubuntu
-      run: apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
-      
+      run: sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
+
     - name: make directory
       run: mkdir -p /var/run/dbus
-
-    - name: launch dbus  
-      run: dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address
 
     - name: end to end
       working-directory: ./Trailmates
