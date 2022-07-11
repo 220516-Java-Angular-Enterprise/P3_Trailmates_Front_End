@@ -48,7 +48,7 @@ jobs:
       run: mkdir -p /var/run/dbus
 
     - name: run dbus
-      run: sudo /etc/init.d/dbus start &> /dev/null  
+      run: sudo /etc/init.d/dbus start  
 
     - name: end to end
       working-directory: ./Trailmates
