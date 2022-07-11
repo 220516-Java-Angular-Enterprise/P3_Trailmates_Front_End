@@ -22,7 +22,7 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    
+
     - name: Checkout
       uses: actions/checkout@v3
 
@@ -33,7 +33,7 @@ jobs:
       working-directory: ./Trailmates
       run: npm install
 
-    # - name: testing
-    #   working-directory: ./Trailmates
-    #   run: npm test
+    - name: testing
+      working-directory: ./Trailmates
+      run: npm test
 
