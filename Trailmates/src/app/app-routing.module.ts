@@ -1,11 +1,11 @@
 import { NotFoundComponent } from './not-found/not-found.component';
-import { MessagingComponent } from './messaging-page/messaging/messaging.component';
 import { TrailComponent } from './trail-page/trail/trail.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
-import { LoginComponent } from './auth/login/login.component';
 import { ProfileComponent } from './profile-page/profile/profile.component';
+import { LoginComponent } from './auth/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MessagingComponent } from './messaging-page/messaging/messaging.component';
 import { AuthGuard } from './auth.guard';
 import { LandingComponent } from './auth/landing/landing.component';
 
@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     // profile/:user
-    path: 'profile',
+    path: 'profile/:username',
     component: ProfileComponent,
     canActivate: [AuthGuard]
   },
@@ -34,8 +34,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    //messaging/:user/:chat_id
-    path: 'messaging',
+    //messaging/:userid
+    path: 'messaging/:id',
     component: MessagingComponent,
     canActivate: [AuthGuard]
   },
@@ -44,7 +44,9 @@ const routes: Routes = [
     component: NotFoundComponent,
 
   }
+
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

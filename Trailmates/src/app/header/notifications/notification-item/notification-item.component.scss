@@ -1,0 +1,35 @@
+.dropdown-item {
+  font-size: 16px;
+  width: 300px;
+  margin-bottom: 5px;
+
+  position: relative;
+}
+
+.notification {
+  display:flex;
+  justify-content: center;
+  justify-content:space-between;
+  align-content:center;
+  background-color: #ddd;
+  padding: 5px;
+  margin-top:10px;
+}
+
+.notification-footer {
+  background-color: #f7f7f7;
+  display:flex;
+  justify-content:space-between;
+  padding: 5px;
+}
+
+.btn{
+    align-self: end;
+}
+
+.notification-title {
+  align-self: center;
+  margin-top: 1%;
+  // margin-bottom: 1%;
+  right: 0;
+}
