@@ -20,7 +20,7 @@ const routes: Routes = [
     // profile/:user
     path: 'profile/:username',
     component: ProfileComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -33,7 +33,7 @@ const routes: Routes = [
   {
     path: 'trailpage',
     component: TrailComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
     children: [
       {path: 'flag/:id',
       component: CalendarModalComponent,
