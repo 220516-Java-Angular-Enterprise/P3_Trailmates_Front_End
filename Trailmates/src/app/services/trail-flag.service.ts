@@ -14,7 +14,7 @@ export class TrailFlagService {
 
   // private header: HttpHeaders = new HttpHeaders()
 
-  url: string = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/flag'
+  url: string = 'http://localhost:8080/TrailMates/flag'
 
 
   postTrailFlag(trailFlagReq: any): Observable<TrailFlag>{
@@ -22,7 +22,7 @@ export class TrailFlagService {
   }
 
   getFlagById(id: string): Observable<TrailFlag>{
-    return this.http.get<TrailFlag>(this.url+id);
+    return this.http.get<TrailFlag>(this.url+"/"+id);
   }
 
 

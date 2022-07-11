@@ -28,9 +28,8 @@ export class CalendarModalComponent implements OnInit {
     this.trailFlagReq.trail_id = this.currRoute.firstChild?.snapshot.params['id'];
     this.trailFlagReq.user_id = localStorage.getItem('id')!;
 
-  this._flagService.getFlagById('someid').subscribe((data:any) =>{
+  this._flagService.getFlagById('2750C574-18E4-45F7-B209-740A69A46729').subscribe((data:any) =>{
   console.log(data);
-
 });
   }
 
