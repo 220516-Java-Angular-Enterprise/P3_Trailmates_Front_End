@@ -9,6 +9,7 @@ import { MessagingComponent } from './messaging-page/messaging/messaging.compone
 import { AuthGuard } from './auth.guard';
 import { LandingComponent } from './auth/landing/landing.component';
 
+// Routes paths to componenets in Router Outlet
 const routes: Routes = [
   {
     path: '',

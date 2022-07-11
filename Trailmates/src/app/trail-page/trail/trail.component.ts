@@ -27,10 +27,11 @@ export class TrailComponent implements OnInit {
 
 
   ngOnInit(): void {
+    // Gets all trails on render
     this._trailService.getAllTrails().subscribe((data)=>{
       this.allTrails = data;
     })
-
+    // Gets all users on render
     this._userService.getAllUsers().subscribe((data)=>{
       this.allUsers = data;
     })
@@ -42,7 +43,8 @@ export class TrailComponent implements OnInit {
     // document.getElementById("flagButtonFill").d="";
   }
 
-  filterTrails(query: any){
+  filter(query: any){
+  // Filters trails array for name
   if(this.subject == 'trails'){
   this.filterTrail = [];
   this.allTrails.forEach((element) => {
@@ -53,6 +55,7 @@ export class TrailComponent implements OnInit {
       this.filterTrail.push(element);
     }
   });
+  // Filters users array for name
   }else if (this.subject == 'users'){
     this.filterUser = [];
     this.allUsers.forEach((element)=>{

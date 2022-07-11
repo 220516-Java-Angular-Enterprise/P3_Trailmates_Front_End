@@ -8,10 +8,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UserService {
-  public ROOT_URL = 'http://localhost:8080/TrailMates/user/';
+  public ROOT_URL = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/user/';
 
   constructor(private http: HttpClient) {}
 
+  // Gets all users from backend via GET request.
   getAllUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.ROOT_URL+"all-users");
   }

@@ -1,11 +1,13 @@
 <app-header></app-header>
-<app-dynamic-search (passQuery)="filterTrails($event)" (passSubject)="filterSubject($event)"></app-dynamic-search>
+<app-dynamic-search (passQuery)="filter($event)" (passSubject)="filterSubject($event)"></app-dynamic-search>
 <div class="container-fluid searchresults">
     <div class="row">
         <!-- left side colmn trail list-->
-        <div class="col leftSearch" data-spy="scroll" data-target="#trailresults" data-offset="0">
 
+        <div class="col leftSearch" data-spy="scroll" data-target="#trailresults" data-offset="0">
+              <!-- Cards Container -->
             <div class="card container" id="trailresults" *ngIf="subject == 'trails'">
+              <!-- Card -->
                 <div class="cardRow container row" *ngFor="let trail of filterTrail">
                     <div class="col">
                         <img class="cardpic" src={{trail.image_url}} class="card-img-top-search"
@@ -40,7 +42,9 @@
                         </div>
                     </div>
                 </div>
+                <!-- Card End -->
             </div>
+            <!-- Card Container End -->
 
             <div class="card container" id="trailresults" *ngIf="subject == 'users'">
                 <div class="cardRow container row" *ngFor="let user of filterUser">

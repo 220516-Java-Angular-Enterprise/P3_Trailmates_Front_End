@@ -1,3 +1,4 @@
+import { SearchAllComponent } from './header/search-users/search-users.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -9,8 +10,7 @@ import { TrailComponent } from './trail-page/trail/trail.component';
 import { LandingComponent } from './auth/landing/landing.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
-import { NotifiationsComponent } from './header/notifications/notifications.component';
-import { SearchAllComponent } from './header/search-users/search-users.component';
+import { NotificationsComponent } from './header/notifications/notifications.component';
 import { SearchTrailsComponent } from './header/search-trails/search-trails.component';
 import { UserMenuComponent } from './header/user-menu/user-menu.component';
 import { NotificationItemComponent } from './header/notifications/notification-item/notification-item.component';
@@ -38,7 +38,7 @@ import { MessagesService } from './services/messages.service';
     LandingComponent,
     LoginComponent,
     CreateAccComponent,
-    NotifiationsComponent,
+    NotificationsComponent,
     SearchAllComponent,
     SearchTrailsComponent,
     UserMenuComponent,
