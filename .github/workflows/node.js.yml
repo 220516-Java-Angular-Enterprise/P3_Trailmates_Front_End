@@ -38,8 +38,13 @@ jobs:
       working-directory: ./Trailmates
       run: npm test
 
+    - name: install dbus
+      run: apt update && apt install -y dbus
+      run: mkdir -p /var/run/dbus  
+      run: dbus-daemon --config-file=/usr/share/dbus-1/system.conf --print-address
+
     - name: end to end
       working-directory: ./Trailmates
-      run: npm  run e2e
+      run: npm run e2e
 
 
