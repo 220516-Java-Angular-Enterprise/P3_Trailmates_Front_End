@@ -27,6 +27,8 @@ import { SearchTrailParkComponent } from './header/search-trails/search-trail-pa
 import { DynamicSearchComponent } from './header/search-trails/dynamic-search/dynamic-search.component';
 import { MessagingComponent } from './messaging-page/messaging/messaging.component';
 import { MessagesService } from './services/messages.service';
+import { CalendarModalComponent } from './calendar-modal/calendar-modal.component';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { MessagesService } from './services/messages.service';
     ClickOutsideDirective,
     SearchTrailStateComponent,
     SearchTrailParkComponent,
-    DynamicSearchComponent
+    DynamicSearchComponent,
+    CalendarModalComponent
   ],
 
   imports: [
@@ -58,6 +61,7 @@ import { MessagesService } from './services/messages.service';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    OverlayModule,
   ],
   providers: [AuthService,
     MessagesService,

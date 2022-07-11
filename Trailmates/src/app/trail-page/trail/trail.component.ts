@@ -1,5 +1,5 @@
 import { Trail } from './../../models/trail';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TrailService } from 'src/app/services/trail.service';
 import { UserService } from 'src/app/services/user-service.service';
 import { User } from 'src/app/models/user';
@@ -16,6 +16,9 @@ export class TrailComponent implements OnInit {
 
   constructor(private _trailService: TrailService, private _userService: UserService, private _route: Router){ }
   
+  @Input()
+  popup = false;
+  
   filterTrail: Trail[] = [];
   allTrails: Trail[] = [];
   allUsers: User[] = [];
@@ -27,7 +30,6 @@ export class TrailComponent implements OnInit {
   regex: RegExp = /(<([^>]+)>)/ig;
   subject: string = '';
   petsAllowed: string = '';
-
 
   ngOnInit(): void {
     this._trailService.getAllTrails().subscribe((data)=>{
@@ -74,6 +76,8 @@ export class TrailComponent implements OnInit {
       this.trail.long_desc = this.trail.long_desc!.replace(this.regex, "")
       this.latitude = +this.trail.latitude!;
       this.longitude = +this.trail.longitude!;
+    
+
 
       // This is the functionality for the google map
       this.initMap(this.latitude, this.longitude)
@@ -85,7 +89,7 @@ export class TrailComponent implements OnInit {
   const map = new google.maps.Map(
     document.getElementById("map") as HTMLElement,
     {
-      zoom: 8,
+      zoom: 15,
       center: {lat, lng},
     }
   );
@@ -105,4 +109,5 @@ filterSubject(subject: any){
   this.subject = subject;
   console.log(this.subject)
 }
+
 }
