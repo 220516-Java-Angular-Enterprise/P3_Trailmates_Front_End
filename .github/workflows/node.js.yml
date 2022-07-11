@@ -47,6 +47,9 @@ jobs:
     - name: make directory
       run: mkdir -p /var/run/dbus
 
+    - name: run dbus
+      run: sudo /etc/init.d/dbus start &> /dev/null  
+
     - name: end to end
       working-directory: ./Trailmates
       run: npm run e2e
