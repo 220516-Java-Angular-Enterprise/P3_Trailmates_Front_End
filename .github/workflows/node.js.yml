@@ -47,6 +47,9 @@ jobs:
     - name: make directory
       run: mkdir -p /var/run/dbus
 
+    - name: install cypress
+      run: ng add @cypress/schematic
+
     - name: run dbus
       run: sudo /etc/init.d/dbus start  
 
