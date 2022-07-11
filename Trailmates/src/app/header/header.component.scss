@@ -7,21 +7,38 @@
     --laurel-green: #B6C197;
     --pale-spring: #D5DDBC;
     --british-green: #254D32;
-    }
 
-nav {
-    width: 1200px;
-    margin: 0 auto;
-    padding: 10px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     background-color: #D5DDBC;
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
 }
 
-.nav-icon{
-    height: 90px;
-    width: 90px;
+.navbar {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+
+    // GRID
+    // display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+}
+
+.navbar-logo{
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+}
+
+.navbar-brand{
+    font-family: typo-slab-inline;
+    font-size: 80px;
+    color: #444;
+    font-weight: bolder;
+    margin-top: 20px;
 }
 
 @font-face{
@@ -29,39 +46,62 @@ nav {
     src: url("/assets/fonts/TypoSlab_inline Demo.otf");
 }
 
-@font-face{   
-    font-family: second-chances-sketch;
-    src: url("/assets/fonts/KGSecondChancesSketch.ttf")
+.navbar-icons div{
+    display: inline-block;
+    margin: 0 30px;
 }
 
 i{
     font-size: 30px;
-}
-
-.bi-person{
-    font-size: 100px;
-}
-
-.navbar-brand{
-    font-family: typo-slab-inline;
-    font-size: 70px;
     color: #444;
+}
+
+i:hover{
+    color: black;
     font-weight: bolder;
-    justify-self: center;
 }
 
-.collapse{
-    justify-self: end;
+// .bi-person-circle{
+//     margin: 20px;
+// }
+
+// .bi-signpost-2{
+//     margin: 0 10px;
+// }
+
+// .bi-bell{
+//     margin: 0 10px;
+// }
+
+// DROPDOWN
+.user-options{
+    position: relative;
 }
 
-.bi-person-circle{
-    margin: 20px;
+.menu-heading {
+    font-weight: bold;
+    border-bottom: 2px solid black;
+    padding: 0;
 }
 
-.bi-signpost-2{
-    margin: 0 10px;
+.user-menu{
+    position: absolute;
+    color: black;
+    left: 0;
+    top: calc(100% + .25rem);
+    background-color: white;
+    padding: .75rem;
+    border-radius: .25rem;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0, .1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 }
 
-.bi-bell{
-    margin: 0 10px;
+
+.user-options > .bi-hand-thumbs-up:hover + .user-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }

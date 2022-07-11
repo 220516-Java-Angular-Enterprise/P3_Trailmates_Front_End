@@ -1,25 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <title>Messages</title>
+    
 <header>
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a class="navbar-brand" href="#">Messages</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto">
-          </ul>
-        </div>
-      </nav>
+    <div class="banner">
+           <p class="text-center"> Messages</p>
+           <p class="friend">FRIENDS</p>
+    </div>
 </header>
 <main class="messages">
     <div class="container">
         <div class="message-content">
             <div class="card">
             <ul class="list-group list-group flush">
-                <li class="list-group item">
-                    <strong></strong>
-                    <span></span>
+                <ul class="list-group item" id="user1" *ngFor="let message of messagesService.message">
+                    <div class="speech1">
+                        <div class="speech bottom1">
+                    <div class="chat chat-else">
+                    <strong class="sender">Thomas</strong><!--need to put in {{message.user}}-->
+                    <span> Hello </span><!--Need to implement {{message.message}}-->
+
+                </div>
+            </div>
+         </div>
+        </ul>
+        <li class="list-group item" >
+            <div class="speech2">
+                <div class="chat chat-you">
+                  <strong class = "user2">You</strong>
+                    <span> Hi </span>
+                    </div>
+                </div>
+                    
                 </li>
+            <ul>
+                    <div class="speech1">
+                  <div class="chat chat-else">
+                    <strong class="sender">Thomas</strong>
+                     <span> What do you wanna do today?</span>
+                      </div>
+                    </div>
+                </ul>
+                <ul>
+                    <div class="speech2">
+                    <div class="chat chat-you">
+                        <strong class="user2">You</strong>
+                        <span>
+                            I want to go hiking today. Can you find us a trail?
+                        </span>
+                    </div>
+                </div>
+            </ul>
+
             </ul>
         </div>
     </div>
@@ -32,9 +64,10 @@
                 <input type="text" class="form control" name="message" id="input-message" ngModel>
             </div>
             <div class="col-2">
-                <button type="submit" class="btn btn-primary">Send</button>
+                <button style="background-color:#b1a49f; color:white" type="submit">Send</button>
             </div>
         </div>
     </form>
- </div>
+  </div>
 </main>
+</html>

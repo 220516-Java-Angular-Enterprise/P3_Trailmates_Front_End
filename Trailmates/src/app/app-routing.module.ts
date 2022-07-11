@@ -1,13 +1,13 @@
 import { NotFoundComponent } from './not-found/not-found.component';
-import { MessagingComponent } from './messaging-page/messaging/messaging.component';
 import { TrailComponent } from './trail-page/trail/trail.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
-import { LoginComponent } from './auth/login/login.component';
 import { ProfileComponent } from './profile-page/profile/profile.component';
+import { LoginComponent } from './auth/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MessagingComponent } from './messaging-page/messaging/messaging.component';
+import { AuthGuard } from './auth.guard';
 import { LandingComponent } from './auth/landing/landing.component';
-
 
 const routes: Routes = [
   {
@@ -16,8 +16,9 @@ const routes: Routes = [
   },
   {
     // profile/:user
-    path: 'profile',
-    component: ProfileComponent
+    path: 'profile/:username',
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -26,23 +27,26 @@ const routes: Routes = [
   {
     path: 'signup',
     component: CreateAccComponent
-
-  },
+  },  
   {
     path: 'trailpage',
-    component: TrailComponent
+    component: TrailComponent,
+    canActivate: [AuthGuard]
   },
   {
-    //messaging/:user/:chat_id
-    path: 'messaging',
-    component: MessagingComponent
+    //messaging/:userid
+    path: 'messaging/:id',
+    component: MessagingComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
     component: NotFoundComponent,
 
   }
+
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
