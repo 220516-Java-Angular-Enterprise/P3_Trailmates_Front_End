@@ -28,6 +28,6 @@ jobs:
         cache: 'npm'
     - run: cd Trailmates
     - run: npm ci
-    - run: npm install -g @angular/cli
+    - run: npm install -g @angular/cli@13.3
     - run: npm install
     - run: npm run test
