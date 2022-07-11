@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
   @Input()
   
   popup = false
-  public trailhistory: TrailHistory = {id: "", comment: "",  date: new Date}
+  public trailhistory: TrailHistory[] = []
   public user: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
 
   isLoggedIn: boolean = false;
@@ -42,12 +42,14 @@ export class ProfileComponent implements OnInit {
         console.log(this.user)
       })
       console.log(localStorage.getItem('id'))
+
+      this.trailHistoryService.getHistoryAsc().subscribe((data)=>{
+        this.trailhistory = data;
+        console.log(this.trailhistory)
+        
+      })
      
       
-    //   this.trailHistoryService.getHistoryDesc().subscribe((data:any) => {
-    //     this.trailhistory = data
-    //     console.log(this.trailhistory)
-    // })
   })
 }
 
