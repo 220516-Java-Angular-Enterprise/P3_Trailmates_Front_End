@@ -21,13 +21,14 @@ export class ProfileComponent implements OnInit {
   @Input()
 
   popup = false
-  public trailhistory: TrailHistory = {id: "", comment: "",  date: new Date}
+  public trailhistory: TrailHistory[] = []
+  public noPosts: string = ""
   public user: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
 
   isLoggedIn: boolean = false;
   username: any;
 
-  id: string | null= localStorage.getItem('id')
+  id: string | null = localStorage.getItem('id')
   constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService, private trailHistoryComp:TrailHistoryComponent,
   private router:Router, private http:HttpClient, private currRoute: ActivatedRoute) { }
 
@@ -42,11 +43,28 @@ export class ProfileComponent implements OnInit {
       })
       console.log(localStorage.getItem('id'))
 
+<<<<<<< HEAD
 
     //   this.trailHistoryService.getHistoryDesc().subscribe((data:any) => {
     //     this.trailhistory = data
     //     console.log(this.trailhistory)
     // })
+=======
+      this.trailHistoryService.getHistoryAsc().subscribe((data)=>{
+        this.trailhistory = data;
+        console.log(this.trailhistory)
+
+        if(this.trailhistory.length == 0){
+          console.log("You don't have any posts")
+        }else{
+          console.log("You have posts")
+        }
+      })
+
+      
+     
+      
+>>>>>>> 0ab933c9886756d4408ad70307181726fc4abc87
   })
 }
 
