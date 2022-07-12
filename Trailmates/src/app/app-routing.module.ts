@@ -37,7 +37,7 @@ const routes: Routes = [
     //messaging/:userid
     path: 'messaging/:id',
     component: MessagingComponent,
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path: '**',

@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MessagesService } from 'src/app/services/messages.service';
-import { Message } from 'src/app/models/messages';
+import { Conversation } from 'src/app/models/conversations';
+import { OwnedConversation } from 'src/app/models/ownedConversation';
+import { PrivateMessage } from 'src/app/models/privateMessage';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -15,21 +17,24 @@ export class MessagingComponent implements OnInit, OnDestroy {
   constructor(public messagesService:MessagesService, private currRoute: ActivatedRoute) { }
 
   id: string = '';
+  ownedConversation: OwnedConversation[]=[];
+  conversation: Conversation[]=[];
+
   ngOnInit(): void {
-    this.messagesService.openWebSocket();
     this.currRoute.params.subscribe(p=>{
       this.id = p['id'];
     })
+    this.messagesService.getExistingConvo().subscribe((data)=>{
+      this.ownedConversation=data;
+    }
+    )
   }
   ngOnDestroy(): void {
-      this.messagesService.closeWebSocket();
+      
   }
 
-  sendMessage(sendForm:NgForm){
-    const message= new Message(sendForm.value.user,sendForm.value.message);
-    this.messagesService.sendMessage(message);
+ 
 //sendForm.controls.reset();
 
   }
 
-}

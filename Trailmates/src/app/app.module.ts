@@ -27,6 +27,9 @@ import { SearchTrailParkComponent } from './header/search-trails/search-trail-pa
 import { DynamicSearchComponent } from './header/search-trails/dynamic-search/dynamic-search.component';
 import { MessagingComponent } from './messaging-page/messaging/messaging.component';
 import { MessagesService } from './services/messages.service';
+import { FeedComponent } from './messaging-page/feed/feed.component';
+import { ChatroomComponent } from './messaging-page/chatroom/chatroom.component';
+import { ChatFormComponent } from './messaging-page/chat-form/chat-form.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,10 @@ import { MessagesService } from './services/messages.service';
     ClickOutsideDirective,
     SearchTrailStateComponent,
     SearchTrailParkComponent,
-    DynamicSearchComponent
+    DynamicSearchComponent,
+    FeedComponent,
+    ChatroomComponent,
+    ChatFormComponent
   ],
 
   imports: [

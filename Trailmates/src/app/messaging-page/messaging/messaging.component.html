@@ -18,9 +18,8 @@
                     <div class="speech1">
                         <div class="speech bottom1">
                     <div class="chat chat-else">
-                    <strong class="sender">Thomas</strong><!--need to put in {{message.user}}-->
-                    <span> Hello </span><!--Need to implement {{message.message}}-->
-
+                        <!--owned Conversation-->
+                    <div *ngFor="let convos of ownedConversation"></div>
                 </div>
             </div>
          </div>
@@ -56,7 +55,7 @@
             </ul>
         </div>
     </div>
-    <form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">
+    <!--<form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">-->
         <div class="message-send row">
             <div class="col-2">
                 <input type="text" class="form control" name="user" id="input-user" ngModel>
@@ -68,7 +67,7 @@
                 <button style="background-color:#b1a49f; color:white" type="submit">Send</button>
             </div>
         </div>
-    </form>
+    <!--</form>-->
   </div>
 </main>
 </html>
