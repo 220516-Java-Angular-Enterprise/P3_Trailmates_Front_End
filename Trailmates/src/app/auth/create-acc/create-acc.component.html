@@ -19,52 +19,67 @@
       </div>
       <div class="container-one">
         
-      <form (ngSubmit)="processForm(signupForm)" #signupForm="ngForm">
+      <!-- <form (ngSubmit)="processForm(signupForm)" #signupForm="ngForm"> -->
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" >
       
         <h1>Sign Up</h1>
         <div class="user-details">
-        <div class="form-block">
+
+
+        <div class="form-group">
           <label for="signup-username">Username: </label>
-          <input class="form-control" [(ngModel)]="user.username" type="text" id="signup-username" name="signup-username" [placeholder]="placeholders.username" #name="ngModel" [class.is-invalid] = "name.invalid && name.touched" pattern= "^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$" required>
-          <div *ngIf="name.touched && (name.invalid || name.touched)">
-            <small class="text-danger" *ngIf="name.errors?.['required']">Name is required</small>
-            <small class="text-danger" *ngIf="name.errors?.['pattern']">Name must be at least eight letters</small>
+       
+          <input [class.is-invalid]="username?.invalid && username?.touched" formControlName="username" type="text" class="form-control" [placeholder]="placeholders.username" >
+
+          <div *ngIf="username?.invalid && username?.touched">
+            <small class="text-danger" *ngIf="username?.errors?.['minlength']">Username must be at least 3 characters</small>
+            <small class="text-danger" *ngIf="username?.errors?.['required']">Username is required</small>
+            <small class="text-danger" *ngIf="username?.errors?.['usernameTaken']">Username is taken </small>
           </div>
         </div>
         
-        <div class="form-block">
+        <div class="form-group">
           <label for="signup-password">Password: </label>
-          <input class="form-control" [(ngModel)]="user.password" type="password" id="signup-password" name="signup-password" [placeholder]="placeholders.password" #password="ngModel" [class.is-invalid] = "password.invalid && password.touched" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" required>
-          <div *ngIf="password.touched && (password.invalid || password.touched)">
-            <small class="text-danger" *ngIf="password.errors?.['required']">Password is required</small>
-            <small class="text-danger" *ngIf="password.errors?.['pattern']">Password must be at least eight letters and contain one uppercase and special character</small>
+          
+          <input [class.is-invalid]="password?.touched && password?.invalid" formControlName="password" type="password" class="form-control" [placeholder]="placeholders.password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"> 
+
+          <div *ngIf="password?.invalid && password?.touched">
+            <small class="text-danger" *ngIf="password?.errors?.['required']">Password is required</small>
+            <small class="text-danger" *ngIf="password?.errors?.['pattern']">Password needs to be minimum of 8 letters including one special and uppercase character</small>
           </div>
         </div>
     
-        <div class="form-block">
+        <div class="form-group">
           <label for="signup-codename">Age </label>
-          <input class="form-control" [(ngModel)]="user.age" type="text" id="signup-age" name="signup-age" [placeholder]="placeholders.age" #age="ngModel" [class.is-invalid] = "age.invalid && age.touched" required pattern="^(?:1[8-9]|[2-5][0-9]|99)$$" >
-        <div *ngIf="age.touched && (age.invalid || age.touched)">
-          <small class="text-danger" *ngIf="age.errors?.['required']">Age is required (Must be a number)</small>
-          <small class="text-danger" *ngIf="age.errors?.['pattern']">Age must be valid (18-99)</small>
-        </div>
+         
+          <input [class.is-invalid]="age?.touched && age?.invalid" formControlName="age" type="text" class="form-control" [placeholder]="placeholders.age" pattern="^(?:1[8-9]|[2-9][0-9]|99)$$">
+          
+          <div *ngIf="age?.touched && age?.invalid"> 
+          <small class="text-danger" *ngIf="age?.errors?.['required']">Age is required (Must be a number)</small>
+          <small class="text-danger" *ngIf="age?.errors?.['pattern']">Age must be valid (18-99)</small> 
+          </div>
         </div>
     
-        <div class="form-block">
+        <div class="form-group">
           <label for="signup-paymentID">Bio: </label>
-          <input class="form-control" [(ngModel)]="user.bio" type="text" maxlength="25" id="signup-bio" name="signup-bio" [placeholder]="placeholders.bio" #bio="ngModel" [class.is-invalid] = "bio.invalid && bio.touched" required>
-          <div *ngIf="bio.touched && (bio.invalid || bio.touched)">
-            <small class="text-danger" *ngIf="bio.errors?.['required']">Bio is required</small>
+  
+          <input [class.is-invalid]="bio?.touched && bio?.invalid" formControlName="bio" type="text" class="form-control" [placeholder]="placeholders.bio">
+          
+          <div *ngIf="bio?.invalid && bio?.touched">
+            <small class="text-danger" *ngIf="bio?.errors?.['required']">Bio is required</small>
           </div>
         </div>
     
-        <div class="form-block">
+        <div class="form-group">
           <label for="signup-email">Email: </label>
-          <input class="form-control" [(ngModel)]="user.email" type="text" id="signup-email" name="signup-email" [placeholder]="placeholders.email" #email="ngModel" [class.is-invalid] = "email.invalid && email.touched" required pattern= "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
-          <div *ngIf="email.touched && (email.invalid || email.touched)">
-            <small class="text-danger" *ngIf="email.errors?.['required']">Email is required</small>
-            <small class="text-danger" *ngIf="email.errors?.['pattern']">Email format email@example.com</small>
+          
+          <input [class.is-invalid]="email?.touched && email?.invalid" formControlName="email" type="text" class="form-control" [placeholder]="placeholders.email" pattern= "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+          
+          <div *ngIf="email?.touched && email?.invalid">
+            <small class="text-danger" *ngIf="email?.errors?.['required']">Email is required</small>
+            <small class="text-danger" *ngIf="email?.errors?.['pattern']">Email format email@example.com</small> -->
           </div>
+
         </div>
       </div>
     
@@ -72,9 +87,10 @@
           <div *ngIf="displayFormSubmitError" style="color: red">
               There's something wrong with your form
           </div>
-          <button type="submit" value="Create">Sign-Up</button>
+          <button [disabled] = "!signupForm.valid" type="submit" value="Create">Sign-Up</button>
       </div>
       </form>
+      
     </div>
     </div>
 </body>
