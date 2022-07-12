@@ -34,6 +34,7 @@ export class AuthService {
     this.route.navigate(['login'])
     window.localStorage.clear();
   }
+
   validateUsernameNotTaken(control: AbstractControl) {
 
     return this.checkUsernameNotTaken(control.value).pipe(
@@ -51,3 +52,4 @@ export class AuthService {
     );
   }
 }
+

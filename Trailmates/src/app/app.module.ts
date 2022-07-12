@@ -1,3 +1,4 @@
+import { SearchAllComponent } from './header/search-users/search-users.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -9,8 +10,6 @@ import { TrailComponent } from './trail-page/trail/trail.component';
 import { LandingComponent } from './auth/landing/landing.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
-import { NotifiationsComponent } from './header/notifications/notifications.component';
-import { SearchAllComponent } from './header/search-users/search-users.component';
 import { SearchTrailsComponent } from './header/search-trails/search-trails.component';
 import { UserMenuComponent } from './header/user-menu/user-menu.component';
 import { NotificationItemComponent } from './header/notifications/notification-item/notification-item.component';
@@ -27,6 +26,9 @@ import { SearchTrailParkComponent } from './header/search-trails/search-trail-pa
 import { DynamicSearchComponent } from './header/search-trails/dynamic-search/dynamic-search.component';
 import { MessagingComponent } from './messaging-page/messaging/messaging.component';
 import { MessagesService } from './services/messages.service';
+import { CalendarModalComponent } from './calendar-modal/calendar-modal.component';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { NotifiationsComponent } from './header/notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { MessagesService } from './services/messages.service';
     ClickOutsideDirective,
     SearchTrailStateComponent,
     SearchTrailParkComponent,
-    DynamicSearchComponent
+    DynamicSearchComponent,
+    CalendarModalComponent
   ],
 
   imports: [
@@ -62,6 +65,7 @@ import { MessagesService } from './services/messages.service';
   ],
   providers: [AuthService,
     MessagesService,
+    TrailHistoryComponent,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
