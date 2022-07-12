@@ -1,21 +1,19 @@
-<!--<app-header></app-header>-->
+<app-header></app-header>
 <html>
 
     <title>Messages</title>
-
-    
-<header>
     <div class="banner">
            <p class="text-center"> Messages</p>
            <p class="friend">FRIENDS</p>
     </div>
-</header>
+    
+
 <main class="messages">
     <div class="container">
         <div class="message-content">
             <div class="card">
             <ul class="list-group list-group flush">
-                <ul class="list-group item" id="user1" *ngFor="let message of messagesService.message">
+               <!-- <ul class="list-group item" id="user1" *ngFor="let message of messagesService.message">-->
                     <div class="speech1">
                         <div class="speech bottom1">
                     <div class="chat chat-else">
@@ -25,7 +23,7 @@
                 </div>
             </div>
          </div>
-        </ul>
+       <!--</ul>-->
         <li class="list-group item" >
             <div class="speech2">
                 <div class="chat chat-you">
@@ -56,7 +54,6 @@
             </ul>
             <div class="box">
               <ul>
-                <li *ngFor="let convo of convos">{{convo.conversation?.name}}</li>
               </ul>
             </div>
         </div>

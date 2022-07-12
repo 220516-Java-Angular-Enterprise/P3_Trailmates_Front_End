@@ -27,14 +27,12 @@ import { SearchTrailParkComponent } from './header/search-trails/search-trail-pa
 import { DynamicSearchComponent } from './header/search-trails/dynamic-search/dynamic-search.component';
 import { MessagingComponent } from './messaging-page/messaging/messaging.component';
 import { MessagesService } from './services/messages.service';
-<<<<<<< HEAD
 import { FeedComponent } from './messaging-page/feed/feed.component';
 import { ChatroomComponent } from './messaging-page/chatroom/chatroom.component';
 import { ChatFormComponent } from './messaging-page/chat-form/chat-form.component';
-=======
 import { CalendarModalComponent } from './calendar-modal/calendar-modal.component';
 import { OverlayModule } from '@angular/cdk/overlay';
->>>>>>> de756a6f651cad92dca0917583a2130421d73298
+
 
 @NgModule({
   declarations: [
@@ -58,13 +56,10 @@ import { OverlayModule } from '@angular/cdk/overlay';
     SearchTrailStateComponent,
     SearchTrailParkComponent,
     DynamicSearchComponent,
-<<<<<<< HEAD
     FeedComponent,
     ChatroomComponent,
-    ChatFormComponent
-=======
-    CalendarModalComponent
->>>>>>> de756a6f651cad92dca0917583a2130421d73298
+    ChatFormComponent,
+    CalendarModalComponent,
   ],
 
   imports: [
