@@ -29,6 +29,10 @@ import { MessagingComponent } from './messaging-page/messaging/messaging.compone
 import { MessagesService } from './services/messages.service';
 import { CalendarModalComponent } from './calendar-modal/calendar-modal.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { ChatRoomComponent } from './messaging-page/messaging/chat-room/chat-room.component';
+import { ChatGroupsComponent } from './messaging-page/messaging/chat-groups/chat-groups.component';
+import { PrivateMessageComponent } from './messaging-page/messaging/chat-room/private-message/private-message.component';
+import { CreateGroupComponent } from './messaging-page/messaging/chat-groups/create-group/create-group.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +56,11 @@ import { OverlayModule } from '@angular/cdk/overlay';
     SearchTrailStateComponent,
     SearchTrailParkComponent,
     DynamicSearchComponent,
-    CalendarModalComponent
+    CalendarModalComponent,
+    ChatRoomComponent,
+    ChatGroupsComponent,
+    PrivateMessageComponent,
+    CreateGroupComponent
   ],
 
   imports: [
