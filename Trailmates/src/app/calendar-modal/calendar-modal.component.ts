@@ -1,10 +1,11 @@
-// import { TrailFlagReq } from './../models/dto/trailFlagReq';
+import { Observable } from 'rxjs';
 import { TrailFlag } from 'src/app/models/trailFlag';
 import { NgForm, NG_ASYNC_VALIDATORS } from '@angular/forms';
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AnimateTimings } from '@angular/animations';
 import { TrailFlagService } from '../services/trail-flag.service';
+
 
 @Component({
   selector: 'app-calendar-modal',
@@ -13,36 +14,66 @@ import { TrailFlagService } from '../services/trail-flag.service';
 })
 export class CalendarModalComponent implements OnInit {
 
-  constructor(private currRoute: ActivatedRoute, private _flagService: TrailFlagService) { }
+  constructor(private currRoute: ActivatedRoute, private _flagService: TrailFlagService, public router: Router) { }
 
+  @Output() passSubmitStatus: EventEmitter<boolean> = new EventEmitter();
   displayFormSubmitError: boolean = false;
   submitted: boolean = false;
+  time: string = '00:00'
+  badDate: boolean = false;
+  noUsers: boolean = false;
 
   trailFlagReq= {
     trail_id: '',
     user_id: '',
     date_int: 0,
   }
-  dateInt = new Date().getTime()/(1000*60*60*24); //an integer representing current date as a normalized number of days
-  time: string = '00:00'
+
+  returnFlags$ = new Observable<TrailFlag[]>;
+
 
   ngOnInit(): void {
+    //Sets trail ID and user ID to trailFlagReq.
     this.trailFlagReq.trail_id = this.currRoute.firstChild?.snapshot.params['id'];
     this.trailFlagReq.user_id = localStorage.getItem('id')!;
   }
 
+  ngOnDestroy(): void{
+    this.passSubmitStatus.emit(this.submitted);
+  }
+
   processForm(flagTrail: NgForm){
-    if(flagTrail.form.status == 'VALID'){
+    if(flagTrail.form.status == 'VALID' && !this.badDate){
       let date = new Date(this.trailFlagReq.date_int+' '+this.time);
-      this.trailFlagReq.date_int = date.getTime()/(1000*60*60*24);
-      this._flagService.postTrailFlag(this.trailFlagReq).subscribe((data:any)=>{
-      console.log(data);
+      this.trailFlagReq.date_int = Math.round(date.getTime()/(1000*60*60*24)) ;
+    //   this._flagService.postTrailFlag(this.trailFlagReq).subscribe((data:any)=>{
+    //   console.log(data);
+
+    // })
       this.submitted = true;
-    })
+      // gets flags for date and trail
+      this._flagService.getAllFlagsByDateAndTrail(Math.round(date.getTime()/(1000*60*60*24)), this.trailFlagReq.trail_id).subscribe(
+        (data:any)=>{ this.returnFlags$ = data;
+        },
+        (error: any)=> {
+          this.noUsers = true;
+          console.log(error);
+        })
     } else {
     this.displayFormSubmitError = true;
   }
 }
+
+// Compares if entered date is before today or not. 
+compareDate(event: any){
+  if((new Date(this.trailFlagReq.date_int+' '+this.time)) < (new Date())){
+    this.badDate = true;
+  } else {
+    this.badDate = false;
+  }
+}
+
+
 
 
 

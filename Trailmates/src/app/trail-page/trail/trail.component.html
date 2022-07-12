@@ -23,13 +23,13 @@
                                 <!-- area for modal -->
                                 <div class="overlay" *ngIf="popup">
                                     <div class="popup popshadow">
-                                        <app-calendar-modal></app-calendar-modal>
+                                        <app-calendar-modal (passSubmitStatus)="checkSubmitted($event)"></app-calendar-modal>
                                         <a class="close" (click)="popup = false">&times;</a>
                                     </div>
                                 </div>
                                 <div class="col flag" >
                                     <button type="button" class="createPostBtn">
-                                    <i class="bi bi-flag" (click)="flag($event.target)" *ngIf="!flagged" id={{trail.id}} (click)="popup = true"></i>
+                                    <i class="bi bi-flag" (click)="flag($event.target); goToFlag(trail.id!)" *ngIf="!flagged" id={{trail.id}} (click)="popup = true"></i>
                                     <i class="bi bi-flag-fill" (click)="unflag($event.target)" *ngIf="flagged" id={{trail.id}}></i>
                                     </button>
                                 </div>

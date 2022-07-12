@@ -4,7 +4,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TrailService } from 'src/app/services/trail.service';
 import { UserService } from 'src/app/services/user-service.service';
 import { User } from 'src/app/models/user';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {} from 'googlemaps';
 import { TrailFlag } from 'src/app/models/trailFlag';
 // import { ConsoleReporter } from 'jasmine';
@@ -16,7 +16,7 @@ import { TrailFlag } from 'src/app/models/trailFlag';
 })
 export class TrailComponent implements OnInit {
 
-  constructor(private _trailService: TrailService, private _userService: UserService, private _trailFlagService: TrailFlagService, private _route: Router){ }
+  constructor(private _trailService: TrailService, private _userService: UserService, private _trailFlagService: TrailFlagService, private _route: Router, private _currRoute: ActivatedRoute){ }
   
   @Input()
   popup = false;
@@ -68,8 +68,6 @@ export class TrailComponent implements OnInit {
   }
 
   friend(event: any) {
-
-
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
@@ -142,6 +140,15 @@ filterSubject(subject: any){
 
 goToFlag(id: string){
   this._route.navigateByUrl('/trailpage/flag/'+id);
+}
+
+checkSubmitted(event: any){
+  if(event){
+    console.log(event)
+  } else {
+    this.unflag(document.getElementById(this._currRoute.firstChild?.snapshot.params['id']))
+    this._route.navigateByUrl('/trailpage');
+  }
 }
 
 }
