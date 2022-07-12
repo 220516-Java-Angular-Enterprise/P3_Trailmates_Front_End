@@ -26,7 +26,9 @@ $font20 : 20px;
   display: inline-block;  
   position: relative;
   font-size: $font20;  
+  
 }  
+
 
 .titleContent{
   text-align: center;
@@ -34,9 +36,8 @@ $font20 : 20px;
 
 .titleContainer{
   justify-content: center;
-  align-items: flex-end;
-  display: flex;
   color: $titleColor;
+  margin-top: 30px;
     h1{
       font-size: 50px;
     }
@@ -184,7 +185,7 @@ $font20 : 20px;
 
 
 .popup {
-  margin: 70px auto;
+  margin: 200px auto;
   padding: 20px;
   background: #fff;
   border-radius: 5px;
@@ -212,10 +213,10 @@ $font20 : 20px;
   cursor: pointer;
 }
 
-@media screen and (max-width: 700px){
-  
+
   .popup{
-    width: 70%;
+    width: 50%;
+    height: 50%;
   }
-}
+
 

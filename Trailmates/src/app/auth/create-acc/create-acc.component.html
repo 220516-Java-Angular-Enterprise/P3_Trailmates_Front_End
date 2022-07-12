@@ -20,31 +20,51 @@
       <div class="container-one">
         
       <form (ngSubmit)="processForm(signupForm)" #signupForm="ngForm">
+      
         <h1>Sign Up</h1>
         <div class="user-details">
         <div class="form-block">
           <label for="signup-username">Username: </label>
-          <input class="form-control" [(ngModel)]="user.username" type="text" id="signup-username" name="signup-username" [placeholder]="placeholders.username" #name="ngModel" required>
+          <input class="form-control" [(ngModel)]="user.username" type="text" id="signup-username" name="signup-username" [placeholder]="placeholders.username" #name="ngModel" [class.is-invalid] = "name.invalid && name.touched" pattern= "^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$" required>
+          <div *ngIf="name.touched && (name.invalid || name.touched)">
+            <small class="text-danger" *ngIf="name.errors?.['required']">Name is required</small>
+            <small class="text-danger" *ngIf="name.errors?.['pattern']">Name must be at least eight letters</small>
+          </div>
         </div>
         
         <div class="form-block">
           <label for="signup-password">Password: </label>
-          <input class="form-control" [(ngModel)]="user.password" type="password" id="signup-password" name="signup-password" [placeholder]="placeholders.password" #name="ngModel" required>
+          <input class="form-control" [(ngModel)]="user.password" type="password" id="signup-password" name="signup-password" [placeholder]="placeholders.password" #password="ngModel" [class.is-invalid] = "password.invalid && password.touched" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" required>
+          <div *ngIf="password.touched && (password.invalid || password.touched)">
+            <small class="text-danger" *ngIf="password.errors?.['required']">Password is required</small>
+            <small class="text-danger" *ngIf="password.errors?.['pattern']">Password must be at least eight letters and contain one uppercase and special character</small>
+          </div>
         </div>
     
         <div class="form-block">
           <label for="signup-codename">Age </label>
-          <input class="form-control" [(ngModel)]="user.age" type="text" id="signup-age" name="signup-age" [placeholder]="placeholders.age" #name="ngModel" required>
+          <input class="form-control" [(ngModel)]="user.age" type="text" id="signup-age" name="signup-age" [placeholder]="placeholders.age" #age="ngModel" [class.is-invalid] = "age.invalid && age.touched" required pattern="^(?:1[8-9]|[2-5][0-9]|99)$$" >
+        <div *ngIf="age.touched && (age.invalid || age.touched)">
+          <small class="text-danger" *ngIf="age.errors?.['required']">Age is required (Must be a number)</small>
+          <small class="text-danger" *ngIf="age.errors?.['pattern']">Age must be valid (18-99)</small>
+        </div>
         </div>
     
         <div class="form-block">
           <label for="signup-paymentID">Bio: </label>
-          <input class="form-control" [(ngModel)]="user.bio" type="text" id="signup-bio" name="signup-bio" [placeholder]="placeholders.bio" #name="ngModel" required>
+          <input class="form-control" [(ngModel)]="user.bio" type="text" maxlength="25" id="signup-bio" name="signup-bio" [placeholder]="placeholders.bio" #bio="ngModel" [class.is-invalid] = "bio.invalid && bio.touched" required>
+          <div *ngIf="bio.touched && (bio.invalid || bio.touched)">
+            <small class="text-danger" *ngIf="bio.errors?.['required']">Bio is required</small>
+          </div>
         </div>
     
         <div class="form-block">
           <label for="signup-email">Email: </label>
-          <input class="form-control" [(ngModel)]="user.email" type="text" id="signup-email" name="signup-email" [placeholder]="placeholders.email" #name="ngModel" required>
+          <input class="form-control" [(ngModel)]="user.email" type="text" id="signup-email" name="signup-email" [placeholder]="placeholders.email" #email="ngModel" [class.is-invalid] = "email.invalid && email.touched" required pattern= "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" >
+          <div *ngIf="email.touched && (email.invalid || email.touched)">
+            <small class="text-danger" *ngIf="email.errors?.['required']">Email is required</small>
+            <small class="text-danger" *ngIf="email.errors?.['pattern']">Email format email@example.com</small>
+          </div>
         </div>
       </div>
     

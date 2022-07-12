@@ -8,37 +8,42 @@
     --pale-spring: #D5DDBC;
     --british-green: #254D32;
 
-    box-sizing: border-box;
+    // box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #D5DDBC;
 }
 
 .navbar {
-    padding-top: 30px;
-    padding-bottom: 30px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 
+    // padding-top: 10px;
+    // padding-bottom: 10px;
+    background-color: #D5DDBC;
 
     // GRID
-    // display: grid;
-    // grid-template-columns: repeat(3, 1fr);
+//      display: grid;
+//     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.navbar-logo{
-    height: 100px;
-    width: 100px;
+a {
+    text-decoration: none;
+} 
+
+.logo{
+    height: 120px;
+    width: 120px;
     cursor: pointer;
 }
 
-.navbar-brand{
+.title{
     font-family: typo-slab-inline;
-    font-size: 80px;
+    font-size: 90px;
     color: #444;
     font-weight: bolder;
     margin-top: 20px;
+    letter-spacing: 5px;
 }
 
 @font-face{
@@ -46,10 +51,17 @@
     src: url("/assets/fonts/TypoSlab_inline Demo.otf");
 }
 
-.navbar-icons div{
+.icons div{
+    display: flex;
     display: inline-block;
     margin: 0 30px;
 }
+
+// .icons{
+//     display: grid;
+//     grid-template-columns: 1fr;
+//     margin: 0 30px;
+// }
 
 i{
     font-size: 30px;
@@ -59,49 +71,32 @@ i{
 i:hover{
     color: black;
     font-weight: bolder;
+    cursor: pointer;
 }
 
-// .bi-person-circle{
-//     margin: 20px;
-// }
+// Notification badge
+.send-notification{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 30px;
+}
 
-// .bi-signpost-2{
-//     margin: 0 10px;
-// }
-
-// .bi-bell{
-//     margin: 0 10px;
-// }
-
-// DROPDOWN
-.user-options{
+.notification{
     position: relative;
 }
 
-.menu-heading {
-    font-weight: bold;
-    border-bottom: 2px solid black;
-    padding: 0;
-}
-
-.user-menu{
+.badge {
+    font-size: 10px;
     position: absolute;
-    color: black;
-    left: 0;
-    top: calc(100% + .25rem);
-    background-color: white;
-    padding: .75rem;
-    border-radius: .25rem;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0, .1);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    background: #ff8084;
+    right: -0.938rem;
+    top: -0.938;
+    padding: .3rem .6rem;
+    border-radius: 50%;
+    border: 3px solid #fff;
 }
 
-
-.user-options > .bi-hand-thumbs-up:hover + .user-menu {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+.btn-send{
+padding: 0 20px 5px;
 }

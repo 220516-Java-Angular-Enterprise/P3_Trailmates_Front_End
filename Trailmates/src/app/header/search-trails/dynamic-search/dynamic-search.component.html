@@ -1,4 +1,4 @@
-<div class="search-comp">
+<!-- <div class="search-comp">
   <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
     <div class="input-group">
       <input type="search" placeholder="Seach for trails..." aria-describedby="button-addon1"
@@ -9,18 +9,15 @@
       </div>
     </div>
   </div>
+</div> -->
+
+<div class="container-fluid dynamic-search shadow">
+<div class="input-group mb-3 dropdown">
+<select class="form-select" aria-label="Default select example bg-primary" (change)="onSelect()" [(ngModel)]="subject">
+  <option value="trails" selected>Trails</option>
+  <option value="users">Users</option>
+</select>
+  <input type="text" class="form-control border-1" aria-label="Text input with dropdown button" placeholder="Seach"
+  [(ngModel)]="query" (keyup)="getQuery(query)">
 </div>
-
-<!-- Rendering list of trails here -->
-<!-- <div class="results-box bg-primary" *ngIf="!query">
-  <ul>
-    <li class="h3" *ngFor="let trail of allTrail">{{trail.name}}</li>
-  </ul>
-</div> -->
-
-<!-- Render if query -->
-<!-- <div class="results-box bg-primary" *ngIf="query">
-  <ul>
-    <li class="h3" *ngFor="let trail of filterTrail">{{trail.name}}</li>
-  </ul>
-</div> -->
+</div>

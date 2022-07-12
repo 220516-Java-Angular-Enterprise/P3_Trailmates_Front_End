@@ -13,7 +13,9 @@ export class DynamicSearchComponent implements OnInit {
   // @Input()
   // query!: string;
   @Output() passQuery: EventEmitter<String> = new EventEmitter<String>();
+  @Output() passSubject: EventEmitter<String> = new EventEmitter<String>();
   query: string = '';
+  subject: string ='';
 
   ngOnInit(): void {
   }
@@ -22,5 +24,8 @@ export class DynamicSearchComponent implements OnInit {
   this.passQuery.emit(query)
   }
 
+  onSelect(){
+    this.passSubject.emit(this.subject);
+  }
   
 }
