@@ -1,4 +1,4 @@
-<form action="/action_page.php" (ngSubmit)="processForm(flagTrail)" #flagTrail="ngForm">
+<form action="/action_page.php" (ngSubmit)="processForm(flagTrail)" #flagTrail="ngForm" >
     <div class =container>
         <h1>Pick a date to flag the hike</h1>
         
@@ -18,7 +18,7 @@
     <div class="box" *ngIf="submitted">
       <small *ngIf="noUsers" class="text-danger">There are no users under this date and trail.</small>
       <ul>
-        <li *ngIf="returnFlags$ | async as returnFlag">{{returnFlag | json}}</li>
+        <li *ngFor="let flag of returnFlags">{{flag.user_id?.username}}</li>
       </ul>
     </div>
 </form>

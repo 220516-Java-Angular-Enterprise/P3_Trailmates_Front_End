@@ -144,7 +144,7 @@ goToFlag(id: string){
 
 checkSubmitted(event: any){
   if(event){
-    console.log(event)
+    this.flag(document.getElementById(this._currRoute.firstChild?.snapshot.params['id']))
   } else {
     this.unflag(document.getElementById(this._currRoute.firstChild?.snapshot.params['id']))
     this._route.navigateByUrl('/trailpage');

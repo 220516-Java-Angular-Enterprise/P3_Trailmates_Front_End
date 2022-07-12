@@ -29,7 +29,7 @@ export class CalendarModalComponent implements OnInit {
     date_int: 0,
   }
 
-  returnFlags$ = new Observable<TrailFlag[]>;
+  returnFlags: TrailFlag[] =[];
 
 
   ngOnInit(): void {
@@ -45,15 +45,15 @@ export class CalendarModalComponent implements OnInit {
   processForm(flagTrail: NgForm){
     if(flagTrail.form.status == 'VALID' && !this.badDate){
       let date = new Date(this.trailFlagReq.date_int+' '+this.time);
-      this.trailFlagReq.date_int = Math.round(date.getTime()/(1000*60*60*24)) ;
+      this.trailFlagReq.date_int = Math.round(date.getTime()/(1000*60*60*24));
+    // post request for flag
     //   this._flagService.postTrailFlag(this.trailFlagReq).subscribe((data:any)=>{
     //   console.log(data);
-
     // })
       this.submitted = true;
-      // gets flags for date and trail
+    // gets flags for date and trail
       this._flagService.getAllFlagsByDateAndTrail(Math.round(date.getTime()/(1000*60*60*24)), this.trailFlagReq.trail_id).subscribe(
-        (data:any)=>{ this.returnFlags$ = data;
+        (data:any)=>{ this.returnFlags = data;
         },
         (error: any)=> {
           this.noUsers = true;
@@ -64,7 +64,7 @@ export class CalendarModalComponent implements OnInit {
   }
 }
 
-// Compares if entered date is before today or not. 
+// Compares if entered date is before today or not.
 compareDate(event: any){
   if((new Date(this.trailFlagReq.date_int+' '+this.time)) < (new Date())){
     this.badDate = true;
