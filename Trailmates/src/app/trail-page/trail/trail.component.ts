@@ -35,6 +35,7 @@ export class TrailComponent implements OnInit {
   regex: RegExp = /(<([^>]+)>)/ig;
   subject: string = '';
   petsAllowed: string = '';
+  flagged: boolean = false;
 
   ngOnInit(): void {
     // Gets all trails on render
@@ -52,19 +53,18 @@ export class TrailComponent implements OnInit {
 
   // to toggle flag from blank to filled in on click
   flag(event: any) {
-    // get trail_id of card and search if the user has it in their list
-    // if they have it check date, if date is today or later then change color, else return
+    // this.flagged = !this.flagged
+    if(event.classList[1] == "bi-flag"){
+      event.classList.replace("bi-flag", "bi-flag-fill")
+    } else if (event.classList[1] == "bi-flag-fill"){
+      this.unflag(event)
+    }
+  }
 
-    var dateInt = new Date().getTime()/(1000*60*60*24)
-
-    // event target may be trail id
-    this._trailFlagService.getAllByDateAndName(dateInt, event?.target.id).subscribe((data) =>{
-      this.flagTrails = data;
-      console.log(this.flagTrails)
-    })
-
-    // need an if trail id is there then change flag color
-    this.fillColor = `rgb(47,79,79)`;
+  unflag(event: any){
+      if(event.classList[1] == "bi-flag-fill"){
+      event.classList.replace("bi-flag-fill", "bi-flag")
+    }
   }
 
   friend(event: any) {
