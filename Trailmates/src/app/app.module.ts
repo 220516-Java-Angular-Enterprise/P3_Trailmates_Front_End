@@ -1,3 +1,4 @@
+import { SearchAllComponent } from './header/search-users/search-users.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -9,8 +10,7 @@ import { TrailComponent } from './trail-page/trail/trail.component';
 import { LandingComponent } from './auth/landing/landing.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
-import { NotifiationsComponent } from './header/notifications/notifications.component';
-import { SearchAllComponent } from './header/search-users/search-users.component';
+import { NotificationsComponent } from './header/notifications/notifications.component';
 import { SearchTrailsComponent } from './header/search-trails/search-trails.component';
 import { UserMenuComponent } from './header/user-menu/user-menu.component';
 import { NotificationItemComponent } from './header/notifications/notification-item/notification-item.component';
@@ -27,9 +27,14 @@ import { SearchTrailParkComponent } from './header/search-trails/search-trail-pa
 import { DynamicSearchComponent } from './header/search-trails/dynamic-search/dynamic-search.component';
 import { MessagingComponent } from './messaging-page/messaging/messaging.component';
 import { MessagesService } from './services/messages.service';
+<<<<<<< HEAD
 import { FeedComponent } from './messaging-page/feed/feed.component';
 import { ChatroomComponent } from './messaging-page/chatroom/chatroom.component';
 import { ChatFormComponent } from './messaging-page/chat-form/chat-form.component';
+=======
+import { CalendarModalComponent } from './calendar-modal/calendar-modal.component';
+import { OverlayModule } from '@angular/cdk/overlay';
+>>>>>>> de756a6f651cad92dca0917583a2130421d73298
 
 @NgModule({
   declarations: [
@@ -41,7 +46,7 @@ import { ChatFormComponent } from './messaging-page/chat-form/chat-form.componen
     LandingComponent,
     LoginComponent,
     CreateAccComponent,
-    NotifiationsComponent,
+    NotificationsComponent,
     SearchAllComponent,
     SearchTrailsComponent,
     UserMenuComponent,
@@ -53,9 +58,13 @@ import { ChatFormComponent } from './messaging-page/chat-form/chat-form.componen
     SearchTrailStateComponent,
     SearchTrailParkComponent,
     DynamicSearchComponent,
+<<<<<<< HEAD
     FeedComponent,
     ChatroomComponent,
     ChatFormComponent
+=======
+    CalendarModalComponent
+>>>>>>> de756a6f651cad92dca0917583a2130421d73298
   ],
 
   imports: [
@@ -64,9 +73,11 @@ import { ChatFormComponent } from './messaging-page/chat-form/chat-form.componen
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    OverlayModule,
   ],
   providers: [AuthService,
     MessagesService,
+    TrailHistoryComponent,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,

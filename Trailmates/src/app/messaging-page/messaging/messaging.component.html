@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+<!--<app-header></app-header>-->
 <html>
+
     <title>Messages</title>
-    <app-header></app-header>
+
     
 <header>
     <div class="banner">
@@ -18,6 +19,7 @@
                     <div class="speech1">
                         <div class="speech bottom1">
                     <div class="chat chat-else">
+                        <!--feed component starts -->
                         <!--owned Conversation-->
                     <div *ngFor="let convos of ownedConversation"></div>
                 </div>
@@ -37,7 +39,7 @@
                     <div class="speech1">
                   <div class="chat chat-else">
                     <strong class="sender">Thomas</strong>
-                     <span> What do you wanna do today?</span>
+                    <span> What do you wanna do today?</span>
                       </div>
                     </div>
                 </ul>
@@ -51,11 +53,15 @@
                     </div>
                 </div>
             </ul>
-
             </ul>
+            <div class="box">
+              <ul>
+                <li *ngFor="let convo of convos">{{convo.conversation?.name}}</li>
+              </ul>
+            </div>
         </div>
     </div>
-    <!--<form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">-->
+    <form #sendForm="ngForm">
         <div class="message-send row">
             <div class="col-2">
                 <input type="text" class="form control" name="user" id="input-user" ngModel>
@@ -67,7 +73,7 @@
                 <button style="background-color:#b1a49f; color:white" type="submit">Send</button>
             </div>
         </div>
-    <!--</form>-->
+    </form>
   </div>
 </main>
 </html>

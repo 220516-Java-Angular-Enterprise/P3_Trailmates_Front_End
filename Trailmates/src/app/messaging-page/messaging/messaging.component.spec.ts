@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NgForm, FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
@@ -10,7 +11,7 @@ describe('MessagingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports:[RouterTestingModule, FormsModule],
+      imports:[RouterTestingModule, FormsModule, HttpClientTestingModule],
       declarations: [ MessagingComponent ]
     })
     .compileComponents();
