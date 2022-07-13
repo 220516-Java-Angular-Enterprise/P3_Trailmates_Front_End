@@ -45,7 +45,7 @@ jobs:
       with:
         start: npm run start
         working-directory: ./Trailmates
-        wait-on: 'http://localhost:3000'
+        wait-on: 'http://localhost:4200'
         wait-on-timeout: 120
 
 
