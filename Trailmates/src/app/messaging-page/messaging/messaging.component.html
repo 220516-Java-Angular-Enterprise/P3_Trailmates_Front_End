@@ -1,10 +1,9 @@
 <app-header></app-header>
 <div class="h-100 bg-primary d-flex flex-row column justify-content-between">
   <div class="bg-warning col-3">
-  <app-chat-groups></app-chat-groups>
+  <app-chat-groups [convos]="convos" (passConversation)="sendConvoToChatRoom($event)"></app-chat-groups>
   </div>
   <div class="bg-light col-9">
-  <app-chat-room></app-chat-room>
+  <app-chat-room [convo]="convo"></app-chat-room>
   </div>
-
 </div>

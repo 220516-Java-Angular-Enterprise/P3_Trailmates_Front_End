@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { PrivateMessage } from './../../../../models/privateMessage';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-private-message',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class PrivateMessageComponent implements OnInit {
 
   constructor() { }
+
+  @Input() message: PrivateMessage = {};
 
   ngOnInit(): void {
   }
