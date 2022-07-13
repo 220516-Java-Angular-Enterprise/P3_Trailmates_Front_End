@@ -11,11 +11,25 @@
 //
 //
 // -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
+// Cypress.Commands.add('loginapp', (email, password) => { 
+//     // make login call to endpoint
+//     cy.visit('/')
+//     cy.request('POST', `${BACKEND}/login/`, {
+//         email: email,
+//         password: password,
+//     })
+
+// })
 //
 //
 // -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
+Cypress.Commands.add('login', (username, password) => {
+
+    cy.get("#login-username").type(username);
+    cy.get("#login-password").type(password);
+    cy.contains("Sign in").click(); 
+
+     })
 //
 //
 // -- This is a dual command --
