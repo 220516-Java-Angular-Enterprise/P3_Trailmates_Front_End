@@ -40,12 +40,12 @@ jobs:
       working-directory: ./Trailmates
       run: npm install
 
-    - name: deploy
-      working-directory: ./Trailmates
-      run: npm run start
-
     - name: Cypress run
       uses: cypress-io/github-action@v4
       with:
+        start: npm run start
         working-directory: ./Trailmates
+        wait-on: 'http://localhost:3000'
+        wait-on-timeout: 120
+
 
