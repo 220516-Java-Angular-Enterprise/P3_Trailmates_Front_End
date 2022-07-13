@@ -20,7 +20,23 @@ import { TrailHistoryComponent } from '../trail-history/trail-history.component'
 })
 export class ProfileComponent implements OnInit {
   @Input()
+  /** 
   
+  selectedFile: File = null;
+  onFileSelected(event: any){
+    this.selectedFile = <File>event.target.files[0];
+  }
+  */
+/** 
+  onUpload(){
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+    this.http.post('',fd).subscribe(res =>{
+      console.log(res);
+    });
+
+  }
+  */
   popup = false
   public trailhistory: TrailHistory[] = []
   public noPosts: string = ""
@@ -47,7 +63,8 @@ export class ProfileComponent implements OnInit {
         this.trailhistory = data;
         console.log(this.trailhistory)
 
-        if(this.trailhistory.length == 0){
+        if(this.trailhistory.length == 0 ){
+        
           console.log("You don't have any posts")
         }else{
           console.log("You have posts")
