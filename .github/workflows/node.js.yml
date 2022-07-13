@@ -37,6 +37,10 @@ jobs:
       working-directory: ./Trailmates
       run: npm test
 
+    - name: deploy
+      working-directory: ./Trailmates
+      run: npm run start
+
     - name: Cypress run
       uses: cypress-io/github-action@v4
       with:
