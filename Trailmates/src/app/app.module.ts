@@ -19,7 +19,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthService } from './services/auth.service';
 import { TrailHistoryComponent } from './profile-page/trail-history/trail-history.component';
 import { TrailCommentsComponent } from './profile-page/trail-comments/trail-comments.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClickOutsideDirective } from './animations/click-outside.directive';
 import { SearchTrailStateComponent } from './header/search-trails/search-trail-state/search-trail-state.component';
@@ -29,6 +29,10 @@ import { MessagingComponent } from './messaging-page/messaging/messaging.compone
 import { MessagesService } from './services/messages.service';
 import { CalendarModalComponent } from './calendar-modal/calendar-modal.component';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { ChatRoomComponent } from './messaging-page/messaging/chat-room/chat-room.component';
+import { ChatGroupsComponent } from './messaging-page/messaging/chat-groups/chat-groups.component';
+import { PrivateMessageComponent } from './messaging-page/messaging/chat-room/private-message/private-message.component';
+import { CreateGroupComponent } from './messaging-page/messaging/chat-groups/create-group/create-group.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +56,11 @@ import { OverlayModule } from '@angular/cdk/overlay';
     SearchTrailStateComponent,
     SearchTrailParkComponent,
     DynamicSearchComponent,
-    CalendarModalComponent
+    CalendarModalComponent,
+    ChatRoomComponent,
+    ChatGroupsComponent,
+    PrivateMessageComponent,
+    CreateGroupComponent
   ],
 
   imports: [
@@ -62,6 +70,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     FormsModule,
     BrowserAnimationsModule,
     OverlayModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService,
     MessagesService,

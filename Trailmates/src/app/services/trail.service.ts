@@ -10,8 +10,9 @@ import { Trail } from '../models/trail';
 export class TrailService {
 
   constructor(private http: HttpClient) { }
-  url: string = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/trail/'
-
+  //url: string = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/trail/'
+  url: string = 'http://localhost:8080/TrailMates/trail/'
+  
   // Gets all trails from backend with GET request
   getAllTrails(): Observable<Trail[]>{
     return this.http.get<Trail[]>(this.url+'getAll')

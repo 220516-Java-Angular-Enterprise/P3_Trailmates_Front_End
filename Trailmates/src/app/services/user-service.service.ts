@@ -17,9 +17,13 @@ const httpOptions = {
 })
 export class UserService {
 
+  // public ROOT_URL = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/user/';
+ // localhost:8080
+ public ROOT_URL = 'http://localhost:8080/TrailMates/user/';
+
   constructor(private http: HttpClient) {
   }
-  public ROOT_URL = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/user/';
+
   getUserById (id: string): Observable<User> {
     return this.http.get<User>(this.ROOT_URL +`user-id/${id}`);
   }
