@@ -24,6 +24,7 @@ export class ProfileComponent implements OnInit {
   public trailhistory: TrailHistory[] = []
   public noPosts: string = ""
   public user: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
+  public viewerUser: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
 
   isLoggedIn: boolean = false;
   username: any;
@@ -37,8 +38,11 @@ export class ProfileComponent implements OnInit {
     this.currRoute.params.subscribe(p => {
       this.username = p['username']
       
+      this.userservice.getUserByUsername((this.username || '').toString()).subscribe((data:any) => {
+        this.viewerUser = data
+        console.log("IT WOOOOOROKRKRRKRKS" + this.viewerUser.bio)
+      })
 
-      console.log("IT WOOORKKKRKKRKSSS " + this.bio)
       //converts null to string
       this.userservice.getUserById((this.id || '').toString()).subscribe((data:any) => {
         this.user = data
@@ -46,14 +50,9 @@ export class ProfileComponent implements OnInit {
       })
       console.log(localStorage.getItem('id'))
 
-
-    //   this.trailHistoryService.getHistoryDesc().subscribe((data:any) => {
-    //     this.trailhistory = data
-    //     console.log(this.trailhistory)
-    // })
-      this.trailHistoryService.getHistoryAsc().subscribe((data)=>{
+      this.trailHistoryService.getHistoryDesc().subscribe((data)=>{
         this.trailhistory = data;
-        console.log(this.trailhistory)
+        console.log("TRAILLILIL HISTORYYYYY" + this.trailhistory)
 
         if(this.trailhistory.length == 0){
           console.log("You don't have any posts")
