@@ -43,13 +43,11 @@ export class ProfileComponent implements OnInit {
       })
       console.log(localStorage.getItem('id'))
 
-<<<<<<< HEAD
 
     //   this.trailHistoryService.getHistoryDesc().subscribe((data:any) => {
     //     this.trailhistory = data
     //     console.log(this.trailhistory)
     // })
-=======
       this.trailHistoryService.getHistoryAsc().subscribe((data)=>{
         this.trailhistory = data;
         console.log(this.trailhistory)
@@ -64,7 +62,6 @@ export class ProfileComponent implements OnInit {
       
      
       
->>>>>>> 0ab933c9886756d4408ad70307181726fc4abc87
   })
 }
 
