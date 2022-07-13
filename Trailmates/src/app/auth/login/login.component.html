@@ -17,13 +17,21 @@
               <div class="form-block">
               <label>
                 <span>Username</span></label>
-              <input class="form-control" [(ngModel)]="auth.username" type="text" id="login-username" name="login-username" [placeholder]="placeholders.username" #name="ngModel" required>
+              <input class="form-control" [(ngModel)]="auth.username" type="text" id="login-username" name="login-username" [placeholder]="placeholders.username" #name="ngModel" [class.is-invalid] = "name.invalid && name.touched" pattern= "^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$" required>
+              <div *ngIf="name.touched && (name.invalid || name.touched)">
+                <small class="text-danger" *ngIf="name.errors?.['required']">Name is required</small>
+                <small class="text-danger" *ngIf="name.errors?.['pattern']">Name must be at least eight letters</small>
+              </div>
               </div>
 
               <div class="form-block">
               <label>
-              <span>Password</span>            </label>
-              <input class="form-control" [(ngModel)]="auth.password" type="password" id="login-password" name="login-password" [placeholder]="placeholders.password" #name="ngModel" required>
+              <span>Password</span></label>
+              <input class="form-control" [(ngModel)]="auth.password" type="password" id="login-password" name="login-password" [placeholder]="placeholders.password" #password="ngModel" [class.is-invalid] = "password.invalid && password.touched" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" required>
+              <div *ngIf="password.touched && (password.invalid || password.touched)">
+                <small class="text-danger" *ngIf="password.errors?.['required']">Password is required</small>
+                <small class="text-danger" *ngIf="password.errors?.['pattern']">Password must be at least eight letters and contain one uppercase and special character</small>
+              </div>
           </div>
               <div class="form-group">
                 <div *ngIf="displayFormSubmitError" style="color: red">
