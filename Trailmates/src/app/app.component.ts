@@ -9,4 +9,5 @@ import { AuthService } from './services/auth.service';
 export class AppComponent {
   title = 'Trailmates';
   constructor(protected authService:AuthService){}
+
 }

@@ -1,3 +1,4 @@
+import { RouterTestingModule } from '@angular/router/testing';
 
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
@@ -10,7 +11,7 @@ describe('TrailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, RouterTestingModule],
       declarations: [ TrailComponent ],
     })
     .compileComponents();

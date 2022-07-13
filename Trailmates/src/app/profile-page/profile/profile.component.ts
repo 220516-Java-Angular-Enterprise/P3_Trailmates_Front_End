@@ -32,7 +32,6 @@ export class ProfileComponent implements OnInit {
   constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService, private trailHistoryComp:TrailHistoryComponent,
   private router:Router, private http:HttpClient, private currRoute: ActivatedRoute) { }
 
-
   async ngOnInit() {
     this.currRoute.params.subscribe(p => {
 
@@ -60,7 +59,7 @@ export class ProfileComponent implements OnInit {
       })
 
       
-     
+
       
   })
 }
