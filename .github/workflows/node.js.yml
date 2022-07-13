@@ -29,11 +29,6 @@ jobs:
     - name: Node
       uses: actions/setup-node@v3
 
-    - name: Cypress run
-      uses: cypress-io/github-action@v4
-      with:
-        working-directory: ./Trailmates
-
     - name: Use Node.js
       working-directory: ./Trailmates
       run: npm install
@@ -42,7 +37,8 @@ jobs:
       working-directory: ./Trailmates
       run: npm test
 
-    - name: e2e testing
-      working-directory: ./Trailmates
-      run: npm run cypress:run
+    - name: Cypress run
+      uses: cypress-io/github-action@v4
+      with:
+        working-directory: ./Trailmates
 
