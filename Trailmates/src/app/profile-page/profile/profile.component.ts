@@ -40,7 +40,6 @@ export class ProfileComponent implements OnInit {
       
       this.userservice.getUserByUsername((this.username || '').toString()).subscribe((data:any) => {
         this.viewerUser = data
-        console.log("IT WOOOOOROKRKRRKRKS" + this.viewerUser.bio)
       })
 
       //converts null to string
@@ -52,7 +51,6 @@ export class ProfileComponent implements OnInit {
 
       this.trailHistoryService.getHistoryDesc().subscribe((data)=>{
         this.trailhistory = data;
-        console.log("TRAILLILIL HISTORYYYYY" + this.trailhistory)
 
         if(this.trailhistory.length == 0){
           console.log("You don't have any posts")

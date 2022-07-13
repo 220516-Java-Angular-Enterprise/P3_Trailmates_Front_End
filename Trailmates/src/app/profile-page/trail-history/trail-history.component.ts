@@ -21,12 +21,6 @@ export class TrailHistoryComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  trail: Trail = {
-    id: '61C3D5EA-F2F7-419F-89B2-B743626A4D26'
-  }
-  user: User = {
-    id: '56f4fe03-5359-4eb5-aa9c-8140caa1208d'
-  }
 
 historyReq = {
         trail_name: "",
