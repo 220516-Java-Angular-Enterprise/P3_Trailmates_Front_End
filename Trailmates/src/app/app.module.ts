@@ -28,7 +28,11 @@ import { MessagingComponent } from './messaging-page/messaging/messaging.compone
 import { MessagesService } from './services/messages.service';
 import { CalendarModalComponent } from './calendar-modal/calendar-modal.component';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { NotifiationsComponent } from './header/notifications/notifications.component';
+import { ChatRoomComponent } from './messaging-page/messaging/chat-room/chat-room.component';
+import { ChatGroupsComponent } from './messaging-page/messaging/chat-groups/chat-groups.component';
+import { PrivateMessageComponent } from './messaging-page/messaging/chat-room/private-message/private-message.component';
+import { CreateGroupComponent } from './messaging-page/messaging/chat-groups/create-group/create-group.component';
+import { NotificationsComponent } from './header/notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,7 @@ import { NotifiationsComponent } from './header/notifications/notifications.comp
     LandingComponent,
     LoginComponent,
     CreateAccComponent,
-    NotifiationsComponent,
+    NotificationsComponent,
     SearchAllComponent,
     SearchTrailsComponent,
     UserMenuComponent,
@@ -52,7 +56,11 @@ import { NotifiationsComponent } from './header/notifications/notifications.comp
     SearchTrailStateComponent,
     SearchTrailParkComponent,
     DynamicSearchComponent,
-    CalendarModalComponent
+    CalendarModalComponent,
+    ChatRoomComponent,
+    ChatGroupsComponent,
+    PrivateMessageComponent,
+    CreateGroupComponent
   ],
 
   imports: [
@@ -61,6 +69,7 @@ import { NotifiationsComponent } from './header/notifications/notifications.comp
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    OverlayModule,
     ReactiveFormsModule
   ],
   providers: [AuthService,
