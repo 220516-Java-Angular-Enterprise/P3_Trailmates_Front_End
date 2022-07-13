@@ -19,16 +19,23 @@ export class ChatGroupsComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.convos = this.convos
   }
+  show: boolean = true;
 
   passConvo(convo: Conversation){
     this.passConversation.emit(convo);
   }
 
-  updateGroups(){
+  reload(){
     this._messagesService.getExistingConvos().subscribe((data:any)=>{
       this.convos = data
     })
+  }
+
+  updateGroups(){
+    this.reload();
+    this.reload();
   }
 
 }

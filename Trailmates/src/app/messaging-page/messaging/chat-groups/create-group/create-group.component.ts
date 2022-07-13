@@ -3,6 +3,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user-service.service';
 import { MessagesService } from 'src/app/services/messages.service';
+import { Conversation } from 'src/app/models/conversation';
 
 @Component({
   selector: 'app-create-group',
@@ -71,14 +72,15 @@ export class CreateGroupComponent implements OnInit {
 
   createGroup(createGroupForm: NgForm){
     //Gets selected users Id and push it into groupReq array
+    if(createGroupForm.form.status == 'VALID'){
     if(this.selectedUsers.length > 0){
     this.selectedUsers.forEach(user=>this.groupReq.userIDs.push(user.id!))
     }
-
     //Post request
     this._messageService.createNewGroup(this.groupReq)
     this.passCreateGroup.emit();
     console.log("successfully created.")
+    }
   }
 
 }

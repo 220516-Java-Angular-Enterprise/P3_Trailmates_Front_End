@@ -41,17 +41,5 @@ export class MessagingComponent implements OnInit, OnDestroy {
     console.log(this.convo)
   }
 
-  consoleConvos(){
-    console.log(this.convos)
-  }
-
-  updateGroups(){
-    this.messagesService.getExistingConvos().subscribe((data: any)=>{
-      this.convos = data;
-    })
-
-
-
-  }
 
 }
