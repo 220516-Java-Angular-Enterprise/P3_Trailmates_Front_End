@@ -20,9 +20,7 @@ who messaged them, and they set up the hiking plan from there.
 - User can post info on hikes they have been on, on their page
 - User can message other users
 
-
-![TrailMates Wireframe If necessary](https://link-to-the-image_Can-be-stored-on-github)
-
+<br>
 
 ## Technologies
 <table>
@@ -34,6 +32,7 @@ who messaged them, and they set up the hiking plan from there.
             <td>Google Maps API<a href = "https://developers.google.com/maps/documentation"><sup>1</sup></a></td>
             <td>Trail Map Display</td>
         </tr>
+        <tr> <td>GitLab</td> <td>CI/CD</td> </tr>
         <tr> <td>AWS S3 Bucket</td> <td>User Storage</td> </tr>
     </tbody>
 </table>

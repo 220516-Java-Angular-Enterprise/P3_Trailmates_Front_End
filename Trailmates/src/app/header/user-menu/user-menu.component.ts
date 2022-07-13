@@ -28,4 +28,8 @@ export class UserMenuComponent implements OnInit {
     this.route.navigateByUrl("/messaging/"+localStorage.getItem("id"))
   }
 
+  goToProfile(){
+    this.route.navigateByUrl("/profile/"+localStorage.getItem("username"))
+  }
+
 }
