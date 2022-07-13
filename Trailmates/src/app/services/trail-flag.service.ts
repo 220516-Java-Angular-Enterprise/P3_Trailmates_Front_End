@@ -27,11 +27,11 @@ export class TrailFlagService {
 
 
   getAllFlagsByDateAndTrail(date: Number, trail: string): Observable<TrailFlag[]>{
-    return this.http.get<TrailFlag[]>(this.url+'?d=' + date + 't=' + trail)
+    return this.http.get<TrailFlag[]>(this.url+'?d=' + date + '&t=' + trail)
   }
 
   getAllByDateAndName(date: Number, name: string): Observable<TrailFlag[]>{
-    return this.http.get<TrailFlag[]>(this.url+"?d="+ date + 'u=' + name);
+    return this.http.get<TrailFlag[]>(this.url+"?d="+ date + '&u=' + name);
   }
 
   getAllByUser(name: string): Observable<TrailFlag[]>{
