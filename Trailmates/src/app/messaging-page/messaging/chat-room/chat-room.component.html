@@ -13,9 +13,9 @@
     <app-private-message *ngFor="let message of privateMessages" [message]="message" ></app-private-message>
   </div>
   <div class="sendbox input-group">
-    <input type="text" class="form-control" >
+    <input type="text" class="form-control" [(ngModel)]="message">
     <div class="input-group-append">
-    <button type="button" class="btn btn-primary input-group-append">Send</button>
+    <button (click)="submitMessage()" type="button" class="btn btn-primary input-group-append">Send</button>
     </div>
   </div>
 </div>

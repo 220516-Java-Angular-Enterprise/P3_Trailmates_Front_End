@@ -1,3 +1,4 @@
+
 import { PrivateMessage } from './../../../../models/privateMessage';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -13,6 +14,9 @@ export class PrivateMessageComponent implements OnInit {
   @Input() message: PrivateMessage = {};
 
   ngOnInit(): void {
+
   }
 
 }
+
+

@@ -34,5 +34,9 @@ export class MessagesService {
       console.log(data);
     })
   }
+  
+  postNewMessage(message: any): Observable<any>{
+    return this.http.post<any>(this.url+"private-message", message)
+  }
 
 }
