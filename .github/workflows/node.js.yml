@@ -29,13 +29,13 @@ jobs:
     - name: Node
       uses: actions/setup-node@v3
 
-    - name: Use Node.js
-      working-directory: ./Trailmates
-      run: npm install
+    # - name: Use Node.js
+    #   working-directory: ./Trailmates
+    #   run: npm install
 
-    - name: Unit testing
-      working-directory: ./Trailmates
-      run: npm test
+    # - name: Unit testing
+    #   working-directory: ./Trailmates
+    #   run: npm test
 
     - name: deploy
       working-directory: ./Trailmates
