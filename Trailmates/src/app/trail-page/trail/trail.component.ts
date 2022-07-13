@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { TrailService } from 'src/app/services/trail.service';
 
 @Component({
-  selector: 'trail',
-  templateUrl: './trail.component.html',
+  selector: 'trail',  //first attribute. name for our custom html. You can use it in any html page
+  templateUrl: './trail.component.html', //html that is responsible in rendering 
   styleUrls: ['./trail.component.scss']
 })
 export class TrailComponent implements OnInit {
