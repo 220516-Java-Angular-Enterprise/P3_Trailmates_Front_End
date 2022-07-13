@@ -29,6 +29,7 @@ export class TrailComponent implements OnInit {
   filterUser: User[] = [];
   flagTrails: TrailFlag[] = []
   trail: Trail = {};
+  user: User = {};
   long_desc: string = '';
   latitude: Number = 0;
   longitude: Number = 0;
@@ -36,6 +37,7 @@ export class TrailComponent implements OnInit {
   subject: string = '';
   petsAllowed: string = '';
   flagged: boolean = false;
+  friended: boolean = false;
 
   ngOnInit(): void {
     // Gets all trails on render
@@ -68,11 +70,23 @@ export class TrailComponent implements OnInit {
   }
 
   friend(event: any) {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    this.fillColor = `rgb(${r}, ${g}, ${b})`;
+    // const r = Math.floor(Math.random() * 256);
+    // const g = Math.floor(Math.random() * 256);
+    // const b = Math.floor(Math.random() * 256);
+    // this.fillColor = `rgb(${r}, ${g}, ${b})`;
 
+    if(event.classList[1] == "bi-person-plus"){
+      event.classList.replace("bi-person-plus", "bi-person-check-fill")
+    } else if (event.classList[1] == "bi-person-check-fill"){
+      this.unfriend(event)
+    }
+
+  }
+
+  unfriend(event: any) {
+    if(event.classList[1] == "bi-person-check-fill"){
+      event.classList.replace("bi-person-check-fill", "bi-person-plus")
+    }
   }
 
   filter(query: any){
@@ -98,6 +112,11 @@ export class TrailComponent implements OnInit {
   }
   }
 
+  showUserDetails(event: any) {
+    this._userService.getUserById(event.target.id).subscribe((data: any) => {
+      this.user = data
+    })
+  }
 
   // needs to also render user comments
   showTrailDetails(event: any) {
