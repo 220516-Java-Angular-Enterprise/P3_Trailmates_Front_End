@@ -4,7 +4,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TrailService } from 'src/app/services/trail.service';
 import { UserService } from 'src/app/services/user-service.service';
 import { User } from 'src/app/models/user';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {} from 'googlemaps';
 import { TrailFlag } from 'src/app/models/trailFlag';
 // import { ConsoleReporter } from 'jasmine';
@@ -16,7 +16,7 @@ import { TrailFlag } from 'src/app/models/trailFlag';
 })
 export class TrailComponent implements OnInit {
 
-  constructor(private _trailService: TrailService, private _userService: UserService, private _trailFlagService: TrailFlagService, private _route: Router){ }
+  constructor(private _trailService: TrailService, private _userService: UserService, private _trailFlagService: TrailFlagService, private _route: Router, private _currRoute: ActivatedRoute){ }
   
   @Input()
   popup = false;
@@ -35,6 +35,7 @@ export class TrailComponent implements OnInit {
   regex: RegExp = /(<([^>]+)>)/ig;
   subject: string = '';
   petsAllowed: string = '';
+  flagged: boolean = false;
 
   ngOnInit(): void {
     // Gets all trails on render
@@ -52,24 +53,21 @@ export class TrailComponent implements OnInit {
 
   // to toggle flag from blank to filled in on click
   flag(event: any) {
-    // get trail_id of card and search if the user has it in their list
-    // if they have it check date, if date is today or later then change color, else return
+    // this.flagged = !this.flagged
+    if(event.classList[1] == "bi-flag"){
+      event.classList.replace("bi-flag", "bi-flag-fill")
+    } else if (event.classList[1] == "bi-flag-fill"){
+      this.unflag(event)
+    }
+  }
 
-    var dateInt = new Date().getTime()/(1000*60*60*24)
-
-    // event target may be trail id
-    this._trailFlagService.getAllByDateAndName(dateInt, event?.target.id).subscribe((data) =>{
-      this.flagTrails = data;
-      console.log(this.flagTrails)
-    })
-
-    // need an if trail id is there then change flag color
-    this.fillColor = `rgb(47,79,79)`;
+  unflag(event: any){
+      if(event.classList[1] == "bi-flag-fill"){
+      event.classList.replace("bi-flag-fill", "bi-flag")
+    }
   }
 
   friend(event: any) {
-
-
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
@@ -142,6 +140,15 @@ filterSubject(subject: any){
 
 goToFlag(id: string){
   this._route.navigateByUrl('/trailpage/flag/'+id);
+}
+
+checkSubmitted(event: any){
+  if(event){
+    this.flag(document.getElementById(this._currRoute.firstChild?.snapshot.params['id']))
+  } else {
+    this.unflag(document.getElementById(this._currRoute.firstChild?.snapshot.params['id']))
+    this._route.navigateByUrl('/trailpage');
+  }
 }
 
 }
