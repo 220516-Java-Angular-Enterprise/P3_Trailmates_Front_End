@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import Pusher from 'pusher-js';
 
 @Component({
   selector: 'app-private-message',
@@ -6,10 +8,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./private-message.component.scss']
 })
 export class PrivateMessageComponent implements OnInit {
-
-  constructor() { }
+  username = 'username';
+  messages: any[] | undefined;
+  message = 'hi';
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    Pusher.logToConsole = true;
+
+    const pusher = new Pusher('02505fbfb47bd66f2994', {
+      cluster: 'us3'
+    });
+
+    const channel = pusher.subscribe('chat');
+    channel.bind('message', (data: any) => {
+      alert(JSON.stringify(data));
+    });
+  }
+
+  submit(): void {
+    // this.http.post("link", body:{
+    //   username: this.username,
+    //   message: this.message
+    // }).subscribe(() => this.message = '');
+
   }
 
 }
+
+
