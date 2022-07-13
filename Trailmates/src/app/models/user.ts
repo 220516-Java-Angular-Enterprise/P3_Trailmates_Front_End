@@ -5,6 +5,6 @@ export interface User {
     password?:string,
     email?:string,
     role?:string,
-    bio?:string
+    bio?:string,
     age?:number|null
 }
