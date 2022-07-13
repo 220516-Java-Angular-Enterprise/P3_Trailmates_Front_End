@@ -29,16 +29,13 @@ jobs:
     - name: Node
       uses: actions/setup-node@v3
 
-    # - name: Use Node.js
-    #   working-directory: ./Trailmates
-    #   run: npm install
-
-    # - name: Unit testing
-    #   working-directory: ./Trailmates
-    #   run: npm test
-    - name: install dependencies
+    - name: Use Node.js
       working-directory: ./Trailmates
       run: npm install
+
+    - name: Unit testing
+      working-directory: ./Trailmates
+      run: npm test
 
     - name: Cypress run
       uses: cypress-io/github-action@v4
