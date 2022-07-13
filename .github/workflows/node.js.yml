@@ -38,7 +38,11 @@ jobs:
       working-directory: ./Trailmates
       run: npm install
 
-    - name: testing
+    - name: Unit testing
       working-directory: ./Trailmates
       run: npm test
+
+    - name: e2e testing
+      working-directory: ./Trailmates
+      run: npm run cypress:run
 
