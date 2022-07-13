@@ -1,5 +1,8 @@
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Message } from 'src/app/models/messages';
+import { HttpClient } from '@angular/common/http';
+import { OwnedCoversation } from '../models/ownedCoversations';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,30 +11,11 @@ export class MessagesService {
   webSocket!: WebSocket;
   message: Message[] =[];//stores all the messages that will come from backend
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+  url: string = 'http://localhost:8080/TrailMates/'
 
-      /*Opens Connection*/
-  public openWebSocket(){
-    this.webSocket=new WebSocket('ws://localhost:8080/messages');
-
-    this.webSocket.onopen=(event)=> {
-      console.log('Open:',event);
-    };
-
-    this.webSocket.onmessage = (event)=>{
-  const message =JSON.parse(event.data);
-  this.message.push(message);
-    };
-
-    this.webSocket.onclose = (event) => {
-      console.log ('Close:',event);
-    };
-  }
-  public sendMessage(message:Message){
-    this.webSocket.send(JSON.stringify(message));
+  getExistingConvos(): Observable<OwnedCoversation[]>{
+    return this.http.get<OwnedCoversation[]>(this.url+"owned-conversation/active");
   }
 
-  public closeWebSocket(){
-    this.webSocket.close();
-  }
 }
