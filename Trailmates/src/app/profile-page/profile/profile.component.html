@@ -6,8 +6,8 @@
         <!-- profile image -->
         <div class="col-lg-4 col-md-12 profileImg">
             <img src="https://i.stack.imgur.com/gHaf2.png" alt="simpson">
-            <h3>@{{user.username}}</h3>
-            <button type="button" class="btn btn-outline-primary btn-lg friendBtn">Add Friend</button>
+            <h3>@{{username}}</h3>
+            <button *ngIf="username!=user.username" type="button" class="btn btn-outline-primary btn-lg friendBtn">Add Friend</button>
         </div>
 
         <div class="col-lg-8 col-md-12 titleContainer">

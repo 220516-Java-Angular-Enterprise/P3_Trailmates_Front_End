@@ -2,8 +2,8 @@ import { Trail } from './trail';
 import { User } from "./user";
 
 export interface TrailFlag{
-  entry_id?: string;
-  trail_id?: Trail;
+  id?: string;
+  trail_id?: string;
   user_id?: User;
   date_int: number;
 }

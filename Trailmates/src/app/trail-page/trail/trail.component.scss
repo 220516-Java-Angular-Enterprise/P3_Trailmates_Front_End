@@ -1,3 +1,4 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 
 *{
     --bistre: #31231E;
@@ -108,11 +109,20 @@
 }
 
 .card-img-top-search {
+    min-height: 18rem;
     max-height: 18rem;
     min-width: 18rem;
+    max-width: 18rem;
+}
+
+#profilePic {
+    max-height: 18rem;
+    min-width: 18rem;
+    background-image: url("../../../assets/images/blank-profile.png");
 }
 
 .card-text-des {
+    min-height: 50px;
     max-height: 100px;
     min-width: 100px;
     overflow-y: scroll;
@@ -128,12 +138,19 @@
     max-height: 18rem;
 }
 
-#mapimg {
+#map {
     width: 100%;
     height: 25rem;
     display: flex;
     justify-content: center;
     margin-top: 10px;
+    background-image: url("../../../assets/images/image.PNG");
+}
+
+
+.createPostBtn {
+    background-color: white;
+    border: none;
 }
 
 .flag {
@@ -141,20 +158,56 @@
     justify-content: right;
 }
 
-.flag #flagButtonFill {
-    display: none;
+.friend {
+    display: flex;
+    justify-content: right; 
 }
 
-.flag:active #flagButtonFill,
-.flag:focus #flagButtonFill {
-    display: block;
-}
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: opacity 500ms;
+    visibility: visible;
+    opacity: 1;
+  }
 
-.flag:active #flagButtonEmpty,
-.flag:focus #flagButtonEmpty {
-    display: none;
-}
+  .popup {
+    margin: 70px auto;
+    padding: 5px;
+    background: #fff;
+    border-radius: 12px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+  }
 
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .popup .close:hover {
+    background-color: var(--laurel-green);
+    cursor: pointer;
+  }
+
+  .popshadow {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
 
 
 

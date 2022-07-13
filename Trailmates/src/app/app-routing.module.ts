@@ -1,3 +1,4 @@
+import { CalendarModalComponent } from './calendar-modal/calendar-modal.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TrailComponent } from './trail-page/trail/trail.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
@@ -10,6 +11,7 @@ import { MessagingComponent } from './messaging-page/messaging/messaging.compone
 import { AuthGuard } from './auth.guard';
 import { LandingComponent } from './auth/landing/landing.component';
 
+// Routes paths to componenets in Router Outlet
 const routes: Routes = [
   {
     path: '',
@@ -32,7 +34,12 @@ const routes: Routes = [
   {
     path: 'trailpage',
     component: TrailComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      {path: 'flag/:id',
+      component: CalendarModalComponent,
+    canActivate: [AuthGuard]},
+  ]
   },
   {
     //messaging/:userid
@@ -43,7 +50,6 @@ const routes: Routes = [
   {
     path: '**',
     component: NotFoundComponent,
-
   }
 
 ];

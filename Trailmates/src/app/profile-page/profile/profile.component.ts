@@ -27,15 +27,18 @@ export class ProfileComponent implements OnInit {
 
   isLoggedIn: boolean = false;
   username: any;
+  bio: any;
 
   id: string | null = localStorage.getItem('id')
   constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService, private trailHistoryComp:TrailHistoryComponent,
   private router:Router, private http:HttpClient, private currRoute: ActivatedRoute) { }
 
-
   async ngOnInit() {
     this.currRoute.params.subscribe(p => {
+      this.username = p['username']
+      
 
+      console.log("IT WOOORKKKRKKRKSSS " + this.bio)
       //converts null to string
       this.userservice.getUserById((this.id || '').toString()).subscribe((data:any) => {
         this.user = data
@@ -55,7 +58,9 @@ export class ProfileComponent implements OnInit {
         }
       })
 
+      
 
+      
   })
 }
 
