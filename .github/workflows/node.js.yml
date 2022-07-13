@@ -36,6 +36,9 @@ jobs:
     # - name: Unit testing
     #   working-directory: ./Trailmates
     #   run: npm test
+    - name: install dependencies
+      working-directory: ./Trailmates
+      run: npm install
 
     - name: deploy
       working-directory: ./Trailmates
