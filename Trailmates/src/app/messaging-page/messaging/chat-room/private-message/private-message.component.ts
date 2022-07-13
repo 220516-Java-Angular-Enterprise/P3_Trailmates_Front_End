@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import Pusher from 'pusher-js';
+=======
+import { PrivateMessage } from './../../../../models/privateMessage';
+import { Component, Input, OnInit } from '@angular/core';
+>>>>>>> 33f349d18ff7e1b057094f109af2494cf1ef9a87
 
 @Component({
   selector: 'app-private-message',
@@ -12,6 +17,8 @@ export class PrivateMessageComponent implements OnInit {
   messages: any[] | undefined;
   message = 'hi';
   constructor(private http: HttpClient) { }
+
+  @Input() message: PrivateMessage = {};
 
   ngOnInit(): void {
     Pusher.logToConsole = true;

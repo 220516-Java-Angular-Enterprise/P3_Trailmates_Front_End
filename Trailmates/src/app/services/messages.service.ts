@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Message } from 'src/app/models/messages';
 import { HttpClient } from '@angular/common/http';
 import { OwnedCoversation } from '../models/ownedCoversations';
+import { User } from '../models/user';
+import { PrivateMessage } from '../models/privateMessage';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +18,14 @@ export class MessagesService {
 
   getExistingConvos(): Observable<OwnedCoversation[]>{
     return this.http.get<OwnedCoversation[]>(this.url+"owned-conversation/active");
+  }
+
+  getPeopleInChatByConvoId(id: string): Observable<User[]>{
+    return this.http.get<User[]>(this.url+"owned-converastion/active-in-chat/"+id);
+  }
+
+  getPrivateMessagesByConvoName(id: string): Observable<PrivateMessage[]>{
+    return this.http.get<PrivateMessage[]>(this.url+"private-message/conversation/"+id);
   }
 
 }
