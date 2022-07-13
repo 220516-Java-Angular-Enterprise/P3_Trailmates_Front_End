@@ -3,24 +3,26 @@ import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router';
 import { LoginComponent } from '../auth/login/login.component';
 import { User } from '../models/user';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, map, Observable } from 'rxjs';
+import { AbstractControl } from '@angular/forms';
+import { UserService } from './user-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  URL = "http://trailmates-env.eba-xbirnvx2.us-east-2.elasticbeanstalk.com/TrailMates/";
-  // private URL = "http://trailmates-env.us-east-1.elasticbeanstalk.com/";
-  constructor(private http: HttpClient, private route: Router) { }
+  // private URL = "http://trailmates-env.eba-xbirnvx2.us-east-2.elasticbeanstalk.com/TrailMates/";
+  private URL = "http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/";
+  constructor(private http: HttpClient, private route: Router, private userService: UserService) { }
 
-  login(auth: User){
+  login(auth: User) {
     return this.http.post<any>(this.URL + "auth/", auth)
   }
-  signUp(user: User){
-    return firstValueFrom(this.http.post<any>(this.URL + "auth/newuser", user));
+  signUp(userData:Object){
+    return firstValueFrom(this.http.post<any>(this.URL + "auth/newuser", userData));
   }
-  getAuthToken(){
+  getAuthToken() {
     return localStorage.getItem("token"); 
   }
   isLoggedIn() {
@@ -31,5 +33,21 @@ export class AuthService {
     // navigates user back to login and removes local storage
     this.route.navigate(['login'])
     window.localStorage.clear();
+  }
+  validateUsernameNotTaken(control: AbstractControl) {
+
+    return this.checkUsernameNotTaken(control.value).pipe(
+      map(res => {
+        return res ? null : { usernameTaken: true};
+      })
+    );
+  }
+  checkUsernameNotTaken(username: string):Observable<boolean> {
+
+    return this.userService.getAllUsers().pipe(
+      map((usernameList: Array<any>) => 
+      usernameList.filter(user => user.username === username)),
+    map(users => !users.length)
+    );
   }
 }

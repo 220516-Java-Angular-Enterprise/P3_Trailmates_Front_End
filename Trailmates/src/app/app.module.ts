@@ -19,7 +19,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthService } from './services/auth.service';
 import { TrailHistoryComponent } from './profile-page/trail-history/trail-history.component';
 import { TrailCommentsComponent } from './profile-page/trail-comments/trail-comments.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClickOutsideDirective } from './animations/click-outside.directive';
 import { SearchTrailStateComponent } from './header/search-trails/search-trail-state/search-trail-state.component';
@@ -58,6 +58,7 @@ import { MessagesService } from './services/messages.service';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService,
     MessagesService,
