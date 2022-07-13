@@ -47,6 +47,10 @@ export class ProfileComponent implements OnInit {
       console.log(localStorage.getItem('id'))
 
 
+    //   this.trailHistoryService.getHistoryDesc().subscribe((data:any) => {
+    //     this.trailhistory = data
+    //     console.log(this.trailhistory)
+    // })
       this.trailHistoryService.getHistoryAsc().subscribe((data)=>{
         this.trailhistory = data;
         console.log(this.trailhistory)
