@@ -10,7 +10,7 @@
 
   </div>
   <div class="chatbox bg-success" *ngIf="privateMessages">
-    <app-private-message   *ngFor="let message of privateMessages" [message]="message" ></app-private-message>
+    <app-private-message *ngFor="let message of privateMessages" [message]="message" ></app-private-message>
   </div>
   <div class="sendbox input-group">
     <input type="text" class="form-control" >

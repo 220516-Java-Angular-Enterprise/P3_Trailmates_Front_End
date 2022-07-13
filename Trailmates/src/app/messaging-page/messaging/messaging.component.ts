@@ -20,6 +20,7 @@ export class MessagingComponent implements OnInit, OnDestroy {
   id: string = '';
   convos: OwnedCoversation[] = [];
   convo: Conversation = {};
+
   
   ngOnInit(): void {
     this.currRoute.params.subscribe(p=>{
@@ -29,6 +30,8 @@ export class MessagingComponent implements OnInit, OnDestroy {
       this.convos = data;
     })
   }
+
+
   ngOnDestroy(): void {
 
   }
@@ -36,6 +39,19 @@ export class MessagingComponent implements OnInit, OnDestroy {
   sendConvoToChatRoom(convo: Conversation){
     this.convo = convo;
     console.log(this.convo)
+  }
+
+  consoleConvos(){
+    console.log(this.convos)
+  }
+
+  updateGroups(){
+    this.messagesService.getExistingConvos().subscribe((data: any)=>{
+      this.convos = data;
+    })
+
+
+
   }
 
 }
