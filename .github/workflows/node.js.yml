@@ -7,7 +7,7 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main]
   pull_request:
     branches: [ "main" ]
 
@@ -33,7 +33,16 @@ jobs:
       working-directory: ./Trailmates
       run: npm install
 
-    - name: testing
+    - name: Unit testing
       working-directory: ./Trailmates
       run: npm test
+
+    - name: Cypress run
+      uses: cypress-io/github-action@v4
+      with:
+        start: npm run start
+        working-directory: ./Trailmates
+        wait-on: 'http://localhost:4200'
+        wait-on-timeout: 120
+
 
