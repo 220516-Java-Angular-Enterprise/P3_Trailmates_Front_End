@@ -1,3 +1,4 @@
+import { NotificationService } from './../services/notification.service';
 import { Notification } from 'src/app/models/notification';
 import { Component, OnInit, Input } from '@angular/core';
 import { fade } from '../animations/animations';
@@ -10,34 +11,24 @@ import {NotificationsComponent} from './notifications/notifications.component'
   animations: [fade],
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
+  constructor(private _notificationService: NotificationService) {}
 
 
   
-  notifications: Notification[] = [
-    {
-      id: "1",
-      message: "message1",
-    },
-    {
-      id: "2",
-      message: "message1",
-    },
-    {
-      id: "3",
-      message: "message1",
-    },
-    {
-      id: "4",
-      message: "message1",
-    }
-  ]
+  notifications: Notification[] = []
   
   isNotifOpen: boolean = false
-
   count = this.notifications.length;
   notify = false;
-  // @Input() count:number = notifCount;
+
+  
+  ngOnInit(): void {
+    this._notificationService.getAllNotifications()
+    .subscribe(
+      (data:any)=>{
+      this.notifications = data;
+    })
+  }
 
   toggleNotifMenu(): void {
     this.isNotifOpen = !this.isNotifOpen;
@@ -76,11 +67,5 @@ export class HeaderComponent implements OnInit {
     this.count = event;
   }
 
-  ngOnInit(): void {
-    // this._notifService.getNotifsByUserId().subscribe((data: any)=>{
-    //   this.count = data.length();
-    // })
-    
-  }
 }
 
