@@ -1,6 +1,5 @@
-
 import { Router } from '@angular/router';
-import { Component, OnInit, OnDestroy, OnChanges, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges, Input, EventEmitter, Output } from '@angular/core';
 import { Notification } from 'src/app/models/notification';
 
 
@@ -8,12 +7,10 @@ import { Notification } from 'src/app/models/notification';
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.scss'],
-  // template: `<app-header [count]="notifCount"></app-header>`
 })
 export class NotificationsComponent implements OnInit {
 
   constructor(private route: Router) { }
-
 
   @Input() notifications: Notification[] = [];
   @Output() passDeleteNotif: EventEmitter<Notification> = new EventEmitter<Notification>()
@@ -29,11 +26,9 @@ export class NotificationsComponent implements OnInit {
     console.log("I was clicked!")
   }
   
-  
   ngOnDestroy() {
     console.log("I was destroyed.")
   }
-
 
   goToMessages(){
     this.route.navigateByUrl("/messaging");

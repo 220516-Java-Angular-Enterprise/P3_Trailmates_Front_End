@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <form action="/action_page.php" (ngSubmit)="processForm(postForm)" class= "sign-in-form" #postForm="ngForm">
     <div class ="container h-100 d-flex flex-column justify-content-between align-items-center">
         <h1>Create a New Post</h1>
@@ -6,15 +7,34 @@
                     <input type="file" id="myFile" accept="image/*" name="filename">
             </div>
         </div>
+=======
+<div class ="container">
+    <button class="close" (click)="close()" >&times;</button>
+    <h1>Create a New Post</h1>
+    
+>>>>>>> f5479050a005972bca3c7e5891ab31b41bab571b
 
-        <div class="row">
-            <div class ="col"><textarea placeholder="name"  [(ngModel)]="historyReq.trail_name" name="trail_name"></textarea></div>
+    <form class="form-area" action="/action_page.php" (ngSubmit)="processForm(postForm)"  #postForm="ngForm">
+       
+       <select class="dropdown" clickOutside (clickOutside)="clickedOutsideMenu()">
+                <option *ngFor="let trail of trails" value="trail.name">
+                    {{trail.name}}
+                </option>
+            </select>
+            
+                <div class ="fileInput form-element"> 
+            <input type="file" id="myFile" name="filename" accept="image/*">
+            <label for="myFile">
+                <i class="bi bi-image"></i>
+                Upload anImage
+            </label>
         </div>
 
         <div class="row">
             <div class ="col"><textarea placeholder="comment"  [(ngModel)]="historyReq.comment" name="comment"></textarea></div>
         </div>
         
+<<<<<<< HEAD
         <!-- <div class="row">
             <div class="col">
                 <input type="date" value="date">
@@ -27,3 +47,10 @@
     <!-- onclick="window.location.reload()" -->
 
 </form>
+=======
+    </form>
+    <button type="submit" class="postBtn align-self-end" onclick="window.location.reload()">Post</button>
+</div>
+    
+         
+>>>>>>> f5479050a005972bca3c7e5891ab31b41bab571b

@@ -33,6 +33,7 @@ import { PrivateMessageComponent } from './messaging-page/messaging/chat-room/pr
 import { CreateGroupComponent } from './messaging-page/messaging/chat-groups/create-group/create-group.component';
 import { HikerAbilityComponent } from './profile-page/hiker-ability/hiker-ability.component';
 import { MessagesService } from './services/messages.service';
+import { UpdateProfileComponent } from './profile-page/update-profile/update-profile/update-profile.component';
 import { NotificationsComponent } from './header/notifications/notifications.component';
 
 
@@ -63,7 +64,8 @@ import { NotificationsComponent } from './header/notifications/notifications.com
     ChatGroupsComponent,
     PrivateMessageComponent,
     CreateGroupComponent,
-    HikerAbilityComponent
+    HikerAbilityComponent,
+    UpdateProfileComponent,
   ],
 
   imports: [

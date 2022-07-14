@@ -2,7 +2,6 @@ import { NotificationService } from './../services/notification.service';
 import { Notification } from 'src/app/models/notification';
 import { Component, OnInit, Input } from '@angular/core';
 import { fade } from '../animations/animations';
-import {NotificationsComponent} from './notifications/notifications.component'
 
 @Component({
   selector: 'app-header',
