@@ -29,9 +29,9 @@ export class HikerAbilityComponent implements OnInit {
       console.log('experience updated to', this._experience);
 
     //determine hiker level based on total experience
-      this.level = Level[Math.floor(this._experience / 60.0)];
+      this.level = Level[Math.floor(Math.sqrt(this._experience) / 3.0)];
       console.log('level set to', this.level, 'using',
-        Math.floor(this._experience/60.0));
+        Math.floor(Math.sqrt(this._experience) / 3.0));
     })
 
     //Get the trails from each of the posts on this page
@@ -51,7 +51,7 @@ export class HikerAbilityComponent implements OnInit {
 
           if(t[i].name == pastTrail.trailName) {
 
-    //parse its duration into numbers
+    //parse its hours of duration into numbers
             let expGain = this.parseAvgDuration(t[i].duration as string);
 
     //update the listened experience tracker with current experience plus
@@ -66,7 +66,7 @@ export class HikerAbilityComponent implements OnInit {
   
   private parseAvgDuration(duration: string): number {
     //Trails without a duration are assumed to be 1 Hour long
-    if(duration == "") return 60;
+    if(duration == "") return 1;
     else {
 
       //All durations are in form #-# Units
@@ -77,7 +77,7 @@ export class HikerAbilityComponent implements OnInit {
       let range = duration.split(RegExp("[-|(Hours)|(Minutes)| ]"), 2);
 
       //return average of the two resulting numbers
-      return 0.5*(inHours?60:1)*(Number.parseInt(range[0]) +  Number.parseInt(range[1]));
+      return 0.5/(inHours?1:60)*(Number.parseInt(range[0]) +  Number.parseInt(range[1]));
     }
   }
 }
