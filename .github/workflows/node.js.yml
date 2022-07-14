@@ -6,9 +6,7 @@ name: Node.js CI
 
 on:
   push:
-
-    branches: [ "jeremiah-2" ]
-
+    branches: [ main]
   pull_request:
     branches: [ "main" ]
 
@@ -34,30 +32,16 @@ jobs:
       working-directory: ./Trailmates
       run: npm install
 
-    - name: testing
+    - name: Unit testing
       working-directory: ./Trailmates
       run: npm test
 
-   # - name: install dbus
-   #   run: sudo apt update && apt install -y dbus
-
-    - name: install on ubuntu
-      run: sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
-
-    - name: make directory
-      run: mkdir -p /var/run/dbus
-
-    - name: install cypress with dependencies
-      run: npm install cypress --save-dev
-
-    - name: install cypress
-      run: npm install cypress
-
-    - name: open cypress
-      run: node_modules/.bin/cypress open
-
-    - name: end to end
-      working-directory: ./Trailmates
-      run: npm run e2e
+    - name: Cypress run
+      uses: cypress-io/github-action@v4
+      with:
+        start: npm run start
+        working-directory: ./Trailmates
+        wait-on: 'http://localhost:4200'
+        wait-on-timeout: 120
 
 
