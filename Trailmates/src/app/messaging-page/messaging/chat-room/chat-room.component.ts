@@ -27,9 +27,11 @@ export class ChatRoomComponent implements OnInit {
   ngOnInit(): void {
     // this.id = this.currRoute.firstChild?.snapshot.params['id'];
     this.currRoute.params.subscribe(data => {
-      this.id = data["id"]
+      if(data['id'] !== this.id) {
+        this.id = data['id'];
+        this.connect();
+      }
     })
-    this.connect();
     
   }
 

@@ -38,9 +38,11 @@ export class MessagingComponent implements OnInit, OnDestroy {
   }
 
   sendConvoToChatRoom(convo: Conversation){
+  
     this.id = convo.id
     this.convo = convo;
     console.log(this.convo)
+   
   }
 
 
