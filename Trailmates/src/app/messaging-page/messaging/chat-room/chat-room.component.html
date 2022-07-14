@@ -1,7 +1,21 @@
-<p>chat-room works!</p>
-<div class="chatroom">
-  <div class="banner"></div>
-  <div>class="chatbox">
-    <app-private-message></app-private-message>
+
+<div class="chatroom" (click)="consoleConvo()">
+  <div class="banner d-flex flex-column align-items-center bg-danger">
+    <div class="box">
+      <i class="bi bi-person-circle"></i>
+    </div>
+    <div class="box">
+      <h3>Username</h3>
+    </div>
+
+  </div>
+  <div class="chatbox bg-success" *ngIf="privateMessages">
+    <app-private-message *ngFor="let message of privateMessages" [message]="message" ></app-private-message>
+  </div>
+  <div class="sendbox input-group">
+    <input type="text" class="form-control" [(ngModel)]="message">
+    <div class="input-group-append">
+    <button (click)="submitMessage()" type="button" class="btn btn-primary input-group-append">Send</button>
+    </div>
   </div>
 </div>

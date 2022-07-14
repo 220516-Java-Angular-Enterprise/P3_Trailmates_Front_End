@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ChatGroupsComponent } from './chat-groups.component';
@@ -8,6 +9,7 @@ describe('ChatGroupsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [ ChatGroupsComponent ]
     })
     .compileComponents();
