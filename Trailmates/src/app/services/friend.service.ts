@@ -15,8 +15,8 @@ export class FriendService {
   constructor(private http: HttpClient) { }
   url: string = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/friend/'
 
-addFriend(friend_id: string, friend: Friend) {
-  return this.http.post<any>(this.url + friend_id, friend)
+addFriend(friend: Friend) {
+  return this.http.post<any>(this.url, friend)
 }
 
 getAllFriends(): Observable<Friend[]>{

@@ -1,3 +1,4 @@
+import { FriendService } from './../../services/friend.service';
 import { TrailFlagService } from './../../services/trail-flag.service';
 import { Trail } from './../../models/trail';
 import { Component, Input, OnInit } from '@angular/core';
@@ -7,6 +8,7 @@ import { User } from 'src/app/models/user';
 import { Router, ActivatedRoute } from '@angular/router';
 import {} from 'googlemaps';
 import { TrailFlag } from 'src/app/models/trailFlag';
+import { Friend } from 'src/app/models/friend';
 // import { ConsoleReporter } from 'jasmine';
 
 @Component({
@@ -16,7 +18,7 @@ import { TrailFlag } from 'src/app/models/trailFlag';
 })
 export class TrailComponent implements OnInit {
 
-  constructor(private _trailService: TrailService, private _userService: UserService, private _trailFlagService: TrailFlagService, private _route: Router, private _currRoute: ActivatedRoute){ }
+  constructor(private _trailService: TrailService, private _friendService: FriendService, private _userService: UserService, private _trailFlagService: TrailFlagService, private _route: Router, private _currRoute: ActivatedRoute){ }
   
   @Input()
   popup = false;
@@ -69,6 +71,13 @@ export class TrailComponent implements OnInit {
   friend(event: any) {
     if(event.classList[1] == "bi-person-plus"){
       event.classList.replace("bi-person-plus", "bi-person-check-fill")
+      let friend: Friend = {
+        user_id: this.user.id,
+        friend_id: event.id
+      }
+      this._friendService.addFriend(friend).subscribe((data:any)=>{
+        console.log(data);
+      })
     } else if (event.classList[1] == "bi-person-check-fill"){
       this.unfriend(event)
     }
