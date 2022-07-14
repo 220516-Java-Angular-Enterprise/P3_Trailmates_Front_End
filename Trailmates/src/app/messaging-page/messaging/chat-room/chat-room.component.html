@@ -15,7 +15,25 @@
   <div class="sendbox input-group">
     <input type="text" class="form-control" [(ngModel)]="message">
     <div class="input-group-append">
-    <button (click)="submitMessage()" type="button" class="btn btn-primary input-group-append">Send</button>
+    <button (click)="sendMessage()" type="button" class="btn btn-primary input-group-append">Send</button>
     </div>
   </div>
 </div>
+
+
+<div class="col-sm-4 liveChat overflow-auto justify-content-center" style="height: 750px;">
+  <div class="d-flex h1 justify-content-center align-items-center mb-3">Live Chat</div>
+<div class="overflow-auto" style="height:550px ">
+<div *ngFor="let msg of greetings">
+  <div class="container h3 rounded mb-2 msg">
+          <p>{{msg}}</p>
+  </div>
+</div> 
+</div>
+<form #loginForm=ngForm style="bottom:5%; position:absolute;">
+  <div class="d-flex flex-column justify-content-center">
+      <br>
+      <textarea style="color: black;" cols="63" autocomplete="on" placeholder="Type Your Message..." name="newmessage" [(ngModel)]="newmessage" required (keydown.enter)="sendMessage()" (keydown.enter)="onKeydown($event)"></textarea>
+      <button class="btn sendBtn" (click)="sendMessage()" [disabled]="!loginForm.valid">Send</button>
+  </div>
+</form>
