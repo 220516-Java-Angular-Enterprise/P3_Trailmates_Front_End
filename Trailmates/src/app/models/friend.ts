@@ -1,5 +1,6 @@
-import { User } from 'src/app/models/user';
+import { User } from "./user";
 export interface Friend{
-  user_id?: User;
-  friend_id?: User;
-}
+    id?: string;
+    user_id?: User;
+    friend_id?: User;
+  }
