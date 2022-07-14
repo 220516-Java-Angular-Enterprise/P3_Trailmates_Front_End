@@ -48,9 +48,6 @@ export class TrailComponent implements OnInit {
     this._userService.getAllUsers().subscribe((data)=>{
       this.allUsers = data;
     })
-    
-    
-
   }
 
   // to toggle flag from blank to filled in on click
@@ -70,17 +67,11 @@ export class TrailComponent implements OnInit {
   }
 
   friend(event: any) {
-    // const r = Math.floor(Math.random() * 256);
-    // const g = Math.floor(Math.random() * 256);
-    // const b = Math.floor(Math.random() * 256);
-    // this.fillColor = `rgb(${r}, ${g}, ${b})`;
-
     if(event.classList[1] == "bi-person-plus"){
       event.classList.replace("bi-person-plus", "bi-person-check-fill")
     } else if (event.classList[1] == "bi-person-check-fill"){
       this.unfriend(event)
     }
-
   }
 
   unfriend(event: any) {
