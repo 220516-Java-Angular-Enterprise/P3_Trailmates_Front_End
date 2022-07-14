@@ -36,7 +36,7 @@ export class HikerAbilityComponent implements OnInit {
 
     //Get the trails from each of the posts on this page
     //  to determine Hiker level
-    this._trailHistoryService.getHistoryAsc().subscribe((hist) => {
+    this._trailHistoryService.getHistoryAsc(localStorage.getItem("id")!).subscribe((hist) => {
       for(var trail of hist)
         this.updateExperience(trail);
     });

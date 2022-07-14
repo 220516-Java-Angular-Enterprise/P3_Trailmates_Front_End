@@ -57,7 +57,6 @@ historyReq = {
 displayFormSubmitError: boolean = false
 
 processForm(postForm: NgForm) {
-<<<<<<< HEAD
   //get image file as HTMLInputElement
   let imageElement = document.getElementById("myFile") as HTMLInputElement;
   //change input from HTMLInputElement to File
@@ -75,17 +74,14 @@ processForm(postForm: NgForm) {
   // this.trailhistory.insertNewHistory(this.historyReq).subscribe((data: any) =>{
   //   console.log(data)
   // })
-  
+
 }
 
 getSecureURL(fileType: String) {
   return this.trailhistory.getSecureURL(fileType!);
 }
-=======
-  this.trailhistory.insertNewHistory(this.historyReq).subscribe(data =>{
-    console.log(data)
-  })
-}
+
+
 
 isMenuOpen: boolean = false;
 
@@ -116,7 +112,6 @@ close() {
 
 
 
-
 } 
->>>>>>> f5479050a005972bca3c7e5891ab31b41bab571b
+
 

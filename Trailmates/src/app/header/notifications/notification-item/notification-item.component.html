@@ -1,5 +1,5 @@
 <!-- Friend Notification -->
-<div class="dropdown-item" *ngIf="notif.notification_type=='FRIEND'">
+<div class="dropdown-item" *ngIf="notif?.notification_type =='FRIEND' && notif">
   <div class="notification d-flex column justify-content-evenly align-items-center">
     <h3 class="notification-title col-10"(click)="goToProfiles(notif.friend?.user_id?.username)">Friend Request</h3>
     <button class="btn col-2" (click)="onDelete(notif)">X</button>
@@ -14,7 +14,7 @@
 </div>
 
 <!-- Flag Notification -->
-<div class="dropdown-item" *ngIf="notif.notification_type=='FLAG'">
+<div class="dropdown-item" *ngIf="notif?.notification_type =='FLAG' && notif">
   <div class="notification d-flex column justify-content-evenly align-items-center">
     <h3 class="notification-title col-10" (click)="goToTrailPage(notif.trail_id?.id)">Trail Flag: {{notif.trail_id?.name}}</h3>
     <button class="btn col-2" (click)="onDelete(notif)">X</button>
@@ -29,7 +29,7 @@
 </div>
 
 <!-- History Notification -->
-<div class="dropdown-item" *ngIf="notif.notification_type=='HISTORY'">
+<div class="dropdown-item" *ngIf="notif?.notification_type =='HISTORY' && notif">
   <div class="notification d-flex column justify-content-evenly align-items-center">
     <h3 class="notification-title col-10" (click)="goToProfiles(notif.friend?.user_id?.username)">Post Notification</h3>
     <button class="btn col-2" (click)="onDelete(notif)">X</button>
@@ -44,7 +44,7 @@
 </div>
 
 <!-- New Convo Notification -->
-<div class="dropdown-item" *ngIf="notif.notification_type=='NEW_CONVO'">
+<div class="dropdown-item" *ngIf="notif?.notification_type =='NEW_CONVO' && notif">
   <div class="notification d-flex column justify-content-evenly align-items-center">
     <h3 class="notification-title col-10" (click)="goToMessages()">Group: Added</h3>
     <button class="btn col-2" (click)="onDelete(notif)">X</button>
@@ -60,7 +60,7 @@
 
 
 <!-- Add Convo Notification -->
-<div class="dropdown-item" *ngIf="notif.notification_type=='ADD_CONVO'">
+<div class="dropdown-item" *ngIf="notif?.notification_type =='ADD_CONVO' && notif">
   <div class="notification d-flex column justify-content-evenly align-items-center">
     <h3 class="notification-title col-10" (click)="goToMessages()">Group: Added</h3>
     <button class="btn col-2" (click)="onDelete(notif)">X</button>
@@ -76,7 +76,7 @@
 
 
 <!-- Group Notification -->
-<div class="dropdown-item" *ngIf="notif.notification_type=='NEW_CONVO'">
+<div class="dropdown-item" *ngIf="notif?.notification_type =='NEW_CONVO' && notif">
   <div class="notification d-flex column justify-content-evenly align-items-center">
     <h3 class="notification-title col-10" (click)="goToMessages()">Group: New User</h3>
     <button class="btn col-2" (click)="onDelete(notif)">X</button>
