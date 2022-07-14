@@ -18,21 +18,30 @@ export class HeaderComponent implements OnInit {
   notifications: Notification[] = []
   
   isNotifOpen: boolean = false
-  count = this.notifications.length;
   notify = false;
 
   
   ngOnInit(): void {
+    this.getNotifs()
+  }
+
+  getNotifs(){
     this._notificationService.getAllNotifications()
     .subscribe(
       (data:any)=>{
       this.notifications = data;
+      this.notifications.forEach(notification=>{
+        notification.timeCreated = new Date(notification.timeCreated).toLocaleString()
+      })
     })
+  }
+
+  deleteNotif(id: string){
+    this._notificationService.deleteNotification(id);
   }
 
   toggleNotifMenu(): void {
     this.isNotifOpen = !this.isNotifOpen;
-    this.count= 0;
   }
 
   notifState() {
@@ -57,15 +66,12 @@ export class HeaderComponent implements OnInit {
     this.isUserMenuOpen = false;
   }
 
-  // Notification Emulator
-  addNotif() {
-    this.count++;
-    this.notify = true;
+  updateNotif(notif: Notification){
+    this.deleteNotif(notif.id!)
+    this.getNotifs();
+    this.getNotifs();
   }
 
-  setNotifCount(event: any){
-    this.count = event;
-  }
 
 }
 

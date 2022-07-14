@@ -2,11 +2,13 @@
 
   <!-- Title -->
   <li class="dropdown-item disabled">
-  <div class="d-flex justify-content-center title">
+  <div class="d-flex justify-content-center title flex-column align-items-center">
     <h2 class="fill title">Notifications</h2>
+    <small *ngIf="notifications.length == 0" class="text-secondary">No new notifications.</small>
   </div>
   </li>
+
   <!-- Notification -->
-  <app-notification-item *ngFor="let notif of notifications" [notif]="notif" (onDeleteNotif)="deleteNotif(notif)" (goToMessage)="goToMessages()"></app-notification-item>
+  <app-notification-item *ngFor="let notif of notifications" [notif]="notif" (onDeleteNotif)="deleteNotif(notif)" (goToMessage)="goToMessages()" (goToProfile)="goToProfile($event)"></app-notification-item>
   <!-- End Notification -->
 </ul>

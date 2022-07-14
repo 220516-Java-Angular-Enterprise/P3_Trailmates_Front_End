@@ -14,12 +14,12 @@ export class NotificationItemComponent implements OnInit {
   @Output() onDeleteNotif: EventEmitter<Notification> = new EventEmitter();
   @Output() clicked: EventEmitter<any> = new EventEmitter();
   @Output() goToMessage: EventEmitter<any> = new EventEmitter();
-
+  @Output() goToProfile: EventEmitter<any> = new EventEmitter();
+  @Output() goToTrail: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
-
   }
 
   onDelete(notif: Notification){
@@ -32,6 +32,14 @@ export class NotificationItemComponent implements OnInit {
 
   goToMessages(){
   this.goToMessage.emit();
+  }
+
+  goToProfiles(username: any){
+    this.goToProfile.emit(username);
+  }
+
+  goToTrailPage(id: any){
+    this.goToTrail.emit(id);
   }
 
 }

@@ -16,12 +16,13 @@ export class NotificationsComponent implements OnInit {
 
 
   @Input() notifications: Notification[] = [];
+  @Output() passDeleteNotif: EventEmitter<Notification> = new EventEmitter<Notification>()
 
   notifCount = this.notifications.length;
 
 
   deleteNotif(notif: Notification){
-    console.log("deleting notifcation #" + notif.id+"...");
+    this.passDeleteNotif.emit(notif);
   }
   
   onClick(){
@@ -36,6 +37,10 @@ export class NotificationsComponent implements OnInit {
 
   goToMessages(){
     this.route.navigateByUrl("/messaging/"+localStorage.getItem('id'));
+  }
+
+  goToProfile(username: any){
+    this.route.navigateByUrl("/profile/"+username);
   }
 
 

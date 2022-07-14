@@ -8,11 +8,9 @@ export interface Notification{
   id?: string;
   message?: string;
   user_id?: User;
-  timeCreated?: Date;
+  timeCreated?: any;
   notification_type?: string;
   trail_id?: Trail;
   trailHistory?: TrailHistory;
   friend?: Friend;
-  
-
 }

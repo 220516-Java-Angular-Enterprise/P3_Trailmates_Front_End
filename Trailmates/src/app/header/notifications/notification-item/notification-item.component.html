@@ -1,15 +1,94 @@
-<div class="dropdown-item" *ngIf="notif">
-
-  <div class="notification">
-    <!-- <div class="notification-title">{{notif.id}}</div> -->
-    <h3 class="notification-title"(click)="goToMessages()">Trail name</h3>
-    <button class="btn" (click)="onDelete(notif)">X</button>
+<!-- Friend Notification -->
+<div class="dropdown-item" *ngIf="notif.notification_type=='FRIEND'">
+  <div class="notification d-flex column justify-content-evenly align-items-center">
+    <h3 class="notification-title col-10"(click)="goToProfiles(notif.friend?.user_id?.username)">Friend Request</h3>
+    <button class="btn col-2" (click)="onDelete(notif)">X</button>
   </div>
 
-  <div class="notification-footer">
+  <div class="notification-footer d-flex row justify-content-center flex-row">
     <div class="notification-message">{{notif.message}}</div>
-    <div class="notification-timestamp">Timestamp</div>
+    <div class="notification-timestamp">{{notif.timeCreated}}</div>
+    <small class="notification-message align-self-center text-primary" (click)="goToProfiles(notif.friend?.user_id?.username)">Click to view their profile</small>
+
+  </div>
+</div>
+
+<!-- Flag Notification -->
+<div class="dropdown-item" *ngIf="notif.notification_type=='FLAG'">
+  <div class="notification d-flex column justify-content-evenly align-items-center">
+    <h3 class="notification-title col-10" (click)="goToTrailPage(notif.trail_id?.id)">Trail Flag: {{notif.trail_id?.name}}</h3>
+    <button class="btn col-2" (click)="onDelete(notif)">X</button>
   </div>
 
+  <div class="notification-footer d-flex row justify-content-center flex-row">
+    <div class="notification-message">{{notif.message}}</div>
+    <div class="notification-timestamp">{{notif.timeCreated}}</div>
+    <small class="notification-message align-self-center text-primary"
+    (click)="goToTrailPage(notif.trail_id?.id)">Click to go to trail</small>
+  </div>
 </div>
+
+<!-- History Notification -->
+<div class="dropdown-item" *ngIf="notif.notification_type=='HISTORY'">
+  <div class="notification d-flex column justify-content-evenly align-items-center">
+    <h3 class="notification-title col-10" (click)="goToProfiles(notif.friend?.user_id?.username)">Post Notification</h3>
+    <button class="btn col-2" (click)="onDelete(notif)">X</button>
+  </div>
+
+  <div class="notification-footer d-flex row justify-content-center flex-row">
+    <div class="notification-message">{{notif.message}}</div>
+    <div class="notification-timestamp">{{notif.timeCreated}}</div>
+    <small class="notification-message align-self-center" (click)="goToProfiles(notif.friend?.user_id?.username)">Click to view their profile</small>
+
+  </div>
+</div>
+
+<!-- New Convo Notification -->
+<div class="dropdown-item" *ngIf="notif.notification_type=='NEW_CONVO'">
+  <div class="notification d-flex column justify-content-evenly align-items-center">
+    <h3 class="notification-title col-10" (click)="goToMessages()">Group: Added</h3>
+    <button class="btn col-2" (click)="onDelete(notif)">X</button>
+  </div>
+
+  <div class="notification-footer d-flex row justify-content-center flex-row">
+    <div class="notification-message">{{notif.message}}</div>
+    <div class="notification-timestamp">{{notif.timeCreated}}</div>
+    <small class="notification-message align-self-center" (click)="goToMessages()">Click to go to messages</small>
+
+  </div>
+</div>
+
+
+<!-- Add Convo Notification -->
+<div class="dropdown-item" *ngIf="notif.notification_type=='ADD_CONVO'">
+  <div class="notification d-flex column justify-content-evenly align-items-center">
+    <h3 class="notification-title col-10" (click)="goToMessages()">Group: Added</h3>
+    <button class="btn col-2" (click)="onDelete(notif)">X</button>
+  </div>
+
+  <div class="notification-footer d-flex row justify-content-center flex-row">
+    <div class="notification-message">{{notif.message}}</div>
+    <div class="notification-timestamp">{{notif.timeCreated}}</div>
+    <small class="notification-message align-self-center" (click)="goToMessages()">Click to go to messages</small>
+
+  </div>
+</div>
+
+
+<!-- Group Notification -->
+<div class="dropdown-item" *ngIf="notif.notification_type=='NEW_CONVO'">
+  <div class="notification d-flex column justify-content-evenly align-items-center">
+    <h3 class="notification-title col-10" (click)="goToMessages()">Group: New User</h3>
+    <button class="btn col-2" (click)="onDelete(notif)">X</button>
+  </div>
+
+  <div class="notification-footer d-flex row justify-content-center flex-row">
+    <div class="notification-message">{{notif.message}}</div>
+    <div class="notification-timestamp">{{notif.timeCreated}}</div>
+    <small class="notification-message align-self-center" (click)="goToMessages()">Click to go to messages</small>
+
+  </div>
+</div>
+
+
 
