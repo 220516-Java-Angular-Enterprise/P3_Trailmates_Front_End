@@ -54,6 +54,7 @@ export class CalendarModalComponent implements OnInit {
     // gets flags for date and trail
       this._flagService.getAllFlagsByDateAndTrail(Math.round(date.getTime()/(1000*60*60*24)), this.trailFlagReq.trail_id).subscribe(
         (data:any)=>{ this.returnFlags = data;
+          console.log(this.returnFlags);
         },
         (error: any)=> {
           this.noUsers = true;

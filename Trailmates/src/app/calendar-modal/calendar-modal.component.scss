@@ -35,8 +35,41 @@ form{
     font-weight: light;
     background-color: var(--moss-green);
     border-radius: 12px;
+    margin-bottom:10px;
 }
 
 .clickbtn:hover {
+    background-color: var(--laurel-green);
+}
+
+.selectuser{
+    margin-bottom:5px;
+}
+
+.msg{
+    color: white;
+    // border: solid 2px #F4D35E;
+    //box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    font-weight: light;
+    background-color: var(--moss-green);
+    border-radius: 12px;
+    margin-right: 4px;
+    justify-items: right;
+}
+.msg:hover{
+    background-color: var(--laurel-green);
+}
+
+
+.profile{
+    color: white;
+    // border: solid 2px #F4D35E;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    font-weight: light;
+    background-color: var(--moss-green);
+    border-radius: 12px;
+    justify-items: right;
+}
+.profile:hover{
     background-color: var(--laurel-green);
 }

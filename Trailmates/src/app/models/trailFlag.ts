@@ -3,7 +3,7 @@ import { User } from "./user";
 
 export interface TrailFlag{
   id?: string;
-  trail_id?: string;
+  trailId?: string;
   userId?: User;
-  date_int: number;
+  dateInt: number;
 }

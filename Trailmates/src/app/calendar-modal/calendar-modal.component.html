@@ -18,7 +18,10 @@
     <div class="box" *ngIf="submitted">
       <small *ngIf="noUsers" class="text-danger">There are no users under this date and trail.</small>
       <ul>
-        <li *ngFor="let flag of returnFlags">{{flag.userId?.username}}</li>
+        <li class="selectuser" *ngFor="let flag of returnFlags">{{flag.userId?.username}}
+            <button type="submit" class="msg">Message</button>
+            <button type="submit" class="profile">Profile</button>
+        </li>
       </ul>
     </div>
 </form>
