@@ -7,7 +7,7 @@ import { mergeScan } from 'rxjs';
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import { ActivatedRoute } from '@angular/router';
-
+import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 @Component({
   selector: 'app-chat-room',
   templateUrl: './chat-room.component.html',
@@ -88,9 +88,8 @@ export class ChatRoomComponent implements OnInit {
 
     
     this.postNewMessage(messageRequest)
-    // this.getPrivateMessages()
+    this.getPrivateMessages()
     this.message = '';
-    // this.privateMessages.push(privateMessage)
   }
 
   postNewMessage(message: any){
@@ -105,7 +104,7 @@ export class ChatRoomComponent implements OnInit {
 
 
   connect() {
-    const socket = new SockJS('http://localhost:5000/TrailMates/testchat/');
+    const socket = new SockJS('https://localhost:8080/TrailMates/testchat/');
     this.stompClient = Stomp.over(socket);
     const _this = this;
     this.stompClient.connect({}, function (frame: string) {
