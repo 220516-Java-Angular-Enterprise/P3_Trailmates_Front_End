@@ -77,7 +77,7 @@ export class HikerAbilityComponent implements OnInit {
       let range = duration.split(RegExp("[-|(Hours)|(Minutes)| ]"), 2);
 
       //return average of the two resulting numbers
-      return (inHours?60:1)*(Number.parseInt(range[1]));
+      return 0.5*(inHours?60:1)*(Number.parseInt(range[0]) +  Number.parseInt(range[1]));
     }
   }
 }
