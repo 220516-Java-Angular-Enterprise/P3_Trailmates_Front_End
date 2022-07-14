@@ -33,6 +33,7 @@ import { ChatGroupsComponent } from './messaging-page/messaging/chat-groups/chat
 import { PrivateMessageComponent } from './messaging-page/messaging/chat-room/private-message/private-message.component';
 import { CreateGroupComponent } from './messaging-page/messaging/chat-groups/create-group/create-group.component';
 import { MessagesService } from './services/messages.service';
+import { UpdateProfileComponent } from './profile-page/update-profile/update-profile/update-profile.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { MessagesService } from './services/messages.service';
     ChatRoomComponent,
     ChatGroupsComponent,
     PrivateMessageComponent,
-    CreateGroupComponent
+    CreateGroupComponent,
+    UpdateProfileComponent
   ],
 
   imports: [

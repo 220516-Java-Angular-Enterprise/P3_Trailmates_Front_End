@@ -1,0 +1,30 @@
+<form action="/action_page.php" (ngSubmit)="processForm(updateProfileForm)"  #updateProfileForm="ngForm">
+    <div class ="container h-100 d-flex flex-column justify-content-between align-items-center">
+        <h1>Update Profile</h1>
+
+        <div class="row">
+            <div class ="col">
+            <label>New Username: </label>
+            <br>
+            <input placeholder="username" type="text" [(ngModel)]="updateUserReq.username" name="username"></div>
+        </div>
+
+        <div class="row">
+            <div class ="col">
+            <label>New Password: </label>
+            <br>
+            <input placeholder="password" name="password" type="text"></div>
+        </div>
+        
+        <!-- <div class="row">
+            <div class="col">
+                <input type="date" value="date">
+            </div>
+        </div> -->
+        
+        <button type="submit" class="postBtn align-self-end" >post</button>
+    </div>
+
+    
+
+</form>

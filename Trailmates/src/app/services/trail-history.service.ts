@@ -8,16 +8,16 @@ import { TrailHistory } from '../models/trailHistory';
   providedIn: 'root'
 })
 export class TrailHistoryService {
-  private URL="http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/history";
+  private URL="https://revature.trailmates.net/TrailMates/history";
 
   constructor(private http:HttpClient, private route:Router) { }
 
   getHistoryDesc(): Observable<TrailHistory[]> {
-    return this.http.get<TrailHistory[]>(this.URL+'/desc');
+    return this.http.get<TrailHistory[]>(this.URL+'/desc/');
   }
 
-  getHistoryAsc(): Observable<TrailHistory[]> {
-    return this.http.get<TrailHistory[]>(this.URL+'/asc');
+  getHistoryAsc(userId: string): Observable<TrailHistory[]> {
+    return this.http.get<TrailHistory[]>(this.URL+'/asc/'+userId);
   }
 
   insertNewHistory(newHistory: TrailHistory) {

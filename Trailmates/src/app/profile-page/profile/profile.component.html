@@ -8,6 +8,7 @@
             <img src="https://i.stack.imgur.com/gHaf2.png" alt="simpson">
             <h3>@{{username}}</h3>
             <button *ngIf="username!=user.username" type="button" class="btn btn-outline-primary btn-lg friendBtn">Add Friend</button>
+            <button (click)="updateProfilePopup = true" *ngIf="username==user.username" type="button" class="btn btn-outline-primary btn-lg friendBtn">Update Profile</button>
         </div>
 
         <div class="col-lg-8 col-md-12 titleContainer">
@@ -15,17 +16,6 @@
                 <h1><b>Trail History</b></h1>
         
                 <div class="dropdownContainer">
-                    <div class="dropdown">  
-                        <button class="dropbtn">Choose Your Trail</button> 
-
-                        <div class="dropdown-content">  
-                            <a> Trail 1 </a>  
-                            <a> Trail 2 </a>  
-                            <a> Trail 3 </a>  
-                        </div>  
-                    </div> 
-                
-                
                     <!-- create post button that opens popup-->
                     <button type="button" class="createPostBtn" (click)="popup = true" *ngIf="username==user.username">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor" class="bi bi-journal-plus" viewBox="0 0 16 16">
@@ -44,6 +34,13 @@
                     </div>
                 </div>
 
+                <!-- post popup -->
+                <div class="overlay" *ngIf="updateProfilePopup">
+                    <div class="popup">
+                        <app-update-profile></app-update-profile>
+                        <a class="close" (click)="updateProfilePopup = false" >&times;</a>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -77,8 +74,6 @@
                 <div class="postText">
                     <h3>{{hist.trailName}}</h3>
                     <p>{{hist.comment}}</p>
-                    <div id="noPosts" style="color: red"></div>
-                    <div id="box"></div>
                 </div>
 
                 <script src="./src/app/profile-page/profile/profile.component.ts"></script>
