@@ -19,6 +19,7 @@ import { TrailHistoryComponent } from '../trail-history/trail-history.component'
 })
 export class ProfileComponent implements OnInit {
   @Input()
+
   popup = false
   public trailhistory: TrailHistory[] = []
   public noPosts: string = ""
@@ -32,6 +33,7 @@ export class ProfileComponent implements OnInit {
   id: string | null = localStorage.getItem('id')
   constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService, private trailHistoryComp:TrailHistoryComponent,
   private router:Router, private http:HttpClient, private currRoute: ActivatedRoute) { }
+
 
   async ngOnInit() {
     this.currRoute.params.subscribe(p => {
