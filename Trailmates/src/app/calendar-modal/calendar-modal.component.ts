@@ -5,8 +5,6 @@ import { Component, Input, OnInit, OnDestroy, Output, EventEmitter } from '@angu
 import { ActivatedRoute, Router } from '@angular/router';
 import { AnimateTimings } from '@angular/animations';
 import { TrailFlagService } from '../services/trail-flag.service';
-import { UserService } from '../services/user-service.service';
-import { User } from '../models/user';
 
 
 @Component({
@@ -16,7 +14,7 @@ import { User } from '../models/user';
 })
 export class CalendarModalComponent implements OnInit {
 
-  constructor(private currRoute: ActivatedRoute, private _flagService: TrailFlagService, private _userService: UserService, public router: Router) { }
+  constructor(private currRoute: ActivatedRoute, private _flagService: TrailFlagService, public router: Router) { }
 
   @Output() passSubmitStatus: EventEmitter<boolean> = new EventEmitter();
   displayFormSubmitError: boolean = false;

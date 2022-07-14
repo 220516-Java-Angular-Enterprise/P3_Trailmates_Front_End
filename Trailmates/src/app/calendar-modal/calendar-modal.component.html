@@ -18,7 +18,7 @@
     <div class="box" *ngIf="submitted">
       <small *ngIf="noUsers" class="text-danger">There are no users under this date and trail.</small>
       <ul>
-        <li *ngFor="let flag of returnFlags">{{flag.user_id?.username}}</li>
+        <li *ngFor="let flag of returnFlags">{{flag.user_id}}</li>
       </ul>
     </div>
 </form>

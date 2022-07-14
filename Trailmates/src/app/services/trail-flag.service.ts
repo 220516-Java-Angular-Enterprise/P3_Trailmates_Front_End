@@ -14,32 +14,32 @@ export class TrailFlagService {
 
   // private header: HttpHeaders = new HttpHeaders()
 
-  url: string = 'http://localhost:8080/TrailMates/flag'
-
+  //url: string = 'http://localhost:8080/TrailMates/flag'
+  private URL = "http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/flag";
 
   postTrailFlag(trailFlagReq: any): Observable<TrailFlag>{
-    return this.http.post<any>(this.url, trailFlagReq);
+    return this.http.post<any>(this.URL, trailFlagReq);
   }
 
   getFlagById(id: string): Observable<TrailFlag>{
-    return this.http.get<TrailFlag>(this.url+"/"+id);
+    return this.http.get<TrailFlag>(this.URL+"/"+id);
   }
 
 
   getAllFlagsByDateAndTrail(date: Number, trail: string): Observable<TrailFlag[]>{
-    return this.http.get<TrailFlag[]>(this.url+'?d=' + date + '&t=' + trail)
+    return this.http.get<TrailFlag[]>(this.URL+'?d=' + date + '&t=' + trail)
   }
 
   getAllByDateAndName(date: Number, name: string): Observable<TrailFlag[]>{
-    return this.http.get<TrailFlag[]>(this.url+"?d="+ date + '&u=' + name);
+    return this.http.get<TrailFlag[]>(this.URL+"?d="+ date + '&u=' + name);
   }
 
   getAllByUser(name: string): Observable<TrailFlag[]>{
-    return this.http.get<TrailFlag[]>(this.url+"?u="+ name);
+    return this.http.get<TrailFlag[]>(this.URL+"?u="+ name);
   }
 
   getAllByTrail(trail: string): Observable<TrailFlag[]>{
-    return this.http.get<TrailFlag[]>(this.url+"?t="+ trail);
+    return this.http.get<TrailFlag[]>(this.URL+"?t="+ trail);
   }
 }
 
