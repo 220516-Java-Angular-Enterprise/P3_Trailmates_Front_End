@@ -16,47 +16,56 @@ import { TrailHistoryComponent } from '../trail-history/trail-history.component'
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
   @Input()
-  
-  public trailhistory: TrailHistory = {id: "", comment: "",  date: new Date}
-  public user: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
-  
+  public trailhistory: TrailHistory = { id: '', comment: '', date: new Date() };
+  public user: User = {
+    id: '',
+    username: '',
+    password: '',
+    email: '',
+    role: '',
+    bio: '',
+    age: null,
+  };
+
   isLoggedIn: boolean = false;
   username: any;
-  
-  id: string | null= localStorage.getItem('id')
-  constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService, private trailHistoryComp:TrailHistoryComponent,
-    private router:Router, private http:HttpClient, private currRoute: ActivatedRoute) { }
-    
-    // popup = false
+
+  id: string | null = localStorage.getItem('id');
+  constructor(
+    public trailHistoryService: TrailHistoryService,
+    private userservice: UserService,
+    private trailHistoryComp: TrailHistoryComponent,
+    private router: Router,
+    private http: HttpClient,
+    private currRoute: ActivatedRoute
+  ) {}
+
+  // popup = false
   isFormOpen = false;
 
   openPostForm() {
     this.isFormOpen = !this.isFormOpen;
   }
 
-
   async ngOnInit() {
-    this.currRoute.params.subscribe(p => {
-      
+    this.currRoute.params.subscribe((p) => {
       //converts null to string
-      this.userservice.getUserById((this.id || '').toString()).subscribe((data:any) => {
-        this.user = data
-        console.log(this.user)
-      })
-      console.log(localStorage.getItem('id'))
-     
-      
-    //   this.trailHistoryService.getHistoryDesc().subscribe((data:any) => {
-    //     this.trailhistory = data
-    //     console.log(this.trailhistory)
-    // })
-  })
-}
+      this.userservice
+        .getUserById((this.id || '').toString())
+        .subscribe((data: any) => {
+          this.user = data;
+          console.log(this.user);
+        });
+      console.log(localStorage.getItem('id'));
 
-
-
+      //   this.trailHistoryService.getHistoryDesc().subscribe((data:any) => {
+      //     this.trailhistory = data
+      //     console.log(this.trailhistory)
+      // })
+    });
+  }
 }
