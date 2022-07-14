@@ -6,6 +6,7 @@ import { ProfileComponent } from './profile-page/profile/profile.component';
 import { LoginComponent } from './auth/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { MessagingComponent } from './messaging-page/messaging/messaging.component';
 import { AuthGuard } from './auth.guard';
 import { LandingComponent } from './auth/landing/landing.component';

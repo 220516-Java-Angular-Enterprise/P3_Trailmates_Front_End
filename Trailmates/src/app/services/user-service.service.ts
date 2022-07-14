@@ -27,6 +27,10 @@ export class UserService {
     return this.http.get<User>(this.ROOT_URL +`user-id/${id}`);
   }
 
+  getUserByUsername (username: string): Observable<User> {
+    return this.http.get<User>(this.ROOT_URL +`user-username/${username}`);
+  }
+
   getAllUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.ROOT_URL+"all-users");
   }
