@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Conversation } from 'src/app/models/conversation';
 import { OwnedCoversation } from 'src/app/models/ownedCoversations';
 import { MessagesService } from 'src/app/services/messages.service';
@@ -11,7 +12,7 @@ import { MessagesService } from 'src/app/services/messages.service';
 })
 export class ChatGroupsComponent implements OnInit {
 
-  constructor(private _messagesService: MessagesService) { }
+  constructor(private _messagesService: MessagesService, private currRoute: Router) { }
 
   @Input() convos: OwnedCoversation[] = [];
   @Output() passCreateGroup: EventEmitter<any> = new EventEmitter()
@@ -25,6 +26,8 @@ export class ChatGroupsComponent implements OnInit {
 
   passConvo(convo: Conversation){
     this.passConversation.emit(convo);
+    this.currRoute.navigateByUrl("/messaging/groupchat/" + convo.id)
+    
   }
 
   reload(){

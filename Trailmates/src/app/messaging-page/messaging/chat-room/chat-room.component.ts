@@ -25,16 +25,20 @@ export class ChatRoomComponent implements OnInit {
   greetings: string[] = [];
   constructor(private _messageService: MessagesService, private userService: UserService, private currRoute: ActivatedRoute) { }
   ngOnInit(): void {
-    this.currRoute.params.subscribe(p => {
-      this.id = p['id']
+    // this.id = this.currRoute.firstChild?.snapshot.params['id'];
+    this.currRoute.params.subscribe(data => {
+      this.id = data["id"]
     })
     this.connect();
+    
   }
 
   newmessage: string | undefined;
   disabled = true;
   private stompClient = require('stompjs');
-  @Input() convo: Conversation = {};
+  @Input() convo: Conversation = {
+
+  };
   privateMessages: PrivateMessage[] = [];
 
   setConnected(connected: boolean) {
@@ -44,11 +48,8 @@ export class ChatRoomComponent implements OnInit {
     }
   }
 
-  // ngOnInit(): void {
-  // }
-
   getPrivateMessages(){
-    this._messageService.getPrivateMessagesByConvoName(this.convo.id!).subscribe(
+    this._messageService.getPrivateMessagesByConvoName(this.id!).subscribe(
       (data:any)=>{
       this.privateMessages = data;
     },
@@ -84,11 +85,11 @@ export class ChatRoomComponent implements OnInit {
     )
 
     privateMessage.message = this.message; 
-    console.log(privateMessage)
+    console.log(this.message)
 
     
     this.postNewMessage(messageRequest)
-    this.getPrivateMessages()
+    // this.getPrivateMessages()
     this.message = '';
   }
 
@@ -104,7 +105,7 @@ export class ChatRoomComponent implements OnInit {
 
 
   connect() {
-    const socket = new SockJS('https://localhost:8080/TrailMates/testchat/');
+    const socket = new SockJS('http://localhost:5000/TrailMates/testchat');
     this.stompClient = Stomp.over(socket);
     const _this = this;
     this.stompClient.connect({}, function (frame: string) {
@@ -117,21 +118,22 @@ export class ChatRoomComponent implements OnInit {
   
   sendMessage() {
     this.submitMessage();
-    this.userService.getUserById(localStorage.getItem('id')!).subscribe(
-      data => data.username = this.username
-    )
-    console.log(this.username)
+    // this.userService.getUserById(localStorage.getItem('id')!).subscribe(
+    //   data => data.username = this.username
+    // )
+    // console.log(this.username)
     this.stompClient.send(
       '/current/resume',
       {},
       //this.obj
-      JSON.stringify(this.id + "~" + this.username + ": " + this.newmessage)
+      JSON.stringify(this.id + "~" + localStorage.getItem('username') + ": " + this.newmessage)
     );
     this.newmessage = "";
   }
   
   showMessage(message: string) {
       var split = message.split("~");
+      console.log(this.id)
       if (split[0] == this.id) { this.greetings.push(split[1]); } 
   }
 }

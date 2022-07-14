@@ -14,7 +14,7 @@ export class TrailFlagService {
 
   // private header: HttpHeaders = new HttpHeaders()
 
-  url: string = 'http://localhost:8080/TrailMates/flag'
+  url: string = 'https://revature.trailmates.net/TrailMates/flag'
 
 
   postTrailFlag(trailFlagReq: any): Observable<TrailFlag>{

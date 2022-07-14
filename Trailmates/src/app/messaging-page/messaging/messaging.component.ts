@@ -17,15 +17,16 @@ export class MessagingComponent implements OnInit, OnDestroy {
 
   constructor(public messagesService:MessagesService, private currRoute: ActivatedRoute) { }
 
-  id: string = '';
+
   convos: OwnedCoversation[] = [];
   convo: Conversation = {};
-
+  id = this.convo.id;
   
   ngOnInit(): void {
-    this.currRoute.params.subscribe(p=>{
-      this.id = p['id'];
-    })
+    // this.currRoute.params.subscribe(p=>{
+    //   this.id = p['id'];
+    // })
+    console.log(this.id)
     this.messagesService.getExistingConvos().subscribe((data: any) =>{
       this.convos = data;
     })
@@ -37,6 +38,7 @@ export class MessagingComponent implements OnInit, OnDestroy {
   }
 
   sendConvoToChatRoom(convo: Conversation){
+    this.id = convo.id
     this.convo = convo;
     console.log(this.convo)
   }
