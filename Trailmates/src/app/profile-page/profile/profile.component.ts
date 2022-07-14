@@ -12,7 +12,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { TokenInterceptorService } from 'src/app/services/token-interceptor.service';
 import { User } from 'src/app/models/user';
 import { TrailHistoryComponent } from '../trail-history/trail-history.component';
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -20,30 +19,15 @@ import { TrailHistoryComponent } from '../trail-history/trail-history.component'
 })
 export class ProfileComponent implements OnInit {
   @Input()
-  /** 
-  
-  selectedFile: File = null;
-  onFileSelected(event: any){
-    this.selectedFile = <File>event.target.files[0];
-  }
-  */
-/** 
-  onUpload(){
-    const fd = new FormData();
-    fd.append('image', this.selectedFile, this.selectedFile.name);
-    this.http.post('',fd).subscribe(res =>{
-      console.log(res);
-    });
-
-  }
-  */
   popup = false
   public trailhistory: TrailHistory[] = []
   public noPosts: string = ""
   public user: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
+  public viewerUser: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
 
   isLoggedIn: boolean = false;
   username: any;
+  bio: any;
 
   id: string | null = localStorage.getItem('id')
   constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService, private trailHistoryComp:TrailHistoryComponent,
@@ -51,7 +35,12 @@ export class ProfileComponent implements OnInit {
 
   async ngOnInit() {
     this.currRoute.params.subscribe(p => {
+      this.username = p['username']
       
+      this.userservice.getUserByUsername((this.username || '').toString()).subscribe((data:any) => {
+        this.viewerUser = data
+      })
+
       //converts null to string
       this.userservice.getUserById((this.id || '').toString()).subscribe((data:any) => {
         this.user = data
@@ -59,9 +48,8 @@ export class ProfileComponent implements OnInit {
       })
       console.log(localStorage.getItem('id'))
 
-      this.trailHistoryService.getHistoryAsc().subscribe((data)=>{
+      this.trailHistoryService.getHistoryDesc().subscribe((data)=>{
         this.trailhistory = data;
-        console.log(this.trailhistory)
 
         if(this.trailhistory.length == 0 ){
         
