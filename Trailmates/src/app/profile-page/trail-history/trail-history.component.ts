@@ -45,9 +45,9 @@ processForm(postForm: NgForm) {
 
 
 
-  this.trailhistory.insertNewHistory(this.historyReq).subscribe((data: any) =>{
-    console.log(data)
-  })
+  // this.trailhistory.insertNewHistory(this.historyReq).subscribe((data: any) =>{
+  //   console.log(data)
+  // })
   
 }
 
