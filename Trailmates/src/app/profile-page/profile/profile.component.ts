@@ -15,15 +15,15 @@ import { TrailHistoryComponent } from '../trail-history/trail-history.component'
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
   @Input()
 
-  //popup to make post
-  popup = false
+
   updateProfilePopup = false
 
+  popup:boolean = false
   public trailhistory: TrailHistory[] = []
   public noPosts: string = ""
   public user: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
@@ -46,7 +46,6 @@ export class ProfileComponent implements OnInit {
   private router:Router, private http:HttpClient, private currRoute: ActivatedRoute) { }
 
   async ngOnInit() {
-    
     this.currRoute.params.subscribe(p => {
       this.username = p['username']
       
@@ -56,9 +55,14 @@ export class ProfileComponent implements OnInit {
 
       this.trailHistoryService.getHistoryAsc(this.viewerUser.id as string).subscribe((data)=>{
         this.trailhistory = data;
-  
-      }) 
-    })
+
+        if(this.trailhistory.length == 0 ){
+        
+          console.log("You don't have any posts")
+        }else{
+          console.log("You have posts")
+        }
+      })
   })
 
   this.userservice.getUserById(this.id as string).subscribe((data:any) => {
@@ -67,6 +71,11 @@ export class ProfileComponent implements OnInit {
   })
 
 }
+)}
+
+close(event:any){
+  this.popup = event;
+} 
 }
 
 // this.userservice.getAllUsers().subscribe((data:any) => {

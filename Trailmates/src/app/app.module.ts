@@ -11,7 +11,6 @@ import { TrailComponent } from './trail-page/trail/trail.component';
 import { LandingComponent } from './auth/landing/landing.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
-import { NotificationsComponent } from './header/notifications/notifications.component';
 import { SearchTrailsComponent } from './header/search-trails/search-trails.component';
 import { UserMenuComponent } from './header/user-menu/user-menu.component';
 import { MessagingComponent } from './messaging-page/messaging/messaging.component';
@@ -34,6 +33,8 @@ import { PrivateMessageComponent } from './messaging-page/messaging/chat-room/pr
 import { CreateGroupComponent } from './messaging-page/messaging/chat-groups/create-group/create-group.component';
 import { MessagesService } from './services/messages.service';
 import { UpdateProfileComponent } from './profile-page/update-profile/update-profile/update-profile.component';
+import { NotificationsComponent } from './header/notifications/notifications.component';
+
 
 @NgModule({
   declarations: [
