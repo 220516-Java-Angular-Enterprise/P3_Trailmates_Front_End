@@ -12,7 +12,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { TokenInterceptorService } from 'src/app/services/token-interceptor.service';
 import { User } from 'src/app/models/user';
 import { TrailHistoryComponent } from '../trail-history/trail-history.component';
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -20,52 +19,51 @@ import { TrailHistoryComponent } from '../trail-history/trail-history.component'
 })
 export class ProfileComponent implements OnInit {
   @Input()
-  public trailhistory: TrailHistory = { id: '', comment: '', date: new Date() };
-  public user: User = {
-    id: '',
-    username: '',
-    password: '',
-    email: '',
-    role: '',
-    bio: '',
-    age: null,
-  };
+
+  popup:boolean = false;
+  public trailhistory: TrailHistory[] = []
+  public noPosts: string = ""
+  public user: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
+  public viewerUser: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
 
   isLoggedIn: boolean = false;
   username: any;
+  bio: any;
 
-  id: string | null = localStorage.getItem('id');
-  constructor(
-    public trailHistoryService: TrailHistoryService,
-    private userservice: UserService,
-    private trailHistoryComp: TrailHistoryComponent,
-    private router: Router,
-    private http: HttpClient,
-    private currRoute: ActivatedRoute
-  ) {}
-
-  // popup = false
-  isFormOpen = false;
-
-  openPostForm() {
-    this.isFormOpen = !this.isFormOpen;
-  }
+  id: string | null = localStorage.getItem('id')
+  constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService, private trailHistoryComp:TrailHistoryComponent,
+  private router:Router, private http:HttpClient, private currRoute: ActivatedRoute) { }
 
   async ngOnInit() {
-    this.currRoute.params.subscribe((p) => {
-      //converts null to string
-      this.userservice
-        .getUserById((this.id || '').toString())
-        .subscribe((data: any) => {
-          this.user = data;
-          console.log(this.user);
-        });
-      console.log(localStorage.getItem('id'));
 
-      //   this.trailHistoryService.getHistoryDesc().subscribe((data:any) => {
-      //     this.trailhistory = data
-      //     console.log(this.trailhistory)
-      // })
-    });
-  }
+    this.currRoute.params.subscribe(p => {
+      this.username = p['username']
+      
+      this.userservice.getUserByUsername((this.username || '').toString()).subscribe((data:any) => {
+        this.viewerUser = data
+      })
+
+      //converts null to string
+      this.userservice.getUserById((this.id || '').toString()).subscribe((data:any) => {
+        this.user = data
+        console.log(this.user)
+      })
+      console.log(localStorage.getItem('id'))
+
+      this.trailHistoryService.getHistoryDesc().subscribe((data)=>{
+        this.trailhistory = data;
+
+        if(this.trailhistory.length == 0 ){
+        
+          console.log("You don't have any posts")
+        }else{
+          console.log("You have posts")
+        }
+      })
+  })
+}
+
+close(event:any){
+  this.popup = event;
+} 
 }

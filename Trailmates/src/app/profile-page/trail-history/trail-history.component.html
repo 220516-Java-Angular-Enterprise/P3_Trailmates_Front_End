@@ -1,15 +1,16 @@
 <div class ="container">
     <h1>Create a New Post</h1>
+    <button class="close" (click)="close()" >&times;</button>
 
     <form class="form-area" action="/action_page.php" (ngSubmit)="processForm(postForm)"  #postForm="ngForm">
-
-            <select class="dropdown" clickOutside (clickOutside)="clickedOutsideMenu()">
+       
+       <select class="dropdown" clickOutside (clickOutside)="clickedOutsideMenu()">
                 <option *ngFor="let trail of trails" value="trail.name">
                     {{trail.name}}
                 </option>
             </select>
-
-        <div class ="fileInput form-element"> 
+            
+                <div class ="fileInput form-element"> 
             <input type="file" id="myFile" name="filename" accept="image/*">
             <label for="myFile">
                 <i class="bi bi-image"></i>
@@ -17,10 +18,12 @@
             </label>
         </div>
 
-        <div class ="commentBox form-element">
-            <textarea placeholder="comment"  [(ngModel)]="historyReq.comment" name="comment"  cols="30" rows="3"></textarea>
+        <div class="row">
+            <div class ="col"><textarea placeholder="comment"  [(ngModel)]="historyReq.comment" name="comment"></textarea></div>
         </div>
- 
+        
     </form>
-    <button type="submit" class="postBtn align-self-end">Post</button>     
+    <button type="submit" class="postBtn align-self-end" onclick="window.location.reload()">Post</button>
 </div>
+    
+         

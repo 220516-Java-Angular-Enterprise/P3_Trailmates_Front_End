@@ -21,7 +21,8 @@
   height: auto;
   border-radius: 20px;
   align-items: center;
-  background: #B6C197;
+  // background: #B6C197;
+  background-color: rgb(164, 177, 160);
   box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
   margin-left: 39%;
   margin-top: 15%;
@@ -32,6 +33,19 @@ h1{
   margin-bottom: 10px;
   font-size: 40px;
   color: #444;
+}
+
+.close {
+  position: absolute;
+  top: 23%;
+  right: 34%;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+  background-color: transparent;
+  border: none;
 }
 
 .form-area{

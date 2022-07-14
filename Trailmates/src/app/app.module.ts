@@ -1,3 +1,4 @@
+import { OverlayModule } from '@angular/cdk/overlay';
 import { SearchAllComponent } from './header/search-users/search-users.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,25 +11,29 @@ import { TrailComponent } from './trail-page/trail/trail.component';
 import { LandingComponent } from './auth/landing/landing.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
-import { NotificationsComponent } from './header/notifications/notifications.component';
 import { SearchTrailsComponent } from './header/search-trails/search-trails.component';
 import { UserMenuComponent } from './header/user-menu/user-menu.component';
+import { MessagingComponent } from './messaging-page/messaging/messaging.component';
 import { NotificationItemComponent } from './header/notifications/notification-item/notification-item.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthService } from './services/auth.service';
 import { TrailHistoryComponent } from './profile-page/trail-history/trail-history.component';
 import { TrailCommentsComponent } from './profile-page/trail-comments/trail-comments.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClickOutsideDirective } from './animations/click-outside.directive';
 import { SearchTrailStateComponent } from './header/search-trails/search-trail-state/search-trail-state.component';
 import { SearchTrailParkComponent } from './header/search-trails/search-trail-park/search-trail-park.component';
 import { DynamicSearchComponent } from './header/search-trails/dynamic-search/dynamic-search.component';
-import { MessagingComponent } from './messaging-page/messaging/messaging.component';
-import { MessagesService } from './services/messages.service';
 import { CalendarModalComponent } from './calendar-modal/calendar-modal.component';
-import { OverlayModule } from '@angular/cdk/overlay';
+import { ChatRoomComponent } from './messaging-page/messaging/chat-room/chat-room.component';
+import { ChatGroupsComponent } from './messaging-page/messaging/chat-groups/chat-groups.component';
+import { PrivateMessageComponent } from './messaging-page/messaging/chat-room/private-message/private-message.component';
+import { CreateGroupComponent } from './messaging-page/messaging/chat-groups/create-group/create-group.component';
+import { MessagesService } from './services/messages.service';
+import { NotificationsComponent } from './header/notifications/notifications.component';
+
 
 @NgModule({
   declarations: [
@@ -52,7 +57,11 @@ import { OverlayModule } from '@angular/cdk/overlay';
     SearchTrailStateComponent,
     SearchTrailParkComponent,
     DynamicSearchComponent,
-    CalendarModalComponent
+    CalendarModalComponent,
+    ChatRoomComponent,
+    ChatGroupsComponent,
+    PrivateMessageComponent,
+    CreateGroupComponent
   ],
 
   imports: [
@@ -62,6 +71,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     FormsModule,
     BrowserAnimationsModule,
     OverlayModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService,
     MessagesService,

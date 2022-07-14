@@ -1,10 +1,12 @@
+import { TrailFlagService } from './../../services/trail-flag.service';
 import { Trail } from './../../models/trail';
 import { Component, Input, OnInit } from '@angular/core';
 import { TrailService } from 'src/app/services/trail.service';
 import { UserService } from 'src/app/services/user-service.service';
 import { User } from 'src/app/models/user';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {} from 'googlemaps';
+import { TrailFlag } from 'src/app/models/trailFlag';
 // import { ConsoleReporter } from 'jasmine';
 
 @Component({
@@ -14,15 +16,18 @@ import {} from 'googlemaps';
 })
 export class TrailComponent implements OnInit {
 
-  constructor(private _trailService: TrailService, private _userService: UserService, private _route: Router){ }
+  constructor(private _trailService: TrailService, private _userService: UserService, private _trailFlagService: TrailFlagService, private _route: Router, private _currRoute: ActivatedRoute){ }
   
   @Input()
   popup = false;
+
+  fillColor = 'rgb(220,220,220)';
   
   filterTrail: Trail[] = [];
   allTrails: Trail[] = [];
   allUsers: User[] = [];
   filterUser: User[] = [];
+  flagTrails: TrailFlag[] = []
   trail: Trail = {};
   long_desc: string = '';
   latitude: Number = 0;
@@ -30,6 +35,7 @@ export class TrailComponent implements OnInit {
   regex: RegExp = /(<([^>]+)>)/ig;
   subject: string = '';
   petsAllowed: string = '';
+  flagged: boolean = false;
 
   ngOnInit(): void {
     // Gets all trails on render
@@ -41,11 +47,32 @@ export class TrailComponent implements OnInit {
       this.allUsers = data;
     })
     
+    
+
   }
 
   // to toggle flag from blank to filled in on click
-  change() {
-    // document.getElementById("flagButtonFill").d="";
+  flag(event: any) {
+    // this.flagged = !this.flagged
+    if(event.classList[1] == "bi-flag"){
+      event.classList.replace("bi-flag", "bi-flag-fill")
+    } else if (event.classList[1] == "bi-flag-fill"){
+      this.unflag(event)
+    }
+  }
+
+  unflag(event: any){
+      if(event.classList[1] == "bi-flag-fill"){
+      event.classList.replace("bi-flag-fill", "bi-flag")
+    }
+  }
+
+  friend(event: any) {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    this.fillColor = `rgb(${r}, ${g}, ${b})`;
+
   }
 
   filter(query: any){
@@ -80,8 +107,6 @@ export class TrailComponent implements OnInit {
       this.latitude = +this.trail.latitude!;
       this.longitude = +this.trail.longitude!;
     
-
-
       // This is the functionality for the google map
       this.initMap(this.latitude, this.longitude)
     })
@@ -111,6 +136,19 @@ goToProfile(event: any){
 filterSubject(subject: any){
   this.subject = subject;
   console.log(this.subject)
+}
+
+goToFlag(id: string){
+  this._route.navigateByUrl('/trailpage/flag/'+id);
+}
+
+checkSubmitted(event: any){
+  if(event){
+    this.flag(document.getElementById(this._currRoute.firstChild?.snapshot.params['id']))
+  } else {
+    this.unflag(document.getElementById(this._currRoute.firstChild?.snapshot.params['id']))
+    this._route.navigateByUrl('/trailpage');
+  }
 }
 
 }

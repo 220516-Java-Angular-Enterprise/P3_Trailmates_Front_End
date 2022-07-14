@@ -17,11 +17,18 @@ const httpOptions = {
 })
 export class UserService {
 
+  public ROOT_URL = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/user/';
+
+
   constructor(private http: HttpClient) {
   }
-  public ROOT_URL = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/user/user-id/';
+
   getUserById (id: string): Observable<User> {
-    return this.http.get<User>(this.ROOT_URL +`${id}`);
+    return this.http.get<User>(this.ROOT_URL +`user-id/${id}`);
+  }
+
+  getUserByUsername (username: string): Observable<User> {
+    return this.http.get<User>(this.ROOT_URL +`user-username/${username}`);
   }
 
   getAllUsers(): Observable<User[]>{

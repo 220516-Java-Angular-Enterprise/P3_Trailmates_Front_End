@@ -1,3 +1,4 @@
+import { CalendarModalComponent } from './calendar-modal/calendar-modal.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TrailComponent } from './trail-page/trail/trail.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
@@ -5,6 +6,7 @@ import { ProfileComponent } from './profile-page/profile/profile.component';
 import { LoginComponent } from './auth/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { MessagingComponent } from './messaging-page/messaging/messaging.component';
 import { AuthGuard } from './auth.guard';
 import { LandingComponent } from './auth/landing/landing.component';
@@ -19,7 +21,7 @@ const routes: Routes = [
     // profile/:user
     path: 'profile/:username',
     component: ProfileComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -32,7 +34,12 @@ const routes: Routes = [
   {
     path: 'trailpage',
     component: TrailComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      {path: 'flag/:id',
+      component: CalendarModalComponent,
+    canActivate: [AuthGuard]},
+  ]
   },
   {
     //messaging/:userid
@@ -43,7 +50,6 @@ const routes: Routes = [
   {
     path: '**',
     component: NotFoundComponent,
-
   }
 
 ];
