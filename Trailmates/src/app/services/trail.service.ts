@@ -10,7 +10,7 @@ import { Trail } from '../models/trail';
 export class TrailService {
 
   constructor(private http: HttpClient) { }
-  url: string = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/trail/'
+  url: string = 'https://revature.trailmates.net/TrailMates/trail/'
 
   // Gets all trails from backend with GET request
   getAllTrails(): Observable<Trail[]>{

@@ -17,7 +17,7 @@ const httpOptions = {
 })
 export class UserService {
 
-  public ROOT_URL = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/user/';
+  public ROOT_URL = 'https://revature.trailmates.net/TrailMates/user/';
 
 
   constructor(private http: HttpClient) {
