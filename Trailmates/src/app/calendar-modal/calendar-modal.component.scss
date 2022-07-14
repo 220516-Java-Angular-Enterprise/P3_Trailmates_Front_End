@@ -60,6 +60,40 @@ form{
     background-color: var(--laurel-green);
 }
 
+.hrefStyle {
+    color: white;
+    border: solid 2px black;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    font-weight: light;
+    background-color: var(--moss-green);
+    border-radius: 12px;
+    margin-bottom:10px;
+    text-decoration: none;
+    padding: 1%;
+}
+
+.selectuser{
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    margin-top: 5px;
+    margin-bottom: 4%;
+    margin-left: -4%;
+    width: 100%;
+    text-decoration: none;
+    padding: 3%;
+}
+
+.hrefProf{
+    margin-right: 2%;
+    margin-left: 20%;
+}
+
+.hrefStyle:hover {
+    background-color: var(--laurel-green);
+}
+
+ul li{
+    list-style: none;
+}
 
 .profile{
     color: white;

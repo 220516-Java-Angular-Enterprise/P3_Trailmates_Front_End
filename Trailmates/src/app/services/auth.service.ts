@@ -12,7 +12,7 @@ import { UserService } from './user-service.service';
 })
 export class AuthService {
 
-  private URL = "http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/";
+  private URL = "https://revature.trailmates.net/TrailMates/";
   // private URL = "http://localhost:8080/TrailMates/";
   constructor(private http: HttpClient, private route: Router, private userService: UserService) { }
 

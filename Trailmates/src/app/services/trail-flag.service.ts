@@ -13,8 +13,8 @@ export class TrailFlagService {
 
 
   // private header: HttpHeaders = new HttpHeaders()
-
-  URL: string = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/flag'
+ 
+  URL: string = 'https://revature.trailmates.net/TrailMates/flag'
 
 
   postTrailFlag(trailFlagReq: any): Observable<TrailFlag>{

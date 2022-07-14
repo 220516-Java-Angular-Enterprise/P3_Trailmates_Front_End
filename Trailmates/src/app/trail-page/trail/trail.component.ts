@@ -40,7 +40,18 @@ export class TrailComponent implements OnInit {
   petsAllowed: string = '';
   flagged: boolean = false;
   friended: boolean = false;
-  friends: any = {}
+  friends: any = {};
+  noUsers: boolean =false;
+  time: string='00:00';
+
+  trailFlagReq= {
+    trail_id: '',
+    user_id: '',
+    date_int: 0,
+  }
+
+  returnFlags: TrailFlag[] =[];
+
 
   ngOnInit(): void {
     // Gets all trails on render
@@ -156,6 +167,19 @@ filterSubject(subject: any){
 
 goToFlag(id: string){
   this._route.navigateByUrl('/trailpage/flag/'+id);
+}
+
+checkTrailReq(event: any){
+  // gets flags for date and trail
+  let date = new Date(this.trailFlagReq.date_int+' '+this.time);
+    this._trailFlagService.getAllFlagsByDateAndTrail(Math.round(date.getTime()/(1000*60*60*24)), this.trailFlagReq.trail_id).subscribe(
+      (data:any)=>{ this.returnFlags = data;
+        console.log(this.returnFlags);
+      },
+      (error: any)=> {
+        this.noUsers = true;
+        console.log(error);
+      })
 }
 
 checkSubmitted(event: any){
