@@ -79,6 +79,11 @@ form{
     margin-left: -4%;
     width: 100%;
     text-decoration: none;
+    text-align: center;
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    gap: 3%;
     padding: 3%;
 }
 
