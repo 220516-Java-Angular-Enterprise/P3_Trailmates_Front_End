@@ -1,3 +1,4 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 
 *{
     --bistre: #31231E;
@@ -108,11 +109,20 @@
 }
 
 .card-img-top-search {
+    min-height: 18rem;
     max-height: 18rem;
     min-width: 18rem;
+    max-width: 18rem;
+}
+
+#profilePic {
+    max-height: 18rem;
+    min-width: 18rem;
+    background-image: url("../../../assets/images/blank-profile.png");
 }
 
 .card-text-des {
+    min-height: 50px;
     max-height: 100px;
     min-width: 100px;
     overflow-y: scroll;
@@ -148,18 +158,9 @@
     justify-content: right;
 }
 
-.flag #flagButtonFill {
-    display: none;
-}
-
-.flag:active #flagButtonFill,
-.flag:focus #flagButtonFill {
-    display: block;
-}
-
-.flag:active #flagButtonEmpty,
-.flag:focus #flagButtonEmpty {
-    display: none;
+.friend {
+    display: flex;
+    justify-content: right; 
 }
 
 .overlay {
@@ -168,7 +169,6 @@
     bottom: 0;
     left: 0;
     right: 0;
-    // background: rgba(0, 0, 0, 0.1);
     transition: opacity 500ms;
     visibility: visible;
     opacity: 1;
@@ -180,7 +180,6 @@
     background: #fff;
     border-radius: 12px;
     width: 30%;
-    // border: 2px solid;
     position: relative;
     transition: all 5s ease-in-out;
   }

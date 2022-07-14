@@ -1,0 +1,63 @@
+
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  push:
+
+    branches: [ "jeremiah-2" ]
+
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Node
+      uses: actions/setup-node@v3
+
+    - name: Use Node.js
+      working-directory: ./Trailmates
+      run: npm install
+
+    - name: testing
+      working-directory: ./Trailmates
+      run: npm test
+
+   # - name: install dbus
+   #   run: sudo apt update && apt install -y dbus
+
+    - name: install on ubuntu
+      run: sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
+
+    - name: make directory
+      run: mkdir -p /var/run/dbus
+
+    - name: install cypress with dependencies
+      run: npm install cypress --save-dev
+
+    - name: install cypress
+      run: npm install cypress
+
+    - name: open cypress
+      run: node_modules/.bin/cypress open
+
+    - name: end to end
+      working-directory: ./Trailmates
+      run: npm run e2e
+
+

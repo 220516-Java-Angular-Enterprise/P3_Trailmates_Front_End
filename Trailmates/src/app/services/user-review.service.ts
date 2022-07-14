@@ -11,7 +11,7 @@ export class UserReviewService {
 
   constructor(private http: HttpClient) { }
 
-  url: string = 'http://localhost:8080/TrailMates/trailreview/'
+  url: string = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/trailreview/'
 
 
 }
