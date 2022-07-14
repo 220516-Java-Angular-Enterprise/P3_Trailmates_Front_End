@@ -41,6 +41,7 @@ export class ProfileComponent implements OnInit {
   trailNameCount = 0
 
   id: string | null = localStorage.getItem('id')
+  
   constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService, private trailHistoryComp:TrailHistoryComponent,
   private router:Router, private http:HttpClient, private currRoute: ActivatedRoute) { }
 
@@ -50,17 +51,17 @@ export class ProfileComponent implements OnInit {
       this.username = p['username']
       
       //converts null to string
-      this.userservice.getUserByUsername((this.username || '').toString()).subscribe((data:any) => {
+      this.userservice.getUserByUsername(this.username as string).subscribe((data:any) => {
         this.viewerUser = data
 
-      this.trailHistoryService.getHistoryAsc((this.viewerUser.id || '').toString()).subscribe((data)=>{
+      this.trailHistoryService.getHistoryAsc(this.viewerUser.id as string).subscribe((data)=>{
         this.trailhistory = data;
   
       }) 
     })
   })
 
-  this.userservice.getUserById((this.id || '').toString()).subscribe((data:any) => {
+  this.userservice.getUserById(this.id as string).subscribe((data:any) => {
     this.user = data
     console.log(this.user)
   })
@@ -90,11 +91,6 @@ export class ProfileComponent implements OnInit {
 //       }else{
 //         this.map.set((this.trailhistory[j].trailName || '').toString(), 1)
 //       }
-      
-
-      
-
-      
       
 //     }
 

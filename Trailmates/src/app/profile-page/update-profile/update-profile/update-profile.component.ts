@@ -19,7 +19,7 @@ export class UpdateProfileComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getUserById((this.id || '').toString()).subscribe((data:any) => {
+    this.userService.getUserById(this.id as string).subscribe((data:any) => {
       this.user = data
     })
   }

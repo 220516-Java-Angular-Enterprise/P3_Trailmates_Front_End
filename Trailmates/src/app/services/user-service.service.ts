@@ -36,7 +36,7 @@ export class UserService {
   }
 
   UpdateUser(updatedUser: User): Observable<User> {
-    return this.http.put<any>(this.ROOT_URL+'edit', updatedUser);
+    return this.http.put<User>(this.ROOT_URL+'edit', updatedUser);
   }
 }
 
