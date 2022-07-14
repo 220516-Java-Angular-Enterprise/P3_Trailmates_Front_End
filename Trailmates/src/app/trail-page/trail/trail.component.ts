@@ -72,12 +72,9 @@ export class TrailComponent implements OnInit {
   friend(event: any) {
     if(event.classList[1] == "bi-person-plus"){
       event.classList.replace("bi-person-plus", "bi-person-check-fill")
-      this._friendService.addFriend(event.id)
-      this._friendService.getAllFriends().subscribe((data) => {
-        this.friends = data;
-        console.log(this.friends)
-      })
-
+      this._friendService.addFriend(event.id).subscribe((data) => {
+          this.friends = data;
+        })
     } else if (event.classList[1] == "bi-person-check-fill"){
       this.unfriend(event)
     }

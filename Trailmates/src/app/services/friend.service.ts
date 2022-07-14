@@ -14,6 +14,7 @@ export class FriendService {
 
   constructor(private http: HttpClient) { }
   url: string = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/friends/'
+  // url: string = 'http://localhost:8080/TrailMates/friends/'
 
 addFriend(friend_id: string) {
   return this.http.post<any>(this.url + friend_id, null)
