@@ -1,3 +1,4 @@
+import { Conversation } from './../../models/conversation';
 import { OwnedCoversation } from './../../models/ownedCoversations';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -18,6 +19,8 @@ export class MessagingComponent implements OnInit, OnDestroy {
 
   id: string = '';
   convos: OwnedCoversation[] = [];
+  convo: Conversation = {};
+
   
   ngOnInit(): void {
     this.currRoute.params.subscribe(p=>{
@@ -27,8 +30,16 @@ export class MessagingComponent implements OnInit, OnDestroy {
       this.convos = data;
     })
   }
+
+
   ngOnDestroy(): void {
 
   }
+
+  sendConvoToChatRoom(convo: Conversation){
+    this.convo = convo;
+    console.log(this.convo)
+  }
+
 
 }

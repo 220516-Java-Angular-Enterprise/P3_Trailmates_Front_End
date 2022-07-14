@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('Testing Home Page', () => {
+describe('Testing Login Page', () => {
 
     beforeEach(() => {
         cy.visit('http://localhost:4200/login')
