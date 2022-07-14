@@ -33,6 +33,7 @@ import { ChatRoomComponent } from './messaging-page/messaging/chat-room/chat-roo
 import { ChatGroupsComponent } from './messaging-page/messaging/chat-groups/chat-groups.component';
 import { PrivateMessageComponent } from './messaging-page/messaging/chat-room/private-message/private-message.component';
 import { CreateGroupComponent } from './messaging-page/messaging/chat-groups/create-group/create-group.component';
+import { HikerAbilityComponent } from './profile-page/hiker-ability/hiker-ability.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { CreateGroupComponent } from './messaging-page/messaging/chat-groups/cre
     ChatRoomComponent,
     ChatGroupsComponent,
     PrivateMessageComponent,
-    CreateGroupComponent
+    CreateGroupComponent,
+    HikerAbilityComponent
   ],
 
   imports: [
