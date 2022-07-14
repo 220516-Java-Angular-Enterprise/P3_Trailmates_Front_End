@@ -75,7 +75,7 @@ export class TrailComponent implements OnInit {
         user_id: this.user.id,
         friend_id: event.id
       }
-      this._friendService.addFriend(friend).subscribe((data:any)=>{
+      this._friendService.addFriend(event.id, friend).subscribe((data:any)=>{
         console.log(data);
       })
     } else if (event.classList[1] == "bi-person-check-fill"){
