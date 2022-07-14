@@ -43,10 +43,12 @@ export class NotificationsComponent implements OnInit {
     this.route.navigateByUrl("/profile/"+username);
   }
 
-
-  
   ngOnInit(): void {
     this.notifications = this.notifications;
+  }
+
+  goToTrail(id: any){
+    this.route.navigateByUrl("/trailpage/"+id);
   }
 
 }
