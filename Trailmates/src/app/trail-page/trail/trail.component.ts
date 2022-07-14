@@ -40,6 +40,7 @@ export class TrailComponent implements OnInit {
   petsAllowed: string = '';
   flagged: boolean = false;
   friended: boolean = false;
+  friends: any = {}
 
   ngOnInit(): void {
     // Gets all trails on render
@@ -71,13 +72,12 @@ export class TrailComponent implements OnInit {
   friend(event: any) {
     if(event.classList[1] == "bi-person-plus"){
       event.classList.replace("bi-person-plus", "bi-person-check-fill")
-      let friend: Friend = {
-        user_id: this.user.id,
-        friend_id: event.id
-      }
-      this._friendService.addFriend(event.id, friend).subscribe((data:any)=>{
-        console.log(data);
+      this._friendService.addFriend(event.id)
+      this._friendService.getAllFriends().subscribe((data) => {
+        this.friends = data;
+        console.log(this.friends)
       })
+
     } else if (event.classList[1] == "bi-person-check-fill"){
       this.unfriend(event)
     }
