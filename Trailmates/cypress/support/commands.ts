@@ -24,12 +24,11 @@
 //
 // -- This is a child command --
 Cypress.Commands.add('login', (username, password) => {
-
+    cy.clearLocalStorage()
     cy.get("#login-username").type(username);
     cy.get("#login-password").type(password);
-    cy.contains("Sign in").click(); 
-
-     })
+    cy.get("button").eq(0).click()
+    })
 //
 //
 // -- This is a dual command --
