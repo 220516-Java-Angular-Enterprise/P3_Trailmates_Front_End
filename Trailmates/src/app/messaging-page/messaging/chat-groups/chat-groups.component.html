@@ -11,5 +11,8 @@
       <h3>{{convo.conversation?.name}}</h3>
     </div>
   </div>
+  <!-- This create group app must be inside of chat-groups.html -->
+  <app-create-group (passCreateGroup)="updateGroups()"></app-create-group>
 </div>
-<app-create-group></app-create-group>
+
+
