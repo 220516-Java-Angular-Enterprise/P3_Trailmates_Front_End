@@ -13,7 +13,8 @@ import { User } from '../models/user';
 export class FriendService {
 
   constructor(private http: HttpClient) { }
-  url: string = 'https://revature.trailmates.net/TrailMates/friends/'
+  // url: string = 'https://revature.trailmates.net/TrailMates/friends/'
+  url: string = 'http://localhost:8080/TrailMates/friends/'
 
 addFriend(friend_id: string) {
   return this.http.post<any>(this.url + friend_id, null)
@@ -25,6 +26,10 @@ getAllFriends(): Observable<Friend[]>{
 
 getAllPending(): Observable<Friend[]>{
   return this.http.get<Friend[]>(this.url + 'pending')
+}
+
+getAllFriendsByUserID(id: string): Observable<Friend[]>{
+  return this.http.get<Friend[]>(this.url+id)
 }
 
 }
