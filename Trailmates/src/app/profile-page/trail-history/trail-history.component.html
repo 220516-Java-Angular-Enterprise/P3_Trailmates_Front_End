@@ -10,12 +10,13 @@
                 </option>
         </select>
             
-        <div class ="fileInput form-element"> 
-            <input type="file" id="myFile" name="filename" accept="image/*">
+        <div class ="fileInput form-element">
+            <input type="file" [(ngModel)]="image" id="myFile" name="filename" accept="image/*">
             <label for="myFile">
                 <i class="bi bi-image"></i>
                 Upload an Image
             </label>
+            {{image}}
         </div>
 
         <div class="row">

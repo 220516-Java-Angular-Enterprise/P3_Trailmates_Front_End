@@ -18,11 +18,10 @@ export class TrailHistoryService {
   constructor(private http:HttpClient, private route:Router) { }
 
   headerList = {
-    'Content-Type':'image/jpg'
+    'Content-Type':'image/*'
   }
   requestOptions = {
     headers: new HttpHeaders(this.headerList),
-    body: File
   }
 
   getHistoryDesc(): Observable<TrailHistory[]> {
@@ -37,15 +36,15 @@ export class TrailHistoryService {
     return firstValueFrom(this.http.get<BucketURL>(this.imageURL + "/gen-url/" + fileExtension));
   }
 
-  uploadImage(bucketURL: String, uploadedImage: File) {
-    return this.http.put(bucketURL.toString(), uploadedImage, this.requestOptions);
-  }
-
-  // uploadImage(bucketURL: String, uploadedImage: File) {
-  //   const formData = new FormData();
-  //   formData.append('image', uploadedImage);
-  //   return this.http.post<any>("http://localhost:8080/TrailMates/image", formData, this.requestOptions);
+  // uploadImage(bucketURL: String, uploadedImage: File): Observable<any> {
+  //   return this.http.put(bucketURL.toString(), uploadedImage, this.requestOptions);
   // }
+
+  uploadImage(bucketURL: String, uploadedImage: File) {
+    const formData = new FormData();
+    formData.append('image', uploadedImage);
+    return this.http.post<any>(bucketURL.toString(), formData, this.requestOptions);
+  }
 
   saveImageData(imageData: ImageData) {
     return this.http.post<ImageData>(this.imageURL, imageData)

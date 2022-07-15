@@ -59,18 +59,22 @@ historyReq = {
       }
 displayFormSubmitError: boolean = false
 
+image: any;
+
 processForm(postForm: NgForm) {
   //get image file as HTMLInputElement
   let imageElement = document.getElementById("myFile") as HTMLInputElement;
   //change input from HTMLInputElement to File
   let imageFile = imageElement?.files![0];
-
+  this.image = imageFile;
   //get secure url to s3 bucket from backend server, passing in the file's extension
   this.trailhistory.getSecureURL(imageFile.name.split('.').pop()!).then((stringPromise) => {
     this.bucketURL = stringPromise;
     console.log("aws URL: " + this.bucketURL.url);
     //upload the image to S3 bucket
-    this.trailhistory.uploadImage(this.bucketURL.url!, imageFile);
+    this.trailhistory.uploadImage(this.bucketURL.url!, imageFile).subscribe(response => {
+      console.log(response);
+    });
     //get url to image
     let imageURL = this.bucketURL.url!.split('?')[0];
     // console.log(imageURL);
