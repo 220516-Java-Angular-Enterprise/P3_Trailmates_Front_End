@@ -13,7 +13,7 @@ import { User } from '../models/user';
 export class FriendService {
 
   constructor(private http: HttpClient) { }
-  url: string = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/friends/'
+  url: string = 'https://revature.trailmates.net/TrailMates/friends/'
   // url: string = 'http://localhost:8080/TrailMates/friends/'
 
 addFriend(friend_id: string) {

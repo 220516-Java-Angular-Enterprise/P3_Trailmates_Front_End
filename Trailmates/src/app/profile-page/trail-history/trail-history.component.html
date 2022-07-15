@@ -1,18 +1,13 @@
-<<<<<<< HEAD
 <form action="/action_page.php" (ngSubmit)="processForm(postForm)" class= "sign-in-form" #postForm="ngForm">
     <div class ="container h-100 d-flex flex-column justify-content-between align-items-center">
+        <button class="close" (click)="close()">&times;</button>
         <h1>Create a New Post</h1>
         <div class ="row">
             <div class ="col fileInput"> 
                     <input type="file" id="myFile" accept="image/*" name="filename">
             </div>
         </div>
-=======
-<div class ="container">
-    <button class="close" (click)="close()" >&times;</button>
-    <h1>Create a New Post</h1>
-    
->>>>>>> f5479050a005972bca3c7e5891ab31b41bab571b
+
 
     <form class="form-area" action="/action_page.php" (ngSubmit)="processForm(postForm)"  #postForm="ngForm">
       
