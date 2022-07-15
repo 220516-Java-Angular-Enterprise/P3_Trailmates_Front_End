@@ -47,8 +47,8 @@ export class TrailHistoryService {
     const contentType = file.type;
     const bucket = new S3(
           {
-              accessKeyId: 'AKIATSTKADK3JESDFRP2',
-              secretAccessKey: 'zJV3d16ntvkMUFOqjQBcvfSQIPvIDDJDuqxqBNvO',
+              accessKeyId: 'YOUR ACCESS KEY',
+              secretAccessKey: 'YOUR SECRET KEY',
               region: 'us-east-1'
           }
       );
