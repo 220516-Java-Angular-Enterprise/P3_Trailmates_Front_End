@@ -36,7 +36,7 @@
                             </div>
                             <br>
                             <p class="card-text-des">{{trail.short_desc}}</p>
-                            <a class="btn clickbtn" id={{trail.id}} (click)="showTrailDetails($event)">View</a>
+                            <a class="btn clickbtn" id={{trail.id}} (click)="this.trailReview = []" (click)="showTrailDetails($event)">View</a>
                         </div>
                     </div>
                 </div>
@@ -124,14 +124,46 @@
 
                 <br>
                 <br>
+                <label for="exampleFormControlInput1" class="form-label bold">User Reviews:</label>
                 <div class="mb-3">
 
-                    <label for="exampleFormControlInput1" class="form-label bold">User Comments:</label>
-                    <div class="mb-3">
-                        <p id="usercomment">
-                            User comments
-                        </p>
+                    
+                    <div class="mb-3" *ngIf="!noReviews">
+                            <div *ngFor="let review of trailReview ">
+                                <p>{{review.userID?.username}}</p>
+                                <p>{{review.comment}}</p>
+                                <p>{{review.rating}}</p>
+                                <br>
+                            </div>
                     </div>
+
+                    <!-- no reviews -->
+                    <div class="mb-3" *ngIf="noReviews">
+                        <label for="exampleFormControlInput1" class="form-label bold">No Reviews</label>
+                    
+                    </div>
+
+
+                    <!-- buttons -->
+                            <button type="button" class="btn clickbtn" *ngIf="!newReview" (click)="newReview = true">Leave a Review</button>
+                            
+                            <div *ngIf="newReview">
+                                <label for="review-score">Score: </label>
+                                <div>
+                                <label style="color: red" *ngIf="displayErrorReview">Score must be between 1-5</label>
+                                </div>
+                                <input [(ngModel)]="newReviewRequest.rating" type="number" class="form-control" [placeholder]="placeholders.rating">
+                            
+                            
+                                <!-- <input [class.is-invalid]="newReviewRequest.comment?.invalid" -->
+                                <label for="review-comment">Comment: </label>
+                                <input [(ngModel)]="newReviewRequest.comment" type="string" class="form-control" [placeholder]="placeholders.comment">
+                            
+                                <button type="button" class="btn clickbtn" (click)="submitReview()">Submit</button>
+                                <button type="text" class="btn clickbtn" (click)="newReview = false">Cancel</button> 
+                                
+                            
+                            </div>
 
                 </div>
             </div>
