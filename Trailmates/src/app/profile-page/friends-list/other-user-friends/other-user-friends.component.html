@@ -1,14 +1,5 @@
-
 <div class="box bg-primary">
-  <!-- Tabs -->
-  <div class="tabs d-flex justify-content-center align-items-center">
-    <div class="friends border text-center">
-        FRIENDS
-    </div>
-
-  </div>
-
-  <!-- Body  for friends-->
+  <!-- Container-->
   <div class="render-container text-center">
     <h1>Friends List</h1>
     <!-- Container Item -->
@@ -18,12 +9,11 @@
         <p class="h3 align-self-center">{{friend.friend_id?.username}}</p>
       </div>
       <div class="actions col-4 d-flex">
-        <button class="btn btn-danger">
+        <button class="btn btn-danger" (click)="goToProfile(friend.friend_id?.username!)">
           <i class="bi bi-person-bounding-box"></i></button>
-        <button class="btn btn-warning"><i class="bi bi-chat"></i></button>
       </div>
     </div>
+    <!-- End Item -->
   </div>
-
-
+  <!-- End Container -->
   </div>
