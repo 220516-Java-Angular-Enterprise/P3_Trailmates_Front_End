@@ -13,7 +13,7 @@ export class TrailFlagService {
 
 
   // private header: HttpHeaders = new HttpHeaders()
- 
+
   URL: string = 'https://revature.trailmates.net/TrailMates/flag'
 
 

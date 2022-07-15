@@ -18,8 +18,6 @@ const httpOptions = {
 export class UserService {
 
   public ROOT_URL = 'https://revature.trailmates.net/TrailMates/user/';
- // localhost:8080
-//  public ROOT_URL = 'http://localhost:8080/TrailMates/user/';
 
   constructor(private http: HttpClient) {
   }
@@ -34,6 +32,10 @@ export class UserService {
 
   getAllUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.ROOT_URL+"all-users");
+  }
+
+  UpdateUser(updatedUser: User): Observable<User> {
+    return this.http.put<User>(this.ROOT_URL+'edit', updatedUser);
   }
 }
 

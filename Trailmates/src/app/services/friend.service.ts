@@ -14,7 +14,6 @@ export class FriendService {
 
   constructor(private http: HttpClient) { }
   url: string = 'https://revature.trailmates.net/TrailMates/friends/'
-  // url: string = 'http://localhost:8080/TrailMates/friends/'
 
 addFriend(friend_id: string) {
   return this.http.post<any>(this.url + friend_id, null)
