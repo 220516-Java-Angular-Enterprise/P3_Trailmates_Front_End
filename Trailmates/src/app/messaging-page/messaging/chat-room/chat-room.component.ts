@@ -55,7 +55,6 @@ export class ChatRoomComponent implements OnInit {
       console.log(error);
     })
     console.log("PM LENGTH: " + this.privateMessages.length);
-
   }
 
   consoleConvo(){
