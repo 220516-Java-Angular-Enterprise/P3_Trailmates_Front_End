@@ -35,10 +35,8 @@ h1{
   color: #444;
 }
 
-.close {
-  position: absolute;
-  top: 23%;
-  right: 34%;
+.container .close {
+  margin-left: 90%;
   transition: all 200ms;
   font-size: 30px;
   font-weight: bold;
@@ -46,6 +44,11 @@ h1{
   color: #333;
   background-color: transparent;
   border: none;
+}
+
+.close:hover {
+  color: #06D85F;
+  cursor: pointer;
 }
 
 .form-area{

@@ -75,9 +75,6 @@ clickedOutsideMenu(): void {
   this.isMenuOpen = false;
 }
 
-// Trail Comment/Post Form 
-// isFormOpen:boolean = true;
-
 @Input() popup:boolean = true; 
 
 @Output() doPassPopup:EventEmitter<any> = new EventEmitter();
@@ -86,10 +83,6 @@ close() {
   this.popup = false;
   this.doPassPopup.emit(this.popup);
 } 
-
-
-
-
 
 } 
 
