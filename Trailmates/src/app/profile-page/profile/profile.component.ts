@@ -22,8 +22,8 @@ export class ProfileComponent implements OnInit {
 
 
   updateProfilePopup = false
-
   popup:boolean = false
+
   public trailhistory: TrailHistory[] = []
   public noPosts: string = ""
   public user: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
@@ -75,6 +75,7 @@ export class ProfileComponent implements OnInit {
 
 close(event:any){
   this.popup = event;
+  this.updateProfilePopup = event;
 } 
 }
 

@@ -41,8 +41,8 @@
                 <!-- post popup -->
                 <div class="overlay" *ngIf="updateProfilePopup">
                     <div class="popup">
-                        <app-update-profile></app-update-profile>
-                        <a class="close" (click)="updateProfilePopup = false" >&times;</a>
+                        <app-update-profile [popup]="popup" (doPassPopup)="close($event)"></app-update-profile>
+                        <!-- <a class="close" (click)="updateProfilePopup = false" >&times;</a> -->
                     </div>
                 </div>
             </div>

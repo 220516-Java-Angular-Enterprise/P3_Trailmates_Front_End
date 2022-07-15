@@ -1,5 +1,5 @@
 import { UserService } from 'src/app/services/user-service.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { User } from 'src/app/models/user';
 
@@ -36,5 +36,14 @@ export class UpdateProfileComponent implements OnInit {
 
     console.log("NNNEEEEWWWWW " + this.user.username)
   }
+
+  @Input() popup:boolean = true; 
+
+  @Output() doPassPopup:EventEmitter<any> = new EventEmitter();
+
+  close() {
+    this.popup = false;
+    this.doPassPopup.emit(this.popup);
+  } 
 
 }

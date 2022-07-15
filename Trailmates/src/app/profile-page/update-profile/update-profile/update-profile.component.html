@@ -1,6 +1,9 @@
-<form action="/action_page.php" (ngSubmit)="processForm(updateProfileForm)"  #updateProfileForm="ngForm">
-    <div class ="container h-100 d-flex flex-column justify-content-between align-items-center">
-        <h1>Update Profile</h1>
+<div class ="container">
+    <button class="close" (click)="close()" >&times;</button>
+    <h1>Update Profile</h1>
+    
+
+    <form class="form-area" action="/action_page.php" (ngSubmit)="processForm(updateProfileForm)"  #updateProfileForm="ngForm">
 
         <div class="row">
             <div class ="col">
@@ -16,15 +19,6 @@
             <input placeholder="password" name="password" type="text"></div>
         </div>
         
-        <!-- <div class="row">
-            <div class="col">
-                <input type="date" value="date">
-            </div>
-        </div> -->
-        
-        <button type="submit" class="postBtn align-self-end" onclick="window.location.reload()">post</button>
-    </div>
-
-    
-
-</form>
+    </form>
+    <button type="submit" class="updateBtn align-self-end" onclick="window.location.reload()">Update</button>
+</div>
