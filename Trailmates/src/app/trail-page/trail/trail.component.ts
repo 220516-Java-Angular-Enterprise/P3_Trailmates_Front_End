@@ -66,7 +66,6 @@ export class TrailComponent implements OnInit {
 
   // to toggle flag from blank to filled in on click
   flag(event: any) {
-    // this.flagged = !this.flagged
     if(event.classList[1] == "bi-flag"){
       event.classList.replace("bi-flag", "bi-flag-fill")
     } else if (event.classList[1] == "bi-flag-fill"){
@@ -169,12 +168,12 @@ goToFlag(id: string){
   this._route.navigateByUrl('/trailpage/flag/'+id);
 }
 
-checkTrailReq(event: any){
+checkTrailReq(){
   // gets flags for date and trail
-  let date = new Date(this.trailFlagReq.date_int+' '+this.time);
-    this._trailFlagService.getAllFlagsByDateAndTrail(Math.round(date.getTime()/(1000*60*60*24)), this.trailFlagReq.trail_id).subscribe(
+    this._trailFlagService.getAllByTrail(this.trail.id!).subscribe(
       (data:any)=>{ this.returnFlags = data;
         console.log(this.returnFlags);
+        console.log("TRAIL ID: " + this.trail.id)
       },
       (error: any)=> {
         this.noUsers = true;
