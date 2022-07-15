@@ -96,15 +96,14 @@ export class ChatRoomComponent implements OnInit {
   }
 
   postNewMessage(message: any){
-    let datum = ''
+
     console.log("Message: " + message.message)
     console.log("Time Sent: " + message.time_sent)
     console.log("ConvoId: " + message.conversation_id)
     this._messageService.postNewMessage(message).subscribe(
-      //data => { datum=data
-      //console.log(datum)
-      //},
-      err => console.log(err)
+      data =>{
+        console.log(data)
+      }
     )
   }
 
