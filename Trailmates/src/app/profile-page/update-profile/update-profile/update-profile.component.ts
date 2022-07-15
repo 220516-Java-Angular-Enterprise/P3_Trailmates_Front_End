@@ -15,8 +15,10 @@ export class UpdateProfileComponent implements OnInit {
   id: string | null = localStorage.getItem('id')
   
   updateUserReq = this.fb.group ({
-    username: [null, [Validators.required, Validators.minLength(3)], this.authService.validateUsernameNotTaken.bind(this.authService)],
-    password: ['', Validators.required],
+    //username: [null, [Validators.required, Validators.minLength(3)], this.authService.validateUsernameNotTaken.bind(this.authService)],
+    // password: ['', Validators.required],
+    // email: ['', Validators.required],
+     bio: ['', [Validators.required, Validators.maxLength(255)]],
   })
   
   get username() {
@@ -27,11 +29,21 @@ export class UpdateProfileComponent implements OnInit {
     return this.updateUserReq.get('password')
   }
 
+  get email() {
+    return this.updateUserReq.get('email')
+  }
+
+  get bio() {
+    return this.updateUserReq.get('bio')
+  }
+
   public user: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
   
   placeholders = {
     username: "Enter Username",
     password: "Enter Password",
+    email: "Enter Email",
+    bio: "Enter Bio",
   }
 
   ngOnInit(): void {
@@ -47,7 +59,8 @@ export class UpdateProfileComponent implements OnInit {
   onSubmit() {
     console.log(this.user)
     this.user.username = this.updateUserReq.get('username')?.value as unknown as string
-    this.user.password = this.updateUserReq.get('password')?.value as unknown as string
+    this.user.bio = this.updateUserReq.get('bio')?.value as unknown as string
+    
 
     if(this.updateUserReq.status == 'VALID'){
       this.userService.UpdateUser(this.user).subscribe(data =>{
@@ -58,7 +71,7 @@ export class UpdateProfileComponent implements OnInit {
       this.displayFormSubmitError = true
     }
     
-    console.log("NNNEEEEWWWWW " + this.user.username)
+    console.log("NNNEEEEWWWWW " + this.user.bio)
     
   }
 
