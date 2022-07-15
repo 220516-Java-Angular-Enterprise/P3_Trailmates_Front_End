@@ -19,6 +19,7 @@ export class ChatRoomComponent implements OnInit {
   id?: string;
   username?: string;
   randInt?: string;
+  //archived_msg?: string;
   
   greetings: string[] = [];
   constructor(private _messageService: MessagesService, private userService: UserService, private currRoute: ActivatedRoute) { }
@@ -27,6 +28,7 @@ export class ChatRoomComponent implements OnInit {
         this.id = data['id'];
     })
     this.connect();
+    this.getPrivateMessages();
   }
 
   newmessage: string | undefined;
@@ -52,6 +54,8 @@ export class ChatRoomComponent implements OnInit {
     (error:any)=>{
       console.log(error);
     })
+    console.log("PM LENGTH: " + this.privateMessages.length);
+
   }
 
   consoleConvo(){
@@ -73,7 +77,7 @@ export class ChatRoomComponent implements OnInit {
 
     let messageRequest = {
       message: message,
-      time_sent: Math.round(privateMessage.time_sent!.getTime()/(1000*60*60*24)),//Math.round(privateMessage.time_sent!.getTime()/(1000*60*60*24)),
+      time_sent: privateMessage.time_sent!.getTime(),///(1000*60*60*24)),//Math.round(privateMessage.time_sent!.getTime()/(1000*60*60*24)),
       conversation_id: this.id
     }
 
