@@ -12,15 +12,15 @@ import { AuthService } from 'src/app/services/auth.service';
 import { TokenInterceptorService } from 'src/app/services/token-interceptor.service';
 import { User } from 'src/app/models/user';
 import { TrailHistoryComponent } from '../trail-history/trail-history.component';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
+
 export class ProfileComponent implements OnInit {
   @Input()
-
-
   updateProfilePopup = false
 
   popup:boolean = false
@@ -53,29 +53,29 @@ export class ProfileComponent implements OnInit {
       this.userservice.getUserByUsername(this.username as string).subscribe((data:any) => {
         this.viewerUser = data
 
-      this.trailHistoryService.getHistoryAsc(this.viewerUser.id as string).subscribe((data)=>{
-        this.trailhistory = data;
+        this.trailHistoryService.getHistoryAsc(this.viewerUser.id as string).subscribe((data)=>{
+          this.trailhistory = data;
 
-        if(this.trailhistory.length == 0 ){
-        
-          console.log("You don't have any posts")
-        }else{
-          console.log("You have posts")
-        }
+          if(this.trailhistory.length == 0 ){
+          
+            console.log("You don't have any posts")
+          } else{
+            console.log("You have posts")
+          }
+        })
       })
-  })
 
-  this.userservice.getUserById(this.id as string).subscribe((data:any) => {
-    this.user = data
-    console.log(this.user)
-  })
+    this.userservice.getUserById(this.id as string).subscribe((data:any) => {
+      this.user = data
+      console.log(this.user)
+    })
 
-}
-)}
+    }
+  )}
 
-close(event:any){
-  this.popup = event;
-} 
+  close(event:any){
+    this.popup = event;
+  } 
 }
 
 // this.userservice.getAllUsers().subscribe((data:any) => {
