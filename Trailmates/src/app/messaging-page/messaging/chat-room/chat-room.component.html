@@ -1,6 +1,9 @@
 
 <div class="chatroom" (click)="consoleConvo()">
   <div class="banner d-flex flex-column align-items-center bg-danger">
+    <div class="box" routerLink="/messaging">
+      Back
+    </div>
     <div class="box">
       <i class="bi bi-person-circle"></i>
     </div>
@@ -9,18 +12,9 @@
     </div>
 
   </div>
-  <div class="chatbox bg-success" *ngIf="privateMessages">
-    <app-private-message *ngFor="let message of privateMessages" [message]="message" ></app-private-message>
-  </div>
-  <div class="sendbox input-group">
-    <input type="text" class="form-control" [(ngModel)]="message">
-    <div class="input-group-append">
-    <button (click)="sendMessage()" type="button" class="btn btn-primary input-group-append">Send</button>
-    </div>
-  </div>
+ 
+  
 </div>
-
-
 <div class="col-sm-4 liveChat overflow-auto justify-content-center" style="height: 750px;">
   <div class="d-flex h1 justify-content-center align-items-center mb-3">Live Chat</div>
 <div class="overflow-auto" style="height:550px ">

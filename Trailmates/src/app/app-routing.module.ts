@@ -48,12 +48,18 @@ const routes: Routes = [
     path: 'messaging',
     component: MessagingComponent,
     canActivate: [AuthGuard],    
-    children: [
-      {path: 'groupchat/:id',
-      component: ChatRoomComponent,
-    canActivate: [AuthGuard]},
-  ]
+    //children: [
+    //  {path: 'groupchat/:id',
+    //  component: ChatRoomComponent,
+    //canActivate: [AuthGuard]},
+  //]
   },
+  {
+    path: 'messaging/groupchat/:id',
+    component: ChatRoomComponent,
+    canActivate: [AuthGuard]
+  },
+
   {
     path: '**',
     component: NotFoundComponent,

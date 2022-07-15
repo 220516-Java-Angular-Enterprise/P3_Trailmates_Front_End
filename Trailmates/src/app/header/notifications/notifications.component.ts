@@ -35,7 +35,7 @@ export class NotificationsComponent implements OnInit {
 
 
   goToMessages(){
-    this.route.navigateByUrl("/messaging/"+localStorage.getItem('id'));
+    this.route.navigateByUrl("/messaging")///"+localStorage.getItem('id'));
   }
 
 

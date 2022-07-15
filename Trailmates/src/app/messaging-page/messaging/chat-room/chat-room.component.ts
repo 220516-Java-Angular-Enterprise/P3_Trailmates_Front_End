@@ -1,6 +1,6 @@
 import { PrivateMessage } from './../../../models/privateMessage';
 import { Conversation } from './../../../models/conversation';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MessagesService } from 'src/app/services/messages.service';
 import { UserService } from 'src/app/services/user-service.service';
 import { mergeScan } from 'rxjs';
@@ -8,6 +8,7 @@ import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import { ActivatedRoute } from '@angular/router';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
+import { ThisReceiver } from '@angular/compiler';
 @Component({
   selector: 'app-chat-room',
   templateUrl: './chat-room.component.html',
@@ -15,24 +16,17 @@ import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 })
 export class ChatRoomComponent implements OnInit {
   
-  // stompClient?: Stomp.Client;
   id?: string;
   username?: string;
   randInt?: string;
-  // newmessage?: string;
-  // greetings: any;
   
   greetings: string[] = [];
   constructor(private _messageService: MessagesService, private userService: UserService, private currRoute: ActivatedRoute) { }
   ngOnInit(): void {
-    // this.id = this.currRoute.firstChild?.snapshot.params['id'];
     this.currRoute.params.subscribe(data => {
-      if(data['id'] !== this.id) {
         this.id = data['id'];
-        this.connect();
-      }
     })
-    
+    this.connect();
   }
 
   newmessage: string | undefined;
@@ -62,7 +56,6 @@ export class ChatRoomComponent implements OnInit {
 
   consoleConvo(){
     console.log(this.convo);
-    // this.getPrivateMessages()
     console.log(this.privateMessages);
   }
   onKeydown(event: any){
@@ -70,23 +63,27 @@ export class ChatRoomComponent implements OnInit {
   }
 
   message ='';
-  submitMessage(){
+  submitMessage(message: string | undefined){
     let privateMessage: PrivateMessage = {
       time_sent: new Date(),
       conversation: this.convo
     }
 
+    //privateMessage.time_sent.
+
     let messageRequest = {
-      message: this.message,
-      time_sent: Math.round(privateMessage.time_sent!.getTime()/(1000*60*60*24)),
-      conversation_id: this.convo.id
+      message: message,
+      time_sent: Math.round(privateMessage.time_sent!.getTime()/(1000*60*60*24)),//Math.round(privateMessage.time_sent!.getTime()/(1000*60*60*24)),
+      conversation_id: this.id
     }
+
+    console.log("Convo ID1: " + messageRequest.conversation_id);
 
     this.userService.getUserById(localStorage.getItem('id')!).subscribe(
       data => privateMessage.sender_id = data
     )
 
-    privateMessage.message = this.message; 
+    privateMessage.message = message; 
     console.log(this.message)
 
     
@@ -97,45 +94,45 @@ export class ChatRoomComponent implements OnInit {
 
   postNewMessage(message: any){
     let datum = ''
+    console.log("Message: " + message.message)
+    console.log("Time Sent: " + message.time_sent)
+    console.log("ConvoId: " + message.conversation_id)
     this._messageService.postNewMessage(message).subscribe(
-      data => { datum=data
-      console.log(datum)
-      },
+      //data => { datum=data
+      //console.log(datum)
+      //},
       err => console.log(err)
     )
   }
 
 
   connect() {
-    const socket = new SockJS('http://localhost:5000/TrailMates/testchat');
+    const socket = new SockJS('http://localhost:8080/TrailMates/testchat');
+    console.log("Reloading the connection")
     this.stompClient = Stomp.over(socket);
     const _this = this;
     this.stompClient.connect({}, function (frame: string) {
-      console.log('Connected: ' + frame);
+      console.log('Connected2: ' + frame);
       _this.stompClient.subscribe('/start/initial', function( hello: {body: string}){
         _this.showMessage(JSON.parse(hello.body));
       });
     });
   }
   
+@Output() passReloadChat: EventEmitter<boolean> = new EventEmitter();
+
   sendMessage() {
-    this.submitMessage();
-    // this.userService.getUserById(localStorage.getItem('id')!).subscribe(
-    //   data => data.username = this.username
-    // )
-    // console.log(this.username)
     this.stompClient.send(
       '/current/resume',
       {},
-      //this.obj
       JSON.stringify(this.id + "~" + localStorage.getItem('username') + ": " + this.newmessage)
     );
+    this.submitMessage(this.newmessage);
     this.newmessage = "";
   }
   
   showMessage(message: string) {
       var split = message.split("~");
-      console.log(this.id)
       if (split[0] == this.id) { this.greetings.push(split[1]); } 
   }
 }
