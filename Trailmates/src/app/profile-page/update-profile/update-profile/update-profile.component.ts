@@ -40,9 +40,7 @@ export class UpdateProfileComponent implements OnInit {
   public user: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
   
   placeholders = {
-    username: "Enter Username",
     password: "Enter Password",
-    email: "Enter Email",
     bio: "Enter Bio",
   }
 
@@ -58,7 +56,6 @@ export class UpdateProfileComponent implements OnInit {
   
   onSubmit() {
     console.log(this.user)
-    this.user.username = this.updateUserReq.get('username')?.value as unknown as string
     this.user.bio = this.updateUserReq.get('bio')?.value as unknown as string
     
 

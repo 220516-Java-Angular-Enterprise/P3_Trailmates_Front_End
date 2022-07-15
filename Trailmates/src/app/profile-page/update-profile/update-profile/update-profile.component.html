@@ -7,29 +7,12 @@
 
         <div class="row">
             <div class ="col">
-                <label>New Username: </label>
+                <label>New Bio: </label>
                 <br>
-                <input [class.is-invalid]="username?.invalid && username?.touched" formControlName="username" type="text" class="form-control" [placeholder]="placeholders.username">
+                <input [class.is-invalid]="bio?.touched && bio?.invalid" formControlName="bio" type="text" class="form-control" [placeholder]="placeholders.bio">
             </div>
+            
         </div>
-
-        <div *ngIf="username?.invalid && username?.touched">
-            <small class="text-danger" *ngIf="username?.errors?.['minlength']">Username must be at least 3 characters</small>
-            <small class="text-danger" *ngIf="username?.errors?.['required']">Username is required</small>
-            <small class="text-danger" *ngIf="username?.errors?.['usernameTaken']">Username is taken </small>
-        </div>
-
-        <div class="row">
-            <div class ="col">
-                <label>New Password: </label>
-                <br>
-                <input [class.is-invalid]="password?.touched && password?.invalid" formControlName="password" type="password" class="form-control" [placeholder]="placeholders.password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$">
-            </div>
-        </div>
-
-        <div *ngIf="password?.invalid && password?.touched">
-            <small class="text-danger" *ngIf="password?.errors?.['pattern']">Password needs to be minimum of 8 letters including one special and uppercase character</small>
-          </div>
 
         <div class="form-group">
             <div *ngIf="displayFormSubmitError" style="color: red">
