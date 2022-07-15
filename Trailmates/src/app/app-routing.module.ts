@@ -10,6 +10,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { MessagingComponent } from './messaging-page/messaging/messaging.component';
 import { AuthGuard } from './auth.guard';
 import { LandingComponent } from './auth/landing/landing.component';
+import { ChatGroupsComponent } from './messaging-page/messaging/chat-groups/chat-groups.component';
+import { ChatRoomComponent } from './messaging-page/messaging/chat-room/chat-room.component';
 
 // Routes paths to componenets in Router Outlet
 const routes: Routes = [
@@ -43,10 +45,21 @@ const routes: Routes = [
   },
   {
     //messaging/:userid
-    path: 'messaging/:id',
+    path: 'messaging',
     component: MessagingComponent,
+    canActivate: [AuthGuard],    
+    //children: [
+    //  {path: 'groupchat/:id',
+    //  component: ChatRoomComponent,
+    //canActivate: [AuthGuard]},
+  //]
+  },
+  {
+    path: 'messaging/groupchat/:id',
+    component: ChatRoomComponent,
     canActivate: [AuthGuard]
   },
+
   {
     path: '**',
     component: NotFoundComponent,

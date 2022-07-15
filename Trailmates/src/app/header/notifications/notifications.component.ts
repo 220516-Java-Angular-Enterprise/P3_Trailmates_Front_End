@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnInit, OnDestroy, OnChanges, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges, Input, EventEmitter, Output } from '@angular/core';
 import { Notification } from 'src/app/models/notification';
 
 
@@ -13,9 +13,13 @@ export class NotificationsComponent implements OnInit {
   constructor(private route: Router) { }
 
   @Input() notifications: Notification[] = [];
-  
+  @Output() passDeleteNotif: EventEmitter<Notification> = new EventEmitter<Notification>()
+
+  notifCount = this.notifications.length;
+
+
   deleteNotif(notif: Notification){
-    console.log("deleting notifcation #" + notif.id+"...");
+    this.passDeleteNotif.emit(notif);
   }
   
   onClick(){
@@ -27,10 +31,19 @@ export class NotificationsComponent implements OnInit {
   }
 
   goToMessages(){
-    this.route.navigateByUrl("/messaging/"+localStorage.getItem('id'));
+    this.route.navigateByUrl("/messaging");
+  }
+
+  goToProfile(username: any){
+    this.route.navigateByUrl("/profile/"+username);
   }
 
   ngOnInit(): void {
     this.notifications = this.notifications;
   }
+
+  goToTrail(id: any){
+    this.route.navigateByUrl("/trailpage/"+id);
+  }
+
 }

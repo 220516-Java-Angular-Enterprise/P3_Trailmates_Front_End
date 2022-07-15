@@ -1,3 +1,4 @@
+import { FriendService } from './../../services/friend.service';
 import { TrailFlagService } from './../../services/trail-flag.service';
 import { Trail } from './../../models/trail';
 import { Component, Input, OnInit } from '@angular/core';
@@ -7,6 +8,7 @@ import { User } from 'src/app/models/user';
 import { Router, ActivatedRoute } from '@angular/router';
 import {} from 'googlemaps';
 import { TrailFlag } from 'src/app/models/trailFlag';
+import { Friend } from 'src/app/models/friend';
 // import { ConsoleReporter } from 'jasmine';
 
 @Component({
@@ -16,7 +18,7 @@ import { TrailFlag } from 'src/app/models/trailFlag';
 })
 export class TrailComponent implements OnInit {
 
-  constructor(private _trailService: TrailService, private _userService: UserService, private _trailFlagService: TrailFlagService, private _route: Router, private _currRoute: ActivatedRoute){ }
+  constructor(private _trailService: TrailService, private _friendService: FriendService, private _userService: UserService, private _trailFlagService: TrailFlagService, private _route: Router, private _currRoute: ActivatedRoute){ }
   
   @Input()
   popup = false;
@@ -29,6 +31,7 @@ export class TrailComponent implements OnInit {
   filterUser: User[] = [];
   flagTrails: TrailFlag[] = []
   trail: Trail = {};
+  user: User = {};
   long_desc: string = '';
   latitude: Number = 0;
   longitude: Number = 0;
@@ -36,6 +39,8 @@ export class TrailComponent implements OnInit {
   subject: string = '';
   petsAllowed: string = '';
   flagged: boolean = false;
+  friended: boolean = false;
+  friends: any = {}
 
   ngOnInit(): void {
     // Gets all trails on render
@@ -46,9 +51,6 @@ export class TrailComponent implements OnInit {
     this._userService.getAllUsers().subscribe((data)=>{
       this.allUsers = data;
     })
-    
-    
-
   }
 
   // to toggle flag from blank to filled in on click
@@ -68,11 +70,20 @@ export class TrailComponent implements OnInit {
   }
 
   friend(event: any) {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    this.fillColor = `rgb(${r}, ${g}, ${b})`;
+    if(event.classList[1] == "bi-person-plus"){
+      event.classList.replace("bi-person-plus", "bi-person-check-fill")
+      this._friendService.addFriend(event.id).subscribe((data) => {
+          this.friends = data;
+        })
+    } else if (event.classList[1] == "bi-person-check-fill"){
+      this.unfriend(event)
+    }
+  }
 
+  unfriend(event: any) {
+    if(event.classList[1] == "bi-person-check-fill"){
+      event.classList.replace("bi-person-check-fill", "bi-person-plus")
+    }
   }
 
   filter(query: any){
@@ -98,6 +109,11 @@ export class TrailComponent implements OnInit {
   }
   }
 
+  showUserDetails(event: any) {
+    this._userService.getUserById(event.target.id).subscribe((data: any) => {
+      this.user = data
+    })
+  }
 
   // needs to also render user comments
   showTrailDetails(event: any) {

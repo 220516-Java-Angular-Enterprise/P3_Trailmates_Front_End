@@ -1,6 +1,9 @@
 
 <div class="chatroom" (click)="consoleConvo()">
   <div class="banner d-flex flex-column align-items-center bg-danger">
+    <div class="box" routerLink="/messaging">
+      Back
+    </div>
     <div class="box">
       <i class="bi bi-person-circle"></i>
     </div>
@@ -9,13 +12,24 @@
     </div>
 
   </div>
-  <div class="chatbox bg-success" *ngIf="privateMessages">
-    <app-private-message *ngFor="let message of privateMessages" [message]="message" ></app-private-message>
-  </div>
-  <div class="sendbox input-group">
-    <input type="text" class="form-control" [(ngModel)]="message">
-    <div class="input-group-append">
-    <button (click)="submitMessage()" type="button" class="btn btn-primary input-group-append">Send</button>
-    </div>
-  </div>
+ 
+  
 </div>
+<div class="col-sm-4 liveChat overflow-auto justify-content-center" style="height: 750px;">
+  <div class="d-flex h1 justify-content-center align-items-center mb-3">Live Chat</div>
+<div class="overflow-auto" style="height:550px ">
+  <div *ngFor="let message of privateMessages">
+    <p> {{message.sender_id?.username}} :  {{message.message}}</p></div>
+<div *ngFor="let msg of greetings">
+  <div class="container h3 rounded mb-2 msg">
+          <p>{{msg}}</p>
+  </div>
+</div> 
+</div>
+<form #loginForm=ngForm style="bottom:5%; position:absolute;">
+  <div class="d-flex flex-column justify-content-center">
+      <br>
+      <textarea style="color: black;" cols="63" autocomplete="on" placeholder="Type Your Message..." name="newmessage" [(ngModel)]="newmessage" required (keydown.enter)="sendMessage()" (keydown.enter)="onKeydown($event)"></textarea>
+      <button class="btn sendBtn" (click)="sendMessage()" [disabled]="!loginForm.valid">Send</button>
+  </div>
+</form>
