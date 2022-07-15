@@ -16,16 +16,22 @@
 .container{
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.sub{
   border: black 4px solid;
-  width: 500px;
   height: auto;
   border-radius: 20px;
-  align-items: center;
-  // background: #B6C197;
+  width: 500px;
   background-color: rgb(164, 177, 160);
   box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
-  margin-left: 39%;
-  margin-top: 15%;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+
 }
 
 h1{
@@ -63,7 +69,9 @@ h1{
 }
 
 .updateBtn{
+  float: right;
   margin-bottom: 20px;
+  margin-top: 20px;
   margin-right: 20px;
   border-radius: 10px;
   font-size: 28px;
@@ -74,8 +82,7 @@ h1{
     // background-color: #31231E;
   background-color: rgba(0,0,0,0.15);
   border: 3px solid black;
-
-    cursor:pointer;
+  cursor:pointer;
   }
 }
 
@@ -95,4 +102,10 @@ label{
   align-items: center;
   font-family: "Montserrat", sans-serif;
   cursor: pointer;
+}
+
+input{
+  margin: auto;
+  height: 50px;
+  width: 200px;
 }
