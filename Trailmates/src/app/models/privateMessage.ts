@@ -1,5 +1,5 @@
 import { Conversation } from './conversation';
-import { User } from 'src/app/models/user';
+import { User } from './user';
 export interface PrivateMessage{
   id?: string;
   message?: string;

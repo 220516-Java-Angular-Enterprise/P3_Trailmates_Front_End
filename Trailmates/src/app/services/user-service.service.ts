@@ -34,5 +34,9 @@ export class UserService {
   getAllUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.ROOT_URL+"all-users");
   }
+
+  UpdateUser(updatedUser: User): Observable<User> {
+    return this.http.put<User>(this.ROOT_URL+'edit', updatedUser);
+  }
 }
 

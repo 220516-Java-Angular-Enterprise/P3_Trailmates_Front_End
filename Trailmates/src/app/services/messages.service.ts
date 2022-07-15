@@ -14,7 +14,7 @@ export class MessagesService {
   message: Message[] =[];//stores all the messages that will come from backend
 
   constructor(private http: HttpClient) { }
-  url: string = 'http://localhost:8080/TrailMates/' //'https://revature.trailmates.net/TrailMates/' //'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/'
+  url: string = 'https://revature.trailmates.net/TrailMates/'
 
   getExistingConvos(): Observable<OwnedCoversation[]>{
     return this.http.get<OwnedCoversation[]>(this.url+"owned-conversation/active");
