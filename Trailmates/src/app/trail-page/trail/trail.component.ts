@@ -50,7 +50,7 @@ export class TrailComponent implements OnInit {
     date_int: 0,
   }
 
-  returnFlags: TrailFlag[] =[];
+  trailmateFlags: TrailFlag[] =[];
 
 
   ngOnInit(): void {
@@ -171,8 +171,8 @@ goToFlag(id: string){
 checkTrailReq(){
   // gets flags for date and trail
     this._trailFlagService.getAllByTrail(this.trail.id!).subscribe(
-      (data:any)=>{ this.returnFlags = data;
-        console.log(this.returnFlags);
+      (data:any)=>{ this.trailmateFlags = data;
+        console.log(this.trailmateFlags);
         console.log("TRAIL ID: " + this.trail.id)
       },
       (error: any)=> {
