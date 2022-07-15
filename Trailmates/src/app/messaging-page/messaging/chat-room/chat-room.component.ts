@@ -60,7 +60,7 @@ export class ChatRoomComponent implements OnInit {
     
     this.postNewMessage(messageRequest)
     this.getPrivateMessages()
-    // this.privateMessages.push(privateMessage)
+    this.message = '';
   }
 
   postNewMessage(message: any){

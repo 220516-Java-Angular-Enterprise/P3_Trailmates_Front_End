@@ -17,7 +17,7 @@ const httpOptions = {
 })
 export class UserService {
 
-  public ROOT_URL = 'http://trailmates-env.us-east-1.elasticbeanstalk.com/TrailMates/user/';
+  public ROOT_URL = 'https://revature.trailmates.net/TrailMates/user/';
 
 
   constructor(private http: HttpClient) {
@@ -33,6 +33,10 @@ export class UserService {
 
   getAllUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.ROOT_URL+"all-users");
+  }
+
+  UpdateUser(updatedUser: User): Observable<User> {
+    return this.http.put<User>(this.ROOT_URL+'edit', updatedUser);
   }
 }
 
