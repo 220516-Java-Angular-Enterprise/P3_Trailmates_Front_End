@@ -53,7 +53,8 @@ trails: Trail[] = [
 historyReq = {
         trail_name: "",
         comment: "",
-        date: new Date
+        date: new Date,
+        imageURL: ""
       }
 displayFormSubmitError: boolean = false
 
@@ -63,7 +64,7 @@ processForm(postForm: NgForm) {
   const imageElement = document.getElementById("myFile") as HTMLInputElement;
   const imageFile = imageElement.files![0];
   this.trailhistory.uploadFile(imageFile);
-  console.log(environment.bucketURL + imageFile.name);
+  this.historyReq.imageURL = environment.bucketURL + imageFile.name;
   this.trailhistory.insertNewHistory(this.historyReq).subscribe((data: any) =>{
     console.log(data)
   })
