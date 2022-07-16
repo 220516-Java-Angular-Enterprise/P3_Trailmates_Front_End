@@ -6,6 +6,7 @@ import { Trail } from 'src/app/models/trail';
 import { User } from 'src/app/models/user'
 import { NgForm } from '@angular/forms';
 import { fade } from '../../animations/animations';
+import { environment } from '../../../environments/environment.prod'
 // import { Trail } from '../models/trails';
 
 @Component({
@@ -62,9 +63,10 @@ processForm(postForm: NgForm) {
   const imageElement = document.getElementById("myFile") as HTMLInputElement;
   const imageFile = imageElement.files![0];
   this.trailhistory.uploadFile(imageFile);
-  // this.trailhistory.insertNewHistory(this.historyReq).subscribe((data: any) =>{
-  //   console.log(data)
-  // })
+  console.log(environment.bucketURL + imageFile.name);
+  this.trailhistory.insertNewHistory(this.historyReq).subscribe((data: any) =>{
+    console.log(data)
+  })
 
 }
 
