@@ -22,8 +22,8 @@ import { TrailHistoryComponent } from '../trail-history/trail-history.component'
 export class ProfileComponent implements OnInit {
   @Input()
   updateProfilePopup = false
-
   popup:boolean = false
+
   public trailhistory: TrailHistory[] = []
   public noPosts: string = ""
   public user: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
@@ -73,9 +73,10 @@ export class ProfileComponent implements OnInit {
     }
   )}
 
-  close(event:any){
-    this.popup = event;
-  } 
+close(event:any){
+  this.popup = event;
+  this.updateProfilePopup = event;
+} 
 }
 
 // this.userservice.getAllUsers().subscribe((data:any) => {
