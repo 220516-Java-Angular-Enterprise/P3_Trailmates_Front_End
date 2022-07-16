@@ -50,6 +50,7 @@ export class UpdateProfileComponent implements OnInit {
       console.log(this.user)
     })
     
+    
   }
 
   displayFormSubmitError: boolean = false;

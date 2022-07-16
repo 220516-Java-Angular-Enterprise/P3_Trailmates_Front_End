@@ -18,7 +18,7 @@ export class CreateAccComponent implements OnInit {
     username: [null, [Validators.required, Validators.minLength(3)], this.authService.validateUsernameNotTaken.bind(this.authService)],
     password: ['', Validators.required],
     email: ['', Validators.required],
-    bio: ['', [Validators.required, Validators.maxLength(25)]],
+    bio: ['', [Validators.maxLength(255)]],
     age: ['', [Validators.required, Validators.min(18), Validators.max(99)]]
 
   })
