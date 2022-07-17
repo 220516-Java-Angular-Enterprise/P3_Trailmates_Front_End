@@ -10,67 +10,67 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./update-profile.component.scss']
 })
 export class UpdateProfileComponent implements OnInit {
-  constructor(private userService: UserService, private authService: AuthService, private fb: FormBuilder) { }
+  id: string | null = localStorage.getItem('id');
 
-  id: string | null = localStorage.getItem('id')
-  
-  updateUserReq = this.fb.group ({
-    //username: [null, [Validators.required, Validators.minLength(3)], this.authService.validateUsernameNotTaken.bind(this.authService)],
-    // password: ['', Validators.required],
-    // email: ['', Validators.required],
-    bio: ['', [Validators.required, Validators.maxLength(255)]],
-  })
-  
-  get username() {
-    return this.updateUserReq.get('username')
-  }
-
-  get password() {
-    return this.updateUserReq.get('password')
-  }
-
-  get email() {
-    return this.updateUserReq.get('email')
-  }
-
-  get bio() {
-    return this.updateUserReq.get('bio')
-  }
-
-  public user: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
+  public user!: User;
+  public updateUserReq: FormGroup<any>;
   
   placeholders = {
-    password: "Enter Password",
+    email: "Enter Email",
+    age: "Enter Age",
     bio: "Enter Bio",
   }
 
+  displayFormSubmitError: boolean = false;
+  displayFormSuccess: boolean = false;
+
   ngOnInit(): void {
-    this.userService.getUserById(this.id as string).subscribe((data:any) => {
+
+    this.userService.getUserById(this.id as string).subscribe((data) => {
       this.user = data
-      console.log(this.user)
+      console.log('Updated user for this page', this.user)
     })
-    
-    
   }
 
-  displayFormSubmitError: boolean = false;
+  constructor(private userService: UserService, private authService: AuthService, private fb: FormBuilder) {
+    
+    this.updateUserReq = this.fb.group({
+      emailControl: ['', Validators.minLength(1)],
+      bioControl: ['', Validators.maxLength(254)],
+      ageControl: [Number(), Validators.min(0)]
+    })
+
+  }
+
+  get email() {
+    return this.updateUserReq.get('emailControl')
+  }
+
+  get bio() {
+    return this.updateUserReq.get('bioControl')
+  }
+
+  get age() {
+    return this.updateUserReq.get('ageControl')
+  }
   
   onSubmit() {
-    console.log(this.user)
-    this.user.bio = this.updateUserReq.get('bio')?.value as unknown as string
-    
+    console.log('User',this.user,'being edited')
+
+    this.user.email = this.email?.value as string
+    this.user.bio = this.bio?.value as string
+    this.user.age = this.age?.value as number
 
     if(this.updateUserReq.status == 'VALID'){
       this.userService.UpdateUser(this.user).subscribe(data =>{
         this.user = data
         console.log(this.user)
+        this.displayFormSuccess = true;
         this.close()
       })
-    }else{
+    } else{
       this.displayFormSubmitError = true
     }
-    
-    console.log("NNNEEEEWWWWW " + this.user.bio)
     
   }
 

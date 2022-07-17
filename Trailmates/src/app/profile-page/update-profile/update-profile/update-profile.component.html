@@ -7,9 +7,27 @@
 
         <div class="row">
             <div class ="col">
-                <label>New Bio: </label>
+                <label>New Email:</label>
                 <br>
-                <input [class.is-invalid]="bio?.touched && bio?.invalid" formControlName="bio" type="text" class="form-control" [placeholder]="placeholders.bio">
+                <input formControlName="emailControl" type="text" class="form-control" [placeholder]="placeholders.email">
+            </div>
+            
+        </div>
+
+        <div class="row">
+            <div class ="col">
+                <label>New Bio:</label>
+                <br>
+                <input [class.is-invalid]="bio?.invalid" formControlName="bioControl" type="text" class="form-control" [placeholder]="placeholders.bio">
+            </div>
+            
+        </div>
+
+        <div class="row">
+            <div class ="col">
+                <label>Age:</label>
+                <br>
+                <input [class.is-invalid]="age?.touched && age?.invalid" formControlName="ageControl" type="text" class="form-control" [placeholder]="placeholders.age">
             </div>
             
         </div>
@@ -17,6 +35,9 @@
         <div class="form-group">
             <div *ngIf="displayFormSubmitError" style="color: red">
                 There's something wrong with your form
+            </div>
+            <div *ngIf="displayFormSuccess" style="color: rgb(55, 78, 16);">
+                Profile Successfully Updated
             </div>
             <button type="submit" value="Create" class="updateBtn align-self-end">Update</button>
         </div>
