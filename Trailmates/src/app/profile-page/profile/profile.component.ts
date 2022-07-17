@@ -56,6 +56,7 @@ export class ProfileComponent implements OnInit {
 
         this.trailHistoryService.getHistoryAsc(this.viewerUser.id as string).subscribe((data)=>{
           this.trailhistory = data;
+
         })
       })
 
@@ -78,7 +79,6 @@ export class ProfileComponent implements OnInit {
   refreshUser(){
   this.userservice.getUserByUsername(this.username as string).subscribe((data:any) => {
     this.viewerUser = data
-    console.log(this.user)
   })
   }
 
@@ -90,7 +90,6 @@ export class ProfileComponent implements OnInit {
       this.friendsArray.forEach(element=>{
         if(!this.friendsList.includes(element.friend_id?.id!)){
         this.friendsList.push(element.friend_id?.id!)
-        console.log(this.friendsList)
         }
       })
     }
@@ -115,9 +114,8 @@ close(event:any){
   this.updateProfilePopup = event;
   this.updateProfileImage = event;
   this.refreshPosts()
-  this.refreshPosts()
   this.refreshUser()
-  // this.refreshUser()
+
 } 
 }
 
