@@ -51,7 +51,7 @@ export class ProfileComponent implements OnInit {
   private router:Router, private http:HttpClient, private currRoute: ActivatedRoute, private _friendService: FriendService) { }
 
   async ngOnInit() {
-    
+
     this.imgURL = this.trailHistoryComp.historyReq.imageURL
 
     console.log("IIIIMMMGGG" + this.imgURL)
