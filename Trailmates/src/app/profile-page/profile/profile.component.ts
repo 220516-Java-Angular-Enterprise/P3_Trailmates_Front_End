@@ -12,17 +12,21 @@ import { AuthService } from 'src/app/services/auth.service';
 import { TokenInterceptorService } from 'src/app/services/token-interceptor.service';
 import { User } from 'src/app/models/user';
 import { TrailHistoryComponent } from '../trail-history/trail-history.component';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
+
 export class ProfileComponent implements OnInit {
   @Input()
-
-
   updateProfilePopup = false
+  showFriendsList = false
+  showMyFriendsList = false
   popup:boolean = false
+  isFriendsListOpen: boolean = false
+  isMyFriendsListOpen: boolean = false
 
   public trailhistory: TrailHistory[] = []
   public noPosts: string = ""
@@ -53,25 +57,34 @@ export class ProfileComponent implements OnInit {
       this.userservice.getUserByUsername(this.username as string).subscribe((data:any) => {
         this.viewerUser = data
 
-      this.trailHistoryService.getHistoryAsc(this.viewerUser.id as string).subscribe((data)=>{
-        this.trailhistory = data;
+        this.trailHistoryService.getHistoryAsc(this.viewerUser.id as string).subscribe((data)=>{
+          this.trailhistory = data;
 
-        if(this.trailhistory.length == 0 ){
-        
-          console.log("You don't have any posts")
-        }else{
-          console.log("You have posts")
-        }
+          if(this.trailhistory.length == 0 ){
+          
+            console.log("You don't have any posts")
+          } else{
+            console.log("You have posts")
+          }
+        })
       })
-  })
 
-  this.userservice.getUserById(this.id as string).subscribe((data:any) => {
-    this.user = data
-    console.log(this.user)
-  })
+    this.userservice.getUserById(this.id as string).subscribe((data:any) => {
+      this.user = data
+      console.log(this.user)
+    })
 
-}
-)}
+    }
+  )}
+
+  toggleFriendsList(){
+    this.isFriendsListOpen = !this.isFriendsListOpen
+  }
+
+  toggleMyFriendsList(){
+    this.isMyFriendsListOpen = !this.isMyFriendsListOpen
+  }
+  
 
 close(event:any){
   this.popup = event;

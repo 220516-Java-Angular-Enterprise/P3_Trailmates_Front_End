@@ -30,8 +30,8 @@ export class NotificationsComponent implements OnInit {
     console.log("I was destroyed.")
   }
 
-  goToMessages(){
-    this.route.navigateByUrl("/messaging");
+  goToMessages(convo_id: any){
+    this.route.navigateByUrl("/messaging/groupchat/"+convo_id);
   }
 
   goToProfile(username: any){
@@ -42,8 +42,8 @@ export class NotificationsComponent implements OnInit {
     this.notifications = this.notifications;
   }
 
-  goToTrail(id: any){
-    this.route.navigateByUrl("/trailpage/"+id);
+  goToTrail(){
+    this.route.navigateByUrl("/trailpage");
   }
 
 }
