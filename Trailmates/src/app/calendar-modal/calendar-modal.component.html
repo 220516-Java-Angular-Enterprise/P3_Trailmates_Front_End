@@ -4,7 +4,7 @@
         
         <div class="row">
             <div class="col">
-                <input type="date" value="formdate" #date="ngModel" [(ngModel)]="trailFlagReq.date_int" #formdate="ngModel" [class.is-invalid]="formdate.invalid && formdate.touched" name="date" required (change)="compareDate($event)">
+                <input type="date" value="formdate" #date="ngModel" [(ngModel)]="trailFlagReq.dateInt" #formdate="ngModel" [class.is-invalid]="formdate.invalid && formdate.touched" name="date" required (change)="compareDate($event)">
             </div>
             <small *ngIf="formdate.errors?.['required'] && formdate.touched" class="text-danger">You must choose a date</small>
             <small *ngIf="badDate" class="text-danger">Please pick a future date.</small>
@@ -18,7 +18,7 @@
     <div class="box" *ngIf="submitted">
       <small *ngIf="noUsers" class="text-danger">There are no users under this date and trail.</small>
       <ul>
-        <li *ngFor="let flag of returnFlags">{{flag.user_id?.username}}</li>
+        <li *ngFor="let flag of returnFlags">{{flag.userId?.username}}</li>
       </ul>
     </div>
 </form>

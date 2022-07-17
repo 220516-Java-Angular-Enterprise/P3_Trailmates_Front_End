@@ -12,7 +12,9 @@ import { UserService } from './user-service.service';
 })
 export class AuthService {
 
+  // private URL = "http://localhost:8080/TrailMates/";
   private URL = "https://revature.trailmates.net/TrailMates/";
+
   constructor(private http: HttpClient, private route: Router, private userService: UserService) { }
 
 
