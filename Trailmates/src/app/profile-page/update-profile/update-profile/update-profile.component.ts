@@ -30,7 +30,6 @@ export class UpdateProfileComponent implements OnInit {
       this.user = data
       console.log('Updated user for this page', this.user)
     })
-
   }
 
   constructor(private userService: UserService, private authService: AuthService, private fb: FormBuilder) {
