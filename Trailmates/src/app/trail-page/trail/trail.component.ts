@@ -9,6 +9,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import {} from 'googlemaps';
 import { TrailFlag } from 'src/app/models/trailFlag';
 import { Friend } from 'src/app/models/friend';
+import { TrailReviewService } from 'src/app/services/trail-review.service';
+import { TrailReview } from 'src/app/models/trailReview';
+import { TrailRating } from 'src/app/models/trail-rating';
 // import { ConsoleReporter } from 'jasmine';
 
 @Component({
@@ -18,7 +21,7 @@ import { Friend } from 'src/app/models/friend';
 })
 export class TrailComponent implements OnInit {
 
-  constructor(private _trailService: TrailService, private _friendService: FriendService, private _userService: UserService, private _trailFlagService: TrailFlagService, private _route: Router, private _currRoute: ActivatedRoute){ }
+  constructor(private _trailService: TrailService, private _friendService: FriendService, private _userService: UserService, private _trailFlagService: TrailFlagService, private _route: Router, private _currRoute: ActivatedRoute, private _trailReviewService: TrailReviewService){ }
   
   @Input()
   popup = false;
@@ -115,6 +118,9 @@ export class TrailComponent implements OnInit {
     })
   }
 
+  noReviews: boolean = false;
+
+
   // needs to also render user comments
   showTrailDetails(event: any) {
     this._trailService.getById(event.target.id).subscribe((data: any) => {
@@ -125,8 +131,14 @@ export class TrailComponent implements OnInit {
     
       // This is the functionality for the google map
       this.initMap(this.latitude, this.longitude)
+
+      //added
+      this.getTrailReviews()
+
+      this.getTrailRating()
     })
     }
+
 
   // Initialize and add the map
   initMap(lat: any, lng: any): void {
@@ -166,5 +178,93 @@ checkSubmitted(event: any){
     this._route.navigateByUrl('/trailpage');
   }
 }
+// Added
+
+trailRating: TrailRating = {};
+
+getTrailRating(): void {
+  
+  this._trailReviewService.getAllTrailsReviews(this.trail.id ?? '').subscribe((data) => {
+    this.trailRating = data;
+    console.log('in star')
+  },
+  (err => {
+    console.log(err)
+    this.trailRating = {
+    
+    };
+  }))
+
 
 }
+
+  getTrailReviews(): void {
+    this._trailReviewService.getById(this.trail.id?? '').subscribe((reviews) => {
+      console.log(reviews)
+      this.trailReview = reviews;
+      this.noReviews = false;
+    },
+      (err => {
+        this.noReviews = true;
+      }))
+
+  }
+
+  trailReview: TrailReview[] = []
+
+  // button displays if want to create new review
+  newReview: boolean = false;
+
+  // proccess review form
+  // two fields comment and score
+
+  newReviewRequest = {
+    rating: 0,
+    comment: ''
+  }
+
+  placeholders = {
+    rating: "Enter Score",
+    comment: "Enter Comment",
+  };
+  displayErrorReview: boolean = false;
+
+  validReview(): boolean {
+    if (this.newReviewRequest.rating > 0 && this.newReviewRequest.rating < 6) {
+      return true;
+    }
+    else {
+      this.displayErrorReview = true;
+      return false;
+    }
+
+  }
+
+  submitReview(): void {
+    console.log(this.newReviewRequest.comment)
+    console.log(this.newReviewRequest.rating)
+    if (this.validReview()) {
+      this.displayErrorReview = false;
+      this.newReview = false;
+      this._trailReviewService.postTrailReviews( this.trail.id?? '', this.newReviewRequest).subscribe((data: any) => {
+        console.log(data)
+        this.getTrailReviews()
+        this.getTrailRating()
+          ;
+      })
+    }
+  }
+
+  // star
+
+  numbers: any
+  
+  numberSize(n: number): number[]{
+    return Array(n).fill(0).map((x, i) => i);
+  }
+
+}
+
+
+
+

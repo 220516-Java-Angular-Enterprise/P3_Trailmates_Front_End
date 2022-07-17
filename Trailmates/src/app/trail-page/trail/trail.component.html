@@ -124,13 +124,63 @@
 
                 <br>
                 <br>
-                <div class="mb-3">
 
+                
+                <div class="mb-3" *ngIf="trail.id">
+
+                    
+                    <i *ngIf="trailRating.ratingAvg" class='bi bi-star-fill' style='color: #f3da35'> </i>
+
+                    <label *ngIf="trailRating.ratingAvg" for="exampleFormControlInput1" class="form-label bold">{{trailRating.ratingAvg}}</label>
+
+                    <p *ngIf="trailRating.ratingCount"> out of {{trailRating.ratingCount}} reviews</p>
+                    
+
+                    <br>
                     <label for="exampleFormControlInput1" class="form-label bold">User Comments:</label>
                     <div class="mb-3">
-                        <p id="usercomment">
-                            User comments
-                        </p>
+
+                    <div class="mb-3" *ngIf="!noReviews">
+                        <div *ngFor="let review of trailReview ">
+                            
+                            <p>{{review.userID?.username}}</p>
+                            <i *ngFor="let x of numberSize(review.rating??0)" class='bi bi-star-fill' style='color: #f3da35'> </i>
+                            <p>{{review.comment}}</p>
+
+                            <br>
+                        </div>
+                    </div>
+                    
+                    <!-- no reviews -->
+                    <div class="mb-3" *ngIf="noReviews">
+                        <label for="exampleFormControlInput1" class="form-label bold">No Reviews</label>
+                    </div>
+
+                    <div class="container">
+                        <span id="rateMe1"></span>
+                    </div>
+                    
+                    <!-- buttons -->
+                    <button type="button" class="btn clickbtn" *ngIf="!newReview" (click)="newReview = true">Leave a Review</button>
+                    
+                    <div *ngIf="newReview">
+                        <label for="review-score">How was this trail: </label>
+                        <br>
+                        <div class="star">
+                            <ngx-star-rating [(ngModel)]="newReviewRequest.rating" [id]="'rating'"></ngx-star-rating>
+                        </div>
+
+                        <br>
+                    
+                    
+                        <!-- <input [class.is-invalid]="newReviewRequest.comment?.invalid" -->
+                        <input [(ngModel)]="newReviewRequest.comment" type="string" class="form-control"
+                            [placeholder]="placeholders.comment">
+                    
+                        <button type="button" class="btn clickbtn" (click)="submitReview()">Submit</button>
+                        <button type="text" class="btn clickbtn" (click)="newReview = false">Cancel</button>
+                    
+                    
                     </div>
 
                 </div>
