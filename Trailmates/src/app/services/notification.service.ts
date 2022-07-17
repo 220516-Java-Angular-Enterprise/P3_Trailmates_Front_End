@@ -8,7 +8,8 @@ import { Injectable } from '@angular/core';
 export class NotificationService {
 
   constructor(private http: HttpClient) { }
-   private url = 'https://revature.trailmates.net/TrailMates/notification/' //'http://localhost:8080/TrailMates/notification/'
+  // private url = 'http://localhost:8080/TrailMates/notification/'
+  private url = 'https://revature.trailmates.net/TrailMates/notification/'
   getAllNotifications(): Observable<Notification[]> {
     return this.http.get<Notification[]>(this.url);
   }

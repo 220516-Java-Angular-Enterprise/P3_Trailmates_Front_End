@@ -1,21 +1,22 @@
-import { FormsModule } from '@angular/forms';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ChatRoomComponent } from './chat-room.component';
+import { UpdateProfileImageComponent } from './update-profile-image.component';
+import { FormsModule } from '@angular/forms';
 
-describe('ChatRoomComponent', () => {
-  let component: ChatRoomComponent;
-  let fixture: ComponentFixture<ChatRoomComponent>;
+
+describe('UpdateProfileImageComponent', () => {
+  let component: UpdateProfileImageComponent;
+  let fixture: ComponentFixture<UpdateProfileImageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule, FormsModule],
-      declarations: [ ChatRoomComponent ]
+      declarations: [ UpdateProfileImageComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ChatRoomComponent);
+    fixture = TestBed.createComponent(UpdateProfileImageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
