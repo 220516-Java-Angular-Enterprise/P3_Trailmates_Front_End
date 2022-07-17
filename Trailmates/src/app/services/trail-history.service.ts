@@ -34,7 +34,7 @@ export class TrailHistoryService {
     return this.http.post<ImageData>(this.imageURL, imageData)
   }
 
-  insertNewHistory(newHistory: TrailHistory) {
+  insertNewHistory(newHistory: any) {
     return this.http.post<any>(this.URL+'/newHistory', newHistory);
   }
 

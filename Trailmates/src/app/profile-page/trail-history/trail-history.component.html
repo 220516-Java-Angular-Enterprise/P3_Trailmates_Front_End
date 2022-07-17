@@ -4,25 +4,28 @@
 
     <form class="form-area" action="/action_page.php" (ngSubmit)="processForm(postForm)"  #postForm="ngForm">
       
-        <select class="dropdown" clickOutside (clickOutside)="clickedOutsideMenu()">
-                <option *ngFor="let trail of trails" value="trail.name">
-                    {{trail.name}}
+        <select class="dropdown" clickOutside (clickOutside)="clickedOutsideMenu()" (change)="selectTrail(trail.trailId?.name)" *ngFor="let trail of trailFlags">
+                <option  value={{trail.trailId?.name}}>
+                    {{trail.trailId?.name}}
                 </option>
         </select>
             
         <div class ="fileInput form-element">
-            <input type="file" [(ngModel)]="image" id="myFile" name="filename" accept="image/*">
+            <input type="file" [(ngModel)]="image" id="myFile" name="filename" accept="image/*" required>
             <label for="myFile">
                 <i class="bi bi-image"></i>
-                Upload an Image
-            </label>
             {{image}}
+            </label>
+
         </div>
 
         <div class="row">
-            <div class ="col"><textarea placeholder="comment"  [(ngModel)]="historyReq.comment" name="comment"></textarea></div>
+            <div class ="col"><textarea placeholder="comment"  #comment="ngModel" [(ngModel)]="historyReq.comment" name="comment" [class.is-invalid]="comment.invalid && comment.touched" required></textarea>
         </div>
-        <button type="submit" class="postBtn align-self-end" onClick="window.location.reload()">Post</button> 
+            {{historyReq.trail_name}}
+            <small *ngIf="comment.errors?.['required'] && comment.touched" class="text-danger">Please type a comment</small>
+        </div>
+        <button type="submit" class="postBtn align-self-end">Post</button> 
     </form>
 </div>
 
