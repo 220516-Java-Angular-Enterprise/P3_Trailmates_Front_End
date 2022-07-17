@@ -8,10 +8,10 @@ import { TrailHistory } from '../models/trailHistory';
   providedIn: 'root'
 })
 export class TrailHistoryService {
-  // private URL="https://revature.trailmates.net/TrailMates/history";
-  // private imageURL = "https://revature.trailmates.net/TrailMates/image";
-  private URL ="http://localhost:8080/TrailMates/history";
-  private imageURL ="http://localhost:8080/TrailMates/image";
+  private URL="https://revature.trailmates.net/TrailMates/history";
+  private imageURL = "https://revature.trailmates.net/TrailMates/image";
+  // private URL ="http://localhost:8080/TrailMates/history";
+  // private imageURL ="http://localhost:8080/TrailMates/image";
 
   constructor(private http:HttpClient, private route:Router) { }
 
