@@ -3,13 +3,18 @@ import {HttpClient} from '@angular/common/http';
 import{Router} from '@angular/router';
 import { firstValueFrom, Observable } from 'rxjs';
 import { TrailHistory } from '../models/trailHistory';
+import { BucketURL } from '../models/bucketurl';
+import * as S3 from 'aws-sdk/clients/s3';
+import { environment } from '../../environments/environment.prod'
 
 @Injectable({
   providedIn: 'root'
 })
 export class TrailHistoryService {
-  private URL="https://revature.trailmates.net/TrailMates/history";
-  private imageURL = "https://revature.trailmates.net/TrailMates/image";
+  // private URL="https://revature.trailmates.net/TrailMates/history";
+  // private imageURL = "https://revature.trailmates.net/TrailMates/image";
+  private URL ="http://localhost:8080/TrailMates/history";
+  private imageURL ="http://localhost:8080/TrailMates/image";
 
   constructor(private http:HttpClient, private route:Router) { }
 
@@ -21,12 +26,8 @@ export class TrailHistoryService {
     return this.http.get<TrailHistory[]>(this.URL+'/asc/'+userId);
   }
 
-  getSecureURL(fileExtension: String): Promise<String> {
-    return firstValueFrom(this.http.get<String>(this.imageURL + "/gen-url/" + fileExtension));
-  }
-
-  uploadImage(bucketURL: string, uploadedImage: File) {
-    return this.http.put<File>(bucketURL, uploadedImage);
+  getSecureURL(fileExtension: String): Promise<BucketURL> {
+    return firstValueFrom(this.http.get<BucketURL>(this.imageURL + "/gen-url/" + fileExtension));
   }
 
   saveImageData(imageData: ImageData) {
@@ -36,4 +37,30 @@ export class TrailHistoryService {
   insertNewHistory(newHistory: TrailHistory) {
     return this.http.post<any>(this.URL+'/newHistory', newHistory);
   }
+
+  uploadFile(file: File) {
+    const contentType = file.type;
+    const bucket = new S3(
+      {
+        accessKeyId: environment.accessKeyId,
+        secretAccessKey: environment.secretAccessKey,
+        region: 'us-east-1'
+      }
+    );
+    const params = {
+      Bucket: 'trailmates-images',
+      Key: file.name,
+      Body: file,
+      ACL: 'public-read',
+      ContentType: contentType
+    };
+      bucket.upload(params, function (err: any, data: any) {
+        if (err) {
+            console.log('There was an error uploading your file: ', err);
+            return false;
+        }
+        console.log('Successfully uploaded file.', data);
+        return true;
+    });
+}
 }

@@ -6,6 +6,7 @@ import { Trail } from 'src/app/models/trail';
 import { User } from 'src/app/models/user'
 import { NgForm } from '@angular/forms';
 import { fade } from '../../animations/animations';
+import { environment } from '../../../environments/environment.prod'
 // import { Trail } from '../models/trails';
 
 @Component({
@@ -18,7 +19,7 @@ import { fade } from '../../animations/animations';
 export class TrailHistoryComponent implements OnInit {
   comment: string = ""
   id: string | null = localStorage.getItem('id')
-  bucketURL: string = ""
+  selectedFiles: any = '';
 
   constructor(private trailhistory:TrailHistoryService) { }
 
@@ -52,28 +53,21 @@ trails: Trail[] = [
 historyReq = {
         trail_name: "",
         comment: "",
-        date: new Date
+        date: new Date,
+        imageURL: ""
       }
 displayFormSubmitError: boolean = false
 
+image: any;
+
 processForm(postForm: NgForm) {
-  //get image file as HTMLInputElement
-  let imageElement = document.getElementById("myFile") as HTMLInputElement;
-  //change input from HTMLInputElement to File
-  let imageFile = imageElement?.files![0];
-  //get secure url to s3 bucket from backend server, passing in the file's extension
-  this.getSecureURL(imageFile.name.split('.').pop()!).then((stringPromise) => {this.bucketURL = stringPromise.toString()});
-  //upload the image to S3 bucket
-  this.trailhistory.uploadImage(this.bucketURL, imageFile);
-  //get url to image
-  let imageURL = this.bucketURL.split('?')[0];
-  console.log(imageURL);
-
-
-
-  // this.trailhistory.insertNewHistory(this.historyReq).subscribe((data: any) =>{
-  //   console.log(data)
-  // })
+  const imageElement = document.getElementById("myFile") as HTMLInputElement;
+  const imageFile = imageElement.files![0];
+  this.trailhistory.uploadFile(imageFile);
+  this.historyReq.imageURL = environment.bucketURL + imageFile.name;
+  this.trailhistory.insertNewHistory(this.historyReq).subscribe((data: any) =>{
+    console.log(data)
+  })
 
 }
 
@@ -109,9 +103,6 @@ close() {
   this.doPassPopup.emit(this.popup);
 } 
 
-
-
-
-} 
+}
 
 
