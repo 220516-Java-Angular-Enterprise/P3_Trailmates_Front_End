@@ -16,37 +16,39 @@ import { TrailFlag } from 'src/app/models/trailFlag';
 })
 
 export class TrailHistoryComponent implements OnInit {
-  comment: string = ""
-  id: string | null = localStorage.getItem('id')
-  selectedFiles: any = '';
+@Input() popup:boolean = true; 
+@Output() doPassPopup:EventEmitter<any> = new EventEmitter();
 
-  constructor(private trailhistory:TrailHistoryService, private _imageData: ImageDataService, private _trailFlag: TrailFlagService) {}
+constructor(private trailhistory:TrailHistoryService, private _imageData: ImageDataService, private _trailFlag: TrailFlagService) {}
 
-trailFlags: TrailFlag[] = [
 
-]
-
-  ngOnInit(): void {
-    this._trailFlag.getAllByUser(localStorage.getItem('id')!).subscribe(
-      data=>{this.trailFlags = data},
-      error=>{console.log(error)}
-    )
-  }
-
+comment: string = ""
+id: string | null = localStorage.getItem('id')
+selectedFiles: any = '';
+trailFlags: TrailFlag[] = []
+formError: boolean = false;
 historyReq = {
     trail_name: "",
     comment: "",
     date: '',
     imageURL: ""
   }
-
 imageReq = {
   url: "",
   filetype: '',
 }
 displayFormSubmitError: boolean = false
-
 image: any;
+
+
+ngOnInit(): void {
+  this._trailFlag.getAllByUser(localStorage.getItem('id')!).subscribe(
+    data=>{this.trailFlags = data},
+    error=>{console.log(error)}
+  )
+}
+
+
 
 processForm(postForm: NgForm) {
   if(postForm.form.status == 'VALID'){
@@ -54,7 +56,7 @@ processForm(postForm: NgForm) {
   //Gets file from input
   const imageFile = imageElement.files![0];
   //Uploads file
-  this.trailhistory.uploadFile(imageFile);
+  this._imageData.uploadFile(imageFile);
   //Gets image URL and saves it to historyReq
   this.historyReq.imageURL = environment.bucketURL + imageFile.name;
   this.historyReq.date = this.formatDate(new Date());
@@ -62,16 +64,30 @@ processForm(postForm: NgForm) {
   this.imageReq.url = this.historyReq.imageURL;
   this.imageReq.filetype = 'HISTORY';
   this._imageData.saveImg(this.imageReq).subscribe(
-    data => {console.log('Saved image successfully:' + data.url)}
+    data => {
+      console.log('Saved image successfully:' + data.url)
+      this.makePost()
+    }
   )
   // Make post request for history
   console.log(this.historyReq)
-  this.trailhistory.insertNewHistory(this.historyReq).subscribe((data: any) =>{
-    console.log('Saved post successfully: '+data)
-  })
+  // Closes modal
+  this.close();
+  } else {
+    this.formError = true;
   }
 
 
+}
+
+makePost(){
+this.trailhistory.insertNewHistory(this.historyReq).subscribe(
+  (data: any) =>{
+  console.log('Saved post successfully: '+data)
+  },
+  (error:any)=>{
+    this.makePost();
+  })
 }
 
 
@@ -89,18 +105,13 @@ clickedOutsideMenu(): void {
   this.isMenuOpen = false;
 }
 
-// Trail Comment/Post Form 
-// isFormOpen:boolean = true;
-
-@Input() popup:boolean = true; 
-
-@Output() doPassPopup:EventEmitter<any> = new EventEmitter();
-
 close() {
   this.popup = false;
   this.doPassPopup.emit(this.popup);
 }
 
+
+// Date formatting to back-end
 private formatDate(date: Date) {
   return (
     [
@@ -121,9 +132,8 @@ private padTo2Digits(num: number) {
   return num.toString().padStart(2, '0');
 }
 
-selectTrail(trail: any){
-  this.historyReq.trail_name = trail;
-  console.log(trail);
+selectTrail(event: any){
+  this.historyReq.trail_name = event.target.value;
   console.log(this.historyReq.trail_name)
 }
 

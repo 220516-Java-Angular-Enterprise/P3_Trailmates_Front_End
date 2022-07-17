@@ -18,7 +18,7 @@ export class UpdateProfileComponent implements OnInit {
     //username: [null, [Validators.required, Validators.minLength(3)], this.authService.validateUsernameNotTaken.bind(this.authService)],
     // password: ['', Validators.required],
     // email: ['', Validators.required],
-     bio: ['', [Validators.required, Validators.maxLength(255)]],
+    bio: ['', [Validators.required, Validators.maxLength(255)]],
   })
   
   get username() {
@@ -64,6 +64,7 @@ export class UpdateProfileComponent implements OnInit {
       this.userService.UpdateUser(this.user).subscribe(data =>{
         this.user = data
         console.log(this.user)
+        this.close()
       })
     }else{
       this.displayFormSubmitError = true
