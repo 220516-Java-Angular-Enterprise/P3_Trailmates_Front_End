@@ -4,26 +4,40 @@
 
     <form class="form-area" action="/action_page.php" (ngSubmit)="processForm(postForm)"  #postForm="ngForm">
       
-        <select class="dropdown" clickOutside (clickOutside)="clickedOutsideMenu()">
-                <option *ngFor="let trail of trails" value="trail.name">
-                    {{trail.name}}
+        <select class="dropdown form-control" #trailSelect="ngModel" [(ngModel)]="historyReq.trail_name" [class.is-invalid]="trailSelect.invalid && trailSelect.touched" clickOutside (clickOutside)="clickedOutsideMenu()" (change)="selectTrail($event)" required name="trailSelect" placeholder="Flagged trails">
+                <option  value="" disabled selected>
+                    Select Flagged Trails
+                </option>
+                <!-- Options for posting trail -->
+                <option  [value]="trail.trailId?.name" *ngFor="let trail of trailFlags">
+                    {{trail.trailId?.name}}
+                </option>
+                <!-- If theres no flagged trails. -->
+                <option  [value]="" *ngIf="trailFlags.length==0" disabled>
+                    You have no flagged trails.
                 </option>
         </select>
-            
-        <div class ="fileInput form-element"> 
-            <input type="file" id="myFile" name="filename" accept="image/*">
+        <small *ngIf="trailSelect.errors?.['required'] && trailSelect.touched">Please select a trail for the post</small>
+
+        <div class ="fileInput form-element">
+            <input type="file" [(ngModel)]="image" id="myFile" name="filename" accept="image/*" required>
             <label for="myFile">
                 <i class="bi bi-image"></i>
-                Upload an Image
+            {{image}}
             </label>
         </div>
 
         <div class="row">
-            <div class ="col"><textarea placeholder="comment"  [(ngModel)]="historyReq.comment" name="comment"></textarea></div>
+            <div class ="col"><textarea placeholder="comment"  #comment="ngModel" [(ngModel)]="historyReq.comment" name="comment" [class.is-invalid]="comment.invalid && comment.touched" required></textarea>
         </div>
-        <button type="submit" class="postBtn align-self-end" onclick="close()">Post</button> 
+            <small *ngIf="comment.errors?.['required'] && comment.touched">Please type a comment</small>
+        </div>
+        <small *ngIf="formError">There's something wrong in your post.</small>
+        <button type="submit" class="postBtn align-self-end">Post</button> 
     </form>
 </div>
+
+<!-- (click)="close()" -->
 
 
 

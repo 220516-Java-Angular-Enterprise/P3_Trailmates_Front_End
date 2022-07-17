@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user-service.service';
 import { Friend } from 'src/app/models/friend';
 import { FriendService } from 'src/app/services/friend.service';
@@ -12,14 +12,13 @@ import { User } from 'src/app/models/user';
 })
 export class OtherUserFriendsComponent implements OnInit {
 
-  constructor(private _friendsService: FriendService, private _userService: UserService, private currRoute: ActivatedRoute) { }
+  constructor(private _friendsService: FriendService, private _userService: UserService, private currRoute: ActivatedRoute, private router: Router) { }
 
   allFriends: Friend[] = [];
   user: User = {};
   username: string = '';
 
   ngOnInit(): void {
-    
     this.currRoute.params.subscribe(
       //Gets displayed username
       p=>{
@@ -39,7 +38,10 @@ export class OtherUserFriendsComponent implements OnInit {
       }
       
     )
+  }
 
+  goToProfile(username: any){
+    this.router.navigateByUrl("/profile/"+username);
   }
 
 }

@@ -37,6 +37,7 @@ import { UpdateProfileComponent } from './profile-page/update-profile/update-pro
 import { NotificationsComponent } from './header/notifications/notifications.component';
 import { FriendsListComponent } from './profile-page/friends-list/friends-list.component';
 import { OtherUserFriendsComponent } from './profile-page/friends-list/other-user-friends/other-user-friends.component';
+import { UpdateProfileImageComponent } from './profile-page/update-profile/update-profile-image/update-profile-image.component';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { OtherUserFriendsComponent } from './profile-page/friends-list/other-use
     UpdateProfileComponent,
     FriendsListComponent,
     OtherUserFriendsComponent,
+    UpdateProfileImageComponent,
   ],
 
   imports: [
