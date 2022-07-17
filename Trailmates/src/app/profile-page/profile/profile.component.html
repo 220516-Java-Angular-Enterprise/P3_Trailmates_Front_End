@@ -8,7 +8,8 @@
             <img src="https://i.stack.imgur.com/gHaf2.png" class="profile-image" alt="simpson" (click)="updateProfileImage = true">
             <h3>@{{username}}</h3>
             <hiker-ability></hiker-ability>
-            <button *ngIf="username!=user.username" type="button" class="btn btn-outline-primary btn-lg friendBtn">Add Friend</button>
+            <button *ngIf="username!=user.username && !friendsList.includes(viewerUser.id!)" type="button" class="btn btn-outline-primary btn-lg friendBtn" (click)="addFriend(viewerUser.id)">Add Friend</button>
+            <button *ngIf="username!=user.username && friendsList.includes(viewerUser.id!)" type="button" class="btn btn-outline-primary btn-lg friendBtn" (click)="removeFriend(viewerUser.id)">Remove Friend</button>
             <button (click)="updateProfilePopup = true" *ngIf="username==user.username" type="button" class="btn btn-outline-primary btn-lg friendBtn">Update Profile</button>
         </div>
 

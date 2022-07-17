@@ -32,4 +32,8 @@ getAllFriendsByUserID(id: string): Observable<Friend[]>{
   return this.http.get<Friend[]>(this.url+id)
 }
 
+removeFreind(friend_id: string){
+  return this.http.delete(this.url+friend_id)
+}
+
 }

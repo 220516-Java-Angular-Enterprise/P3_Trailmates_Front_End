@@ -1,15 +1,12 @@
-import { TrailService } from 'src/app/services/trail.service';
-import { getTestBed } from '@angular/core/testing';
-import { fromEventPattern, Observable } from 'rxjs';
+import { Friend } from './../../models/friend';
+import { FriendService } from 'src/app/services/friend.service';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient, HttpHandler, HttpRequest } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TrailHistory } from 'src/app/models/trailHistory';
 import { TrailHistoryService } from 'src/app/services/trail-history.service';
 import { UserService } from 'src/app/services/user-service.service';
-import { AuthService } from 'src/app/services/auth.service';
-import { TokenInterceptorService } from 'src/app/services/token-interceptor.service';
 import { User } from 'src/app/models/user';
 import { TrailHistoryComponent } from '../trail-history/trail-history.component';
 
@@ -40,11 +37,14 @@ export class ProfileComponent implements OnInit {
   bio: any;
   map = new Map<string, number>(); 
   trailNameCount = 0
+  added: boolean = false;
+  friendsArray: Friend[] = [];
+  friendsList: string[] = [];
 
   id: string | null = localStorage.getItem('id')
   
   constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService, private trailHistoryComp:TrailHistoryComponent,
-  private router:Router, private http:HttpClient, private currRoute: ActivatedRoute) { }
+  private router:Router, private http:HttpClient, private currRoute: ActivatedRoute, private _friendService: FriendService) { }
 
   async ngOnInit() {
     this.currRoute.params.subscribe(p => {
@@ -63,9 +63,11 @@ export class ProfileComponent implements OnInit {
       this.user = data
       console.log(this.user)
     })
-
     }
-  )}
+  )
+  //Gets Friends
+  this.refreshFriends();
+}
 
   refreshPosts(){
     this.trailHistoryService.getHistoryAsc(this.viewerUser.id as string).subscribe((data)=>{
@@ -78,6 +80,34 @@ export class ProfileComponent implements OnInit {
     this.viewerUser = data
     console.log(this.user)
   })
+  }
+
+  refreshFriends(){
+  this.friendsList = [];
+  this._friendService.getAllFriends().subscribe(
+    data=>{
+      this.friendsArray = data;
+      this.friendsArray.forEach(element=>{
+        if(!this.friendsList.includes(element.friend_id?.id!)){
+        this.friendsList.push(element.friend_id?.id!)
+        console.log(this.friendsList)
+        }
+      })
+    }
+  )
+  }
+
+  addFriend(id: any){
+    this._friendService.addFriend(id).subscribe()
+    this.refreshFriends();
+    this.refreshFriends();
+  }
+
+
+  removeFriend(id: any){
+    this._friendService.removeFreind(id).subscribe()
+    this.refreshFriends();
+    this.refreshFriends();
   }
 
 close(event:any){
