@@ -128,13 +128,19 @@
                 
                 <div class="mb-3" *ngIf="trail.id">
 
-                    
-                    <i *ngIf="trailRating.ratingAvg" class='bi bi-star-fill' style='color: #f3da35'> </i>
+                    <div *ngIf="trailRating.ratingAvg">
 
+                    
                     <label *ngIf="trailRating.ratingAvg" for="exampleFormControlInput1" class="form-label bold">{{trailRating.ratingAvg}}</label>
+                    <i *ngFor="let x of numberSize(starAmount(trailRating.ratingAvg??0))" class='bi bi-star-fill' style='color: #f3da35'> </i>
+                    <i class="bi bi-star-half" style='color: #f3da35'
+                        *ngIf="isHalf(trailRating.ratingAvg??0)"> </i>
+
+                    <i class="bi bi-star"
+                        *ngFor="let x of numberSize(5 - returnRound(trailRating.ratingAvg?? 0))"> </i>
 
                     <p *ngIf="trailRating.ratingCount"> out of {{trailRating.ratingCount}} reviews</p>
-                    
+                    </div>
 
                     <br>
                     <label for="exampleFormControlInput1" class="form-label bold">User Comments:</label>
@@ -145,6 +151,9 @@
                             
                             <p>{{review.userID?.username}}</p>
                             <i *ngFor="let x of numberSize(review.rating??0)" class='bi bi-star-fill' style='color: #f3da35'> </i>
+
+                            <i *ngFor="let x of numberSize5(review.rating??0)" class='bi bi-star'> </i>
+
                             <p>{{review.comment}}</p>
 
                             <br>

@@ -262,6 +262,38 @@ getTrailRating(): void {
   numberSize(n: number): number[]{
     return Array(n).fill(0).map((x, i) => i);
   }
+  numberSize5(n: number): number[] {
+    return Array(5-n).fill(0).map((x, i) => i);
+  }
+
+  returnFloor(n: number): number{
+    return Math.floor(n);
+  }
+
+  isHalf(n:number): boolean {
+    if (n % 1 > .3 && n %1 <= .7 ) {
+      return true;
+    } else {
+      return false;
+    }
+
+  }
+
+  starAmount(n: number): number {
+    if (n % 1 <= .7) {
+      return Math.floor(n)
+    } else {
+      return Math.ceil(n)
+    }
+  }
+
+  returnRound(n: number): number {
+    if(n%1 < .3){
+      return Math.floor(n)
+    } else{
+      return Math.ceil(n)
+    }
+  }
 
 }
 
