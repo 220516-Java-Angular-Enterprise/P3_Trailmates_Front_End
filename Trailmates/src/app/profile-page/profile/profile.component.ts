@@ -67,7 +67,7 @@ export class ProfileComponent implements OnInit {
 
   this.userservice.getUserById(this.id as string).subscribe((data:any) => {
     this.user = data
-    console.log(this.user)
+    console.log('logged in',this.user)
   })
 
 }
