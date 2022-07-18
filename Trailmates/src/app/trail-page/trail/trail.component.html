@@ -157,9 +157,9 @@
                     <div class="mb-3">
 
                     <div class="mb-3" *ngIf="!noReviews">
-                        <div *ngFor="let review of trailReview ">
+                        <div *ngFor="let review of trailReview " class="reviewshadow">
                             
-                            <p>{{review.userID?.username}}</p>
+                            <h2>{{review.userID?.username}}</h2>
                             <i *ngFor="let x of numberSize(review.rating??0)" class='bi bi-star-fill' style='color: #f3da35'> </i>
 
                             <i *ngFor="let x of numberSize5(review.rating??0)" class='bi bi-star'> </i>
@@ -183,7 +183,7 @@
                     <button type="button" class="btn clickbtn" *ngIf="!newReview" (click)="newReview = true">Leave a Review</button>
                     
                     <div *ngIf="newReview">
-                        <label for="review-score">How was this trail: </label>
+                        <label for="review-score" class="bold">How was this trail: </label>
                         <br>
                         <div class="star">
                             <ngx-star-rating [(ngModel)]="newReviewRequest.rating" [id]="'rating'"></ngx-star-rating>
@@ -193,7 +193,7 @@
                     
                     
                         <!-- <input [class.is-invalid]="newReviewRequest.comment?.invalid" -->
-                        <input [(ngModel)]="newReviewRequest.comment" type="string" class="form-control"
+                        <input [(ngModel)]="newReviewRequest.comment" type="string" class="form-control commentbox"
                             [placeholder]="placeholders.comment">
                     
                         <button type="button" class="btn clickbtn" (click)="submitReview()">Submit</button>

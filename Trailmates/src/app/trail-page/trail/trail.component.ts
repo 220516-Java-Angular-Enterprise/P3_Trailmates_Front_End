@@ -203,7 +203,7 @@ checkSubmitted(event: any){
 }
 // Added
 
-trailRating: TrailRating = {};
+trailRating: any = {};
 
 getTrailRating(): void {
   
