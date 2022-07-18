@@ -4,7 +4,7 @@
 
     <form class="form-area" action="/action_page.php" (ngSubmit)="processForm(postForm)"  #postForm="ngForm">
       
-        <select class="dropdown form-control" #trailSelect="ngModel" [(ngModel)]="historyReq.trail_name" [class.is-invalid]="trailSelect.invalid && trailSelect.touched" clickOutside (clickOutside)="clickedOutsideMenu()" (change)="selectTrail($event)" required name="trailSelect" placeholder="Flagged trails">
+        <select class="dropdown form-control option" #trailSelect="ngModel" [(ngModel)]="historyReq.trail_name" [class.is-invalid]="trailSelect.invalid && trailSelect.touched" clickOutside (clickOutside)="clickedOutsideMenu()" (change)="selectTrail($event)" required name="trailSelect" placeholder="Flagged trails">
                 <option  value="" disabled selected>
                     Select Flagged Trails
                 </option>

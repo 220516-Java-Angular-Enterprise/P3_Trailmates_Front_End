@@ -1,6 +1,6 @@
 <!-- Friend Notification -->
 <div class="dropdown-item" *ngIf="notif?.notification_type =='FRIEND' && notif">
-  <div class="notification d-flex column justify-content-evenly align-items-center rounded">
+  <div class="notification d-flex column justify-content-evenly align-items-center rounded text-wrap">
     <h3 class="notification-title col-10"(click)="goToProfiles(notif.friend?.user_id?.username)">Friend Request</h3>
     <button class="btn col-2" (click)="onDelete(notif)">X</button>
   </div>
@@ -15,8 +15,8 @@
 
 <!-- Flag Notification -->
 <div class="dropdown-item" *ngIf="notif?.notification_type =='FLAG' && notif">
-  <div class="notification d-flex column justify-content-evenly align-items-center rounded">
-    <h3 class="notification-title col-10" (click)="goToTrailPage()">Trail Flag: {{notif.trail_id?.name}}</h3>
+  <div class="notification d-flex column justify-content-evenly align-items-center rounded text-wrap">
+    <h3 class="notification-title col-10" (click)="goToTrailPage()">Trail Flag: {{notif.trail?.name}}</h3>
     <button class="btn col-2" (click)="onDelete(notif)">X</button>
   </div>
 
@@ -30,7 +30,7 @@
 
 <!-- History Notification -->
 <div class="dropdown-item" *ngIf="notif?.notification_type =='HISTORY' && notif">
-  <div class="notification d-flex column justify-content-evenly align-items-center rounded">
+  <div class="notification d-flex column justify-content-evenly align-items-center rounded text-wrap">
     <h3 class="notification-title col-10" (click)="goToProfiles(notif.trail_history_id?.user_id?.username)">Post Notification</h3>
     <button class="btn col-2" (click)="onDelete(notif)">X</button>
   </div>
@@ -45,7 +45,7 @@
 
 <!-- New Convo Notification -->
 <div class="dropdown-item d-flex flex-column w-100" *ngIf="notif?.notification_type =='NEW_CONVO' && notif">
-  <div class="notification d-flex column justify-content-evenly align-items-center rounded">
+  <div class="notification d-flex column justify-content-evenly align-items-center rounded text-wrap">
     <h3 class="notification-title col-10" (click)="goToMessages(notif.convo?.conversation?.id)">Group: Added</h3>
     <button class="btn col-2" (click)="onDelete(notif)">X</button>
   </div>

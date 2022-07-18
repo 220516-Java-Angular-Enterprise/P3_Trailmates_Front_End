@@ -22,10 +22,10 @@
             <app-other-user-friends *ngIf="username!=user.username && isFriendsListOpen"></app-other-user-friends>
             
             <app-friends-list *ngIf="username==user.username && isMyFriendsListOpen"></app-friends-list>
-        
-           
 
-             <!-- update profile popup -->
+
+
+            <!-- update profile popup -->
             <div class="overlay" *ngIf="updateProfilePopup">
                 <div class="popup">
                     <app-update-profile [popup]="popup" (doPassPopup)="close($event)"></app-update-profile>
