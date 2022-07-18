@@ -5,5 +5,5 @@ export interface TrailFlag{
   id?: string;
   trailId?: Trail;
   userId?: User;
-  dateInt?: number;
+  dateInt?: number | any;
 }

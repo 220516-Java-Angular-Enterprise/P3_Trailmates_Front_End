@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserMenuComponent } from './user-menu.component';
+import { UserMenuComponent } from '../user-menu.component';
 
 describe('UserMenuComponent', () => {
   let component: UserMenuComponent;

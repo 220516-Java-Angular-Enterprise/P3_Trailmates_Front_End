@@ -35,12 +35,16 @@ export class TrailFlagService {
     return this.http.get<TrailFlag[]>(this.url+"?d="+ date + '&u=' + name);
   }
 
-  getAllByUser(name: string): Observable<TrailFlag[]>{
-    return this.http.get<TrailFlag[]>(this.url+"/user/"+ name);
+  getAllByUser(id: string): Observable<TrailFlag[]>{
+    return this.http.get<TrailFlag[]>(this.url+"/user/"+ id);
   }
 
   getAllByTrail(trail: string): Observable<TrailFlag[]>{
     return this.http.get<TrailFlag[]>(this.url+"/trail/"+ trail);
+  }
+
+  removeTrailById(id: string){
+    return this.http.delete(this.url+'/delete/'+id);
   }
 }
 
