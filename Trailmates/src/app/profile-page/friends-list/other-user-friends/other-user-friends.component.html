@@ -1,0 +1,19 @@
+<div class="box bg-primary">
+  <!-- Container-->
+  <div class="render-container text-center">
+    <h1>Friends List</h1>
+    <!-- Container Item -->
+    <div class="item column d-flex bg-light" *ngFor="let friend of allFriends">
+      <div class="description col-8 d-flex justify-content-evenly align-items-center">
+        <i class="bi bi-person-circle"></i>
+        <p class="h3 align-self-center">{{friend.friend_id?.username}}</p>
+      </div>
+      <div class="actions col-4 d-flex">
+        <button class="btn btn-danger" (click)="goToProfile(friend.friend_id?.username!)">
+          <i class="bi bi-person-bounding-box"></i></button>
+      </div>
+    </div>
+    <!-- End Item -->
+  </div>
+  <!-- End Container -->
+  </div>

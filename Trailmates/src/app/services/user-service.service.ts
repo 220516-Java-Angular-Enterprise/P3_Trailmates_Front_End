@@ -18,6 +18,7 @@ const httpOptions = {
 export class UserService {
 
   public ROOT_URL = 'https://revature.trailmates.net/TrailMates/user/';
+  // public ROOT_URL = 'http://localhost:8080/TrailMates/user/';
 
   constructor(private http: HttpClient) {
   }

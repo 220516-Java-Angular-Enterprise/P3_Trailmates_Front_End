@@ -10,6 +10,8 @@ import { TrailHistory } from '../models/trailHistory';
 export class TrailHistoryService {
   private URL="https://revature.trailmates.net/TrailMates/history";
   private imageURL = "https://revature.trailmates.net/TrailMates/image";
+  // private URL ="http://localhost:8080/TrailMates/history";
+  // private imageURL ="http://localhost:8080/TrailMates/image";
 
   constructor(private http:HttpClient, private route:Router) { }
 
@@ -21,19 +23,8 @@ export class TrailHistoryService {
     return this.http.get<TrailHistory[]>(this.URL+'/asc/'+userId);
   }
 
-  getSecureURL(fileExtension: String): Promise<String> {
-    return firstValueFrom(this.http.get<String>(this.imageURL + "/gen-url/" + fileExtension));
-  }
-
-  uploadImage(bucketURL: string, uploadedImage: File) {
-    return this.http.put<File>(bucketURL, uploadedImage);
-  }
-
-  saveImageData(imageData: ImageData) {
-    return this.http.post<ImageData>(this.imageURL, imageData)
-  }
-
-  insertNewHistory(newHistory: TrailHistory) {
+  insertNewHistory(newHistory: any) {
     return this.http.post<any>(this.URL+'/newHistory', newHistory);
   }
+
 }

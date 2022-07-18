@@ -1,3 +1,4 @@
+import { OwnedCoversation } from 'src/app/models/ownedCoversations';
 import { Friend } from './friend';
 import { TrailHistory } from 'src/app/models/trailHistory';
 
@@ -11,6 +12,7 @@ export interface Notification{
   timeCreated?: any;
   notification_type?: string;
   trail_id?: Trail;
-  trailHistory?: TrailHistory;
+  trail_history_id?: TrailHistory;
   friend?: Friend;
+  convo?: OwnedCoversation
 }

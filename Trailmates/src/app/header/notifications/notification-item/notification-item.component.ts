@@ -30,16 +30,16 @@ export class NotificationItemComponent implements OnInit {
     this.clicked.emit(null)
   }
 
-  goToMessages(){
-  this.goToMessage.emit();
+  goToMessages(convo_id: any){
+  this.goToMessage.emit(convo_id);
   }
 
   goToProfiles(username: any){
     this.goToProfile.emit(username);
   }
 
-  goToTrailPage(id: any){
-    this.goToTrail.emit(id);
+  goToTrailPage(){
+    this.goToTrail.emit();
   }
 
 }

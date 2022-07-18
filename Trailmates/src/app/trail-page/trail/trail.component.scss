@@ -209,6 +209,7 @@
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
+<<<<<<< HEAD
 .hrefStyle {
     color: white;
     border: solid 2px black;
@@ -250,6 +251,17 @@ ul li{
 }
 
 
+=======
+::ng-deep label.star {
+    padding: 2px !important;
+    font-size: 20px !important;
+}
+
+
+.star{
+    float: left;
+}
+>>>>>>> 9374765adc5813304cc1cac306d654a4f4a24b8e
 
 
 

@@ -35,6 +35,11 @@ import { HikerAbilityComponent } from './profile-page/hiker-ability/hiker-abilit
 import { MessagesService } from './services/messages.service';
 import { UpdateProfileComponent } from './profile-page/update-profile/update-profile/update-profile.component';
 import { NotificationsComponent } from './header/notifications/notifications.component';
+import { FriendsListComponent } from './profile-page/friends-list/friends-list.component';
+import { OtherUserFriendsComponent } from './profile-page/friends-list/other-user-friends/other-user-friends.component';
+import { UpdateProfileImageComponent } from './profile-page/update-profile/update-profile-image/update-profile-image.component';
+import { NgxStarRatingModule } from 'ngx-star-rating';
+
 
 
 @NgModule({
@@ -66,6 +71,9 @@ import { NotificationsComponent } from './header/notifications/notifications.com
     CreateGroupComponent,
     HikerAbilityComponent,
     UpdateProfileComponent,
+    FriendsListComponent,
+    OtherUserFriendsComponent,
+    UpdateProfileImageComponent,
   ],
 
   imports: [
@@ -75,6 +83,7 @@ import { NotificationsComponent } from './header/notifications/notifications.com
     FormsModule,
     BrowserAnimationsModule,
     OverlayModule,
+    NgxStarRatingModule,
     ReactiveFormsModule
   ],
   providers: [AuthService,
