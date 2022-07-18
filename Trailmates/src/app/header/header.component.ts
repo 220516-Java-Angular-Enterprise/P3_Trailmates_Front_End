@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.getNotifs()
     this.getTrailFlags();
-
   }
 
   getNotifs(){

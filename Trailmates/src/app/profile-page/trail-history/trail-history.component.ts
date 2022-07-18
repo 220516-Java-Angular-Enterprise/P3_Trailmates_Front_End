@@ -71,6 +71,11 @@ processForm(postForm: NgForm) {
   )
   // Make post request for history
   console.log(this.historyReq)
+  this.trailhistory.insertNewHistory(this.historyReq).subscribe(
+    (data:any)=>{
+      console.log("Successfully uploaded:"+data);
+    }
+  )
   // Closes modal
   this.close();
   } else {
