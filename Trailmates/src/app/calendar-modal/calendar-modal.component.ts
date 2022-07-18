@@ -14,9 +14,11 @@ import { TrailFlagService } from '../services/trail-flag.service';
 })
 export class CalendarModalComponent implements OnInit {
 
-  constructor(private currRoute: ActivatedRoute, private _flagService: TrailFlagService, public router: Router) { }
+  constructor(private currRoute: ActivatedRoute, private _flagService: TrailFlagService, private _currRoute: ActivatedRoute, public router: Router) { }
 
   @Output() passSubmitStatus: EventEmitter<boolean> = new EventEmitter();
+  @Output() passTrailFlagReq: EventEmitter<any> = new EventEmitter<any>();
+
   displayFormSubmitError: boolean = false;
   submitted: boolean = false;
   time: string = '00:00'
@@ -24,9 +26,9 @@ export class CalendarModalComponent implements OnInit {
   noUsers: boolean = false;
 
   trailFlagReq= {
-    trailId: '',
-    // user_id: '',
-    dateInt: 0,
+    trail_id: '',
+    user_id: '',
+    date_int: 0,
   }
 
   returnFlags: TrailFlag[] =[];
@@ -34,8 +36,8 @@ export class CalendarModalComponent implements OnInit {
 
   ngOnInit(): void {
     //Sets trail ID and user ID to trailFlagReq.
-    this.trailFlagReq.trailId = this.currRoute.firstChild?.snapshot.params['id'];
-    // this.trailFlagReq.user_id = localStorage.getItem('id')!;
+    this.trailFlagReq.trail_id = this.currRoute.firstChild?.snapshot.params['id'];
+    this.trailFlagReq.user_id = localStorage.getItem('id')!;
   }
 
   ngOnDestroy(): void{
@@ -44,16 +46,17 @@ export class CalendarModalComponent implements OnInit {
 
   processForm(flagTrail: NgForm){
     if(flagTrail.form.status == 'VALID' && !this.badDate){
-      let date = new Date(this.trailFlagReq.dateInt+' '+this.time);
-      this.trailFlagReq.dateInt = Math.round(date.getTime()/(1000*60*60*24));
+      let date = new Date(this.trailFlagReq.date_int+' '+this.time);
+      this.trailFlagReq.date_int = Math.round(date.getTime()/(1000*60*60*24));
     // post request for flag
       this._flagService.postTrailFlag(this.trailFlagReq).subscribe((data:any)=>{
       console.log(data);
     })
       this.submitted = true;
     // gets flags for date and trail
-      this._flagService.getAllFlagsByDateAndTrail(Math.round(date.getTime()/(1000*60*60*24)), this.trailFlagReq.trailId).subscribe(
+      this._flagService.getAllFlagsByDateAndTrail(Math.round(date.getTime()/(1000*60*60*24)), this.trailFlagReq.trail_id).subscribe(
         (data:any)=>{ this.returnFlags = data;
+          console.log(this.returnFlags);
         },
         (error: any)=> {
           this.noUsers = true;
@@ -64,9 +67,19 @@ export class CalendarModalComponent implements OnInit {
   }
 }
 
+goToProfile(event: any){
+  this.router.navigateByUrl("/profile/"+event.target.id);
+  console.log('pro one '+event.target.id)
+}
+
+goToMessage(event: any){
+  this.router.navigateByUrl("/messaging/"+event.target.id);
+  console.log('message one '+event.target.id)
+}
+
 // Compares if entered date is before today or not.
 compareDate(event: any){
-  if((new Date(this.trailFlagReq.dateInt+' '+this.time)) < (new Date())){
+  if((new Date(this.trailFlagReq.date_int+' '+this.time)) < (new Date())){
     this.badDate = true;
   } else {
     this.badDate = false;

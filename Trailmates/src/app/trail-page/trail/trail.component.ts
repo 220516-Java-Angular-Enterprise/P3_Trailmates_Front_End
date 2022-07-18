@@ -40,7 +40,18 @@ export class TrailComponent implements OnInit {
   petsAllowed: string = '';
   flagged: boolean = false;
   friended: boolean = false;
-  friends: any = {}
+  friends: any = {};
+  noUsers: boolean =false;
+  time: string='00:00';
+
+  trailFlagReq= {
+    trail_id: '',
+    user_id: '',
+    date_int: 0,
+  }
+
+  trailmateFlags: TrailFlag[] =[];
+
 
   ngOnInit(): void {
     // Gets all trails on render
@@ -55,7 +66,6 @@ export class TrailComponent implements OnInit {
 
   // to toggle flag from blank to filled in on click
   flag(event: any) {
-    // this.flagged = !this.flagged
     if(event.classList[1] == "bi-flag"){
       event.classList.replace("bi-flag", "bi-flag-fill")
     } else if (event.classList[1] == "bi-flag-fill"){
@@ -156,6 +166,19 @@ filterSubject(subject: any){
 
 goToFlag(id: string){
   this._route.navigateByUrl('/trailpage/flag/'+id);
+}
+
+checkTrailReq(){
+  // gets flags for date and trail
+    this._trailFlagService.getAllByTrail(this.trail.id!).subscribe(
+      (data:any)=>{ this.trailmateFlags = data;
+        console.log(this.trailmateFlags);
+        console.log("TRAIL ID: " + this.trail.id)
+      },
+      (error: any)=> {
+        this.noUsers = true;
+        console.log(error);
+      })
 }
 
 checkSubmitted(event: any){
