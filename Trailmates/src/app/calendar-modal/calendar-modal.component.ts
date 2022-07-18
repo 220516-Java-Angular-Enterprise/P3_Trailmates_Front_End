@@ -1,3 +1,4 @@
+import { User } from './../models/user';
 import { Observable } from 'rxjs';
 import { TrailFlag } from 'src/app/models/trailFlag';
 import { NgForm, NG_ASYNC_VALIDATORS } from '@angular/forms';
@@ -5,6 +6,7 @@ import { Component, Input, OnInit, OnDestroy, Output, EventEmitter } from '@angu
 import { ActivatedRoute, Router } from '@angular/router';
 import { AnimateTimings } from '@angular/animations';
 import { TrailFlagService } from '../services/trail-flag.service';
+import { MessagesService } from '../services/messages.service';
 
 
 @Component({
@@ -14,7 +16,7 @@ import { TrailFlagService } from '../services/trail-flag.service';
 })
 export class CalendarModalComponent implements OnInit {
 
-  constructor(private currRoute: ActivatedRoute, private _flagService: TrailFlagService, private _currRoute: ActivatedRoute, public router: Router) { }
+  constructor(private currRoute: ActivatedRoute, private _flagService: TrailFlagService, private _currRoute: ActivatedRoute, public router: Router, private _messageService: MessagesService) { }
 
   @Output() passSubmitStatus: EventEmitter<boolean> = new EventEmitter();
   @Output() passTrailFlagReq: EventEmitter<any> = new EventEmitter<any>();
@@ -72,9 +74,18 @@ goToProfile(event: any){
   console.log('pro one '+event.target.id)
 }
 
-goToMessage(event: any){
-  this.router.navigateByUrl("/messaging/"+event.target.id);
-  console.log('message one '+event.target.id)
+goToMessage(user: User){
+  let convoReq = {
+    conversationName: user.username+':'+localStorage.getItem('username'),
+    userIDs: [user.id]
+  }
+  let convoId = ''
+  this._messageService.createNewGroup(convoReq).subscribe(
+    data=>{
+      convoId = data.id
+      this.router.navigateByUrl('/messaging/groupchat/'+convoId);
+    }
+  )
 }
 
 // Compares if entered date is before today or not.

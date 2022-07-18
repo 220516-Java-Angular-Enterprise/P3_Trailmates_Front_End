@@ -77,7 +77,9 @@ export class CreateGroupComponent implements OnInit {
     this.selectedUsers.forEach(user=>this.groupReq.userIDs.push(user.id!))
     }
     //Post request
-    this._messageService.createNewGroup(this.groupReq)
+    this._messageService.createNewGroup(this.groupReq).subscribe(
+      data=>{console.log(data)}
+    )
     this.passCreateGroup.emit();
     console.log("successfully created.")
     }

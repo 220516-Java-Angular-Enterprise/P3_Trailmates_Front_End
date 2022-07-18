@@ -66,14 +66,9 @@ processForm(postForm: NgForm) {
   this._imageData.saveImg(this.imageReq).subscribe(
     data => {
       console.log('Saved image successfully:' + data.url)
-      this.makePost()
-    }
-  )
   // Make post request for history
-  console.log(this.historyReq)
-  this.trailhistory.insertNewHistory(this.historyReq).subscribe(
-    (data:any)=>{
-      console.log("Successfully uploaded:"+data);
+      this.makePost() 
+      console.log(this.historyReq)
     }
   )
   // Closes modal
