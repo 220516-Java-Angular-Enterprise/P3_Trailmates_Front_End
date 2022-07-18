@@ -10,7 +10,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./update-profile.component.scss']
 })
 export class UpdateProfileComponent implements OnInit {
-  id: string | null = localStorage.getItem('id');
+
+  id: string | null = localStorage.getItem('id')
 
   public user!: User;
   public updateUserReq: FormGroup<any>;

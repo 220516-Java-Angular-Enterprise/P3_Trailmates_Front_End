@@ -19,8 +19,12 @@ import { TrailHistoryComponent } from '../trail-history/trail-history.component'
 export class ProfileComponent implements OnInit {
 
   updateProfilePopup = false
+  showFriendsList = false
+  showMyFriendsList = false
   updateProfileImage = false;
   popup:boolean = false
+  isFriendsListOpen: boolean = false
+  isMyFriendsListOpen: boolean = false
 
   public trailhistory: TrailHistory[] = []
   public noPosts: string = ""
@@ -40,13 +44,17 @@ export class ProfileComponent implements OnInit {
   added: boolean = false;
   friendsArray: Friend[] = [];
   friendsList: string[] = [];
-
+  imgURL: string = ""
   id: string | null = localStorage.getItem('id')
   
   constructor(public trailHistoryService:TrailHistoryService,private userservice:UserService, private trailHistoryComp:TrailHistoryComponent,
   private router:Router, private http:HttpClient, private currRoute: ActivatedRoute, private _friendService: FriendService) { }
 
   async ngOnInit() {
+
+    this.imgURL = this.trailHistoryComp.historyReq.imageURL
+
+    console.log("IIIIMMMGGG" + this.imgURL)
     this.currRoute.params.subscribe(p => {
       this.username = p['username']
       
@@ -79,6 +87,7 @@ export class ProfileComponent implements OnInit {
   refreshUser(){
   this.userservice.getUserByUsername(this.username as string).subscribe((data:any) => {
     this.viewerUser = data
+    console.log(this.user)
   })
   }
 
@@ -108,6 +117,15 @@ export class ProfileComponent implements OnInit {
     this.refreshFriends();
     this.refreshFriends();
   }
+
+  toggleFriendsList(){
+    this.isFriendsListOpen = !this.isFriendsListOpen
+  }
+
+  toggleMyFriendsList(){
+    this.isMyFriendsListOpen = !this.isMyFriendsListOpen
+  }
+  
 
 close(event:any){
   this.popup = event;
