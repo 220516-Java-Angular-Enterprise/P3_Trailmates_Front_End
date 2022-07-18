@@ -9,5 +9,6 @@ export interface TrailHistory{
   date?: Date
   trailName?: string,
   partnername?: string,
-  trail_date?: Date
+  trail_date?: Date,
+  imageURL?: string
 }

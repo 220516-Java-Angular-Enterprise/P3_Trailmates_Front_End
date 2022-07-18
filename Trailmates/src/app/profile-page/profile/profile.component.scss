@@ -32,6 +32,12 @@ $font20 : 20px;
   margin-top: 30px;
     h1{
       font-size: 50px;
+      margin-bottom: 50px;
+    }
+    hr{
+      width: 100%;
+      color: rgb(26, 29, 25);
+      height: 2px;
     }
 }
 
@@ -62,19 +68,24 @@ $font20 : 20px;
 .description{
     background-color: $backgroundColor;
     border-radius: 10%;
+    display: inline-block;
     padding: 30px;
     font-size: $font20;
-    display: flex;
-    justify-content: center;
     margin-top: 40px;
-    height: 100%;
+    width: 50%;
     h3{
       font-size: 40px;
     }
 }
-.profileImg{
+
+.header{
+  text-align: center;
+}
+.headerInfo{
   text-align: center;
   margin-top: 30px;
+  display: inline-block;
+  width: 100%;
     img{
         width: 200px;
     }
@@ -91,24 +102,12 @@ $font20 : 20px;
 
 .postImg img{
     width: 100%;
-    height: 800px;
+    float: center;
 }
 
 .username{
   float: right;
   margin-left: 10px;
-}
-
-.likeBtn:focus{
-  color: red;
-}
-
-.likeBtn{
-  background-color: white;
-  border: none;
-  float: right;
-  font-size: 40px;
-  padding: 20px;
 }
 
 .usernameImg{
@@ -121,24 +120,30 @@ $font20 : 20px;
 .postText{
   padding: 30px;
   h3{
-    font-size: 50px;
+    font-size: 22px;
+    font-weight: bold;
   }
   p{
     font-size: $font20;
+    height: 20%;
   }
 }
 
 .postColumn{
   margin-top: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+.noPosts{
+  margin: 40px;
 }
 
 .postContainer{
   background-color: white;
+    margin: 30px;
+    border-radius: 1%;
+    width: 17%;
   .homer{
-    width: 50px;
+    width: 40px;
   }
 }
 
@@ -149,7 +154,6 @@ $font20 : 20px;
     background-color: #1d2d44;
     color: white;
     width: 70px;
-    margin-left: 20px;
     &:hover{
       background-color: #0D1321;
     }
@@ -158,6 +162,8 @@ $font20 : 20px;
   .friendBtn{
     background-color: #1d2d44;
     color: white;
+    margin: 20px;
+    width: 10%;
     &:hover{
       background-color: #0D1321;
     }
@@ -181,6 +187,11 @@ $font20 : 20px;
 }
 
 
+
+.profile-image:hover{
+  opacity: 0.5;
+  border-radius: 30px;
+}
 
 
 

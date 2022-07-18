@@ -1,11 +1,11 @@
 <!-- Friend Notification -->
 <div class="dropdown-item" *ngIf="notif?.notification_type =='FRIEND' && notif">
-  <div class="notification d-flex column justify-content-evenly align-items-center">
+  <div class="notification d-flex column justify-content-evenly align-items-center rounded text-wrap">
     <h3 class="notification-title col-10"(click)="goToProfiles(notif.friend?.user_id?.username)">Friend Request</h3>
     <button class="btn col-2" (click)="onDelete(notif)">X</button>
   </div>
 
-  <div class="notification-footer d-flex row justify-content-center flex-row">
+  <div class="notification-footer d-flex row justify-content-center flex-row text-wrap rounded">
     <div class="notification-message">{{notif.message}}</div>
     <div class="notification-timestamp">{{notif.timeCreated}}</div>
     <small class="notification-message align-self-center text-primary" (click)="goToProfiles(notif.friend?.user_id?.username)">Click to view their profile</small>
@@ -15,78 +15,45 @@
 
 <!-- Flag Notification -->
 <div class="dropdown-item" *ngIf="notif?.notification_type =='FLAG' && notif">
-  <div class="notification d-flex column justify-content-evenly align-items-center">
-    <h3 class="notification-title col-10" (click)="goToTrailPage(notif.trail_id?.id)">Trail Flag: {{notif.trail_id?.name}}</h3>
+  <div class="notification d-flex column justify-content-evenly align-items-center rounded text-wrap">
+    <h3 class="notification-title col-10" (click)="goToTrailPage()">Trail Flag: {{notif.trail?.name}}</h3>
     <button class="btn col-2" (click)="onDelete(notif)">X</button>
   </div>
 
-  <div class="notification-footer d-flex row justify-content-center flex-row">
+  <div class="notification-footer d-flex row justify-content-center flex-row text-wrap rounded">
     <div class="notification-message">{{notif.message}}</div>
     <div class="notification-timestamp">{{notif.timeCreated}}</div>
     <small class="notification-message align-self-center text-primary"
-    (click)="goToTrailPage(notif.trail_id?.id)">Click to go to trail</small>
+    (click)="goToTrailPage()">Click to go to trail</small>
   </div>
 </div>
 
 <!-- History Notification -->
 <div class="dropdown-item" *ngIf="notif?.notification_type =='HISTORY' && notif">
-  <div class="notification d-flex column justify-content-evenly align-items-center">
-    <h3 class="notification-title col-10" (click)="goToProfiles(notif.friend?.user_id?.username)">Post Notification</h3>
+  <div class="notification d-flex column justify-content-evenly align-items-center rounded text-wrap">
+    <h3 class="notification-title col-10" (click)="goToProfiles(notif.trail_history_id?.user_id?.username)">Post Notification</h3>
     <button class="btn col-2" (click)="onDelete(notif)">X</button>
   </div>
 
-  <div class="notification-footer d-flex row justify-content-center flex-row">
+  <div class="notification-footer d-flex row justify-content-center flex-row text-wrap rounded">
     <div class="notification-message">{{notif.message}}</div>
     <div class="notification-timestamp">{{notif.timeCreated}}</div>
-    <small class="notification-message align-self-center" (click)="goToProfiles(notif.friend?.user_id?.username)">Click to view their profile</small>
+    <small class="notification-message align-self-center text-primary" (click)="goToProfiles(notif.trail_history_id?.user_id?.username)">Click to view their profile</small>
 
   </div>
 </div>
 
 <!-- New Convo Notification -->
-<div class="dropdown-item" *ngIf="notif?.notification_type =='NEW_CONVO' && notif">
-  <div class="notification d-flex column justify-content-evenly align-items-center">
-    <h3 class="notification-title col-10" (click)="goToMessages()">Group: Added</h3>
+<div class="dropdown-item d-flex flex-column w-100" *ngIf="notif?.notification_type =='NEW_CONVO' && notif">
+  <div class="notification d-flex column justify-content-evenly align-items-center rounded text-wrap">
+    <h3 class="notification-title col-10" (click)="goToMessages(notif.convo?.conversation?.id)">Group: Added</h3>
     <button class="btn col-2" (click)="onDelete(notif)">X</button>
   </div>
 
-  <div class="notification-footer d-flex row justify-content-center flex-row">
+  <div class="notification-footer d-flex row justify-content-center flex-row text-wrap rounded">
     <div class="notification-message">{{notif.message}}</div>
     <div class="notification-timestamp">{{notif.timeCreated}}</div>
-    <small class="notification-message align-self-center" (click)="goToMessages()">Click to go to messages</small>
-
-  </div>
-</div>
-
-
-<!-- Add Convo Notification -->
-<div class="dropdown-item" *ngIf="notif?.notification_type =='ADD_CONVO' && notif">
-  <div class="notification d-flex column justify-content-evenly align-items-center">
-    <h3 class="notification-title col-10" (click)="goToMessages()">Group: Added</h3>
-    <button class="btn col-2" (click)="onDelete(notif)">X</button>
-  </div>
-
-  <div class="notification-footer d-flex row justify-content-center flex-row">
-    <div class="notification-message">{{notif.message}}</div>
-    <div class="notification-timestamp">{{notif.timeCreated}}</div>
-    <small class="notification-message align-self-center" (click)="goToMessages()">Click to go to messages</small>
-
-  </div>
-</div>
-
-
-<!-- Group Notification -->
-<div class="dropdown-item" *ngIf="notif?.notification_type =='NEW_CONVO' && notif">
-  <div class="notification d-flex column justify-content-evenly align-items-center">
-    <h3 class="notification-title col-10" (click)="goToMessages()">Group: New User</h3>
-    <button class="btn col-2" (click)="onDelete(notif)">X</button>
-  </div>
-
-  <div class="notification-footer d-flex row justify-content-center flex-row">
-    <div class="notification-message">{{notif.message}}</div>
-    <div class="notification-timestamp">{{notif.timeCreated}}</div>
-    <small class="notification-message align-self-center" (click)="goToMessages()">Click to go to messages</small>
-
+    <small class="notification-message align-self-center text-primary" (click)="goToMessages(notif.convo?.conversation?.id)">Click to go to messages</small>
   </div>
 </div>
 

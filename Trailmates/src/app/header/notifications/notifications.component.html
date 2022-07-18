@@ -9,7 +9,7 @@
   </li>
 
   <!-- Notification -->
-  <app-notification-item *ngFor="let notif of notifications" [notif]="notif" (onDeleteNotif)="deleteNotif(notif)" (goToMessage)="goToMessages()" (goToProfile)="goToProfile($event)" (goToTrail)="goToTrail($event)"></app-notification-item>
+  <app-notification-item *ngFor="let notif of notifications" [notif]="notif" (onDeleteNotif)="deleteNotif(notif)" (goToMessage)="goToMessages($event)" (goToProfile)="goToProfile($event)" (goToTrail)="goToTrail()"></app-notification-item>
   <!-- End Notification -->
 </ul>
 

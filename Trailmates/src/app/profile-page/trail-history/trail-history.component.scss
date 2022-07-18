@@ -35,6 +35,9 @@
   color: #333;
   background-color: transparent;
   border: none;
+  &:hover {
+    color: red;
+  }
 }
 
 .close:hover {
@@ -92,4 +95,13 @@ label {
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+// Trail-history dropdown menu
+
+.option {
+  width: 50px;
+}
+
+#select {
+  margin-left: 20px;
 }
