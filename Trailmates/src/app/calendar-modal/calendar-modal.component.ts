@@ -14,9 +14,11 @@ import { TrailFlagService } from '../services/trail-flag.service';
 })
 export class CalendarModalComponent implements OnInit {
 
-  constructor(private currRoute: ActivatedRoute, private _flagService: TrailFlagService, public router: Router) { }
+  constructor(private currRoute: ActivatedRoute, private _flagService: TrailFlagService, private _currRoute: ActivatedRoute, public router: Router) { }
 
   @Output() passSubmitStatus: EventEmitter<boolean> = new EventEmitter();
+  @Output() passTrailFlagReq: EventEmitter<any> = new EventEmitter<any>();
+
   displayFormSubmitError: boolean = false;
   submitted: boolean = false;
   time: string = '00:00'
@@ -54,6 +56,7 @@ export class CalendarModalComponent implements OnInit {
     // gets flags for date and trail
       this._flagService.getAllFlagsByDateAndTrail(Math.round(date.getTime()/(1000*60*60*24)), this.trailFlagReq.trailId).subscribe(
         (data:any)=>{ this.returnFlags = data;
+          console.log(this.returnFlags);
         },
         (error: any)=> {
           this.noUsers = true;
@@ -62,6 +65,16 @@ export class CalendarModalComponent implements OnInit {
     } else {
     this.displayFormSubmitError = true;
   }
+}
+
+goToProfile(event: any){
+  this.router.navigateByUrl("/profile/"+event.target.id);
+  console.log('pro one '+event.target.id)
+}
+
+goToMessage(event: any){
+  this.router.navigateByUrl("/messaging/"+event.target.id);
+  console.log('message one '+event.target.id)
 }
 
 // Compares if entered date is before today or not.

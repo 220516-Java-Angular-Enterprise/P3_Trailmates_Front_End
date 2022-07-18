@@ -32,6 +32,12 @@ $font20 : 20px;
   margin-top: 30px;
     h1{
       font-size: 50px;
+      margin-bottom: 50px;
+    }
+    hr{
+      width: 100%;
+      color: rgb(26, 29, 25);
+      height: 2px;
     }
 }
 
@@ -62,21 +68,24 @@ $font20 : 20px;
 .description{
     background-color: $backgroundColor;
     border-radius: 10%;
+    display: inline-block;
     padding: 30px;
     font-size: $font20;
-    display: flex;
-    justify-content: center;
     margin-top: 40px;
-    margin-left: 6.3%;
-    height: 100%;
-    width: 20%;
+    width: 50%;
     h3{
       font-size: 40px;
     }
 }
-.profileImg{
+
+.header{
+  text-align: center;
+}
+.headerInfo{
   text-align: center;
   margin-top: 30px;
+  display: inline-block;
+  width: 100%;
     img{
         width: 200px;
     }
@@ -93,7 +102,6 @@ $font20 : 20px;
 
 .postImg img{
     width: 100%;
-    height: 200;
     float: center;
 }
 
@@ -123,19 +131,17 @@ $font20 : 20px;
 
 .postColumn{
   margin-top: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  
+}
+
+.noPosts{
+  margin: 40px;
 }
 
 .postContainer{
   background-color: white;
-    width: 60%;
-    margin-bottom: 30px;
-    margin-left: 25%;
+    margin: 30px;
     border-radius: 1%;
+    width: 17%;
   .homer{
     width: 40px;
   }
@@ -148,7 +154,6 @@ $font20 : 20px;
     background-color: #1d2d44;
     color: white;
     width: 70px;
-    margin-left: 20px;
     &:hover{
       background-color: #0D1321;
     }
@@ -157,6 +162,8 @@ $font20 : 20px;
   .friendBtn{
     background-color: #1d2d44;
     color: white;
+    margin: 20px;
+    width: 10%;
     &:hover{
       background-color: #0D1321;
     }
@@ -185,7 +192,6 @@ $font20 : 20px;
 }
 
 .profile-image:hover{
-
   opacity: 0.5;
   border-radius: 30px;
 }

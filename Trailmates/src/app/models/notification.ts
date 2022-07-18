@@ -11,7 +11,7 @@ export interface Notification{
   user_id?: User;
   timeCreated?: any;
   notification_type?: string;
-  trail_id?: Trail;
+  trail?: Trail;
   trail_history_id?: TrailHistory;
   friend?: Friend;
   convo?: OwnedCoversation

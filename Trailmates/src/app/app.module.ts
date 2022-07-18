@@ -1,3 +1,4 @@
+import { UserMenuComponent } from 'src/app/header/user-menu/user-menu.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { SearchAllComponent } from './header/search-users/search-users.component';
 import { NgModule } from '@angular/core';
@@ -12,7 +13,6 @@ import { LandingComponent } from './auth/landing/landing.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
 import { SearchTrailsComponent } from './header/search-trails/search-trails.component';
-import { UserMenuComponent } from './header/user-menu/user-menu.component';
 import { MessagingComponent } from './messaging-page/messaging/messaging.component';
 import { NotificationItemComponent } from './header/notifications/notification-item/notification-item.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -38,6 +38,9 @@ import { NotificationsComponent } from './header/notifications/notifications.com
 import { FriendsListComponent } from './profile-page/friends-list/friends-list.component';
 import { OtherUserFriendsComponent } from './profile-page/friends-list/other-user-friends/other-user-friends.component';
 import { UpdateProfileImageComponent } from './profile-page/update-profile/update-profile-image/update-profile-image.component';
+import { NgxStarRatingModule } from 'ngx-star-rating';
+import { FlagsComponent } from './header/flags/flags.component';
+
 
 
 @NgModule({
@@ -72,6 +75,7 @@ import { UpdateProfileImageComponent } from './profile-page/update-profile/updat
     FriendsListComponent,
     OtherUserFriendsComponent,
     UpdateProfileImageComponent,
+    FlagsComponent,
   ],
 
   imports: [
@@ -81,6 +85,7 @@ import { UpdateProfileImageComponent } from './profile-page/update-profile/updat
     FormsModule,
     BrowserAnimationsModule,
     OverlayModule,
+    NgxStarRatingModule,
     ReactiveFormsModule
   ],
   providers: [AuthService,
