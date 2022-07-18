@@ -38,7 +38,8 @@ import { NotificationsComponent } from './header/notifications/notifications.com
 import { FriendsListComponent } from './profile-page/friends-list/friends-list.component';
 import { OtherUserFriendsComponent } from './profile-page/friends-list/other-user-friends/other-user-friends.component';
 import { UpdateProfileImageComponent } from './profile-page/update-profile/update-profile-image/update-profile-image.component';
-import { FlagsComponent } from './header/flags/flags.component';
+import { NgxStarRatingModule } from 'ngx-star-rating';
+
 
 
 @NgModule({
@@ -83,6 +84,7 @@ import { FlagsComponent } from './header/flags/flags.component';
     FormsModule,
     BrowserAnimationsModule,
     OverlayModule,
+    NgxStarRatingModule,
     ReactiveFormsModule
   ],
   providers: [AuthService,
