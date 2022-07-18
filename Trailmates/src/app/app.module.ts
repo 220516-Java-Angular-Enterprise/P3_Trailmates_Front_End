@@ -39,6 +39,7 @@ import { FriendsListComponent } from './profile-page/friends-list/friends-list.c
 import { OtherUserFriendsComponent } from './profile-page/friends-list/other-user-friends/other-user-friends.component';
 import { UpdateProfileImageComponent } from './profile-page/update-profile/update-profile-image/update-profile-image.component';
 import { NgxStarRatingModule } from 'ngx-star-rating';
+import { FlagsComponent } from './header/flags/flags.component';
 
 
 

@@ -21,8 +21,8 @@ export class TrailFlagService {
     return this.http.post<any>(this.URL, trailFlagReq);
   }
 
-  getFlagById(id: string): Observable<TrailFlag>{
-    return this.http.get<TrailFlag>(this.URL+"/trail/"+id);
+  getAllByTrail(trail_id: string): Observable<TrailFlag>{
+    return this.http.get<TrailFlag>(this.URL+"/trail/"+trail_id);
   }
 
   getAllFlagsByDateAndTrail(date: Number, trail_id: string): Observable<TrailFlag[]>{

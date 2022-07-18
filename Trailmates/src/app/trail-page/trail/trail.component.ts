@@ -273,8 +273,10 @@ getTrailRating(): void {
         console.log(data)
         this.getTrailReviews()
         this.getTrailRating()
-          ;
+        this.newReviewRequest.comment = '';
+        this.newReviewRequest.rating = 0;;
       })
+
     }
   }
 
