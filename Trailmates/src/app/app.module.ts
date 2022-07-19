@@ -40,6 +40,8 @@ import { OtherUserFriendsComponent } from './profile-page/friends-list/other-use
 import { UpdateProfileImageComponent } from './profile-page/update-profile/update-profile-image/update-profile-image.component';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FlagsComponent } from './header/flags/flags.component';
+import { StarComponent } from './trail-page/stars/star/star.component';
+import { StarsComponent } from './trail-page/stars/stars.component';
 
 
 
@@ -76,6 +78,8 @@ import { FlagsComponent } from './header/flags/flags.component';
     OtherUserFriendsComponent,
     UpdateProfileImageComponent,
     FlagsComponent,
+    StarComponent,
+    StarsComponent,
   ],
 
   imports: [
