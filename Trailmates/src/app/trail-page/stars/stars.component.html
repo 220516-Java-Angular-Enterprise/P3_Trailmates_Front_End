@@ -6,7 +6,7 @@
     <div class="flex-container">
         <ng-container *ngFor="let star of stars">
             <app-star [starId]="star" [rating]="hoverState || rating" (enter)="enter($event)" (leave)="leave($event)"
-                (bigClick)="updateRating(star)">
+                (bigClick)="updateRating(star)"  (click) = "setRating()">
             </app-star>
         </ng-container>
     </div>
