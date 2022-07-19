@@ -70,10 +70,22 @@ export class HeaderComponent implements OnInit {
     this.isNotifOpen = false;
   }
 
+  isFlagsDdOpen: boolean = false;
 
+  toggleFlagsDd(): void {
+    this.isFlagsDdOpen = !this.isFlagsDdOpen;
+  }
+
+  flagsDdState() {
+    return this.isFlagsDdOpen ? 'enter':'leave';
+  }
 
   toggleUserMenu(): void {
     this.isUserMenuOpen = !this.isUserMenuOpen;
+  }
+
+  clickedOutsideFlags(): void {
+    this.isFlagsDdOpen = false;
   }
   
   userMenuState() {
