@@ -28,7 +28,7 @@
     <div class="actions col-2 d-flex">
       <button class="btn btn-danger" (click)="goToProfile(friend.friend_id?.username!)">
         <i class="bi bi-person-bounding-box"></i></button>
-      <button class="btn btn-warning"  (click)="goToMessaging()"><i class="bi bi-chat"></i></button>
+      <button class="btn btn-warning"  (click)="goToMessage(friend.friend_id!)"><i class="bi bi-chat"></i></button>
     </div>
   </div>
   <div class="bg-light">
@@ -49,8 +49,10 @@
     </div>
     <div class="actions col-2 d-flex">
       <button class="btn btn-danger">
-        <i class="bi bi-person-bounding-box"></i></button>
-      <button class="btn btn-warning" (click)="goToProfile(friend.friend_id?.username!)"><i class="bi bi-chat"></i></button>
+      <i class="bi bi-person-bounding-box" (click)="goToProfile(friend.friend_id?.username!)"></i>
+      </button>
+      <button class="btn btn-warning" (click)="goToMessage(friend.friend_id!)"><i class="bi bi-chat"></i>
+      </button>
       <button class="btn btn-success" (click)="addFriend(friend.friend_id?.id!)">
       <i class="bi bi-plus-lg"></i>
       </button>

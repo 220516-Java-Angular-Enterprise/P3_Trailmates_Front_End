@@ -10,8 +10,8 @@
 
   <!-- Flag -->
   <div class="dropdown-item" *ngFor="let flag of trailFlags">
-    <div class="notification d-flex column justify-content-evenly align-items-center rounded">
-      <h3 class="notification-title col-10">{{flag.trailId?.name}}</h3>
+    <div class="notification d-flex column justify-content-evenly align-items-center rounded text-wrap">
+      <h5 class="notification-title col-10">{{flag.trailId?.name}}</h5>
       <button class="btn col-2" (click)="deleteFlag(flag)">X</button>
     </div>
     
