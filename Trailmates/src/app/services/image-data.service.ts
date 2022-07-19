@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ImageData } from '../models/imageData';
 import * as S3 from 'aws-sdk/clients/s3';
 import { environment } from '../../environments/environment.prod'
+import { any } from 'cypress/types/bluebird';
 
 
 
@@ -51,6 +52,9 @@ export class ImageDataService {
         return true;
     });
 }
+    getLatestProfileImage(id: string): Observable<ImageData> {
+      
+    } 
 
 
 }

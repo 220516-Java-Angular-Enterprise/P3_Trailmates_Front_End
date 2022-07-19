@@ -13,6 +13,7 @@ describe('NotificationsComponent', () => {
       imports: [RouterTestingModule, HttpClientTestingModule],
       declarations: [ NotificationsComponent ]
     })
+
     .compileComponents();
 
     fixture = TestBed.createComponent(NotificationsComponent);
@@ -23,4 +24,6 @@ describe('NotificationsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
 });
