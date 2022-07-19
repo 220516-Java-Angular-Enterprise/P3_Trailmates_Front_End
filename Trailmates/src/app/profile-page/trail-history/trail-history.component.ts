@@ -73,9 +73,9 @@ export class TrailHistoryComponent implements OnInit {
         console.log('Saved image successfully:' + data.url);
         // Make post request for history
         this.makePost();
+        console.log(this.historyReq);
       });
-
-      // Closes modal
+      //Closes modal
       this.close();
     } else {
       this.formError = true;

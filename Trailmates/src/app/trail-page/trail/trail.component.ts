@@ -1,3 +1,4 @@
+import { MessagesService } from 'src/app/services/messages.service';
 import { FriendService } from './../../services/friend.service';
 import { TrailFlagService } from './../../services/trail-flag.service';
 import { Trail } from './../../models/trail';
@@ -21,7 +22,7 @@ import { TrailRating } from 'src/app/models/trail-rating';
 })
 export class TrailComponent implements OnInit {
 
-  constructor(private _trailService: TrailService, private _friendService: FriendService, private _userService: UserService, private _trailFlagService: TrailFlagService, private _route: Router, private _currRoute: ActivatedRoute, private _trailReviewService: TrailReviewService){ }
+  constructor(private _trailService: TrailService, private _friendService: FriendService, private _userService: UserService, private _trailFlagService: TrailFlagService, private _route: Router, private _currRoute: ActivatedRoute, private _trailReviewService: TrailReviewService, private _messageService: MessagesService,){ }
   
   @Input()
   popup = false;
@@ -279,6 +280,21 @@ getTrailRating(): void {
 
     }
   }
+
+  goToMessage(user: User){
+  let convoReq = {
+    conversationName: user.username+':'+localStorage.getItem('username'),
+    userIDs: [user.id]
+  }
+  let convoId = ''
+  this._messageService.createNewGroup(convoReq).subscribe(
+    data=>{
+      convoId = data.id
+      this._route.navigateByUrl('/messaging/groupchat/'+convoId);
+    }
+  )
+}
+
 
   // star
 

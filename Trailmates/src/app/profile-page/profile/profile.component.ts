@@ -30,7 +30,7 @@ export class ProfileComponent implements OnInit {
   public noPosts: string = ""
   public user: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
 
-  //user that views others profile
+  //user that views others profile//
   public viewerUser: User = {id: "", username: "", password: "", email: "", role: "", bio: "", age: null}
 
   public allUsers: User[] = [];
@@ -132,43 +132,9 @@ close(event:any){
   this.updateProfilePopup = event;
   this.updateProfileImage = event;
   this.refreshPosts()
-  this.refreshUser()
-
+  this.refreshPosts()
+  this.refreshPosts()
+  this.refreshUser()      
 } 
 }
 
-// this.userservice.getAllUsers().subscribe((data:any) => {
-//   this.allUsers = data
-
-//   //loop through all users
-// for(let i = 0; i < this.allUsers.length; i++){
-//   //get trail history for each user
-//   this.username = this.allUsers[i].username
-//   this.trailHistoryService.getHistoryAsc((this.allUsers[i].id || '').toString()).subscribe((data:any) =>{
-//     //loop through all histories of user
-//     this.trailhistory = data
-//     for(let j = 0; j < this.trailhistory.length; j++){
-//       //get trail names from each users history
-//       //console.log("TRRAAAAIILLNNAAMMEEE " + this.username + " " + this.trailhistory[j].trailName)
-
-//       //set key in map to trailname
-//       //if map contains trailname increment value by 1
-//       //else add trail name to map and set value to 1
-//       if(this.map.has((this.trailhistory[j].trailName || '').toString())){
-//         this.map.set((this.trailhistory[j].trailName || '').toString(), this.trailNameCount++)
-//       }else{
-//         this.map.set((this.trailhistory[j].trailName || '').toString(), 1)
-//       }
-      
-//     }
-
-//     this.map.forEach((value: number, key: string) => {
-//       console.log(key, value);
-//  })
-    
-//   })
-// }
-
-
-
-// })

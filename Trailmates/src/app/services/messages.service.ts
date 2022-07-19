@@ -29,11 +29,8 @@ export class MessagesService {
     return this.http.get<PrivateMessage[]>(this.url+"private-message/conversation/"+id);
   }
 
-  createNewGroup(groupReq: any){
-    return this.http.post<any>(this.url+"conversation/new-conversation", groupReq)
-    .subscribe((data:any)=>{
-      console.log(data);
-    })
+  createNewGroup(groupReq: any): Observable<any>{
+    return this.http.post<any>(this.url+"conversation/new-conversation", groupReq);
   }
   
   postNewMessage(message: any): Observable<any>{

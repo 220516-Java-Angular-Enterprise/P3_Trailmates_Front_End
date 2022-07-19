@@ -20,7 +20,7 @@
       <ul>
         <li class="selectuser" *ngFor="let flag of returnFlags">{{flag.userId?.username}}
             <a class="hrefStyle hrefProf" href="/profile/{{flag.userId?.username}}"> Profile</a>
-            <a class="hrefStyle hrefMsg" href="/messaging/{{flag.userId?.username}}"> Message</a>
+            <a class="hrefStyle hrefMsg" (click)="goToMessage(flag.userId!)"> Message</a>
         </li>
       </ul>
     </div>
