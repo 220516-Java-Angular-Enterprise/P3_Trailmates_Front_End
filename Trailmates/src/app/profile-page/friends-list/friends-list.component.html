@@ -31,7 +31,7 @@
 
       <div class="actions col-sm-4">
         <button class="btn btn-danger" (click)="goToProfile(friend.friend_id?.username!)">
-          <i class="bi bi-person-bounding-box"></i></button>
+          <i class="bi bi-person-fill"></i></button>
         <button class="btn btn-warning"  (click)="goToMessage(friend.friend_id!)"><i class="bi bi-chat"></i></button>
       </div>
       
@@ -58,12 +58,12 @@
 
     <div class="actions col-sm-4">
       <button class="btn btn-danger">
-      <i class="bi bi-person-bounding-box" (click)="goToProfile(friend.friend_id?.username!)"></i>
+      <i class="bi bi-person-fill" (click)="goToProfile(friend.friend_id?.username!)"></i>
       </button>
       <button class="btn btn-warning" (click)="goToMessage(friend.friend_id!)"><i class="bi bi-chat"></i>
       </button>
       <button class="btn btn-success" (click)="addFriend(friend.friend_id?.id!)">
-      <i class="bi bi-plus-lg"></i>
+        <i class="bi bi-plus-lg"></i>
       </button>
     </div>
 
