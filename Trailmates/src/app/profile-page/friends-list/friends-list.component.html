@@ -1,13 +1,14 @@
-<div class="box bg-primary">
+<div class="box">
   <!-- Tabs -->
   <div class="tabs column d-flex justify-content-center align-items-center">
-    <div class="friends col-6 border text-center">
-      <button class="btn btn-danger" (click)="toggle()">
+    <div class="friends text-center">
+      <button class="btn btn-danger tabBtn" (click)="toggle()">
         FRIENDS
       </button>
     </div>
-    <div class="pending col-6 border text-center">
-      <button class="btn btn-danger" (click)="toggle()">
+
+    <div class="pending text-center">
+      <button class="btn btn-danger tabBtn" (click)="toggle()">
         PENDING
       </button>
     </div>
@@ -15,39 +16,47 @@
 
   <!-- Body  for friends-->
 <div class="render-container text-center" *ngIf="showFriends">
-  <h1>Friends List</h1>
-  <!-- Container Item -->
-  <div class="item column d-flex bg-light justify-content-center align-items-center" *ngFor="let friend of allFriends">
-    <div class="col-3">
-      <i class="bi bi-person-circle"></i>
-    </div>
-    <div class="description col-7 d-flex justify-content-evenly align-items-center">
+  <div class="row">
+    <h1>Friends List</h1>
 
-      <p class="h3 align-self-center">{{friend.friend_id?.username}}</p>
+    <!-- Container Item -->
+    <div class="item column d-flex" *ngFor="let friend of allFriends">
+      <div class="description col-sm-4 d-flex justify-content-center align-items-center">
+        <i class="bi bi-person-circle"></i>
+      </div>
+
+      <div class="col-sm-4 d-flex justify-content-center align-items-center">
+        <p class="h3">{{friend.friend_id?.username}}</p>
+      </div>
+
+      <div class="actions col-sm-4">
+        <button class="btn btn-danger" (click)="goToProfile(friend.friend_id?.username!)">
+          <i class="bi bi-person-bounding-box"></i></button>
+        <button class="btn btn-warning"  (click)="goToMessage(friend.friend_id!)"><i class="bi bi-chat"></i></button>
+      </div>
+      
     </div>
-    <div class="actions col-2 d-flex">
-      <button class="btn btn-danger" (click)="goToProfile(friend.friend_id?.username!)">
-        <i class="bi bi-person-bounding-box"></i></button>
-      <button class="btn btn-warning"  (click)="goToMessage(friend.friend_id!)"><i class="bi bi-chat"></i></button>
+    <div class="bg-light">
+      <h1 *ngIf="allFriends.length == 0">You have no friends yet.</h1>
     </div>
-  </div>
-  <div class="bg-light">
-    <h1 *ngIf="allFriends.length == 0">You have no friends. :(</h1>
   </div>
 </div>
 
   <!-- Body  for pending-->
 <div class="render-container text-center" *ngIf="showPending">
+  <div class="row">
   <H1>Pendings List</H1>
   <!-- Container Item -->
-  <div class="item column d-flex bg-light justify-content-center align-items-center" *ngFor="let friend of pendingFriends">
-    <div class="col-3">
+  <div class="item column d-flex" *ngFor="let friend of pendingFriends">
+    <div class="description col-sm-4 d-flex justify-content-center align-items-center">
       <i class="bi bi-person-circle"></i>
     </div>
-    <div class="description col-7 d-flex justify-content-evenly align-items-center">
+    
+    <div class="col-sm-4">
       <p class="h3 align-self-center">{{friend.friend_id?.username}}</p>
     </div>
-    <div class="actions col-2 d-flex">
+
+    <div class="actions col-sm-4">
       <button class="btn btn-danger">
       <i class="bi bi-person-bounding-box" (click)="goToProfile(friend.friend_id?.username!)"></i>
       </button>
@@ -57,10 +66,12 @@
       <i class="bi bi-plus-lg"></i>
       </button>
     </div>
+
   </div>
-  <div class="bg-light">
+  <div class="noPending">
   <h1 *ngIf="pendingFriends.length == 0">You have no  pending friend requests</h1>
   </div>
+</div>
 
-
+  </div>
 </div>
