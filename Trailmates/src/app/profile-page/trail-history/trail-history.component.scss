@@ -1,17 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,300&family=Montserrat:ital,wght@1,100&family=Nunito+Sans:wght@300&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
-// *{
-//   margin: 0px;
-//   padding: 0px;
-//   box-sizing: border-box;
-
-//   --bistre: #31231E;
-//   --shadow: #937B63;
-//   --moss-green: #8A9B68;
-//   --laurel-green: #B6C197;
-//   --pale-spring: #D5DDBC;
-//   --british-green: #254D32;
-// }
 
 .container {
   text-align: center;
@@ -92,8 +80,6 @@ label {
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 10px;
-
-  // position: relative;
 }
 
 .sub {
@@ -113,6 +99,4 @@ label {
   width: 50px;
 }
 
-// #select {
-//   margin-left: 20px;
-// }
+
