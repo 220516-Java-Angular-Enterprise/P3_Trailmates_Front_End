@@ -10,13 +10,6 @@ import { AuthService } from './auth.service';
 describe('TrailReviewService', () => {
   let service: TrailReviewService;
   let httpTestingController:HttpTestingController;
-  // let authService: AuthService;
-  // let auth = {
-  //   username: "",
-  //   password: ""
-  // };
-
-  let x = {};
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -26,17 +19,6 @@ describe('TrailReviewService', () => {
 
     httpTestingController = TestBed.inject(HttpTestingController);
 
-    // authService.login(auth).subscribe(
-    //   (res) => {
-    //     if (res != null) {
-    //       // storing resp in console and userdata in local storage
-    //       console.log(res),
-    //         localStorage.setItem('token', res.token),
-    //         localStorage.setItem('id', res.id),
-    //         localStorage.setItem('role', res.role),
-    //         localStorage.setItem('username', res.username)
-    //     }
-    //   });
   });
 
   it('should be created', () => {
@@ -51,8 +33,6 @@ describe('TrailReviewService', () => {
     const request = httpTestingController.expectOne(data => 
       data.method === 'GET' && data.url ==='https://revature.trailmates.net/TrailMates/trailreview/avg/3604914F-0D84-46EC-9276-FAA4EFC55BA9'
     );
-
-    console.log(request.request.url)
     request.flush({trailID:'testTrail', ratingAvg:0, ratingCount:0})
   })
 
