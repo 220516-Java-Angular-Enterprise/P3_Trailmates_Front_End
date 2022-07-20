@@ -1,7 +1,7 @@
 import { ImageDataService } from './../../services/image-data.service';
 import { Friend } from './../../models/friend';
 import { FriendService } from 'src/app/services/friend.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -63,6 +63,7 @@ export class ProfileComponent implements OnInit {
   imgURL: string = '';
   id: string | null = localStorage.getItem('id');
   profileImage: ImageData = {};
+  routerSubscription: any
 
   constructor(
     public trailHistoryService: TrailHistoryService,
@@ -73,14 +74,23 @@ export class ProfileComponent implements OnInit {
     private currRoute: ActivatedRoute,
     private _friendService: FriendService,
     private _imageDataService: ImageDataService,
-  ) {}
+    
+  ) {
+    this.routerSubscription = this.router.events.subscribe((e:any)=>{
+      if(e instanceof NavigationEnd){
+        this.ngOnInit();
+      }
+    })
+  }
 
   async ngOnInit() {
     this.imgURL = this.trailHistoryComp.historyReq.imageURL;
-
-    this.currRoute.params.subscribe((p) => {
+    await this.currRoute.params.subscribe((p) => {
       this.username = p['username'];
-
+      //resets viewerUser when page loads
+      this.viewerUser ={}
+      //resets image
+      this.profileImage = {};
       //converts null to string
       this.userservice
         .getUserByUsername(this.username as string)
@@ -117,7 +127,6 @@ export class ProfileComponent implements OnInit {
     this._imageDataService.getLatestProfilePic(this.viewerUser.id as string).subscribe(
       data=>{
         this.profileImage = data;
-        console.log(this.viewerUser)
       }
     )
   }
