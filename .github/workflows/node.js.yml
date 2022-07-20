@@ -45,4 +45,4 @@ jobs:
     
     - name: See if it can build
       working-directory: ./Trailmates
-      run: npm install
+      run: npm run build
