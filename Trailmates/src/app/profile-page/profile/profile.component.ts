@@ -63,7 +63,6 @@ export class ProfileComponent implements OnInit {
   imgURL: string = '';
   id: string | null = localStorage.getItem('id');
   profileImage: ImageData = {};
-  routerSubscription: any
 
   constructor(
     public trailHistoryService: TrailHistoryService,
@@ -75,13 +74,7 @@ export class ProfileComponent implements OnInit {
     private _friendService: FriendService,
     private _imageDataService: ImageDataService,
     
-  ) {
-    this.routerSubscription = this.router.events.subscribe((e:any)=>{
-      if(e instanceof NavigationEnd){
-        this.ngOnInit();
-      }
-    })
-  }
+  ) {}
 
   async ngOnInit() {
     this.imgURL = this.trailHistoryComp.historyReq.imageURL;

@@ -23,7 +23,6 @@ const routes: Routes = [
     path: 'profile/:username',
     component: ProfileComponent,
     canActivate: [AuthGuard],
-    runGuardsAndResolvers: 'always'
   },
   {
     path: 'login',
@@ -63,7 +62,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
