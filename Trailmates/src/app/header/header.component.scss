@@ -8,7 +8,6 @@
     --pale-spring: #D5DDBC;
     --british-green: #254D32;
 
-    // box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -18,15 +17,13 @@
     justify-content: space-around;
     align-items: center;
 
-    // padding-top: 10px;
-    // padding-bottom: 10px;
     background-color: #D5DDBC;
-
-    // GRID
-//      display: grid;
-//     grid-template-columns: 1fr 1fr 1fr;
+    // background-color: #f7f7f7;
 }
 
+.two-columns{
+    display: flex;
+}
 a {
     text-decoration: none;
 } 
@@ -38,12 +35,19 @@ a {
 }
 
 .title{
-    font-family: typo-slab-inline;
-    font-size: 90px;
+    // font-family: typo-slab-inline;
+    // font-size: 90px;
+    // letter-spacing: 5px;
     color: #444;
     font-weight: bolder;
     margin-top: 20px;
-    letter-spacing: 5px;
+
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    font-size: 60px;
+    // letter-spacing: 2px;
+    font-style: italic;
+    align-self: bottom;
 }
 
 @font-face{
