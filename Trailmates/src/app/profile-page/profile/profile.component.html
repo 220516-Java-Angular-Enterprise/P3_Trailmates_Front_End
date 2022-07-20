@@ -14,7 +14,7 @@
       />
       <!-- Renders profile pic when /user does have a profile pic. -->
       <img
-        src="https://i.stack.imgur.com/gHaf2.png"
+        src={{profileImage.url}}
         alt="simpson"
         class="profile-image circular--square"
         (click)="updateProfilePic()"
@@ -30,7 +30,7 @@
       />
       <!-- Renders profile pic when for when /user == user logged in && does not have prof pic -->
       <img
-        src={{profileImage.url}}
+        src="https://i.stack.imgur.com/gHaf2.png"
         alt="profile-image"
         class="profile-image circular--square border"
         (click)="updateProfilePic()"
