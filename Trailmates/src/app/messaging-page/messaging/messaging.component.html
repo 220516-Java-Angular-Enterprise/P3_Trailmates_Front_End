@@ -4,9 +4,5 @@
   <app-chat-groups [convos]="convos" (passConversation)="goToGroupChat($event)"></app-chat-groups>
   </div>
   <div class="bg-light col-9">
-  <app-chat-room *ngIf="id" [convo]="convo" ></app-chat-room>
-  <!-- <router-outlet [socket]="socket" *ngIf="id"></router-outlet> -->
   </div>
 </div>
-
-<!-- <app-create-group></app-create-group> -->

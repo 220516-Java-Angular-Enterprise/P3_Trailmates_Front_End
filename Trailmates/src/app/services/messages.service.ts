@@ -21,9 +21,9 @@ export class MessagesService {
     return this.http.get<OwnedCoversation[]>(this.url+"owned-conversation/active");
   }
 
-  getPeopleInChatByConvoId(id: string): Observable<User[]>{
-    return this.http.get<User[]>(this.url+"owned-converastion/active-in-chat/"+id);
-  }
+  // getPeopleInChatByConvoId(id: string): Observable<User[]>{
+  //   return this.http.get<User[]>(this.url+"owned-converastion/active-in-chat/"+id);
+  // }
 
   getPrivateMessagesByConvoName(id: string): Observable<PrivateMessage[]>{
     return this.http.get<PrivateMessage[]>(this.url+"private-message/conversation/"+id);

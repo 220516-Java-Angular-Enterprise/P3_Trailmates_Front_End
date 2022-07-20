@@ -1,123 +1,227 @@
-
 <app-header></app-header>
 
 <div class="container">
-    <div class="header">
-        <!-- profile image -->
-        <div class="col-lg-4 col-md-12 headerInfo">
-            <img src="https://i.stack.imgur.com/gHaf2.png" alt="simpson" class="profile-image" (click)="updateProfileImage=true">
-            <h3>@{{username}}</h3>
-            <hiker-ability></hiker-ability>
+  <div class="header">
+    <!-- profile image -->
+    <div class="col-lg-4 col-md-12 headerInfo">
+      <!-- Renders simpson pic when /user does not have profile pic. -->
+      <img
+        src="https://i.stack.imgur.com/gHaf2.png"
+        alt="simpson"
+        class="profile-image circular--square"
+        (click)="updateProfilePic()"
+        *ngIf="profileImage.url == null && this.username != this.user.username"
+      />
+      <!-- Renders profile pic when /user does have a profile pic. -->
+      <img
+        src="https://i.stack.imgur.com/gHaf2.png"
+        alt="simpson"
+        class="profile-image circular--square"
+        (click)="updateProfilePic()"
+        *ngIf="profileImage.url != null && this.username != this.user.username"
+      />
+      <!-- Renders profile pic when /user == user logged in && has profile pic -->
+      <img
+        src={{profileImage.url}}
+        alt="profile-image"
+        class="profile-image circular--square border"
+        (click)="updateProfilePic()"
+        *ngIf="profileImage.url != null && this.username == this.user.username"
+      />
+      <!-- Renders profile pic when for when /user == user logged in && does not have prof pic -->
+      <img
+        src={{profileImage.url}}
+        alt="profile-image"
+        class="profile-image circular--square border"
+        (click)="updateProfilePic()"
+        *ngIf="profileImage.url == null && this.username == this.user.username"
+      />
+      <h3>@{{ username }}</h3>
+      <hiker-ability></hiker-ability>
 
-            <button *ngIf="username!=user.username && !friendsList.includes(viewerUser.id!)" type="button" class="btn btn-outline-primary btn-lg friendBtn" (click)="addFriend(viewerUser.id)">Add Friend</button>
-            <button *ngIf="username!=user.username && friendsList.includes(viewerUser.id!)" type="button" class="btn btn-outline-primary btn-lg friendBtn" (click)="removeFriend(viewerUser.id)">Remove Friend</button>
-            
-            <button (click)="updateProfilePopup = true" *ngIf="username==user.username" type="button" class="btn btn-outline-primary btn-lg friendBtn">Update Profile</button>
-            
-            <button *ngIf="username!=user.username" (click)="toggleFriendsList()" type="button" class="btn btn-outline-primary btn-lg friendBtn">Friends</button>
-            <button *ngIf="username==user.username" (click)="toggleMyFriendsList()" type="button" class="btn btn-outline-primary btn-lg friendBtn">My Friends</button>
+      <button
+        *ngIf="
+          username != user.username && !friendsList.includes(viewerUser.id!)
+        "
+        type="button"
+        class="btn btn-outline-primary btn-lg friendBtn"
+        (click)="addFriend(viewerUser.id)"
+      >
+        Add Friend
+      </button>
+      <button
+        *ngIf="
+          username != user.username && friendsList.includes(viewerUser.id!)
+        "
+        type="button"
+        class="btn btn-outline-primary btn-lg friendBtn"
+        (click)="removeFriend(viewerUser.id)"
+      >
+        Remove Friend
+      </button>
 
-            <!-- friends list -->
-            
-            <app-other-user-friends *ngIf="username!=user.username && isFriendsListOpen"></app-other-user-friends>
-            
-            <app-friends-list *ngIf="username==user.username && isMyFriendsListOpen"></app-friends-list>
+      <button
+        (click)="updateProfilePopup = true"
+        *ngIf="username == user.username"
+        type="button"
+        class="btn btn-outline-primary btn-lg friendBtn"
+      >
+        Update Profile
+      </button>
 
+      <button
+        *ngIf="username != user.username"
+        (click)="toggleFriendsList()"
+        type="button"
+        class="btn btn-outline-primary btn-lg friendBtn"
+      >
+        Friends
+      </button>
+      <button
+        *ngIf="username == user.username"
+        (click)="toggleMyFriendsList()"
+        type="button"
+        class="btn btn-outline-primary btn-lg friendBtn"
+      >
+        My Friends
+      </button>
 
+      <!-- friends list -->
 
-            <!-- update profile popup -->
-            <div class="overlay" *ngIf="updateProfilePopup">
-                <div class="popup">
-                    <app-update-profile [popup]="popup" (doPassPopup)="close($event)"></app-update-profile>
-                    <!-- <a class="close" (click)="updateProfilePopup = false" >&times;</a> -->
-                </div>
-            </div>
+      <app-other-user-friends
+        *ngIf="username != user.username && isFriendsListOpen"
+      ></app-other-user-friends>
 
-            <br>
+      <app-friends-list
+        *ngIf="username == user.username && isMyFriendsListOpen"
+      ></app-friends-list>
 
-            <!-- user bio -->
-            <div class="col-xl-4 col-lg-12 description">
-                <div>
-                    <h3 class="bioTitle" style="color: black">Bio</h3>
-                    <p>{{viewerUser.bio}}</p>
-                </div>
-            </div>
-
-            <div class="titleContainer">
-                <div class="titleContent">
-                    <hr>
-                    <h1><b>Trail History</b></h1>
-                    
-                        <!-- create post button that opens popup-->
-                        <button type="button" class="createPostBtn" (click)="popup = true" *ngIf="username==user.username">
-    
-                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="currentColor" class="bi bi-journal-plus" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"/>
-                                <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
-                                <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
-                            </svg>
-                        </button>
-    
-                    <!-- post popup -->
-                <div class="overlay" *ngIf="popup">
-                    <div class="popup">
-                        <app-trail-history [popup]="popup" (doPassPopup)="close($event)"></app-trail-history>
-                        <!-- <a class="close" (click)="popup = false" >&times;</a> -->
-                    </div>
-                </div> 
-
-                <!-- post popup -->
-                <div class="overlay" *ngIf="updateProfileImage">
-                    <div class="popup">
-                        <app-update-profile-image [popup]="popup" (doPassPopup)="close($event)"></app-update-profile-image>
-                        <!-- <a class="close" (click)="popup = false" >&times;</a> -->
-                    </div>
-                </div> 
-
-                <!-- post popup -->
-                <div class="overlay" *ngIf="updateProfilePopup">
-                    <div class="popup">
-                        <app-update-profile [popup]="popup" (doPassPopup)="close($event)"></app-update-profile>
-                        <!-- <a class="close" (click)="updateProfilePopup = false" >&times;</a> -->
-                    </div>
-                </div>
-     
-                </div>
-    
-            </div>
+      <!-- update profile popup -->
+      <div class="overlay" *ngIf="updateProfilePopup">
+        <div class="popup">
+          <app-update-profile
+            [popup]="popup"
+            (doPassPopup)="close($event)"
+          ></app-update-profile>
+          <!-- <a class="close" (click)="updateProfilePopup = false" >&times;</a> -->
         </div>
+      </div>
 
+      <br />
 
-
-          <!-- no post available-->
-          
-            <div class="noPosts"  *ngIf="this.trailhistory.length ==0;">
-                No post available
-            </div>
-
-        <!-- posts -->
-        <div class="postColumn">
-            <div class="row d-flex justify-content-center align-items-center">
-                <div class="col-sm-2 postContainer" *ngFor="let hist of trailhistory">
-
-                    <div class="usernameImg">
-                        <img src="https://i.stack.imgur.com/gHaf2.png" class="homer" alt="simpson">
-                        <h3 class="username">@{{viewerUser.username}}</h3>
-                    </div>
-
-                    <div class="postImg"><img src={{hist.imageURL}}></div>
-                    
-
-
-                    <div class="postText">
-                        <h3>{{hist.trailName}}</h3>
-                        <p>{{hist.comment}}</p>
-                    </div>
-
-                    <script src="./src/app/profile-page/profile/profile.component.ts"></script>
-                </div>
-            </div>
+      <!-- user bio -->
+      <div class="col-xl-4 col-lg-12 description">
+        <div>
+          <h3 class="bioTitle" style="color: black">Bio</h3>
+          <p>{{ viewerUser.bio }}</p>
         </div>
+      </div>
+
+      <div class="titleContainer">
+        <div class="titleContent">
+          <hr />
+          <h1><b>Trail History</b></h1>
+
+          <!-- create post button that opens popup-->
+          <button
+            type="button"
+            class="createPostBtn"
+            (click)="popup = true"
+            *ngIf="username == user.username"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="30"
+              fill="currentColor"
+              class="bi bi-journal-plus"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"
+              />
+              <path
+                d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"
+              />
+              <path
+                d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"
+              />
+            </svg>
+          </button>
+
+          <!-- post popup -->
+          <div class="overlay" *ngIf="popup">
+            <div class="popup">
+              <app-trail-history
+                [popup]="popup"
+                (doPassPopup)="close($event)"
+              ></app-trail-history>
+              <!-- <a class="close" (click)="popup = false" >&times;</a> -->
+            </div>
+          </div>
+
+          <!-- post popup -->
+          <div class="overlay" *ngIf="updateProfileImage">
+            <div class="popup">
+              <app-update-profile-image
+                [popup]="popup"
+                (doPassPopup)="close($event)"
+              ></app-update-profile-image>
+              <!-- <a class="close" (click)="popup = false" >&times;</a> -->
+            </div>
+          </div>
+
+          <!-- post popup -->
+          <div class="overlay" *ngIf="updateProfilePopup">
+            <div class="popup">
+              <app-update-profile
+                [popup]="popup"
+                (doPassPopup)="close($event)"
+              ></app-update-profile>
+              <!-- <a class="close" (click)="updateProfilePopup = false" >&times;</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
 
+    <!-- no post available-->
+
+    <div class="noPosts" *ngIf="this.trailhistory.length == 0">
+      No post available
+    </div>
+
+    <!-- posts -->
+    <div class="postColumn">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-sm-2 postContainer" *ngFor="let hist of trailhistory">
+          <div class="usernameImg">
+            <img
+              src="https://i.stack.imgur.com/gHaf2.png"
+              class="homer circular--square"
+              alt="simpson"
+              *ngIf="profileImage.url == ''"
+            />
+            <img
+              src={{profileImage.url}}
+              class="homer circular--square"
+              alt="simpson"
+              *ngIf="profileImage"
+            />
+            <h3 class="username">@{{ viewerUser.username }}</h3>
+          </div>
+
+          <div class="postImg"><img src="{{ hist.imageURL }}" /></div>
+
+          <div class="postText">
+            <h3>{{ hist.trailName }}</h3>
+            <p>{{ hist.comment }}</p>
+          </div>
+
+          <script src="./src/app/profile-page/profile/profile.component.ts"></script>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

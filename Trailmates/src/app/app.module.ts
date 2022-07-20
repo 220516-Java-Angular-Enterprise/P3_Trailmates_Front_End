@@ -19,7 +19,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthService } from './services/auth.service';
 import { TrailHistoryComponent } from './profile-page/trail-history/trail-history.component';
-import { TrailCommentsComponent } from './profile-page/trail-comments/trail-comments.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClickOutsideDirective } from './animations/click-outside.directive';
@@ -61,7 +60,6 @@ import { StarsComponent } from './trail-page/stars/stars.component';
     NotificationItemComponent,
     NotFoundComponent,
     TrailHistoryComponent,
-    TrailCommentsComponent,
     ClickOutsideDirective,
     SearchTrailStateComponent,
     SearchTrailParkComponent,

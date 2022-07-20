@@ -19,9 +19,9 @@ export class ImageDataService {
     // url: string = 'http://localhost:8080/TrailMates/image/' 
     url: string = 'https://revature.trailmates.net/TrailMates/image/' 
 
-    getImagebyId(id: string): Observable<ImageData>{
-      return this.http.get<ImageData>(this.url+id);
-    }
+    // getImagebyId(id: string): Observable<ImageData>{
+    //   return this.http.get<ImageData>(this.url+id);
+    // }
 
     saveImg(imageReq: any): Observable<ImageData>{
       return this.http.post<ImageData>(this.url, imageReq);
@@ -52,9 +52,11 @@ export class ImageDataService {
         return true;
     });
 }
-    getLatestProfileImage(id: string): Observable<ImageData> {
-      
-    } 
+
+    getLatestProfilePic(user_id: string): Observable<ImageData>{
+      return this.http.get<ImageData>(this.url+'profpic/'+user_id);
+    }
+
 
 
 }

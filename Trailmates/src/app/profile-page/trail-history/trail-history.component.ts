@@ -93,9 +93,7 @@ export class TrailHistoryComponent implements OnInit {
     );
   }
 
-  trailMenuState() {
-    return this.isMenuOpen ? 'enter' : 'leave';
-  }
+
 
   clickedOutsideMenu(): void {
     this.isMenuOpen = false;

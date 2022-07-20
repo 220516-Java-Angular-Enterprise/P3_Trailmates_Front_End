@@ -47,14 +47,16 @@ export class MessagingComponent implements OnInit, OnDestroy {
     this.route.navigateByUrl("groupchat/"+convo.id)//+localStorage.getItem("id"))
   }
 
-  sendConvoToChatRoom(convo: Conversation){
-    //location.reload();
-    this.id = convo.id
-    this.convo = convo;
-    this.socket = new SockJS('http://localhost:8080/TrailMates/testchat');
-    this.reloadChat = true;
-    console.log(this.convo)
-  }
+  // sendConvoToChatRoom(convo: Conversation){
+  //   //location.reload();
+  //   this.id = convo.id
+  //   this.convo = convo;
+  //   this.socket = new SockJS(
+  //     'https://revature.trailmates.net/TrailMates/testchat'
+  //   );
+  //   this.reloadChat = true;
+  //   console.log(this.convo)
+  // }
 
   reloadChatPls(reloadChat: any){
     this.reloadChat = reloadChat;
