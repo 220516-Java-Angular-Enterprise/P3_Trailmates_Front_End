@@ -108,7 +108,7 @@ export class HeaderComponent implements OnInit {
   }
 
   deleteFlag(flag: TrailFlag){
-    this._trailFlagService.removeTrailById(flag.id!).subscribe(
+    this._trailFlagService.removeTrailById(flag.id as string).subscribe(
       data=>{console.log(data)}
     )
   }

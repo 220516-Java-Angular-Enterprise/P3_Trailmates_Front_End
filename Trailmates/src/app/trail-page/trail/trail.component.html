@@ -225,7 +225,6 @@
 
         <div class="mb-3" *ngIf="trail.id">
           <div *ngIf="trailRating.ratingAvg">
-
             <label
               *ngIf="trailRating.ratingAvg"
               for="exampleFormControlInput1"
@@ -247,16 +246,7 @@
             >
             </i>
 
-            <i
-              class="bi bi-star"
-              *ngFor="
-                let x of numberSize(5 - returnRound(trailRating.ratingAvg ?? 0))
-              "
-            >
-            </i>
                     <div *ngIf="trailRating.ratingAvg">
-
-
             <p *ngIf="trailRating.ratingCount">
               out of {{ trailRating.ratingCount }} reviews
             </p>
@@ -295,6 +285,12 @@
                 >No Reviews</label
               >
             </div>
+
+            <div class="container">
+              <span id="rateMe1"></span>
+            </div>
+
+            <!-- buttons -->
                     <div class="container">
                         <span id="rateMe1"></span>
                     </div>

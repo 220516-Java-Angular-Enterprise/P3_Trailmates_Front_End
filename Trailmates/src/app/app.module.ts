@@ -86,7 +86,7 @@ import { StarsComponent } from './trail-page/stars/stars.component';
     FormsModule,
     BrowserAnimationsModule,
     OverlayModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [AuthService,
     MessagesService,
