@@ -225,7 +225,6 @@
 
         <div class="mb-3" *ngIf="trail.id">
           <div *ngIf="trailRating.ratingAvg">
-            <app-stars></app-stars>
 
             <label
               *ngIf="trailRating.ratingAvg"
@@ -248,7 +247,6 @@
             >
             </i>
 
-<<<<<<< HEAD
             <i
               class="bi bi-star"
               *ngFor="
@@ -256,9 +254,8 @@
               "
             >
             </i>
-=======
                     <div *ngIf="trailRating.ratingAvg">
->>>>>>> 998bdc0ffb14b29473d22d2c97b6de980afdf69a
+
 
             <p *ngIf="trailRating.ratingCount">
               out of {{ trailRating.ratingCount }} reviews
@@ -298,21 +295,6 @@
                 >No Reviews</label
               >
             </div>
-
-            <div class="container">
-              <span id="rateMe1"></span>
-            </div>
-
-            <!-- buttons -->
-            <button
-              type="button"
-              class="btn clickbtn"
-              *ngIf="!newReview"
-              (click)="newReview = true"
-            >
-              Leave a Review
-            </button>
-
                     <div class="container">
                         <span id="rateMe1"></span>
                     </div>
@@ -340,21 +322,6 @@
                     
                     
                     </div>
-
-              <button
-                type="button"
-                class="btn clickbtn"
-                (click)="submitReview()"
-              >
-                Submit
-              </button>
-              <button
-                type="text"
-                class="btn clickbtn"
-                (click)="newReview = false"
-              >
-                Cancel
-              </button>
             </div>
           </div>
         </div>
