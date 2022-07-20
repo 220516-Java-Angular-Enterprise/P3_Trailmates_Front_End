@@ -143,10 +143,21 @@ export class ChatRoomComponent implements OnInit {
 @Output() passReloadChat: EventEmitter<boolean> = new EventEmitter();
 
   sendMessage() {
+    let time = new Date().toLocaleString();
     this.stompClient.send(
       '/current/resume',
       {},
-      JSON.stringify(this.id + "~" + this.profImg?.url + "`" + localStorage.getItem('username')+ ": " + this.newmessage)
+      JSON.stringify(
+        this.id +
+          '~' +
+          this.profImg?.url +
+          '`' +
+          localStorage.getItem('username') +
+          '♪' +
+          this.newmessage +
+          '♪' + 
+          time
+      )
     );
     this.submitMessage(this.newmessage);
     this.newmessage = "";

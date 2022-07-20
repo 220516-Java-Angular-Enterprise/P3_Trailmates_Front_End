@@ -39,8 +39,9 @@
               </div>
               <div class="received-msg">
                 <div class="received-msg-inbox">
-                    <p>{{msg.split('`')[1]}}</p>
-                    <span class="time">11:01pm</span>
+                    <p class="username">{{msg.split('`')[1].split('♪')[0]}}</p>
+                    <p class="messages">{{msg.split('`')[1].split('♪')[1]}}</p>
+                    <p class="time">{{msg.split('`')[1].split('♪')[2]}}</p>
                 </div>
               </div>
             </div>
