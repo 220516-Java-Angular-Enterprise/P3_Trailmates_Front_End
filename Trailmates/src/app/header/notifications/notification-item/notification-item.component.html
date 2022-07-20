@@ -8,7 +8,7 @@
   <div class="notification-footer d-flex row justify-content-center flex-row text-wrap rounded">
     <div class="notification-message">{{notif.message}}</div>
     <div class="notification-timestamp">{{notif.timeCreated}}</div>
-    <small class="notification-message align-self-center text-primary" (click)="goToProfiles(notif.friend?.user_id?.username)">Click to view their profile</small>
+    <small class="notification-message align-self-center text-primary" (click)="goToProfiles(notif.message!.split(' ')[0])">Click to view their profile</small>
 
   </div>
 </div>

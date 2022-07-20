@@ -201,13 +201,13 @@
               src="https://i.stack.imgur.com/gHaf2.png"
               class="homer circular--square"
               alt="simpson"
-              *ngIf="profileImage.url == ''"
+              *ngIf="profileImage.url == null"
             />
             <img
               src={{profileImage.url}}
               class="homer circular--square"
               alt="simpson"
-              *ngIf="profileImage"
+              *ngIf="profileImage.url != null"
             />
             <h3 class="username">@{{ viewerUser.username }}</h3>
           </div>
