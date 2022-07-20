@@ -1,3 +1,4 @@
+import { ImageDataService } from './../../services/image-data.service';
 import { Conversation } from 'src/app/models/conversation';
 import { OwnedCoversation } from 'src/app/models/ownedCoversations';
 import { MessagesService } from 'src/app/services/messages.service';
@@ -31,7 +32,8 @@ export class TrailComponent implements OnInit {
     private _route: Router,
     private _currRoute: ActivatedRoute,
     private _trailReviewService: TrailReviewService,
-    private _messageService: MessagesService
+    private _messageService: MessagesService,
+    private _imageDataService: ImageDataService,
   ) {}
 
   @Input()
@@ -74,6 +76,13 @@ export class TrailComponent implements OnInit {
     // Gets all users on render
     this._userService.getAllUsers().subscribe((data) => {
       this.allUsers = data;
+      this.allUsers.forEach(user=>{
+        this._imageDataService
+          .getLatestProfilePic(user.id as string)
+          .subscribe((imageData: any) => {
+            user.profilepic = imageData.url;
+          });
+      })
     });
   }
 
