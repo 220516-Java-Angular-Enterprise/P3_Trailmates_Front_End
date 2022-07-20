@@ -21,19 +21,16 @@ export class MessagesService {
     return this.http.get<OwnedCoversation[]>(this.url+"owned-conversation/active");
   }
 
-  getPeopleInChatByConvoId(id: string): Observable<User[]>{
-    return this.http.get<User[]>(this.url+"owned-converastion/active-in-chat/"+id);
-  }
+  // getPeopleInChatByConvoId(id: string): Observable<User[]>{
+  //   return this.http.get<User[]>(this.url+"owned-converastion/active-in-chat/"+id);
+  // }
 
   getPrivateMessagesByConvoName(id: string): Observable<PrivateMessage[]>{
     return this.http.get<PrivateMessage[]>(this.url+"private-message/conversation/"+id);
   }
 
-  createNewGroup(groupReq: any){
-    return this.http.post<any>(this.url+"conversation/new-conversation", groupReq)
-    .subscribe((data:any)=>{
-      console.log(data);
-    })
+  createNewGroup(groupReq: any): Observable<any>{
+    return this.http.post<any>(this.url+"conversation/new-conversation", groupReq);
   }
   
   postNewMessage(message: any): Observable<any>{

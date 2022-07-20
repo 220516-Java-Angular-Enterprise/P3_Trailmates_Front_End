@@ -19,7 +19,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthService } from './services/auth.service';
 import { TrailHistoryComponent } from './profile-page/trail-history/trail-history.component';
-import { TrailCommentsComponent } from './profile-page/trail-comments/trail-comments.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClickOutsideDirective } from './animations/click-outside.directive';
@@ -38,8 +37,9 @@ import { NotificationsComponent } from './header/notifications/notifications.com
 import { FriendsListComponent } from './profile-page/friends-list/friends-list.component';
 import { OtherUserFriendsComponent } from './profile-page/friends-list/other-user-friends/other-user-friends.component';
 import { UpdateProfileImageComponent } from './profile-page/update-profile/update-profile-image/update-profile-image.component';
-import { NgxStarRatingModule } from 'ngx-star-rating';
 import { FlagsComponent } from './header/flags/flags.component';
+import { StarComponent } from './trail-page/stars/star/star.component';
+import { StarsComponent } from './trail-page/stars/stars.component';
 
 
 
@@ -60,7 +60,6 @@ import { FlagsComponent } from './header/flags/flags.component';
     NotificationItemComponent,
     NotFoundComponent,
     TrailHistoryComponent,
-    TrailCommentsComponent,
     ClickOutsideDirective,
     SearchTrailStateComponent,
     SearchTrailParkComponent,
@@ -76,6 +75,8 @@ import { FlagsComponent } from './header/flags/flags.component';
     OtherUserFriendsComponent,
     UpdateProfileImageComponent,
     FlagsComponent,
+    StarComponent,
+    StarsComponent,
   ],
 
   imports: [
@@ -85,7 +86,6 @@ import { FlagsComponent } from './header/flags/flags.component';
     FormsModule,
     BrowserAnimationsModule,
     OverlayModule,
-    NgxStarRatingModule,
     ReactiveFormsModule
   ],
   providers: [AuthService,

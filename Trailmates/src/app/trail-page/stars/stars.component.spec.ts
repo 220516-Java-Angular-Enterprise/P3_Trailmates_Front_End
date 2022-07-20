@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TrailCommentsComponent } from './trail-comments.component';
+import { StarsComponent } from './stars.component';
 
-describe('TrailCommentsComponent', () => {
-  let component: TrailCommentsComponent;
-  let fixture: ComponentFixture<TrailCommentsComponent>;
+describe('StarsComponent', () => {
+  let component: StarsComponent;
+  let fixture: ComponentFixture<StarsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TrailCommentsComponent ]
+      declarations: [ StarsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TrailCommentsComponent);
+    fixture = TestBed.createComponent(StarsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

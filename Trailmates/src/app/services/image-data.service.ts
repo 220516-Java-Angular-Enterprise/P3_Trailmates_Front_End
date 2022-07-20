@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ImageData } from '../models/imageData';
 import * as S3 from 'aws-sdk/clients/s3';
 import { environment } from '../../environments/environment.prod'
+import { any } from 'cypress/types/bluebird';
 
 
 
@@ -18,9 +19,9 @@ export class ImageDataService {
     // url: string = 'http://localhost:8080/TrailMates/image/' 
     url: string = 'https://revature.trailmates.net/TrailMates/image/' 
 
-    getImagebyId(id: string): Observable<ImageData>{
-      return this.http.get<ImageData>(this.url+id);
-    }
+    // getImagebyId(id: string): Observable<ImageData>{
+    //   return this.http.get<ImageData>(this.url+id);
+    // }
 
     saveImg(imageReq: any): Observable<ImageData>{
       return this.http.post<ImageData>(this.url, imageReq);
@@ -51,6 +52,11 @@ export class ImageDataService {
         return true;
     });
 }
+
+    getLatestProfilePic(user_id: string): Observable<ImageData>{
+      return this.http.get<ImageData>(this.url+'profpic/'+user_id);
+    }
+
 
 
 }

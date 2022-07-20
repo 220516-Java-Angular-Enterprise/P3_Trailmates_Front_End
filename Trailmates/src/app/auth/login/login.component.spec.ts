@@ -16,7 +16,7 @@ describe('LoginComponent', () => {
       RouterTestingModule,
       FormsModule],
       declarations: [ LoginComponent, ]
-    })
+    })  
     .compileComponents();
 
     fixture = TestBed.createComponent(LoginComponent);

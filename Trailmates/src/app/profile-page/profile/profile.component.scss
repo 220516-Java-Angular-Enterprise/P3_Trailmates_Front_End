@@ -78,6 +78,7 @@ $font20 : 20px;
     }
 }
 
+
 .header{
   text-align: center;
 }
@@ -186,16 +187,19 @@ $font20 : 20px;
   position: relative;
 }
 
-.close:hover {
-  color: #06D85F;
-  cursor: pointer;
-}
+
 
 .profile-image:hover{
   opacity: 0.5;
   border-radius: 30px;
 }
 
+.circular--square {
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  border-bottom-left-radius: 50% 50%;
+}
 
 
 
