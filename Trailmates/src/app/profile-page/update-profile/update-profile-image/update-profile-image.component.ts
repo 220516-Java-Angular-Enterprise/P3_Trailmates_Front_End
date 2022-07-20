@@ -35,6 +35,7 @@ imageReq = {
     this._imgDataService.saveImg(this.imageReq).subscribe(
       data=>{console.log('Saved image in DB:'+data.url)}
     )
+    this.close();
   }else {
     this.displayFormSubmitError = true;
   }

@@ -42,3 +42,7 @@ jobs:
         working-directory: ./Trailmates
         wait-on: 'http://localhost:4200'
         wait-on-timeout: 120
+    
+    - name: See if it can build
+      working-directory: ./Trailmates
+      run: npm run build

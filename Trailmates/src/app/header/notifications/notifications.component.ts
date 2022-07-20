@@ -22,14 +22,7 @@ export class NotificationsComponent implements OnInit {
     this.passDeleteNotif.emit(notif);
   }
   
-  onClick(){
-    console.log("I was clicked!")
-  }
   
-  ngOnDestroy() {
-    console.log("I was destroyed.")
-  }
-
   goToMessages(convo_id: any){
     this.route.navigateByUrl("/messaging/groupchat/"+convo_id);
   }

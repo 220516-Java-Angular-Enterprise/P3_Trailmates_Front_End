@@ -29,13 +29,10 @@ export class MessagingComponent implements OnInit, OnDestroy {
   reloadChat: boolean = false;
   
   ngOnInit(): void {
-    // this.currRoute.params.subscribe(p=>{
-    //   this.id = p['id'];
+    // this.currRoute.params.subscribe(data => {
+    //   this.id = data['id'];
     // })
-    this.currRoute.params.subscribe(data => {
-      this.id = data['id'];
-    })
-    console.log("ID: " + this.id)
+    // console.log("ID: " + this.id)
     this.messagesService.getExistingConvos().subscribe((data: any) =>{
       this.convos = data;
     })
@@ -50,15 +47,16 @@ export class MessagingComponent implements OnInit, OnDestroy {
     this.route.navigateByUrl("groupchat/"+convo.id)//+localStorage.getItem("id"))
   }
 
-  sendConvoToChatRoom(convo: Conversation){
-    //location.reload();
-    this.id = convo.id
-    this.convo = convo;
-    this.socket = new SockJS('http://localhost:8080/TrailMates/testchat');
-    this.reloadChat = true;
-    console.log(this.convo)
-   
-  }
+  // sendConvoToChatRoom(convo: Conversation){
+  //   //location.reload();
+  //   this.id = convo.id
+  //   this.convo = convo;
+  //   this.socket = new SockJS(
+  //     'https://revature.trailmates.net/TrailMates/testchat'
+  //   );
+  //   this.reloadChat = true;
+  //   console.log(this.convo)
+  // }
 
   reloadChatPls(reloadChat: any){
     this.reloadChat = reloadChat;

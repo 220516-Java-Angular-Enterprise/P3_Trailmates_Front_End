@@ -30,13 +30,13 @@ export class TrailFlagService {
   }
   
 
-  getAllFlagsByUserAndTrail(user_id: string, trail_id: string): Observable<TrailFlag[]>{
-    return this.http.get<TrailFlag[]>(this.URL+'/userAndTrail/' + user_id+ '/' + trail_id)
-  }
+  // getAllFlagsByUserAndTrail(user_id: string, trail_id: string): Observable<TrailFlag[]>{
+  //   return this.http.get<TrailFlag[]>(this.URL+'/userAndTrail/' + user_id+ '/' + trail_id)
+  // }
 
-  getAllByDateAndUser(date: Number, user_id: string): Observable<TrailFlag[]>{
-    return this.http.get<TrailFlag[]>(this.URL+"/dateAndUser/"+ date + '/' + user_id);
-  }
+  // getAllByDateAndUser(date: Number, user_id: string): Observable<TrailFlag[]>{
+  //   return this.http.get<TrailFlag[]>(this.URL+"/dateAndUser/"+ date + '/' + user_id);
+  // }
 
   getAllByUser(user_id: string): Observable<TrailFlag[]>{
     return this.http.get<TrailFlag[]>(this.URL+"/user/"+ user_id);

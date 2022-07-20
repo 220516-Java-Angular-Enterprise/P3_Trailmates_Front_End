@@ -6,5 +6,6 @@ export interface User {
     email?:string,
     role?:string,
     bio?:string,
-    age?:number|null
+    age?:number|null,
+    profilepic?: string,
 }
