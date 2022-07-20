@@ -1,43 +1,50 @@
 <div class="navbar">
     <div class="navbar-logo">
-        <img class="logo" src="/assets/images/nav_icon.png" alt="Cannot load image">
+        <img  (click)="goToProfile()" class="logo" src="../../assets/Capture.png" alt="Cannot load image">
     </div>
 
-    <div class="navbar-title">
-        <a class="title" routerLink="/trailpage">Trailmates</a>
-    </div>
     <div class="navbar-icons">
         <nav class="icons d-flex justify-content-evenly">
             <!-- Trail Page -->
             <div class="signpost">
                 <a class="nav-link" routerLink="/trailpage">
-                    <i class="bi bi-signpost-2"></i>
+                    <li><button>Trails</button></li>
+                    <!-- <i class="bi bi-signpost-2"></i> -->
                 </a>
             </div>
-            
-            <!-- Notifications -->
-            <div class="dropdown" clickOutside (clickOutside)="clickedOutsideNotif()">
-                <div class="notification">
-                    <span class="badge" *ngIf="notifications.length > 0">{{notifications.length}}</span>
-                    <i class="bi bi-bell" (click)="toggleNotifMenu()" [ngClass]="{'notify':notify}"></i>
-                </div>
-                <app-notifications [@fade]="notifState()" class="app-notifications" *ngIf="isNotifOpen"
-                    [notifications]="notifications" (passDeleteNotif)="updateNotifOnDelete($event)"></app-notifications>
-            </div>
+        
 
             <!-- Flagged -->
             <div class="dropdown" clickOutside (clickOutside)="clickedOutsideFlags()">
                 <div class="flags" >
-                    <i class="bi bi-flag" (click)="toggleFlagsDd()"></i>
+                    <li><button class="button" (click)="toggleFlagsDd()">Flag</button></li>
                 </div>
                 <app-flags class="app-flags" [@fade]="flagsDdState()" *ngIf="isFlagsDdOpen" [trailFlags]="trailFlags" (passDeleteFlag)="updateFlagOnDelete($event)"></app-flags>
             </div>
+
+                <!-- messages -->
+            <div class="dropdown" clickOutside (clickOutside)="clickedOutsideMessage()">
+                <div class="messages">
+                <li><button class="button" (click)="goToMessages()">My Messages</button></li>
+            </div>
+            </div>
+
+                                     <!-- Notifications -->
+                                     <div class="dropdown" clickOutside (clickOutside)="clickedOutsideNotif()">
+                                        <div class="notification">
+                                            <span class="badge" *ngIf="notifications.length > 0">{{notifications.length}}</span>
+                                            <i class="bi bi-bell" (click)="toggleNotifMenu()" [ngClass]="{'notify':notify}"></i>
+                                        </div>
+                                        <app-notifications [@fade]="notifState()" class="app-notifications" *ngIf="isNotifOpen"
+                                            [notifications]="notifications" (passDeleteNotif)="updateNotifOnDelete($event)"></app-notifications>
+                                    </div>
 
             <!-- User Account -->
             <div class="dropdown" clickOutside (clickOutside)="clickedOutsideUser()">
                 <i class="bi bi-person-circle" (click)="toggleUserMenu()"></i>
                 <app-user-menu [@fade]="userMenuState()" class="app-user-menu" *ngIf="isUserMenuOpen"></app-user-menu>
             </div>
+            
         </nav>
     </div>
 </div>

@@ -1,61 +1,105 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
-*{
-    --bistre: #31231E;
-    --shadow: #937B63;
-    --moss-green: #8A9B68;
-    --laurel-green: #B6C197;
-    --pale-spring: #D5DDBC;
-    --british-green: #254D32;
 
-    // box-sizing: border-box;
+
+*{
     margin: 0;
     padding: 0;
+    font-family: 'Lora', serif;;
+    box-sizing: border-box;
+    background-color: #cec3c3;
 }
 
-.navbar {
+
+.navbar{
     display: flex;
-    justify-content: space-around;
+    // justify-content: flex-end;
     align-items: center;
-
-    // padding-top: 10px;
-    // padding-bottom: 10px;
-    background-color: #D5DDBC;
-
-    // GRID
-//      display: grid;
-//     grid-template-columns: 1fr 1fr 1fr;
+    padding: 0px 10%;
 }
+
+.navbar-icons li{
+    display: inline-block;
+    padding: 0px 30px;
+}
+
+
+.navbar-icons i{
+    display: inline-block;
+    padding: 0px 30px;
+}
+
+
+.nav-icons li a:last-child{
+    margin-right: 25px;
+ 
+ }
+
+ li, a{
+    font-weight: 500;
+    font-size: 19px;
+    color: rgba(69, 69, 83);
+    text-decoration: none;
+}
+
+.logo{
+    width: 350px;
+    height: 160px;
+    cursor: pointer;
+    margin-right: auto;
+}
+
+button{
+    border-color: #f7efef;
+    outline: none;
+    border: none;
+    transition: all 0.3 ease 0s;
+}
+
+button:hover{
+    color: darkslategrey;
+}
+
+
+
+// .navbar {
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+
+//     // padding-top: 10px;
+//     // padding-bottom: 10px;
+//     background-color: #D5DDBC;
+
+//     // GRID
+// //      display: grid;
+// //     grid-template-columns: 1fr 1fr 1fr;
+// }
 
 a {
     text-decoration: none;
 } 
 
-.logo{
-    height: 120px;
-    width: 120px;
-    cursor: pointer;
-}
 
-.title{
-    font-family: typo-slab-inline;
-    font-size: 90px;
-    color: #444;
-    font-weight: bolder;
-    margin-top: 20px;
-    letter-spacing: 5px;
-}
+// .title{
+//     font-family: typo-slab-inline;
+//     font-size: 90px;
+//     color: #444;
+//     font-weight: bolder;
+//     margin-top: 20px;
+//     letter-spacing: 5px;
+// }
 
 @font-face{
     font-family: typo-slab-inline;
     src: url("/assets/fonts/TypoSlab_inline Demo.otf");
 }
 
-.icons div{
-    display: flex;
-    display: inline-block;
-    margin: 0 30px;
-}
+// .icons div{
+//     display: flex;
+//     display: inline-block;
+//     margin: 0 30px;
+// }
 
 // .icons{
 //     display: grid;
@@ -64,15 +108,15 @@ a {
 // }
 
 i{
-    font-size: 30px;
-    color: #444;
+    font-size: 20px;
+    // color: #444;
 }
 
-i:hover{
-    color: black;
-    font-weight: bolder;
-    cursor: pointer;
-}
+// i:hover{
+//     color: black;
+//     font-weight: bolder;
+//     cursor: pointer;
+// }
 
 // Notification badge
 .send-notification{
@@ -90,10 +134,11 @@ i:hover{
     font-size: 10px;
     position: absolute;
     background: #ff8084;
-    right: -0.938rem;
-    top: -0.938;
-    padding: .3rem .6rem;
+    padding: .2rem .5rem;
     border-radius: 50%;
+
+    right: 0.8rem;
+
     border: 3px solid #fff;
 }
 

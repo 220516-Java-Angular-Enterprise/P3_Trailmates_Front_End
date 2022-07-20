@@ -1,3 +1,4 @@
+import { ImageDataService } from './../../../services/image-data.service';
 import { PrivateMessage } from './../../../models/privateMessage';
 import { Conversation } from './../../../models/conversation';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
@@ -9,6 +10,7 @@ import * as SockJS from 'sockjs-client';
 import { ActivatedRoute } from '@angular/router';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { ThisReceiver } from '@angular/compiler';
+import { ImageData } from 'src/app/models/imageData';
 @Component({
   selector: 'app-chat-room',
   templateUrl: './chat-room.component.html',
@@ -19,16 +21,19 @@ export class ChatRoomComponent implements OnInit {
   id?: string;
   username?: string;
   randInt?: string;
+  profImg?: ImageData;
   //archived_msg?: string;
   
   greetings: string[] = [];
-  constructor(private _messageService: MessagesService, private userService: UserService, private currRoute: ActivatedRoute) { }
+  constructor(private _messageService: MessagesService, private userService: UserService, private currRoute: ActivatedRoute, private _imageDataService: ImageDataService) { }
   ngOnInit(): void {
     this.currRoute.params.subscribe(data => {
         this.id = data['id'];
     })
     this.connect();
     this.getPrivateMessages();
+    this.getProfPic()
+
   }
 
   newmessage: string | undefined;
@@ -46,10 +51,22 @@ export class ChatRoomComponent implements OnInit {
     }
   }
 
+  getProfPic(){
+    this._imageDataService.getLatestProfilePic(localStorage.getItem('id')!)
+    .subscribe(image => {this.profImg = image})
+  }
+
   getPrivateMessages(){
     this._messageService.getPrivateMessagesByConvoName(this.id!).subscribe(
       (data:any)=>{
       this.privateMessages = data;
+      this.privateMessages.forEach(message=>{
+        this._imageDataService.getLatestProfilePic(message.sender_id!.id as string)
+        .subscribe(imageData=>{
+          message.sender_id!.profilepic = imageData.url
+        })
+        message.time_sent = new Date(message.time_sent).toLocaleString()
+      })
     },
     (error:any)=>{
       console.log(error);
@@ -129,7 +146,7 @@ export class ChatRoomComponent implements OnInit {
     this.stompClient.send(
       '/current/resume',
       {},
-      JSON.stringify(this.id + "~" + localStorage.getItem('username') + ": " + this.newmessage)
+      JSON.stringify(this.id + "~" + this.profImg?.url + "`" + localStorage.getItem('username')+ ": " + this.newmessage)
     );
     this.submitMessage(this.newmessage);
     this.newmessage = "";

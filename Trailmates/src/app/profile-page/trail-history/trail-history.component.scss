@@ -4,6 +4,7 @@
 .container {
   text-align: center;
   align-items: center;
+
   font-size: 20px;
   color: black;
   .row {
@@ -14,12 +15,58 @@
   }
 }
 
+.write-post-container{
+  width: 100%;
+  background: #fff;
+  border-radius: 6px;
+  columns: #626262;
+  display: inline-block;
+}
+
+.user-profile{
+  display: flex;
+  align-items: center;
+  margin-top: -95px;
+}
+
+
+.user-profile img{
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-profile p{
+  margin-bottom: -5px;
+  font-weight: 300;
+  color: #626262;
+}
+
+.post-input-container{
+  padding-left: 55px;
+  padding-top: 15px;
+  height: 100px;
+}
+
+.post-input-container textarea{
+  width: 100%;
+  border: 0;
+  outline: 0;
+  height: 100px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.add-post-links{
+  text-align: left;
+}
+
 .postBtn {
   float: right;
-  font-size: 30px;
-  margin: 19px;
+  font-size: 17px;
   background-color: #1d2d44;
   color: white;
+  margin-bottom: 15px;
   border-radius: 10px;
   padding: 1px 15px;
   &:hover {
@@ -27,76 +74,29 @@
   }
 }
 
-.close {
-  margin-left: 90%;
-  transition: all 200ms;
-  font-size: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #333;
-  background-color: transparent;
-  border: none;
-  &:hover {
-    color: red;
-  }
-}
-
-.close:hover {
-  color: #06d85f;
-  cursor: pointer;
-}
 
 input[type="file"] {
   display: none;
 }
 
-label {
-  color: white;
-  height: 50px;
-  width: 233px;
-  border-radius: 10px;
-  background-color: #323741;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Montserrat", sans-serif;
-  cursor: pointer;
+// label {
+//   color: white;
+//   height: 50px;
+//   width: 233px;
+//   border-radius: 10px;
+//   background-color: #323741;
+//   margin: auto;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   font-family: "Montserrat", sans-serif;
+//   cursor: pointer;
+// }
+
+select{
+  margin-top: 100px;
 }
-
-.dropdown {
-  box-sizing: border-box;
-  min-width: 240px;
-  margin: 0 auto;
-  float: none;
-}
-
-.form-area {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.sub {
-  border: black 4px solid;
-  height: auto;
-  border-radius: 20px;
-  width: 500px;
-  background-color: rgb(164, 177, 160);
-  box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.option {
-  width: 50px;
-}
-
-
