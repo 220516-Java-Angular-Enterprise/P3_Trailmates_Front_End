@@ -139,7 +139,6 @@
                 <div class="mb-3" *ngIf="trail.id">
 
                     <div *ngIf="trailRating.ratingAvg">
-                        <app-stars></app-stars>
 
                     
                     <label *ngIf="trailRating.ratingAvg" for="exampleFormControlInput1" class="form-label bold">{{trailRating.ratingAvg}}</label>
@@ -187,6 +186,7 @@
                         <label for="review-score" class="bold">How was this trail: </label>
                         <br>
                         <div class="star">
+                            <app-stars (bigClick)="updateRating($event)"></app-stars>
                             <!-- <ngx-star-rating [(ngModel)]="newReviewRequest.rating" [id]="'rating'"></ngx-star-rating> -->
                         </div>
 
@@ -194,8 +194,8 @@
                     
                     
                         <!-- <input [class.is-invalid]="newReviewRequest.comment?.invalid" -->
-                        <!-- <input [(ngModel)]="newReviewRequest.comment" type="string" class="form-control commentbox"
-                            [placeholder]="placeholders.comment"> -->
+                        <input [(ngModel)]="newReviewRequest.comment" type="string" class="form-control commentbox"
+                            [placeholder]="placeholders.comment">
                     
                         <button type="button" class="btn clickbtn" (click)="submitReview()">Submit</button>
                         <button type="text" class="btn clickbtn" (click)="newReview = false">Cancel</button>

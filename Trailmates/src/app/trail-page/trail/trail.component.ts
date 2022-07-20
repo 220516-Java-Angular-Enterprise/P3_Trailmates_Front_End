@@ -282,6 +282,11 @@ getTrailRating(): void {
 
   // star
 
+  updateRating(i: any) {
+    this.newReviewRequest.rating = i;
+    console.log(this.newReviewRequest.rating)
+  }
+
   numbers: any
   
   numberSize(n: number): number[]{

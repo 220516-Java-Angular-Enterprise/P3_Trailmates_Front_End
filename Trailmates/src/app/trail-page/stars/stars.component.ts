@@ -1,43 +1,17 @@
-import { Component, forwardRef, OnInit } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, forwardRef, Input, Output, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-stars',
   templateUrl: './stars.component.html',
-  styleUrls: ['./stars.component.scss'],
-  providers: [
-    {
-      provide:NG_VALUE_ACCESSOR,
-      useExisting:forwardRef(()=>StarsComponent),
-      multi: true
-    }
-  ]
+  styleUrls: ['./stars.component.scss']
 })
-export class StarsComponent implements OnInit, ControlValueAccessor {
+export class StarsComponent implements OnInit{
 
 
   constructor() { }
 
-  value: any= {};
+  @Output() bigClick: EventEmitter<number> = new EventEmitter();
   
-  writeValue(obj: any): void {
-    this.rating = obj;
-    console.log(obj)
-    throw new Error('Method not implemented.');
-  }
-  registerOnChange(fn: any): void {
-    this.onChange = fn ;
-  }
-  registerOnTouched(fn: any): void {
-    this.onTouch = fn;
-  }
-
-  onChange!: (rating:number) =>  0;
-
-  setRating(){
-    this.value = !this.value;
-    this.onChange(this.value)
-  }
 
   onTouch(){
 
@@ -66,6 +40,7 @@ export class StarsComponent implements OnInit, ControlValueAccessor {
 
   updateRating(i:any) {
     this.rating = i;
+    this.bigClick.emit(this.rating);
   }
 
 }
