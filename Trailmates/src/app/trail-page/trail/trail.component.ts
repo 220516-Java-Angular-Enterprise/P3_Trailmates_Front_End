@@ -350,12 +350,15 @@ export class TrailComponent implements OnInit {
 
   // star
 
-  numbers: any;
+  updateRating(i: any) {
+    this.newReviewRequest.rating = i;
+    console.log(this.newReviewRequest.rating)
+  }
 
-  numberSize(n: number): number[] {
-    return Array(n)
-      .fill(0)
-      .map((x, i) => i);
+  numbers: any
+  
+  numberSize(n: number): number[]{
+    return Array(n).fill(0).map((x, i) => i);
   }
   numberSize5(n: number): number[] {
     return Array(5 - n)
