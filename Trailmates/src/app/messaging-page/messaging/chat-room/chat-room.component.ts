@@ -109,7 +109,9 @@ export class ChatRoomComponent implements OnInit {
 
 
   connect() {
-    const socket = new SockJS('http://localhost:8080/TrailMates/testchat');
+    const socket = new SockJS(
+      'https://revature.trailmates.net/TrailMates/testchat'
+    );
     console.log("Reloading the connection")
     this.stompClient = Stomp.over(socket);
     const _this = this;

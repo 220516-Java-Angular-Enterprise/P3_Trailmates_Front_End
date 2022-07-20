@@ -20,10 +20,9 @@ const routes: Routes = [
     component: LandingComponent
   },
   {
-    // profile/:user
     path: 'profile/:username',
     component: ProfileComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',
@@ -44,15 +43,9 @@ const routes: Routes = [
   ]
   },
   {
-    //messaging/:userid
     path: 'messaging',
     component: MessagingComponent,
-    canActivate: [AuthGuard],    
-    //children: [
-    //  {path: 'groupchat/:id',
-    //  component: ChatRoomComponent,
-    //canActivate: [AuthGuard]},
-  //]
+    canActivate: [AuthGuard],
   },
   {
     path: 'messaging/groupchat/:id',

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="sub">
+    <button class="close" (click)="close()">&times;</button>
+    <h1>Update Profile Image</h1>
+
+    <form class="form-area" (ngSubmit)="onSubmit(postForm)" #postForm="ngForm">
+        <div class="fileInput form-element">
+          <input type="file" [(ngModel)]="image" id="myFile" name="filename" accept="image/*" required class="d-none">
+          <label for="myFile">
+            <i class="bi bi-image"></i>
+            {{image}}
+          </label>
+        </div>
+
+        
+        <div class="form-group">
+          <div *ngIf="displayFormSubmitError">
+            Please select an image to update with.
+          </div>
+          <button type="submit" value="Create" class="updateBtn align-self-end">Update</button>
+        </div>
+    </form>
+
+  </div>
+</div>

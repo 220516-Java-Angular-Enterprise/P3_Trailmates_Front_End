@@ -1,38 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,300&family=Montserrat:ital,wght@1,100&family=Nunito+Sans:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,300&family=Montserrat:ital,wght@1,100&family=Nunito+Sans:wght@300&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
-*{
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
 
-  --bistre: #31231E;
-  --shadow: #937B63;
-  --moss-green: #8A9B68;
-  --laurel-green: #B6C197;
-  --pale-spring: #D5DDBC;
-  --british-green: #254D32;
-}
-
-.container{
-  display: flex;
-  flex-direction: column;
-  border: black 4px solid;
-  width: 500px;
-  height: auto;
-  border-radius: 20px;
+.container {
+  text-align: center;
   align-items: center;
-  // background: #B6C197;
-  background-color: rgb(164, 177, 160);
-  box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
-  margin-left: 39%;
-  margin-top: 15%;
+  font-size: 20px;
+  color: black;
+  .row {
+    margin-top: 20px;
+  }
+  .fileInput {
+    margin-left: 150px;
+  }
 }
 
-h1{
-  margin-top: 12px;
-  margin-bottom: 10px;
-  font-size: 40px;
-  color: #444;
+.postBtn {
+  float: right;
+  font-size: 30px;
+  margin: 19px;
+  background-color: #1d2d44;
+  color: white;
+  border-radius: 10px;
+  padding: 1px 15px;
+  &:hover {
+    background-color: #0d1321;
+  }
 }
 
 .close {
@@ -44,46 +36,24 @@ h1{
   color: #333;
   background-color: transparent;
   border: none;
-}
-
-.form-area{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-bottom: 10px;  
-  
-  // position: relative;
-}
-
-.form-element{
-  margin: 5px;
-}
-
-.postBtn{
-  margin-bottom: 20px;
-  margin-right: 20px;
-  border-radius: 10px;
-  font-size: 28px;
-  padding: 5px 20px;
-  background: #f5f5f5;
-  color: #222;
-  &:hover{
-    // background-color: #31231E;
-  background-color: rgba(0,0,0,0.15);
-  border: 3px solid black;
-
-    cursor:pointer;
+  &:hover {
+    color: red;
   }
 }
 
-input[type="file"]{
+.close:hover {
+  color: #06d85f;
+  cursor: pointer;
+}
+
+input[type="file"] {
   display: none;
 }
 
-label{
+label {
   color: white;
   height: 50px;
-  width: 200px;
+  width: 233px;
   border-radius: 10px;
   background-color: #323741;
   margin: auto;
@@ -98,11 +68,35 @@ label{
   cursor: pointer;
 }
 
-.dropdown{
+.dropdown {
   box-sizing: border-box;
   min-width: 240px;
-  margin: 10px;
-  
-  position: relative;
+  margin: 0 auto;
+  float: none;
 }
-// Trail-history dropdown menu
+
+.form-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.sub {
+  border: black 4px solid;
+  height: auto;
+  border-radius: 20px;
+  width: 500px;
+  background-color: rgb(164, 177, 160);
+  box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.option {
+  width: 50px;
+}
+
+

@@ -1,3 +1,4 @@
+import { UserMenuComponent } from 'src/app/header/user-menu/user-menu.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { SearchAllComponent } from './header/search-users/search-users.component';
 import { NgModule } from '@angular/core';
@@ -12,14 +13,12 @@ import { LandingComponent } from './auth/landing/landing.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CreateAccComponent } from './auth/create-acc/create-acc.component';
 import { SearchTrailsComponent } from './header/search-trails/search-trails.component';
-import { UserMenuComponent } from './header/user-menu/user-menu.component';
 import { MessagingComponent } from './messaging-page/messaging/messaging.component';
 import { NotificationItemComponent } from './header/notifications/notification-item/notification-item.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { AuthService } from './services/auth.service';
 import { TrailHistoryComponent } from './profile-page/trail-history/trail-history.component';
-import { TrailCommentsComponent } from './profile-page/trail-comments/trail-comments.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClickOutsideDirective } from './animations/click-outside.directive';
@@ -35,6 +34,13 @@ import { HikerAbilityComponent } from './profile-page/hiker-ability/hiker-abilit
 import { MessagesService } from './services/messages.service';
 import { UpdateProfileComponent } from './profile-page/update-profile/update-profile/update-profile.component';
 import { NotificationsComponent } from './header/notifications/notifications.component';
+import { FriendsListComponent } from './profile-page/friends-list/friends-list.component';
+import { OtherUserFriendsComponent } from './profile-page/friends-list/other-user-friends/other-user-friends.component';
+import { UpdateProfileImageComponent } from './profile-page/update-profile/update-profile-image/update-profile-image.component';
+import { FlagsComponent } from './header/flags/flags.component';
+import { StarComponent } from './trail-page/stars/star/star.component';
+import { StarsComponent } from './trail-page/stars/stars.component';
+
 
 
 @NgModule({
@@ -54,7 +60,6 @@ import { NotificationsComponent } from './header/notifications/notifications.com
     NotificationItemComponent,
     NotFoundComponent,
     TrailHistoryComponent,
-    TrailCommentsComponent,
     ClickOutsideDirective,
     SearchTrailStateComponent,
     SearchTrailParkComponent,
@@ -66,6 +71,12 @@ import { NotificationsComponent } from './header/notifications/notifications.com
     CreateGroupComponent,
     HikerAbilityComponent,
     UpdateProfileComponent,
+    FriendsListComponent,
+    OtherUserFriendsComponent,
+    UpdateProfileImageComponent,
+    FlagsComponent,
+    StarComponent,
+    StarsComponent,
   ],
 
   imports: [
@@ -75,7 +86,7 @@ import { NotificationsComponent } from './header/notifications/notifications.com
     FormsModule,
     BrowserAnimationsModule,
     OverlayModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [AuthService,
     MessagesService,

@@ -14,32 +14,36 @@ export class TrailFlagService {
 
   // private header: HttpHeaders = new HttpHeaders()
 
-  url: string = 'https://revature.trailmates.net/TrailMates/flag'
+  URL: string = 'https://revature.trailmates.net/TrailMates/flag'
 
 
   postTrailFlag(trailFlagReq: any): Observable<TrailFlag>{
-    return this.http.post<any>(this.url, trailFlagReq);
+    return this.http.post<any>(this.URL, trailFlagReq);
   }
 
-  getFlagById(id: string): Observable<TrailFlag>{
-    return this.http.get<TrailFlag>(this.url+"/"+id);
+  getAllByTrail(trail_id: string): Observable<TrailFlag>{
+    return this.http.get<TrailFlag>(this.URL+"/trail/"+trail_id);
   }
 
+  getAllFlagsByDateAndTrail(date: Number, trail_id: string): Observable<TrailFlag[]>{
+    return this.http.get<TrailFlag[]>(this.URL+'/dateAndTrail/' + date + '/' + trail_id)
+  }
+  
 
-  getAllFlagsByDateAndTrail(date: Number, trail: string): Observable<TrailFlag[]>{
-    return this.http.get<TrailFlag[]>(this.url+'?d=' + date + '&t=' + trail)
+  // getAllFlagsByUserAndTrail(user_id: string, trail_id: string): Observable<TrailFlag[]>{
+  //   return this.http.get<TrailFlag[]>(this.URL+'/userAndTrail/' + user_id+ '/' + trail_id)
+  // }
+
+  // getAllByDateAndUser(date: Number, user_id: string): Observable<TrailFlag[]>{
+  //   return this.http.get<TrailFlag[]>(this.URL+"/dateAndUser/"+ date + '/' + user_id);
+  // }
+
+  getAllByUser(user_id: string): Observable<TrailFlag[]>{
+    return this.http.get<TrailFlag[]>(this.URL+"/user/"+ user_id);
   }
 
-  getAllByDateAndName(date: Number, name: string): Observable<TrailFlag[]>{
-    return this.http.get<TrailFlag[]>(this.url+"?d="+ date + '&u=' + name);
-  }
-
-  getAllByUser(name: string): Observable<TrailFlag[]>{
-    return this.http.get<TrailFlag[]>(this.url+"?u="+ name);
-  }
-
-  getAllByTrail(trail: string): Observable<TrailFlag[]>{
-    return this.http.get<TrailFlag[]>(this.url+"?t="+ trail);
+  removeTrailById(flag_id: string){
+    return this.http.delete(this.URL+'/delete/'+flag_id);
   }
 }
 

@@ -11,7 +11,6 @@ export class TrailService {
 
   constructor(private http: HttpClient) { }
   url: string = 'https://revature.trailmates.net/TrailMates/trail/'
-
   // Gets all trails from backend with GET request
   getAllTrails(): Observable<Trail[]>{
     return this.http.get<Trail[]>(this.url+'getAll')
