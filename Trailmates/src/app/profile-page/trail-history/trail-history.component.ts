@@ -22,7 +22,7 @@ export class TrailHistoryComponent implements OnInit {
   constructor(
     private trailhistory: TrailHistoryService,
     private _imageData: ImageDataService,
-    private _trailFlag: TrailFlagService,
+    private _trailFlag: TrailFlagService
   ) {}
 
   comment: string = '';
@@ -43,8 +43,8 @@ export class TrailHistoryComponent implements OnInit {
     filetype: '',
   };
   displayFormSubmitError: boolean = false;
-  image: any;
-  profileImage: ImageData = {}
+  postImage: any;
+  profileImage: ImageData = {};
 
   ngOnInit(): void {
     this._trailFlag.getAllByUser(localStorage.getItem('id')!).subscribe(
@@ -55,10 +55,11 @@ export class TrailHistoryComponent implements OnInit {
         console.log(error);
       }
     );
-    this._imageData.getLatestProfilePic(localStorage.getItem('id') as string)
-    .subscribe(data=>{
-      this.profileImage = data
-    })
+    this._imageData
+      .getLatestProfilePic(localStorage.getItem('id') as string)
+      .subscribe((data) => {
+        this.profileImage = data;
+      });
   }
 
   processForm(postForm: NgForm) {
@@ -99,8 +100,6 @@ export class TrailHistoryComponent implements OnInit {
       }
     );
   }
-
-
 
   clickedOutsideMenu(): void {
     this.isMenuOpen = false;

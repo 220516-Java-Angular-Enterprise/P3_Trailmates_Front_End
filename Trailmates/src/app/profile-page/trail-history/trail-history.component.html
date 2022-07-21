@@ -71,7 +71,7 @@
         <div class="add-post-links">
           <input
             type="file"
-            [(ngModel)]="image"
+            [(ngModel)]="postImage"
             id="myFile"
             name="filename"
             accept="image/*"
@@ -80,7 +80,7 @@
           <label for="myFile">
             <small>Image </small>
             <i id="image" class="bi bi-image"></i>
-            {{ image }}
+            {{ postImage }}
           </label>
           <button type="submit" class="postBtn align-self-end">Post</button>
         </div>
