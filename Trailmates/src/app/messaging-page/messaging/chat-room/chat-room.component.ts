@@ -1,3 +1,4 @@
+import { OwnedCoversation } from './../../../models/ownedCoversations';
 import { ImageDataService } from './../../../services/image-data.service';
 import { PrivateMessage } from './../../../models/privateMessage';
 import { Conversation } from './../../../models/conversation';
@@ -32,6 +33,8 @@ export class ChatRoomComponent implements OnInit, AfterViewChecked {
   username?: string;
   randInt?: string;
   profImg?: ImageData;
+  convoName?: string;
+  ownedConvos?: OwnedCoversation[] = [];
   //archived_msg?: string;
 
   greetings: string[] = [];
@@ -39,18 +42,19 @@ export class ChatRoomComponent implements OnInit, AfterViewChecked {
     private _messageService: MessagesService,
     private userService: UserService,
     private currRoute: ActivatedRoute,
-    private _imageDataService: ImageDataService
+    private _imageDataService: ImageDataService,
   ) {}
   ngAfterViewChecked(): void {
     this.scrollToBottom();
   }
-  ngOnInit(): void {
-    this.currRoute.params.subscribe((data) => {
+  async ngOnInit() {
+    await this.currRoute.params.subscribe((data) => {
       this.id = data['id'];
+          this.getPrivateMessages();
+          this.getProfPic();
+          this.connect();
     });
-    this.connect();
-    this.getPrivateMessages();
-    this.getProfPic();
+
     this.scrollToBottom();
   }
 
@@ -91,12 +95,12 @@ export class ChatRoomComponent implements OnInit, AfterViewChecked {
             });
           message.time_sent = new Date(message.time_sent).toLocaleString();
         });
+        this.convoName = this.privateMessages[0].conversation?.name
       },
       (error: any) => {
         console.log(error);
       }
     );
-    console.log('PM LENGTH: ' + this.privateMessages.length);
   }
 
   onKeydown(event: any) {

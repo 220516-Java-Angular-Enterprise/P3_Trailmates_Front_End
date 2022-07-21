@@ -1,46 +1,91 @@
 <div class="write-post-container">
-        <form class="form-area" action="/action_page.php" (ngSubmit)="processForm(postForm)" #postForm="ngForm">
+  <form
+    class="form-area"
+    action="/action_page.php"
+    (ngSubmit)="processForm(postForm)"
+    #postForm="ngForm"
+  >
+    <div class="containe">
+      <div class="user-profile">
+        <img
+          src="../../../assets/images/blank-profile.png"
+          alt=""
+          *ngIf="!profileImage"
+          class="image"
+        />
+        <img
+          src="{{ profileImage.url }}"
+          alt=""
+          *ngIf="profileImage"
+          class="image"
+        />
+        <p>@{{username}}</p>
+        <small
+        class=" select"
+          ><select
+            class="dropdown form-control option"
+            #trailSelect="ngModel"
+            [(ngModel)]="historyReq.trail_name"
+            [class.is-invalid]="trailSelect.invalid && trailSelect.touched"
+            clickOutside
+            (clickOutside)="clickedOutsideMenu()"
+            (change)="selectTrail($event)"
+            required
+            name="trailSelect"
+            placeholder="Flagged trails"
+          >
+            <option value="" disabled selected>Select Flagged Trails</option>
+            <!-- Options for posting trail -->
+            <option
+              [value]="trail.trailId?.name"
+              *ngFor="let trail of trailFlags"
+            >
+              {{ trail.trailId?.name }}
+            </option>
+            <!-- If theres no flagged trails. -->
+            <option [value]="" *ngIf="trailFlags.length == 0" disabled>
+              You have no flagged trails.
+            </option>
+          </select>
+          <small *ngIf="trailSelect.errors?.['required'] && trailSelect.touched"
+          class="text-danger"
+            >Please select a trail for the post</small
+          ></small
+        >
+      </div>
 
-            <div class="container">
-
-                <div class="user-profile">
-                  <img src="../../../assets/images/blank-profile.png" alt="">
-                  <small><select class="dropdown form-control option" #trailSelect="ngModel"
-                    [(ngModel)]="historyReq.trail_name"
-                    [class.is-invalid]="trailSelect.invalid && trailSelect.touched" clickOutside
-                    (clickOutside)="clickedOutsideMenu()" (change)="selectTrail($event)" required name="trailSelect"
-                    placeholder="Flagged trails">
-                    <option value="" disabled selected>
-                        Select Flagged Trails
-                    </option>
-                    <!-- Options for posting trail -->
-                    <option [value]="trail.trailId?.name" *ngFor="let trail of trailFlags">
-                        {{trail.trailId?.name}}
-                    </option>
-                    <!-- If theres no flagged trails. -->
-                    <option [value]="" *ngIf="trailFlags.length==0" disabled>
-                        You have no flagged trails.
-                    </option>
-                </select>
-                <small *ngIf="trailSelect.errors?.['required'] && trailSelect.touched">Please select a trail for the
-                    post</small></small>
-                </div>
-
-                <div class="post-input-container">
-                    <textarea row="2" placeholder="What's on your mind?" #comment="ngModel" [(ngModel)]="historyReq.comment" name="comment"
-                    [class.is-invalid]="comment.invalid && comment.touched" required></textarea>
-                    <small *ngIf="comment.errors?.['required'] && comment.touched">Please type a comment</small>
-                    <div class="add-post-links">
-                        <input type="file" [(ngModel)]="image" id="myFile" name="filename" accept="image/*" required>
-                        <label for="myFile">
-                            <small>Image </small>
-                            <i id= "image" class="bi bi-image"></i>
-                            {{image}}
-                        </label>
-                        <button type="submit" class="postBtn align-self-end">Post</button>
-                    </div>
-                    <small *ngIf="formError">There's something wrong in your post.</small>
-                </div>
-            </div>
-        </form>
+      <div class="post-input-container">
+        <textarea
+          row="2"
+          placeholder="What's on your mind?"
+          #comment="ngModel"
+          [(ngModel)]="historyReq.comment"
+          name="comment"
+          [class.is-invalid]="comment.invalid && comment.touched"
+          required
+        ></textarea>
+        <small *ngIf="comment.errors?.['required'] && comment.touched"
+        class="text-danger"
+          >Please type a comment</small
+        >
+        <div class="add-post-links">
+          <input
+            type="file"
+            [(ngModel)]="image"
+            id="myFile"
+            name="filename"
+            accept="image/*"
+            required
+          />
+          <label for="myFile">
+            <small>Image </small>
+            <i id="image" class="bi bi-image"></i>
+            {{ image }}
+          </label>
+          <button type="submit" class="postBtn align-self-end">Post</button>
+        </div>
+        <small *ngIf="formError" class="text-danger">There's something wrong in your post.</small>
+      </div>
+    </div>
+  </form>
 </div>

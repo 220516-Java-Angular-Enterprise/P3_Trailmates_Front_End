@@ -37,7 +37,7 @@
 <div class="create-box col-4 d-flex">
   <!-- Create Group -->
   <form action="/action_page.php" (ngSubmit)="createGroup(createGroupForm)" #createGroupForm="ngForm">
-  <div class="input-group d-flex">
+  <div class="input-group d-flex flex-column">
     <div class="form-outline">
       <input type="text" id="form1" class="form-control" #groupName="ngModel" name="groupName" [(ngModel)]="groupReq.conversationName" [class.is-invalid]="groupName.invalid && groupName.touched"
       placeholder="Group Name" required/>

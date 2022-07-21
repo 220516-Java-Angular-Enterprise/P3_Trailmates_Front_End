@@ -7,7 +7,7 @@
     padding: 0;
     font-family: 'Lora', serif;;
     box-sizing: border-box;
-    background-color: #cec3c3;
+    background-color: #D5DDBC;
 }
 
 
@@ -17,6 +17,8 @@
     align-items: center;
     padding: 0px 10%;
 }
+
+
 
 .navbar-icons li{
     display: inline-block;
@@ -32,7 +34,6 @@
 
 .nav-icons li a:last-child{
     margin-right: 25px;
- 
  }
 
  li, a{
@@ -128,20 +129,24 @@ i{
 
 .notification{
     position: relative;
+    cursor: pointer;
 }
 
 .badge {
-    font-size: 10px;
+    font-size: 9px;
     position: absolute;
     background: #ff8084;
     padding: .2rem .5rem;
     border-radius: 50%;
-
-    right: 0.8rem;
-
+    right: .9rem;
+    bottom: .92rem;
     border: 3px solid #fff;
 }
 
 .btn-send{
 padding: 0 20px 5px;
+}
+
+.user{
+  cursor: pointer;
 }
