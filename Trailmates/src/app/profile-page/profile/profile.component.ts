@@ -25,6 +25,7 @@ export class ProfileComponent implements OnInit {
   popup: boolean = false;
   isFriendsListOpen: boolean = false;
   isMyFriendsListOpen: boolean = false;
+  isFriendPost: boolean = true;
 
   public trailhistory: TrailHistory[] = [];
   public noPosts: string = '';
@@ -184,4 +185,22 @@ export class ProfileComponent implements OnInit {
     }
 
   }
+
+  onNavigateFriend(){
+    if(this.username =! this.user.username){
+    this.isFriendPost = false;
+    }
+
+  }
+
+  // navigateFriend(){
+  //   if(this.router.url == '/profile/'+localStorage.getItem("username")){
+  //     this.
+  //   })
+  // }
+
+  // goToProfile(){
+  //   let url = this.router.url;
+  //   console.log(url)
+  // }
 }

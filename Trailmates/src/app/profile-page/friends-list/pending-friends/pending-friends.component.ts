@@ -1,53 +1,36 @@
 import { MessagesService } from './../../../services/messages.service';
 import { Conversation } from './../../../models/conversation';
 import { OwnedCoversation } from './../../../models/ownedCoversations';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from 'src/app/services/user-service.service';
-import { Friend } from 'src/app/models/friend';
-import { FriendService } from 'src/app/services/friend.service';
+import { User } from './../../../models/user';
+import { Friend } from './../../../models/friend';
+import { Router } from '@angular/router';
+import { FriendService } from './../../../services/friend.service';
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user';
 
 @Component({
-  selector: 'app-other-user-friends',
-  templateUrl: './other-user-friends.component.html',
-  styleUrls: ['./other-user-friends.component.scss'],
+  selector: 'app-pending-friends',
+  templateUrl: './pending-friends.component.html',
+  styleUrls: ['./pending-friends.component.scss'],
 })
-export class OtherUserFriendsComponent implements OnInit {
+export class PendingFriendsComponent implements OnInit {
   constructor(
     private _friendsService: FriendService,
-    private _userService: UserService,
-    private currRoute: ActivatedRoute,
     private router: Router,
     private _messageService: MessagesService
   ) {}
-
-  allFriends: Friend[] = [];
-  user: User = {};
-  username: string = '';
+  pendingFriends: Friend[] = [];
 
   ngOnInit(): void {
-    this.currRoute.params.subscribe(
-      //Gets displayed username
-      (p) => {
-        this.username = p['username'];
-        //Get user by username
-        this._userService
-          .getUserByUsername(this.username as string)
-          .subscribe((data) => {
-            this.user = data;
-            //Gets friends list for displayed user
-            this._friendsService
-              .getAllFriendsByUserID(this.user.id!)
-              .subscribe((data) => {
-                this.allFriends = data;
-              });
-          });
-      }
-    );
+    this.getPendingFriends();
   }
 
-  goToProfile(username: any) {
+  getPendingFriends() {
+    this._friendsService.getAllPending().subscribe((data) => {
+      this.pendingFriends = data;
+    });
+  }
+
+  goToProfile(username: string) {
     this.router.navigateByUrl('/profile/' + username);
   }
 
@@ -55,6 +38,8 @@ export class OtherUserFriendsComponent implements OnInit {
     this._friendsService.addFriend(id).subscribe((data) => {
       console.log(data);
     });
+    this.getPendingFriends();
+    this.getPendingFriends();
   }
 
   goToMessage(user: User) {

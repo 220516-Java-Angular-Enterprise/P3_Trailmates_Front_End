@@ -4,6 +4,7 @@ import { Notification } from 'src/app/models/notification';
 import { Component, OnInit, Input } from '@angular/core';
 import { fade } from '../animations/animations';
 import { TrailFlagService } from '../services/trail-flag.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { TrailFlagService } from '../services/trail-flag.service';
   animations: [fade],
 })
 export class HeaderComponent implements OnInit {
-  constructor(private _notificationService: NotificationService, private _trailFlagService: TrailFlagService) {}
+  constructor(private _notificationService: NotificationService, private _trailFlagService: TrailFlagService, private route: Router) {}
 
 
   
@@ -23,6 +24,7 @@ export class HeaderComponent implements OnInit {
   isNotifOpen: boolean = false;
   notify = false;
   isUserMenuOpen: boolean = false;
+  isMessages: boolean = false;
   
   ngOnInit(): void {
     this.getNotifs()
@@ -40,6 +42,8 @@ export class HeaderComponent implements OnInit {
     })
   }
 
+  
+
   getTrailFlags(){
     this._trailFlagService.getAllByUser(localStorage.getItem('id')!).subscribe(
       (data:any)=>{
@@ -55,7 +59,9 @@ export class HeaderComponent implements OnInit {
   }
 
   deleteNotif(id: string){
-    this._notificationService.deleteNotification(id);
+    this._notificationService.deleteNotification(id).subscribe(
+      data=> {console.log(data)}
+    );
   }
 
   toggleNotifMenu(): void {
@@ -74,6 +80,10 @@ export class HeaderComponent implements OnInit {
 
   toggleFlagsDd(): void {
     this.isFlagsDdOpen = !this.isFlagsDdOpen;
+  }
+
+  clickedOutsideMessage(): void {
+    this.isMessages = false;
   }
 
   flagsDdState() {
@@ -113,6 +123,10 @@ export class HeaderComponent implements OnInit {
     )
   }
 
+  goToProfile(){
+    this.route.navigateByUrl("/profile/"+localStorage.getItem("username"))
+  }
+
   private getFormattedDate(date: Date) {
     let year = date.getFullYear();
     let month = (1 + date.getMonth()).toString().padStart(2, '0');
@@ -122,6 +136,10 @@ export class HeaderComponent implements OnInit {
 
   private convertDate(dateLong: number){
     return new Date((dateLong*1000*60*60*24))
+  }
+
+  goToMessages(){
+    this.route.navigateByUrl("/messaging")//+localStorage.getItem("id"))
   }
 
 

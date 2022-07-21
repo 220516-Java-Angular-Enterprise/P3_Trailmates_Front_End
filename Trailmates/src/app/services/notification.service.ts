@@ -15,9 +15,7 @@ export class NotificationService {
   }
 
   deleteNotification(id: string){
-    return this.http.delete(this.url+id).subscribe((data:any)=>{
-      console.log(data);
-    })
+    return this.http.delete(this.url+id)
   }
 
 }

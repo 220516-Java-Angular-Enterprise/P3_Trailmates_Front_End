@@ -1,4 +1,4 @@
-<div class="column d-flex">
+<div class="column d-flex searchform">
 <div class="create-group-box d-flex flex-column col-7">
   <!-- Search bar -->
   <div class="input-group justify-content-center">
@@ -6,26 +6,26 @@
       <input type="search" id="form1" class="form-control" [(ngModel)]="query" placeholder="username"
         (keyup)="searchUsers()" />
     </div>
-    <button type="button" class="btn btn-primary input-group-append" (click)="searchUsers()">
+    <button type="button" class="btn clickbtn input-group-append" (click)="searchUsers()">
       <i class="bi bi-search"></i>
     </button>
   </div>
 
   <!-- Form box -->
-  <div class="box bg-success">
+  <div class="box">
     <!-- Users List -->
     <div class="form-check">
       <!-- Card Start -->
-      <div class="check-box column d-flex align-items-center" *ngFor="let user of filterUsers">
+      <div class="check-box selectuser column d-flex align-items-center" *ngFor="let user of filterUsers">
         <!-- User Info -->
         <div class="user-display col-8 justify-content-between d-flex column align-items-center">
           <i class="bi bi-person-circle col-4 h2"></i>
-          <label class="form-check-label col-8" for="flexCheckChecked">{{user.username}}</label>
+          <label class="form-check-label col-8 bold" for="flexCheckChecked">{{user.username}}</label>
         </div>
         <!-- Buttons -->
         <div class="btn-box col-4 d-flex justify-content-center align-items-center">
-          <button class="btn btn-primary" id={{user.id}} *ngIf="!selectedUsers.includes(user)" (click)="addUser($event.target)">ADD</button>
-          <button class="btn btn-warning" id={{user.id}} *ngIf="selectedUsers.includes(user)" (click)="removeUser($event.target)">REMOVE</button>
+          <button class="btn clickbtn" id={{user.id}} *ngIf="!selectedUsers.includes(user)" (click)="addUser($event.target)">ADD</button>
+          <button class="btn clickbtnYellow" id={{user.id}} *ngIf="selectedUsers.includes(user)" (click)="removeUser($event.target)">REMOVE</button>
         </div>
       </div>
       <!-- Card End -->
@@ -34,15 +34,15 @@
   </div>
 </div>
 
-<div class="create-box col-5 bg-light d-flex justify-content-center">
+<div class="create-box col-4 d-flex">
   <!-- Create Group -->
   <form action="/action_page.php" (ngSubmit)="createGroup(createGroupForm)" #createGroupForm="ngForm">
-  <div class="input-group justify-content-center d-flex flex-column">
+  <div class="input-group d-flex flex-column">
     <div class="form-outline">
       <input type="text" id="form1" class="form-control" #groupName="ngModel" name="groupName" [(ngModel)]="groupReq.conversationName" [class.is-invalid]="groupName.invalid && groupName.touched"
       placeholder="Group Name" required/>
     </div>
-    <button type="submit" class="btn btn-primary input-group-append">
+    <button type="submit" class="btn clickbtn input-group-append">
       Create Group
     </button>
       <small class="text-danger" *ngIf="groupName.errors?.['required'] && groupName.touched">Please enter group name</small>
@@ -51,10 +51,11 @@
 
   <!-- Render selected users -->
   <div>
-    <div *ngFor="let user of selectedUsers"  class="border container">
-      <button class="btn btn-warning" id={{user.id}} *ngIf="selectedUsers.includes(user)"
+    <div *ngFor="let user of selectedUsers"  class="groupmem container row selectuser">
+      <button class="btn  clickbtnYellow" id={{user.id}} *ngIf="selectedUsers.includes(user)"
       (click)="removeUser($event.target)">REMOVE</button>
-      {{user.username}}</div>
+      <p class="bold para">{{user.username}}</p>
+    </div>
   </div>
   </form>
 </div>

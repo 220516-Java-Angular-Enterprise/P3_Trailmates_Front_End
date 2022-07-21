@@ -6,6 +6,7 @@ import { NgForm } from '@angular/forms';
 import { fade } from '../../animations/animations';
 import { environment } from '../../../environments/environment.prod';
 import { TrailFlag } from 'src/app/models/trailFlag';
+import { ImageData } from 'src/app/models/imageData';
 // import { Trail } from '../models/trails';
 
 @Component({
@@ -26,6 +27,7 @@ export class TrailHistoryComponent implements OnInit {
 
   comment: string = '';
   id: string | null = localStorage.getItem('id');
+  username = localStorage.getItem('username');
   selectedFiles: any = '';
   trailFlags: TrailFlag[] = [];
   formError: boolean = false;
@@ -41,7 +43,8 @@ export class TrailHistoryComponent implements OnInit {
     filetype: '',
   };
   displayFormSubmitError: boolean = false;
-  image: any;
+  postImage: any;
+  profileImage: ImageData = {};
 
   ngOnInit(): void {
     this._trailFlag.getAllByUser(localStorage.getItem('id')!).subscribe(
@@ -52,6 +55,11 @@ export class TrailHistoryComponent implements OnInit {
         console.log(error);
       }
     );
+    this._imageData
+      .getLatestProfilePic(localStorage.getItem('id') as string)
+      .subscribe((data) => {
+        this.profileImage = data;
+      });
   }
 
   processForm(postForm: NgForm) {
@@ -92,8 +100,6 @@ export class TrailHistoryComponent implements OnInit {
       }
     );
   }
-
-
 
   clickedOutsideMenu(): void {
     this.isMenuOpen = false;

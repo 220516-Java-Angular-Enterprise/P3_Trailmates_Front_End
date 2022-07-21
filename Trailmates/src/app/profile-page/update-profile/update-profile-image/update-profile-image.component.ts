@@ -25,7 +25,9 @@ imageReq = {
 
   onSubmit(postForm: NgForm){
   if(postForm.form.status == 'VALID'){
-    const imageElement = document.getElementById("myFile") as HTMLInputElement;
+    const imageElement = document.getElementById(
+      'profileImage'
+    ) as HTMLInputElement;
     //Gets file from input
     const imageFile = imageElement.files![0];
     // Upload File
@@ -43,6 +45,9 @@ imageReq = {
   
   image: any
 
+  change(event: any){
+    console.log(event)
+  }
 
   close(){
     this.popup = false;

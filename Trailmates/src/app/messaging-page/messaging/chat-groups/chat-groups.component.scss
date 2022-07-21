@@ -1,1 +1,29 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+
+*{
+    --bistre: #31231E;
+    --shadow: #F4D35E;
+    --moss-green: #8A9B68;
+    --laurel-green: #B6C197;
+    --pale-sptring: #D5DDBC;
+    }
+
+// .bg-cont {
+//     background-color: purple;
+// }
+
+.clickbtn {
+    color: white;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    font-weight: light;
+    background-color: var(--moss-green);
+    border-radius: 12px;
+}
+
+.clickbtn:hover {
+    background-color: var(--laurel-green);
+}
+
+.chatname {
+    background-color: rgba(244, 211, 94, 0.5);
+}

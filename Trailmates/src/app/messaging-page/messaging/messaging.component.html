@@ -1,8 +1,10 @@
 <app-header></app-header>
-<div class="h-100 bg-primary d-flex flex-row column justify-content-between">
-  <div class="bg-warning col-3"> {{reloadChat}} {{convo.id}}
-  <app-chat-groups [convos]="convos" (passConversation)="goToGroupChat($event)"></app-chat-groups>
+<div class="h-100 d-flex flex-row column justify-content-between">
+  <div class="col-2">
   </div>
-  <div class="bg-light col-9">
+  <div class="col-8 chat"> {{convo.id}}
+  <app-chat-groups class="chatbox" [convos]="convos" (passConversation)="goToGroupChat($event)"></app-chat-groups>
+  </div>
+  <div class="col-2">
   </div>
 </div>

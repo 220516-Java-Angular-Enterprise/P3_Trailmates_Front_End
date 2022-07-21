@@ -27,7 +27,6 @@ export class ChatGroupsComponent implements OnInit {
   passConvo(convo: Conversation){
     this.passConversation.emit(convo);
     this.currRoute.navigateByUrl("/messaging/groupchat/" + convo.id)
-    
   }
 
   reload(){

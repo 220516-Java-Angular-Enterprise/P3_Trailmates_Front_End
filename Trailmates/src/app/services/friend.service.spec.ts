@@ -8,6 +8,7 @@ describe('FriendService', () => {
   let service: FriendService;
   let http: HttpClient;
   let httpController: HttpTestingController;
+  const ROOT_URL = 'https://revature.trailmates.net/TrailMates/friends/';
   beforeEach(() => {
     TestBed.configureTestingModule({
     imports: [HttpClientTestingModule, RouterTestingModule],
@@ -22,4 +23,58 @@ describe('FriendService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should get defined', () => {
+    service.getAllFriends().subscribe();
+    const request = httpController.expectOne(
+      (data) => 
+        data.method === 'GET' &&
+        data.url === ROOT_URL
+      
+    )
+    request.flush(1)
+  })
+
+  it('should get friends', () => {
+    service.getAllFriendsByUserID('fakeid').subscribe();
+    const request = httpController.expectOne(
+      (data) => 
+        data.method === 'GET' &&
+        data.url === ROOT_URL+'fakeid'
+    )
+    request.flush(1)
+  })
+
+  it('should get pending', () => {
+    service.getAllPending().subscribe();
+    const request = httpController.expectOne(
+      (data) => 
+        data.method === 'GET' &&
+        data.url === ROOT_URL+'pending'
+    )
+    request.flush(1)
+  })
+
+  it('should get remove', () => {
+    service.removeFreind("fakeid").subscribe();
+    const request = httpController.expectOne(
+      (data) => 
+        data.method === 'DELETE' &&
+        data.url === ROOT_URL+'fakeid'
+    )
+    request.flush(1)
+  })
+
+  it('should get add', () => {
+    service.addFriend("fakeid").subscribe();
+    const request = httpController.expectOne(
+      (data) => 
+        data.method === 'POST' &&
+        data.url === ROOT_URL+'fakeid'
+    )
+    request.flush(1)
+  })
+
+
+
 });
