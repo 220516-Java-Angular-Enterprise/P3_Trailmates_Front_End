@@ -19,22 +19,19 @@
   <div class="container2"> -->
 
     <!-- Container Item -->
-    <!-- <div class="item column d-flex" *ngFor="let friend of allFriends">
-      <div class="description col-sm-4 d-flex justify-content-center align-items-center">
-        <i class="bi bi-person-circle"></i>
+    <div class="friends" *ngFor="let friend of allFriends">
+
+      <div class="each-friend">
+        <p>@{{friend.friend_id?.username}}</p>
       </div>
 
-      <div>
-        <p>{{friend.friend_id?.username}}</p>
-      </div>
-
-      <div class="actions col-sm-4">
+      <!-- <div class="actions col-sm-4">
         <button class="btn btn-danger" (click)="goToProfile(friend.friend_id?.username!)">
           <i class="bi bi-person-fill"></i></button>
         <button class="btn btn-warning"  (click)="goToMessage(friend.friend_id!)"><i class="bi bi-chat"></i></button>
-      </div>
+      </div> -->
       
-    </div> -->
+    </div>
     <!-- <div class="bg-light">
       <h1 *ngIf="allFriends.length == 0">You have no friends yet.</h1>
     </div>
@@ -47,13 +44,13 @@
   <H1>Pendings List</H1>
   <!-- Container Item -->
 
-  <div class="friends" *ngFor="let friend of pendingFriends">
+  <!-- <div class="friends" *ngFor="let friend of pendingFriends">
         <div class="each-friend">
-          <p>{{friend.friend_id?.username}} hello </p>
+          <p>{{friend.friend_id?.username}}</p>
         </div>
-      </div>
-  <!-- <div class="item column d-flex" *ngFor="let friend of pendingFriends">
-    <div>
+      </div> -->
+  <!-- <div class="item column d-flex" *ngFor="let friend of pendingFriends"> -->
+    <!-- <div>
       <i class="bi bi-person-circle"></i>
     </div> -->
     
@@ -78,5 +75,4 @@
   </div>
 </div> -->
 
-  <!-- </div> -->
-</div>
+<!-- </div> -->

@@ -21,6 +21,7 @@
   border-radius: 6px;
   columns: #626262;
   display: inline-block;
+  font-size: 15px;
 }
 
 .user-profile{
@@ -52,9 +53,10 @@
   width: 100%;
   border: 0;
   outline: 0;
-  height: 100px;
+  height: 50px;
   border-bottom: 1px solid #ccc;
   margin-bottom: 15px;
+  font-size: 15px;
 }
 
 .add-post-links{
@@ -98,5 +100,10 @@ input[type="file"] {
 // }
 
 select{
+  margin-top: 80px;
+}
+
+.dropdown{
+  font-size: 15px;
   margin-top: 100px;
 }
