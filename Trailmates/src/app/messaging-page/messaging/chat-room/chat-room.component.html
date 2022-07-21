@@ -37,8 +37,8 @@
 
             <div class="received-chats"  *ngFor="let msg of greetings">
               <div class="received-chats-img">
-                <img src="{{msg.split('`')[0]}}" alt="" *ngIf="msg.split('`')[0] == profImg?.url!">
-                <img src="../../../../assets/images/blank-profile.png" alt="" *ngIf="msg.split('`')[0] != profImg?.url!">
+                <img src="{{msg.split('`')[0]}}" alt="">
+                <!-- <img src="../../../../assets/images/blank-profile.png" alt="" *ngIf="msg.split('`')[0] != profImg?.url!"> -->
               </div>
               <div class="received-msg">
                 <div class="received-msg-inbox">
