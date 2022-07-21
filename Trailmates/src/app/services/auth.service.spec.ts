@@ -19,7 +19,7 @@ describe('AuthService', () => {
     bio: 'bio',
     email: 'email@gmail.com'
   }
-  const ROOT_URL = "https://revature.trailmates.net/TrailMates/auth"
+  const ROOT_URL = "https://revature.trailmates.net/TrailMates/auth/"
 
   beforeEach(() => {
     TestBed.configureTestingModule({      
@@ -46,7 +46,7 @@ describe('AuthService', () => {
   it('should signup', ()=>{
     service.signUp(signupReq).then();
     const request = httpTest.expectOne(
-      data=> data.method==='POST'&&data.url===ROOT_URL+'/newuser'
+      data=> data.method==='POST'&&data.url===ROOT_URL+'newuser'
     )
     request.flush(1);
   })
