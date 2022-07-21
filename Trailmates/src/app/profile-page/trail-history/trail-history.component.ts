@@ -92,6 +92,9 @@ export class TrailHistoryComponent implements OnInit {
   makePost() {
     this.trailhistory.insertNewHistory(this.historyReq).subscribe(
       (data: any) => {
+        //rest valse
+        this.historyReq.trail_name = '';
+        this.historyReq.comment = ' ';
         this.close();
         console.log('Saved post successfully: ' + data);
       },
