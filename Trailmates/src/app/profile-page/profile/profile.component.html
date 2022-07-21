@@ -1,5 +1,6 @@
 <app-header></app-header>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,27 @@
 </head>
 <body>
   <div class="container">
-    <div class="left-sidebar"></div>
+    <div class="left-sidebar">
+      <div class="profile">
+        <img
+            src={{profileImage.url}}
+            class="profile-pic"
+            alt="simpson"
+            *ngIf="profileImage"
+          />
+        <h4>@{{ username }}</h4>
+        <hiker-ability></hiker-ability>
+        <p class="bio">{{ viewerUser.bio }}</p>
+      </div>
+      <button
+          (click)="updateProfilePopup = true"
+          *ngIf="username == user.username"
+          type="button"
+          class="edit"
+        >
+          Edit Profile
+        </button>
+    </div>
     <div class="main-content">
       <div class="write-post-container" *ngIf="username == user.username">
         <p class="name">{{ username }}</p>
@@ -44,31 +65,7 @@
         <p class="post-text">{{ hist.comment }}</p>
       <img class="post-img" src="{{ hist.imageURL }}" />
       </div>
-
-          <!-- </div>
-          <div class="postImg"><img src="{{ hist.imageURL }}" /></div>
-          <h4>{{ hist.trailName }}</h4>
-          <p class="post-text">{{ hist.comment }}</p> -->
-        <!-- </div> -->
-
-        
-<!-- 
-        <div class="postImg"><img src="{{ hist.imageURL }}" /></div>
-
-        <div class="postText">
-          <h4>{{ hist.trailName }}</h4>
-          <p>{{ hist.comment }}</p>
-        </div> -->
-        <div class="user-profile">
-          <img src="../../../assets/images/blank-profile.png" alt="">
-        <div>
-        <p>Nouman Mohammed</p>
-        <span>date</span>
-      </div>
-        </div>
-        <p class="post-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, distinctio. Nihil dolores reprehenderit debitis ea explicabo deleniti laboriosam consequuntur voluptatem amet fuga asperiores cupiditate blanditiis odit libero, error repellendus consectetur?</p>
-        <img class="post-img" src="../../../assets/images/blank-profile.png" alt="">
-        </div>
+    </div>
 
 
     <div class="right-sidebar">
@@ -82,6 +79,11 @@
       <app-friends-list
         *ngIf="username == user.username && isMyFriendsListOpen"
       ></app-friends-list>
+      </div>
+
+      <div class="pendingFriends">
+        <h4>Pending Requests</h4>
+        
       </div>
     </div>
   </div>

@@ -20,34 +20,93 @@ body{
   flex-basis: 29%;
   position: sticky;
   top: 70px;
+  background-color: #fff;
   align-self: flex-start;
-  height: 100vh;
   margin-right: 20px;
 }
 
+.profile-pic{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+.profile{
+  display: block;
+  // align-items: flex-start;
+  // justify-content:baseline;
+  margin-bottom: 18px;
+}
+
+.profile{
+  margin-top: 2rem;
+  margin-left: 6rem;
+  margin-right: 2rem;
+}
+
+.bio{
+  margin-left: -2rem;
+  margin-right: 2rem;
+  text-align: center;
+}
+
+.edit{
+  font-size: 17px;
+  background-color: #1d2d44;
+  color: white;
+  margin-top: 10px;
+  margin-left: 115px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  padding: 1px 15px;
+  &:hover {
+    background-color: #0d1321;
+  }
+}
+
 .right-sidebar{
-  background: #cbdffa;
+  // background: #cbdffa;
   flex-basis: 29%;
   position: sticky;
   top: 70px;
-  align-self: flex-start;
-  background-color: #fff;
+  // align-self: flex-start;
+  // background-color: #fff;
   padding: 20px;
   border-radius: 4px;
-  color: #626262;
-  margin-left: 20px;
+  // color: #626262;
+  // margin-left: 20px;
 
 }
+
+
 
 .main-content{
   flex-basis: 47%;
 }
 
 .friends{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: block;
+  background: #fff;
+  border-radius: 6px;
+  padding: 10px;
+  columns: #626262;
+  display: block;
   margin-bottom: 18px;
+
+  h4{
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+.pendingFriends{
+  margin-bottom: 18px;
+  width: 100%;
+  background: #fff;
+  border-radius: 6px;
+  padding: 20px;
+  color: #626262;
+  margin: 20px 0;
 
   h4{
     font-weight: 600;
@@ -66,7 +125,7 @@ body{
 
 .name{
   margin-left: 12%;
-  margin-top:10%;
+  margin-top:6%;
 }
 
 .post-container{
