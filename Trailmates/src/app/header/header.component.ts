@@ -59,7 +59,9 @@ export class HeaderComponent implements OnInit {
   }
 
   deleteNotif(id: string){
-    this._notificationService.deleteNotification(id);
+    this._notificationService.deleteNotification(id).subscribe(
+      data=> {console.log(data)}
+    );
   }
 
   toggleNotifMenu(): void {

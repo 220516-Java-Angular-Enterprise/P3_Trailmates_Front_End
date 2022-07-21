@@ -1,10 +1,22 @@
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { MessagesService } from './messages.service';
 
 describe('MessagesService', () => {
   let service: MessagesService;
+  let httpTest: HttpTestingController;
+  const url: string = 'https://revature.trailmates.net/TrailMates/'
+  const convoReq = {
+    name: 'fakeName',
+    userIDs: ['fakeid', 'fakeid2'],
+  };
+  const messageReq = {
+    message: 'fakeMessage',
+    time_sent: 0,
+    converastion_id: 'fakeid'
+  };
+
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -16,4 +28,40 @@ describe('MessagesService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should get convos', () =>{
+    service.getExistingConvos().subscribe();
+    const request = httpTest.expectOne(
+      data => data.method === 'GET' && data.url === url + "owned-conservation/active"
+    )
+    request.flush(1)
+  })
+
+  it('should get convo', () =>{
+    service.getPrivateMessagesByConvoName('fakeid').subscribe();
+    const request = httpTest.expectOne(
+      data => data.method === 'GET' && data.url === url + "private-message/conversation/fakeid"
+    )
+    request.flush(1)
+  })
+
+  it('should create convo', () =>{
+    service.createNewGroup(convoReq).subscribe();
+    const request = httpTest.expectOne(
+      (data) =>
+        data.method === 'POST' &&
+        data.url === url + 'conversation/new-conversation'
+    );
+    request.flush(1)
+  })
+
+  it('should post message', ()=>{
+    service.postNewMessage(messageReq).subscribe();
+    const request = httpTest.expectOne(
+      (data) => 
+      data.method === 'POST' && 
+      data.url === url + 'private-message'
+    )
+    request.flush(1)
+  })
 });
