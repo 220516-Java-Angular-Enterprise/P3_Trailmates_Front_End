@@ -40,6 +40,7 @@ import { UpdateProfileImageComponent } from './profile-page/update-profile/updat
 import { FlagsComponent } from './header/flags/flags.component';
 import { StarComponent } from './trail-page/stars/star/star.component';
 import { StarsComponent } from './trail-page/stars/stars.component';
+import { PendingFriendsComponent } from './profile-page/friends-list/pending-friends/pending-friends.component';
 
 
 
@@ -77,6 +78,7 @@ import { StarsComponent } from './trail-page/stars/stars.component';
     FlagsComponent,
     StarComponent,
     StarsComponent,
+    PendingFriendsComponent,
   ],
 
   imports: [
