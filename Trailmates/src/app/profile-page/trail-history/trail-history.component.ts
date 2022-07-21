@@ -62,7 +62,7 @@ export class TrailHistoryComponent implements OnInit {
       });
   }
 
-  processForm(postForm: NgForm) {
+  async processForm(postForm: NgForm) {
     if (postForm.form.status == 'VALID') {
       const imageElement = document.getElementById(
         'myFile'
@@ -77,14 +77,13 @@ export class TrailHistoryComponent implements OnInit {
       // Make image req & Post
       this.imageReq.url = this.historyReq.imageURL;
       this.imageReq.filetype = 'HISTORY';
-      this._imageData.saveImg(this.imageReq).subscribe((data) => {
+      await this._imageData.saveImg(this.imageReq).subscribe((data) => {
         console.log('Saved image successfully:' + data.url);
         // Make post request for history
-        this.makePost();
+         this.makePost();
         console.log(this.historyReq);
       });
       //Closes modal
-      this.close();
     } else {
       this.formError = true;
     }
@@ -93,6 +92,10 @@ export class TrailHistoryComponent implements OnInit {
   makePost() {
     this.trailhistory.insertNewHistory(this.historyReq).subscribe(
       (data: any) => {
+        //rest valse
+        this.historyReq.trail_name = '';
+        this.historyReq.comment = ' ';
+        this.close();
         console.log('Saved post successfully: ' + data);
       },
       (error: any) => {
@@ -135,4 +138,5 @@ export class TrailHistoryComponent implements OnInit {
     this.historyReq.trail_name = event.target.value;
     console.log(this.historyReq.trail_name);
   }
+  
 }

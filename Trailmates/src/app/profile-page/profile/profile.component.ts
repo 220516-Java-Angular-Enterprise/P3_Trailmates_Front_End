@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user-service.service';
 import { User } from 'src/app/models/user';
 import { TrailHistoryComponent } from '../trail-history/trail-history.component';
 import { ImageData } from 'src/app/models/imageData';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -111,9 +112,10 @@ export class ProfileComponent implements OnInit {
 
   refreshPosts() {
     this.trailHistoryService
-      .getHistoryAsc(this.viewerUser.id as string)
+      .getHistoryAsc(this.viewerUser.id as string).pipe(delay(1000))
       .subscribe((data) => {
         this.trailhistory = data;
+        console.log(data)
       });
   }
 

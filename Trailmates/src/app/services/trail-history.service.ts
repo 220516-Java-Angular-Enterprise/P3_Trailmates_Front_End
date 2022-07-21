@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import{Router} from '@angular/router';
-import { firstValueFrom, Observable } from 'rxjs';
+import { delay, firstValueFrom, Observable, retry } from 'rxjs';
 import { TrailHistory } from '../models/trailHistory';
 
 @Injectable({
@@ -20,7 +20,7 @@ export class TrailHistoryService {
   // }
 
   getHistoryAsc(userId: string): Observable<TrailHistory[]> {
-    return this.http.get<TrailHistory[]>(this.URL+'/asc/'+userId);
+    return this.http.get<TrailHistory[]>(this.URL+'/asc/'+userId).pipe(retry(10), delay(1000));
   }
 
 

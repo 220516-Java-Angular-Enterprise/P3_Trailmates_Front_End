@@ -33,7 +33,7 @@ export class TrailComponent implements OnInit {
     private _currRoute: ActivatedRoute,
     private _trailReviewService: TrailReviewService,
     private _messageService: MessagesService,
-    private _imageDataService: ImageDataService,
+    private _imageDataService: ImageDataService
   ) {}
 
   @Input()
@@ -76,13 +76,13 @@ export class TrailComponent implements OnInit {
     // Gets all users on render
     this._userService.getAllUsers().subscribe((data) => {
       this.allUsers = data;
-      this.allUsers.forEach(user=>{
+      this.allUsers.forEach((user) => {
         this._imageDataService
           .getLatestProfilePic(user.id as string)
           .subscribe((imageData: any) => {
             user.profilepic = imageData.url;
           });
-      })
+      });
     });
   }
 
@@ -319,20 +319,25 @@ export class TrailComponent implements OnInit {
         //Checks if convo by naming convention exists already
         if (
           owned.conversation?.name ==
-            `${user.username!}:${localStorage.getItem('username')}` ||
-          owned.conversation?.name ==
-            `${localStorage.getItem('username')}:${user.username!}`
+          `${user.username!}:${localStorage.getItem('username')}`
         ) {
           //Sets it equal to convo to compare.
-          convo = owned;
+          convo = owned.conversation;
+          console.log('Happen 1');
+        } else if (
+          owned.conversation?.name ==
+          `${localStorage.getItem('username')}:${user.username!}`
+        ) {
+          convo = owned.conversation;
+          console.log('Happen 2');
         }
       });
-      //If convo id is not still == '', meaning that the convo name did exist already.
-      if (convo.id != '') {
+      //If convo id is still == '', meaning that the convo name did exist already.
+      if (convo.id !== '') {
         this._route.navigateByUrl('messaging/groupchat/' + convo.id);
-        console.log("No new convos made.")
-      } else {
-        //Else creates new convo based on this naming convention.
+        console.log('No new convos made.');
+      } else if (convo.id === '') {
+        //Else creates new convo based on this n  aming convention.
         let convoReq = {
           conversationName:
             user.username + ':' + localStorage.getItem('username'),
@@ -342,7 +347,7 @@ export class TrailComponent implements OnInit {
         this._messageService.createNewGroup(convoReq).subscribe((data) => {
           convoId = data.id;
           this._route.navigateByUrl('/messaging/groupchat/' + convoId);
-          console.log("New convo was made.")
+          console.log('New convo was made.');
         });
       }
     });
@@ -352,13 +357,15 @@ export class TrailComponent implements OnInit {
 
   updateRating(i: any) {
     this.newReviewRequest.rating = i;
-    console.log(this.newReviewRequest.rating)
+    console.log(this.newReviewRequest.rating);
   }
 
-  numbers: any
-  
-  numberSize(n: number): number[]{
-    return Array(n).fill(0).map((x, i) => i);
+  numbers: any;
+
+  numberSize(n: number): number[] {
+    return Array(n)
+      .fill(0)
+      .map((x, i) => i);
   }
   numberSize5(n: number): number[] {
     return Array(5 - n)

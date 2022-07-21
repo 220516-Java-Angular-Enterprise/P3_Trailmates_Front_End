@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { delay, Observable, retry } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ImageData } from '../models/imageData';
@@ -54,7 +54,8 @@ export class ImageDataService {
 }
 
     getLatestProfilePic(user_id: string): Observable<ImageData>{
-      return this.http.get<ImageData>(this.url+'profpic/'+user_id);
+      console.log('here')
+      return this.http.get<ImageData>(this.url+'profpic/'+user_id).pipe(retry(10),delay(1000))
     }
 
 

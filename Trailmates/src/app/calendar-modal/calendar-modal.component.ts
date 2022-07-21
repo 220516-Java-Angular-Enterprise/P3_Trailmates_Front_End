@@ -105,20 +105,25 @@ export class CalendarModalComponent implements OnInit {
         //Checks if convo by naming convention exists already
         if (
           owned.conversation?.name ==
-            `${user.username!}:${localStorage.getItem('username')}` ||
-          owned.conversation?.name ==
-            `${localStorage.getItem('username')}:${user.username!}`
+          `${user.username!}:${localStorage.getItem('username')}`
         ) {
           //Sets it equal to convo to compare.
-          convo = owned;
+          convo = owned.conversation;
+          console.log('Happen 1');
+        } else if (
+          owned.conversation?.name ==
+          `${localStorage.getItem('username')}:${user.username!}`
+        ) {
+          convo = owned.conversation;
+          console.log('Happen 2');
         }
       });
-      //If convo id is not still == '', meaning that the convo name did exist already.
-      if (convo.id != '') {
+      //If convo id is still == '', meaning that the convo name did exist already.
+      if (convo.id !== '') {
         this.router.navigateByUrl('messaging/groupchat/' + convo.id);
         console.log('No new convos made.');
-      } else {
-        //Else creates new convo based on this naming convention.
+      } else if (convo.id === '') {
+        //Else creates new convo based on this n  aming convention.
         let convoReq = {
           conversationName:
             user.username + ':' + localStorage.getItem('username'),
