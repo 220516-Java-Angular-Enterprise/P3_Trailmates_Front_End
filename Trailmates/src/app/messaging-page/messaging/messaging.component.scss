@@ -1,1 +1,17 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+
+*{
+    --bistre: #31231E;
+    --shadow: #F4D35E;
+    --moss-green: #8A9B68;
+    --laurel-green: #B6C197;
+    --pale-sptring: #D5DDBC;
+    }
+
+.chat {
+    justify-content: center;
+    margin-top: 2%;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    font-weight: light;
+    border-radius: 12px;
+}

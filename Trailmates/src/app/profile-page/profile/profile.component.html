@@ -1,4 +1,38 @@
 <app-header></app-header>
+    <!-- profile image -->
+
+      <!-- Renders simpson pic when /user does not have profile pic. -->
+      <!-- <img
+        src="https://i.stack.imgur.com/gHaf2.png"
+        alt="simpson"
+        class="profile-image circular--square"
+        (click)="updateProfilePic()"
+        *ngIf="profileImage.url == null && this.username != this.user.username"
+      /> -->
+      <!-- Renders profile pic when /user does have a profile pic. -->
+      <!-- <img
+        src={{profileImage.url}}
+        alt="simpson"
+        class="profile-image circular--square"
+        (click)="updateProfilePic()"
+        *ngIf="profileImage.url != null && this.username != this.user.username"
+      /> -->
+      <!-- Renders profile pic when /user == user logged in && has profile pic -->
+      <!-- <img
+        src={{profileImage.url}}
+        alt="profile-image"
+        class="profile-image circular--square border"
+        (click)="updateProfilePic()"
+        *ngIf="profileImage.url != null && this.username == this.user.username"
+      /> -->
+      <!-- Renders profile pic when for when /user == user logged in && does not have prof pic -->
+      <!-- <img
+        src="https://i.stack.imgur.com/gHaf2.png"
+        alt="profile-image"
+        class="profile-image circular--square border"
+        (click)="updateProfilePic()"
+        *ngIf="profileImage.url == null && this.username == this.user.username"
+      /> -->
 
 
 <!DOCTYPE html>
@@ -243,7 +277,7 @@
                   [popup]="popup"
                   (doPassPopup)="close($event)"
                 ></app-trail-history>
-                <!-- <a class="close" (click)="popup = false" >&times;</a> -->
+                <a class="close" (click)="popup = false" >&times;</a> -->
               <!-- </div> --> -->
   
             <!-- post popup -->
