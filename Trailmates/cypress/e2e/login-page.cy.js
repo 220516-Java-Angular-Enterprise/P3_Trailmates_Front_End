@@ -19,7 +19,6 @@ describe('Testing Login Page', () => {
        cy.url().then(($url) => {
         $url.includes('ericmphu')
        })
-        cy.get('h3').contains("@ericmphu")
         
 
 })
