@@ -28,7 +28,7 @@ describe('TrailReviewService', () => {
   it('should get all trail reviews of 3604914F-0D84-46EC-9276-FAA4EFC55BA9', () => {
 
     service.getAllTrailsReviews('3604914F-0D84-46EC-9276-FAA4EFC55BA9').subscribe((trails) => {
-     })
+    })
 
     const request = httpTestingController.expectOne(data => 
       data.method === 'GET' && data.url ==='https://revature.trailmates.net/TrailMates/trailreview/avg/3604914F-0D84-46EC-9276-FAA4EFC55BA9'

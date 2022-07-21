@@ -6,7 +6,7 @@ import { NotificationService } from './notification.service';
 describe('NotificationService', () => {
   let service: NotificationService;
   let httpTest: HttpTestingController;
-  const ROOT_URL: 'https://revature.trailmates.net/TrailMates/notification/'
+  const ROOT_URL = 'https://revature.trailmates.net/TrailMates/notification/'
 
   beforeEach(() => {
     TestBed.configureTestingModule({

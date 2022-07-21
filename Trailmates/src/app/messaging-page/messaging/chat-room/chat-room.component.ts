@@ -39,9 +39,7 @@ export class ChatRoomComponent implements OnInit {
   newmessage: string | undefined;
   disabled = true;
   private stompClient = require('stompjs');
-  @Input() convo: Conversation = {
-
-  };
+  convo: Conversation = {};
   privateMessages: PrivateMessage[] = [];
 
   setConnected(connected: boolean) {
@@ -74,10 +72,6 @@ export class ChatRoomComponent implements OnInit {
     console.log("PM LENGTH: " + this.privateMessages.length);
   }
 
-  consoleConvo(){
-    console.log(this.convo);
-    console.log(this.privateMessages);
-  }
   onKeydown(event: any){
     event.preventDefault();
   }
@@ -113,10 +107,6 @@ export class ChatRoomComponent implements OnInit {
   }
 
   postNewMessage(message: any){
-
-    console.log("Message: " + message.message)
-    console.log("Time Sent: " + message.time_sent)
-    console.log("ConvoId: " + message.conversation_id)
     this._messageService.postNewMessage(message).subscribe(
       data =>{
         console.log(data)
